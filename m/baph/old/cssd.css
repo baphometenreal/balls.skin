@@ -1,0 +1,72 @@
+@font-face {
+  font-family: yorha;
+  src: url(/members/baph/files/ingrammono.woff2);
+}
+h1, h2, h3, h4, h5, h6, p {
+  font-family: yorha, sans-serif; 
+  text-align: center;
+  vertical-align: top;
+  text-wrap:none;
+  line-width: 90%;
+}
+.main {
+  background: #FD0100;
+  margin-left:20%;
+  margin-right:20%;
+  margin-top:10px;
+  border-radius: 5px;
+  padding-top:5px;
+  padding-bottom:15px;
+  vertical-align: top;
+}
+td {
+  vertical-align: top;
+  }
+table {
+  width: 100%;
+  table-layout: fixed;
+  vertical-align: top;
+  }
+body {
+ font-family: yorha; 
+ text-align: center;
+ vertical-align: top;
+ background: #A10301;
+ color: #f2e6ef;
+}
+img {
+  border-radius: 5px;
+  width: 384px;
+  height: auto;
+}
+img.kin {
+  border-radius: 5px;
+  width: 200px;
+  height: auto;
+  }
+.flag {
+  max-height: 40px;
+  width:auto;
+  max-width: 128px;
+  border-radius: 2px;
+  margin:2px;
+}
+.emoji {
+  width:auto;
+  max-width:40px;
+  height:20px;
+}
+.button {
+ padding:7px;
+ width: auto;
+ height: auto;
+ background:#A10301;
+ border-radius:5px;
+ color: #f2e6ef;
+ margin-top:-10px;
+ margin-left:5px;
+ margin-bottom:10px;
+}
+.xeno {
+  font-size: 12px;
+}

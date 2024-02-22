@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Boryaworld Calendar Converter</title>
+    <link href="flags/css.css" rel="stylesheet" type="text/css" media="all">
+	<style>
+	@font-face {
+		font-family: 'noe';
+		src: url('noellastani-sans.ttf') format('truetype');
+	}
+	
+	@font-face {
+		font-family: 'bahnschrift';
+		src: url('bahnschrift.ttf') format('truetype');
+	}
+	
+	@font-face {
+		font-family: 'alhi';
+		src: url('alhi.ttf') format('truetype');
+	}
+	
+	@font-face {
+		font-family: 'oik';
+		src: url('oika.ttf') format('truetype');
+	}
+	
+	@font-face {
+		font-family: 'ihoshar';
+		src: url('GvibukiBold.woff2') format('woff2');
+	}
+	
+	img {
+		border:0px solid black;
+		height: auto;
+		width: 35px;
+	}
+	
+	.glyph {
+		height: 31px;
+		width: auto;
+	}
+	
+	noelle {
+	  font-family: noe;
+	}
+	
+	bahn {
+	  font-family: bahnschrift;
+	}
+	
+	alhi {
+	  font-family: alhi;
+	}
+	
+	oika {
+	  font-family: oik;
+	  font-size: 20px;
+	}
+	
+	iho {
+	  font-family: ihoshar;
+	}
+	
+	</style>
+  </head>
+  <body>
+	<input type="number" id="dayGr" name="dayGr" min="1" max="31" style="display:inline; width:40px" value="3">
+	<select name="monthGr" id="monthGr" style="width:90px">
+		<option value="0">January</option>
+		<option value="1">February</option>
+		<option value="2">March</option>
+		<option value="3">April</option>
+		<option value="4">May</option>
+		<option value="5">June</option>
+		<option value="6">July</option>
+		<option value="7">August</option>
+		<option value="8">September</option>
+		<option value="9">October</option>
+		<option value="10">November</option>
+		<option value="11" selected="selected">December</option>
+	</select>
+	<input type="number" id="yearGr" name="yearGr" min="-9999" max="9999" style="display:inline; width:60px" value="2023">
+	<button type="button" name="confGr" id="confGr" onclick="clickButton()">Convert Gregorian date</button>
+	<button type="button" name="confGr" id="confGr" onclick="setToday()">Today</button>
+	<br><br>
+	<img src="flags/un.png" title="Gregorian calendar" style="border: 1px solid"><font style="font-size: 26px;"><!--Gregorian:--> </font><font id="convGRE" name="convGRE" style="font-size: 26px; font-weight: bold;"></font><br><br>
+	<img src="flags/loremesia.png" title="Loremese calendar" alt=":flag_lrm:"><font style="font-size: 26px;"><!--Loremese:--> </font><font id="errorLRM" name="errorLRM" style="font-size: 26px; color: red"></font><font id="convLRM" name="convLRM" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"><!--Loremese:--> </font><font id="convLRM1" name="convLRM1" style="font-size: 30px; font-weight: bold;"></font><br>
+	<img src="flags/noellastan.png" title="Baphian calendar" alt=":flag_bph:"><font style="font-size: 26px;"><!--Noellastani:--> </font><font id="errorNOE" name="errorNOE" style="font-size: 26px; color: red"></font><font id="convNOE" name="convNOE" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"><!--Noellastani:--> </font><font id="convNOE1" name="convNOE1" style="font-size: 26px; "></font><br>
+	<img><font style="font-size: 26px;"><!--West Noellastani:--> </font><font id="errorWNL" name="errorWNL" style="font-size: 26px; color: red"></font><font id="convWNL" name="convWNL" style="font-size: 26px; font-weight: bold;"></font><br>
+	<!--<img><font style="font-size: 26px;"> </font><font id="convWNL1" name="convWNL1" style="font-size: 26px;"></font><br>-->
+	<img src="flags/alloti.png" title="Allotian calendar" alt=":flag_all:"><font style="font-size: 26px;"><!--Allotian:--> </font><font id="errorALL" name="errorALL" style="font-size: 26px; color: red"></font><font id="convALL" name="convALL" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"><!--Alloti:--> </font><font id="convALL1" name="convALL1" style="font-size: 26px;"></font><br>
+	<img src="flags/sunteria.png" title="Sunterian calendar" alt=":flag_sun:"><font style="font-size: 26px;"><!--Sunterian:--> </font><font id="errorSUN" name="errorSUN" style="font-size: 26px; color: red"></font><font id="convSUN" name="convSUN" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"></font><font id="convSUN1" name="convSUN1" style="font-size: 26px;"></font><br>
+	<img src="flags/ihoshar.png" title="Ihoshari calendar" alt=":flag_iho:"><font style="font-size: 26px;"><!--Ihoshari:--> </font><font id="errorIHO" name="errorIHO" style="font-size: 26px; color: red"></font><font id="convIHO" name="convIHO" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"> </font><font id="convIHO1" name="convIHO1" style="font-size: 26px;"></font><br>
+	<img src="flags/mallia.png" title="Mallian calendar" alt=":flag_mal:"><font style="font-size: 26px;"> </font><font id="errorMAL" name="errorMAL" style="font-size: 26px; color: red"></font><font id="convMAL" name="convMAL" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img src="flags/rangei.png" title="Rangeian calendar" alt=":flag_ran:"><font style="font-size: 26px;"> </font><font id="errorRAN" name="errorRAN" style="font-size: 26px; color: red"></font><font id="convRAN" name="convRAN" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img src="flags/cring.png" title="Cring calendar" alt=":flag_crg:" style="border: 1px solid"><font style="font-size: 26px;"> </font><font id="errorCRG" name="errorCRG" style="font-size: 26px; color: red"></font><font id="convCRG" name="convCRG" style="font-size: 26px; font-weight: bold;"></font>
+	
+	<script src="cal.js"></script>
+	<script>
+		// --- DISPLAY
+		
+		function convertDate(date) {	
+			document.getElementById('errorLRM').innerHTML = ""
+			document.getElementById('errorNOE').innerHTML = ""
+			document.getElementById('errorWNL').innerHTML = ""
+			document.getElementById('errorALL').innerHTML = ""
+			document.getElementById('errorSUN').innerHTML = ""
+			document.getElementById('errorIHO').innerHTML = ""
+			document.getElementById('errorRAN').innerHTML = ""
+			document.getElementById('errorMAL').innerHTML = ""
+			document.getElementById('errorCRG').innerHTML = ""
+			
+			document.getElementById('convGRE').innerHTML = ""
+			document.getElementById('convLRM').innerHTML = ""
+			document.getElementById('convNOE').innerHTML = ""
+			document.getElementById('convWNL').innerHTML = ""
+			document.getElementById('convALL').innerHTML = ""
+			document.getElementById('convSUN').innerHTML = ""
+			document.getElementById('convIHO').innerHTML = ""
+			document.getElementById('convRAN').innerHTML = ""
+			document.getElementById('convMAL').innerHTML = ""
+			document.getElementById('convCRG').innerHTML = ""
+			
+			document.getElementById('convLRM1').innerHTML = ""
+			document.getElementById('convNOE1').innerHTML = ""
+			// document.getElementById('convWNL1').innerHTML = ""
+			document.getElementById('convALL1').innerHTML = ""
+			document.getElementById('convSUN1').innerHTML = ""
+			document.getElementById('convIHO1').innerHTML = ""
+		
+			document.getElementById('convGRE').innerHTML = date.getUTCDate() + " " + date.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + Math.abs(date.getUTCFullYear() - 1*(date.getUTCFullYear() < 1)) + " BCE".repeat(date.getUTCFullYear() < 1)
+		
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorLRM').innerHTML = "Year must be between -9999 and 9999"
+				document.getElementById('errorIHO').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateLRM = calcDateLRM(date)
+				
+				var monthNamesLRM = ["Praveson", "Dvoteson", "Triteson", "Pravozeimon", "Dvotozeimon", "Tritozeimon", "Pravoveri", "Dvotoveri", "Tritoveri", "Pravogero", "Dvotogero", "Tritogero", "Tritogero"]
+				var suffixNamesLRM = ["", " BK"]
+				
+				var monthNamesIHO = ["Lisnia", "Stini", "Pertie", "Pravzimonni", "Dvozimonni", "Treizimonni", "Taiie", "Zissuo", "Annia", "Germinni", "Latoe", "Derno", "Derno"]
+				var monthNamesIHO1 = ["lisnia", "stini", "pertie", "pravzimon:i", "dvozimon:i", "treizimon:i", "taiie", "zis:uo", "annia", "germin:i", "latoe", "derno", "derno"]
+				var suffixNamesIHO = ["", " BK"]
+				
+				document.getElementById('convLRM').innerHTML = convDateLRM[0] + " " + monthNamesLRM[convDateLRM[1]] + " " + convDateLRM[2] + suffixNamesLRM[convDateLRM[3]]
+				document.getElementById('convLRM1').innerHTML = "<bahn>" + convertTextLRM(convDateLRM[0] + " " + monthNamesLRM[convDateLRM[1]] + " " + convDateLRM[2] + (suffixNamesLRM[convDateLRM[3]]).toString().replace("BK", "PO")) + "</bahn>"
+				
+				document.getElementById('convIHO').innerHTML = convDateLRM[0] + " " + monthNamesIHO[convDateLRM[1]] + " " + convDateLRM[2] + suffixNamesIHO[convDateLRM[3]]
+				document.getElementById('convIHO1').innerHTML = "<iho>#" + convDateLRM[0] + "# " + monthNamesIHO1[convDateLRM[1]] + " #" + convDateLRM[2] + "#" + (suffixNamesIHO[convDateLRM[3]]).toString().replace("BK", "'pŋ") + "</iho>"
+			}
+		
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorNOE').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateNOE = calcDateNOE(date)
+				var convDateNOEnat = calcDateNOE(date, true)
+				document.getElementById('convNOE').innerHTML = convDateNOE[0] + " " + convDateNOE[1] + " " + convDateNOE[2] + " " + convDateNOE[3]
+				document.getElementById('convNOE1').innerHTML = "<noelle>" + convDateNOEnat[0] + " " + convDateNOEnat[1] + " " + convDateNOEnat[2] + " " + convDateNOEnat[3] + "</noelle>"
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				// document.getElementById('errorWNL').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateWNL = calcDateWNL(date)
+				
+				var dayNamesWNL = ["Numre", "Wakme", "Shigke", "Kake", "Satlhe", "Dante"]
+				var weekNamesWNL = ["Manke", "Ashte", "Yukle", "Dankare"]
+				var monthNamesWNL = ["Nenij", "Haski", "Jinsh", "Alhami", "Oshuk", "Dalmin", "Sobjune", "June", "Sukjune", "Sobbent", "Bent", "Sukbent", "Sukrul", "Nujbokam", "Sobnenij", "Bakneniji"]
+				var suffixNamesWNL = ["", " BNC"]
+				var eraNamesWNL = [" Sobumsa", " Umsa", " Chotka", " Yowsta", " Sobkimoh", " Kimoh", " Sinumsa"]
+				
+				var dayNamesWNL1 = ["Numre", "Wakme", "Shigke", "Kake", "Satlhe", "Dante"]
+				var weekNamesWNL1 = ["Manke", "Ashte", "Yukle", "Dankare"]
+				var monthNamesWNL1 = ["<img class='glyph' src='./nag/newyear.svg'/>", "Haski", "Jinsh", "Alhami", "Oshuk", "Dalmin", "<img class='glyph' src='./nag/before.svg'/>june", "June", "<img class='glyph' src='./nag/after.svg'/>june", "<img class='glyph' src='./nag/before.svg'/>bent", "Bent", "<img class='glyph' src='./nag/after.svg'/>bent", "<img class='glyph' src='./nag/after.svg'/>rul", "Nujbokam", "<img class='glyph' src='./nag/before.svg'/><img class='glyph' src='./nag/newyear.svg'/>", "Bak<img class='glyph' src='./nag/newyear.svg'/>"]
+				var suffixNamesWNL1 = ["", "<img class='glyph' src='./nag/before.svg'/><img class='glyph' src='./nag/king.svg'/><img class='glyph' src='./nag/birth.svg'/>"]
+				var eraNamesWNL1 = ["<img class='glyph' src='./nag/before.svg'/><img class='glyph' src='./nag/birth.svg'/>", "<img class='glyph' src='./nag/birth.svg'/>", "<img class='glyph' src='./nag/growth.svg'/>", "<img class='glyph' src='./nag/weak.svg'/>", "<img class='glyph' src='./nag/before.svg'/><img class='glyph' src='./nag/king.svg'/>", "<img class='glyph' src='./nag/king.svg'/>", "<img class='glyph' src='./nag/new.svg'/><img class='glyph' src='./nag/birth.svg'/>"]
+				
+				document.getElementById('convWNL').innerHTML = dayNamesWNL[convDateWNL[0]] + " " + weekNamesWNL[convDateWNL[1]] + " " + monthNamesWNL[convDateWNL[2]] + " " + convDateWNL[3] + suffixNamesWNL[convDateWNL[4]] + eraNamesWNL[convDateWNL[5]]
+				// document.getElementById('convWNL1').innerHTML = dayNamesWNL1[convDateWNL[0]] + weekNamesWNL1[convDateWNL[1]] + monthNamesWNL1[convDateWNL[2]] + getNumberWNL(convDateWNL[3]) + suffixNamesWNL1[convDateWNL[4]] + eraNamesWNL1[convDateWNL[5]]
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorALL').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateALL = calcDateALL(date)
+				document.getElementById('convALL').innerHTML = convDateALL[0] + ", " + convDateALL[1] + " " + convDateALL[2] + " " + convDateALL[3]
+				document.getElementById('convALL1').innerHTML = "<alhi>" + (convDateALL[0] + ", " + convDateALL[1] + " " + convDateALL[2] + " ").toString().toLowerCase() + (convDateALL[3]).toString().replace("BT", "eLotuz") + "</alhi>"
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorSUN').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateSUN = calcDateSUN(date)
+				
+				var monthNamesSUN = ["Neuia", "Solmia", "Hmetmenia", "Uoihnia", "Loubia", "Moreitia", "Duskia", "Snoiguia", "Gelia", "Huersmenia", "Blehmia", "Bloidia", "Terdia"]
+				var monthNamesSUN1 = ["", "", "", "", "", "", "", "", "", "", "", "", ""]
+				
+				document.getElementById('convSUN').innerHTML = convDateSUN[0] + " " + monthNamesSUN[convDateSUN[1]] + " " + convDateSUN[2] + convDateSUN[3]
+				document.getElementById('convSUN1').innerHTML = " <oika>" + (numberSUN(convDateSUN[0]) + monthNamesSUN1[convDateSUN[1]] + numberSUN(convDateSUN[2]) + String(convDateSUN[3]).replace(" IPT", "")) + "</oika>"
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorRAN').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateRAN = calcDateRAN(date)
+				document.getElementById('convRAN').innerHTML = convDateRAN[0] + " " + convDateRAN[1] + " " + convDateRAN[2] + convDateRAN[3]
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorMAL').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateMAL = calcDateMAL(date)
+				document.getElementById('convMAL').innerHTML = convDateMAL[0] + ", " + convDateMAL[1] + " " + convDateMAL[2] + " " + convDateMAL[3]
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorCRG').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateCRG = calcDateCRG(date)
+				document.getElementById('convCRG').innerHTML = convDateCRG[0] + " " + convDateCRG[1] + " " + convDateCRG[2]
+			}
+		}
+		
+		function clickButton() {
+			var inputDate = new Date(Date.UTC(document.getElementById('yearGr').value, document.getElementById('monthGr').value, document.getElementById('dayGr').value, 12, 0, 0))
+			inputDate.setFullYear(document.getElementById('yearGr').value)
+			inputDate.setMonth(document.getElementById('monthGr').value)
+			inputDate.setDate(document.getElementById('dayGr').value)
+		
+			convertDate(inputDate)
+		}
+		
+		function setToday() {
+			var today = new Date()
+			
+			document.getElementById('yearGr').value = today.getFullYear()
+			document.getElementById('monthGr').value = today.getMonth()
+			document.getElementById('dayGr').value = today.getDate()
+			
+			clickButton()
+		}
+		
+		setToday()
+	</script>
+  
+</body></html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Democracy Index Calculator</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+	<h1>Democracy Index Calculator</h1>
+	<p>Source: <a href="https://www.economist.com/media/pdf/DEMOCRACY_INDEX_2007_v3.pdf">Kekić, Laža. "The Economist Intelligence Unit’s index of democracy" (2006)</a>
+	
+	<form id="form">
+	<h2>I · Electoral process and pluralism</h2>
+
+	<p><b>1 · Are elections for the national legislature and head of government free?</b> Consider whether elections are competitive in that electors are free to vote and are offered a range of choices.</p>
+	<input type="radio" name="q1" id="q1-1" value=1 onclick="document.querySelectorAll('input[name=\'q2\']').forEach(cb => (cb.disabled = false)); if (document.querySelector('#q2-3').checked == false) {document.querySelectorAll('input[name=\'q27\']').forEach(cb => (cb.disabled = false))}">
+	<label for="q1-1">Essentially unrestricted conditions for the presentation of candidates (for example, no bans on major parties)</label><br>
+	<input type="radio" name="q1" id="q1-2" value=0.5 onclick="document.querySelectorAll('input[name=\'q2\']').forEach(cb => (cb.disabled = false)); if (document.querySelector('#q2-3').checked == false) {document.querySelectorAll('input[name=\'q27\']').forEach(cb => (cb.disabled = false))}">
+	<label for="q1-2">There are some restrictions on the electoral process</label><br>
+	<input type="radio" name="q1" id="q1-3" value=0 onclick="document.querySelectorAll('input[name=\'q2\']').forEach(cb => (cb.disabled = true)); document.querySelector('#q2-3').checked = true; document.querySelectorAll('input[name=\'q27\']').forEach(cb => (cb.disabled = true)); document.querySelector('#q27-3').checked = true;">
+	<label for="q1-3">A single-party system or major impediments exist (for example, bans on a major party or candidate)</label>
+	
+	<p><b>2 · Are elections for the national legislature and head of government fair?</b></p>
+	<input type="radio" name="q2" id="q2-1" value=1 onclick="if (document.querySelector('#q1-3').checked == false) {document.querySelectorAll('input[name=\'q27\']').forEach(cb => (cb.disabled = false))}">
+	<label for="q2-1">No major irregularities in the voting process</label><br>
+	<input type="radio" name="q2" id="q2-2" value=0.5 onclick="if (document.querySelector('#q1-3').checked == false) {document.querySelectorAll('input[name=\'q27\']').forEach(cb => (cb.disabled = false))}">
+	<label for="q2-2">Significant irregularities occur (intimidation, fraud), but do not affect significantly the overall outcome</label><br>
+	<input type="radio" name="q2" id="q2-3" value=0 onclick="document.querySelectorAll('input[name=\'q27\']').forEach(cb => (cb.disabled = true)); document.querySelector('#q27-3').checked = true;">
+	<label for="q2-3">Major irregularities occur and affect the outcome</label>
+	
+	<p><b>3 · Are municipal elections both free and fair?</b></p>
+	<input type="radio" name="q3" id="q3-1" value=1>
+	<label for="q3-1">Are free and fair</label><br>
+	<input type="radio" name="q3" id="q3-2" value=0.5>
+	<label for="q3-2">Are free but not fair</label><br>
+	<input type="radio" name="q3" id="q3-3" value=0>
+	<label for="q3-3">Are neither free nor fair</label>
+	
+	<p><b>4 · Is there universal suffrage for all adults?</b> Bar generally accepted exclusions (for example, non-nationals; criminals; members of armed forces in some countries).</p>
+	<input type="radio" name="q4" id="q4-1" value=1>
+	<label for="q4-1">Yes</label><br>
+	<input type="radio" name="q4" id="q4-2" value=0>
+	<label for="q4-2">No</label>
+	
+	<p><b>5 · Can citizens cast their vote free of significant threats to their security from state or non-state bodies?</b></p>
+	<input type="radio" name="q5" id="q5-1" value=1>
+	<label for="q5-1">Yes</label><br>
+	<input type="radio" name="q5" id="q5-2" value=0>
+	<label for="q5-2">No</label>
+	
+	<p><b>6 · Do laws provide for broadly equal campaigning opportunities?</b></p>
+	<input type="radio" name="q6" id="q6-1" value=1>
+	<label for="q6-1">Yes</label><br>
+	<input type="radio" name="q6" id="q6-2" value=0.5>
+	<label for="q6-2">Yes formally, but in practice opportunities are limited for some candidates</label><br>
+	<input type="radio" name="q6" id="q6-3" value=0>
+	<label for="q6-3">No</label>
+	
+	<p><b>7 · Is the process of financing political parties transparent and generally accepted?</b></p>
+	<input type="radio" name="q7" id="q7-1" value=1>
+	<label for="q7-1">Yes</label><br>
+	<input type="radio" name="q7" id="q7-2" value=0.5>
+	<label for="q7-2">Not fully transparent</label><br>
+	<input type="radio" name="q7" id="q7-3" value=0>
+	<label for="q7-3">No</label>
+	
+	<p><b>8 · Following elections, are the constitutional mechanisms for the orderly transfer of power from one government to another clear, established and accepted?</b></p>
+	<input type="radio" name="q8" id="q8-1" value=1>
+	<label for="q8-1">All three criteria are fulfilled</label><br>
+	<input type="radio" name="q8" id="q8-2" value=0.5>
+	<label for="q8-2">Two of the three criteria are fulfilled</label><br>
+	<input type="radio" name="q8" id="q8-3" value=0>
+	<label for="q8-3">Only one or none of the criteria is satisfied</label>
+	
+	<p><b>9 · Are citizens free to form political parties that are independent of the government?</b></p>
+	<input type="radio" name="q9" id="q9-1" value=1>
+	<label for="q9-1">Yes</label><br>
+	<input type="radio" name="q9" id="q9-2" value=0.5>
+	<label for="q9-2">There are some restrictions</label><br>
+	<input type="radio" name="q9" id="q9-3" value=0>
+	<label for="q9-3">No</label>
+	
+	<p><b>10 · Do opposition parties have a realistic prospect of achieving government?</b></p>
+	<input type="radio" name="q10" id="q10-1" value=1>
+	<label for="q10-1">Yes</label><br>
+	<input type="radio" name="q10" id="q10-2" value=0.5>
+	<label for="q10-2">There is a dominant two-party system in which other political forces never have any effective chance of taking part in national government</label><br>
+	<input type="radio" name="q10" id="q10-3" value=0>
+	<label for="q10-3">No</label>
+	
+	<p><b>11 · Is potential access to public office open to all citizens?</b></p>
+	<input type="radio" name="q11" id="q11-1" value=1>
+	<label for="q11-1">Yes</label><br>
+	<input type="radio" name="q11" id="q11-2" value=0.5>
+	<label for="q11-2">Formally unrestricted, but in practice restricted for some groups, or for citizens from some parts of the country</label><br>
+	<input type="radio" name="q11" id="q11-3" value=0>
+	<label for="q11-3">No</label>
+	
+	<p><b>12 · Are citizens free to form political and civic organisations, free of state interference and surveillance?</b></p>
+	<input type="radio" name="q12" id="q12-1" value=1>
+	<label for="q12-1">Yes</label><br>
+	<input type="radio" name="q12" id="q12-2" value=0.5>
+	<label for="q12-2">Officially free, but subject to some restrictions or interference</label><br>
+	<input type="radio" name="q12" id="q12-3" value=0>
+	<label for="q12-3">No</label>
+	
+	<h2>II · Functioning of government</h2>
+	
+	<p><b>13 · Do freely elected representatives determine government policy?</b></p>
+	<input type="radio" name="q13" id="q13-1" value=1>
+	<label for="q13-1">Yes</label><br>
+	<input type="radio" name="q13" id="q13-2" value=0.5>
+	<label for="q13-2">Exercise some meaningful influence</label><br>
+	<input type="radio" name="q13" id="q13-3" value=0>
+	<label for="q13-3">No</label>
+	
+	<p><b>14 · Is the legislature the supreme political body, with a clear supremacy over other branches of government?</b></p>
+	<input type="radio" name="q14" id="q14-1" value=1>
+	<label for="q14-1">Yes</label><br>
+	<input type="radio" name="q14" id="q14-2" value=0>
+	<label for="q14-2">No</label>
+	
+	<p><b>15 · Is there an effective system of checks and balances on the exercise of government authority?</b></p>
+	<input type="radio" name="q15" id="q15-1" value=1>
+	<label for="q15-1">Yes</label><br>
+	<input type="radio" name="q15" id="q15-2" value=0.5>
+	<label for="q15-2">Yes, but there are some serious flaws</label><br>
+	<input type="radio" name="q15" id="q15-3" value=0>
+	<label for="q15-3">No</label>
+	
+	<p><b>16 · Government is free of undue influence by the military or the security services.</b></p>
+	<input type="radio" name="q16" id="q16-1" value=1>
+	<label for="q16-1">Yes</label><br>
+	<input type="radio" name="q16" id="q16-2" value=0.5>
+	<label for="q16-2">Influence is low, but the defence minister is not a civilian <i>or</i> Current risk of a military coup is extremely low, but the country has a recent history of military rule or coups</label><br>
+	<input type="radio" name="q16" id="q16-3" value=0>
+	<label for="q16-3">No</label>
+	
+	<p><b>17 · Foreign powers do not determine important government functions or policies.</b></p>
+	<input type="radio" name="q17" id="q17-1" value=1>
+	<label for="q17-1">Yes</label><br>
+	<input type="radio" name="q17" id="q17-2" value=0.5>
+	<label for="q17-2">Some features of a protectorate</label><br>
+	<input type="radio" name="q17" id="q17-3" value=0>
+	<label for="q17-3">No (significant presence of foreign troops; important decisions taken by foreign power; country is a protectorate)</label>
+	
+	<p><b>18 · Special economic, religious or other powerful domestic groups do not exercise significant political power, parallel to democratic institutions?</b></p>
+	<input type="radio" name="q18" id="q18-1" value=1>
+	<label for="q18-1">Yes</label><br>
+	<input type="radio" name="q18" id="q18-2" value=0.5>
+	<label for="q18-2">Exercise some meaningful influence</label><br>
+	<input type="radio" name="q18" id="q18-3" value=0>
+	<label for="q18-3">No</label>
+	
+	<p><b>19 · Are sufficient mechanisms and institutions in place for assuring government accountability to the electorate in between elections?</b></p>
+	<input type="radio" name="q19" id="q19-1" value=1>
+	<label for="q19-1">Yes</label><br>
+	<input type="radio" name="q19" id="q19-2" value=0.5>
+	<label for="q19-2">Yes, but serious flaws exist</label><br>
+	<input type="radio" name="q19" id="q19-3" value=0>
+	<label for="q19-3">No</label>
+	
+	<p><b>20 · Does the government’s authority extend over the full territory of the country?</b></p>
+	<input type="radio" name="q20" id="q20-1" value=1>
+	<label for="q20-1">Yes</label><br>
+	<input type="radio" name="q20" id="q20-2" value=0>
+	<label for="q20-2">No</label>
+	
+	<p><b>21 · Is the functioning of government open and transparent, with sufficient public access to information?</b></p>
+	<input type="radio" name="q21" id="q21-1" value=1>
+	<label for="q21-1">Yes</label><br>
+	<input type="radio" name="q21" id="q21-2" value=0.5>
+	<label for="q21-2">Yes, but serious flaws exist</label><br>
+	<input type="radio" name="q21" id="q21-3" value=0>
+	<label for="q21-3">No</label>
+	
+	<p><b>22 · How pervasive is corruption?</b></p>
+	<input type="radio" name="q22" id="q22-1" value=1>
+	<label for="q22-1">Corruption is not a major problem</label><br>
+	<input type="radio" name="q22" id="q22-2" value=0.5>
+	<label for="q22-2">Corruption is a significant issue</label><br>
+	<input type="radio" name="q22" id="q22-3" value=0>
+	<label for="q22-3">Pervasive corruption exists</label>
+	
+	<p><b>23 · Is the civil service willing and capable of implementing government policy?</b></p>
+	<input type="radio" name="q23" id="q23-1" value=1>
+	<label for="q23-1">Yes</label><br>
+	<input type="radio" name="q23" id="q23-2" value=0.5>
+	<label for="q23-2">Yes, but serious flaws exist</label><br>
+	<input type="radio" name="q23" id="q23-3" value=0>
+	<label for="q23-3">No</label>
+	
+	<p><b>24 · Popular perceptions of the extent to which they have free choice and control over their lives</b></p>
+	<input type="radio" name="q24" id="q24-1" value=1>
+	<label for="q24-1">High (more than 70% of people think that they have a great deal of choice/control)</label><br>
+	<input type="radio" name="q24" id="q24-2" value=0.5>
+	<label for="q24-2">Moderate (50-70% of people think that they have a great deal of choice/control)</label><br>
+	<input type="radio" name="q24" id="q24-3" value=0>
+	<label for="q24-3">Low (less than 50% of people think that they have a great deal of choice/control)</label>
+	
+	<p><b>25 · Public confidence in government</b></p>
+	<input type="radio" name="q25" id="q25-1" value=1>
+	<label for="q25-1">High (more than 40% of people have a “great deal” or “quite a lot” of confidence in government)</label><br>
+	<input type="radio" name="q25" id="q25-2" value=0.5>
+	<label for="q25-2">Moderate (25-40% of people have a “great deal” or “quite a lot” of confidence in government)</label><br>
+	<input type="radio" name="q25" id="q25-3" value=0>
+	<label for="q25-3">Low (less than 25% of people have a “great deal” or “quite a lot” of confidence in government)</label>
+	
+	<p><b>26 · Public confidence in political parties</b></p>
+	<input type="radio" name="q26" id="q26-1" value=1>
+	<label for="q26-1">High (more than 40% of people have a “great deal” or “quite a lot” of confidence)</label><br>
+	<input type="radio" name="q26" id="q26-2" value=0.5>
+	<label for="q26-2">Moderate (25-40% of people have a “great deal” or “quite a lot” of confidence)</label><br>
+	<input type="radio" name="q26" id="q26-3" value=0>
+	<label for="q26-3">Low (less than 25% of people have a “great deal” or “quite a lot” of confidence)</label>
+	
+	<h2>III · Political participation</h2>
+	
+	<p><b>27 · Voter participation/turnout for national elections.</b> (average turnout in parliamentary and/or presidential elections since 2000. Turnout as proportion of population of voting age)</p>
+	<input type="radio" name="q27" id="q27-1" value=1>
+	<label for="q27-1">Consistently above 70%</label><br>
+	<input type="radio" name="q27" id="q27-2" value=0.5>
+	<label for="q27-2">Between 50% and 70%</label><br>
+	<input type="radio" name="q27" id="q27-3" value=0>
+	<label for="q27-3">Below 50% <i>or</i> Voting is obligatory</label>
+	
+	<p><b>28 · Do ethnic, religious and other minorities have a reasonable degree of autonomy and voice in the political process?</b></p>
+	<input type="radio" name="q28" id="q28-1" value=1>
+	<label for="q28-1">Yes</label><br>
+	<input type="radio" name="q28" id="q28-2" value=0.5>
+	<label for="q28-2">Yes, but serious flaws exist</label><br>
+	<input type="radio" name="q28" id="q28-3" value=0>
+	<label for="q28-3">No</label>
+	
+	<p><b>29 · Women in parliament.</b> % of members of parliament who are women</p>
+	<input type="radio" name="q29" id="q29-1" value=1>
+	<label for="q29-1">More than 20% of seats</label><br>
+	<input type="radio" name="q29" id="q29-2" value=0.5>
+	<label for="q29-2">Between 10-20% of seats</label><br>
+	<input type="radio" name="q29" id="q29-3" value=0>
+	<label for="q29-3">Less than 10% of seats</label>
+	
+	<p><b>30 · Extent of political participation.</b> Membership of political parties and political non-governmental organisations</p>
+	<input type="radio" name="q30" id="q30-1" value=1>
+	<label for="q30-1">Over 7% of population for either</label><br>
+	<input type="radio" name="q30" id="q30-2" value=0.5>
+	<label for="q30-2">Between 4-7% of population for either</label><br>
+	<input type="radio" name="q30" id="q30-3" value=0>
+	<label for="q30-3">Under 4% of population for either <i>or</i> Participation is forced</label>
+	
+	<p><b>31 · Citizens’ engagement with politics</b></p>
+	<input type="radio" name="q31" id="q31-1" value=1>
+	<label for="q31-1">High (more than 60% of people are very or somewhat interested in politics)</label><br>
+	<input type="radio" name="q31" id="q31-2" value=0.5>
+	<label for="q31-2">Moderate (40-60% of people are very or somewhat interested in politics)</label><br>
+	<input type="radio" name="q31" id="q31-3" value=0>
+	<label for="q31-3">Low (less than 40% of people are very or somewhat interested in politics)</label>
+	
+	<p><b>32 · The preparedness of population to take part in lawful demonstrations.</b></p>
+	<input type="radio" name="q32" id="q32-1" value=1>
+	<label for="q32-1">High (more than 40% of people have taken part in or would consider attending lawful demonstrations)</label><br>
+	<input type="radio" name="q32" id="q32-2" value=0.5>
+	<label for="q32-2">Moderate (30-40% of people have taken part in or would consider attending lawful demonstrations)</label><br>
+	<input type="radio" name="q32" id="q32-3" value=0>
+	<label for="q32-3">Low (less than 30% of people have taken part in or would consider attending lawful demonstrations)</label>
+	
+	<p><b>33 · Adult literacy.</b></p>
+	<input type="radio" name="q33" id="q33-1" value=1>
+	<label for="q33-1">Over 90%</label><br>
+	<input type="radio" name="q33" id="q33-2" value=0.5>
+	<label for="q33-2">Between 70-90%</label><br>
+	<input type="radio" name="q33" id="q33-3" value=0>
+	<label for="q33-3">Less than 70%</label>
+	
+	<p><b>34 · Extent to which adult population shows an interest in and follows politics in the news.</b></p>
+	<input type="radio" name="q34" id="q34-1" value=1>
+	<label for="q34-1">High (more than 50% of population follows politics in the news media (print, TV or radio) every day)</label><br>
+	<input type="radio" name="q34" id="q34-2" value=0.5>
+	<label for="q34-2">Moderate (30-50% of population follows politics in the news media (print, TV or radio) every day)</label><br>
+	<input type="radio" name="q34" id="q34-3" value=0>
+	<label for="q34-3">Low (less than 30% of population follows politics in the news media (print, TV or radio) every day)</label>
+	
+	<p><b>35 · The authorities make a serious effort to promote political participation.</b> Consider the role of the education system, and other promotional efforts. Consider measures to facilitate voting by members of the diaspora.</p>
+	<input type="radio" name="q35" id="q35-1" value=1>
+	<label for="q35-1">Yes</label><br>
+	<input type="radio" name="q35" id="q35-2" value=0.5>
+	<label for="q35-2">Some attempts</label><br>
+	<input type="radio" name="q35" id="q35-3" value=0>
+	<label for="q35-3">No <i>or</i> Participation is forced</label>
+	
+	<h2>IV · Democratic political culture</h2>
+	
+	<p><b>36 · Is there a sufficient degree of societal consensus and cohesion to underpin a stable, functioning democracy?</b></p>
+	<input type="radio" name="q36" id="q36-1" value=1>
+	<label for="q36-1">Yes</label><br>
+	<input type="radio" name="q36" id="q36-2" value=0.5>
+	<label for="q36-2">Yes, but some serious doubts and risks</label><br>
+	<input type="radio" name="q36" id="q36-3" value=0>
+	<label for="q36-3">No</label>
+	
+	<p><b>37 · Perceptions of leadership;</b> proportion of the population that desires a strong leader who bypasses parliament and elections.</p>
+	<input type="radio" name="q37" id="q37-1" value=1>
+	<label for="q37-1">Low (less than 30% people think it would be good or fairly good to have a strong leader who does not bother with parliament and elections)</label><br>
+	<input type="radio" name="q37" id="q37-2" value=0.5>
+	<label for="q37-2">Moderate (30-50% people think it would be good or fairly good to have a strong leader who does not bother with parliament and elections)</label><br>
+	<input type="radio" name="q37" id="q37-3" value=0>
+	<label for="q37-3">High (more than 50% people think it would be good or fairly good to have a strong leader who does not bother with parliament and elections)</label>
+	
+	<p><b>38 · Perceptions of military rule;</b> proportion of the population that would prefer military.</p>
+	<input type="radio" name="q38" id="q38-1" value=1>
+	<label for="q38-1">Low (less than 10% people think it would be very or fairly good to have army rule)</label><br>
+	<input type="radio" name="q38" id="q38-2" value=0.5>
+	<label for="q38-2">Moderate (10-30% people think it would be very or fairly good to have army rule)</label><br>
+	<input type="radio" name="q38" id="q38-3" value=0>
+	<label for="q38-3">High (more than 30% people think it would be very or fairly good to have army rule)</label>
+	
+	<p><b>39 · Perceptions of rule by experts or technocratic government;</b> proportion of the population that would prefer rule by experts or technocrats.</p>
+	<input type="radio" name="q39" id="q39-1" value=1>
+	<label for="q39-1">Low (less than 50% people think it would be very or fairly good to have experts, not government, make decisions for the country)</label><br>
+	<input type="radio" name="q39" id="q39-2" value=0.5>
+	<label for="q39-2">Moderate (50-70% people think it would be very or fairly good to have experts, not government, make decisions for the country)</label><br>
+	<input type="radio" name="q39" id="q39-3" value=0>
+	<label for="q39-3">High (more than 70% people think it would be very or fairly good to have experts, not government, make decisions for the country)</label>
+	
+	<p><b>40 · Perception of democracy and public order;</b> proportion of the population that believes that democracies are not good at maintaining public order.</p>
+	<input type="radio" name="q40" id="q40-1" value=1>
+	<label for="q40-1">Low (more than 70% people disagree with the view that democracies are not good at maintaining order)</label><br>
+	<input type="radio" name="q40" id="q40-2" value=0.5>
+	<label for="q40-2">Moderate (50-70% people disagree with the view that democracies are not good at maintaining order)</label><br>
+	<input type="radio" name="q40" id="q40-3" value=0>
+	<label for="q40-3">High (less than 50% disagree with the view that democracies are not good at maintaining order)</label>
+	
+	<p><b>41 · Perception of democracy and the economic system;</b> proportion of the population that  believes that democracy benefits economic performance.</p>
+	<input type="radio" name="q41" id="q41-1" value=1>
+	<label for="q41-1">Low (more than 80% people disagree with the view that the economic system runs badly in democracies)</label><br>
+	<input type="radio" name="q41" id="q41-2" value=0.5>
+	<label for="q41-2">Moderate (60-80% people disagree with the view that the economic system runs badly in democracies)</label><br>
+	<input type="radio" name="q41" id="q41-3" value=0>
+	<label for="q41-3">High (less than 60% people disagree with the view that the economic system runs badly in democracies)</label>
+	
+	<p><b>42 · Degree of popular support for democracy.</b></p>
+	<input type="radio" name="q42" id="q42-1" value=1>
+	<label for="q42-1">High (more than 90% people agree or strongly agree that democracy is better than any other form of government)</label><br>
+	<input type="radio" name="q42" id="q42-2" value=0.5>
+	<label for="q42-2">Moderate (75-90% people agree or strongly agree that democracy is better than any other form of government)</label><br>
+	<input type="radio" name="q42" id="q42-3" value=0>
+	<label for="q42-3">Low (less than 75% people agree or strongly agree that democracy is better than any other form of government)</label>
+	
+	<p><b>43 · There is a strong tradition of the separation of church and state.</b></p>
+	<input type="radio" name="q43" id="q43-1" value=1>
+	<label for="q43-1">Yes</label><br>
+	<input type="radio" name="q43" id="q43-2" value=0.5>
+	<label for="q43-2">Some residual influence of church on state</label><br>
+	<input type="radio" name="q43" id="q43-3" value=0>
+	<label for="q43-3">No</label>
+	
+	<h2>V · Civil liberties</h2>
+	
+	<p><b>44 · Is there a free electronic media?</b></p>
+	<input type="radio" name="q44" id="q44-1" value=1>
+	<label for="q44-1">Yes</label><br>
+	<input type="radio" name="q44" id="q44-2" value=0.5>
+	<label for="q44-2">Pluralistic, but state-controlled media are heavily favoured. One or two private owners dominate the media</label><br>
+	<input type="radio" name="q44" id="q44-3" value=0>
+	<label for="q44-3">No</label>
+	
+	<p><b>45 · Is there a free print media?</b></p>
+	<input type="radio" name="q45" id="q45-1" value=1>
+	<label for="q45-1">Yes</label><br>
+	<input type="radio" name="q45" id="q45-2" value=0.5>
+	<label for="q45-2">Pluralistic, but state-controlled media are heavily favoured. There is high degree of concentration of private ownership of national newspapers</label><br>
+	<input type="radio" name="q45" id="q45-3" value=0>
+	<label for="q45-3">No</label>
+	
+	<p><b>46 · Is there freedom of expression and protest?</b> (bar only generally accepted restrictions such as banning advocacy of violence)</p>
+	<input type="radio" name="q46" id="q46-1" value=1>
+	<label for="q46-1">Yes</label><br>
+	<input type="radio" name="q46" id="q46-2" value=0.5>
+	<label for="q46-2">Minority viewpoints are subject to some official harassment. Libel laws restrict heavily scope for free expression</label><br>
+	<input type="radio" name="q46" id="q46-3" value=0>
+	<label for="q46-3">No</label>
+	
+	<p><b>47 · Is media coverage robust?</b> Is there open and free discussion of public issues, with a reasonable diversity of opinions?</p>
+	<input type="radio" name="q47" id="q47-1" value=1>
+	<label for="q47-1">Yes</label><br>
+	<input type="radio" name="q47" id="q47-2" value=0.5>
+	<label for="q47-2">There is formal freedom, but high degree of conformity of opinion, including through self-censorship, or discouragement of minority or marginal views</label><br>
+	<input type="radio" name="q47" id="q47-3" value=0>
+	<label for="q47-3">No</label>
+	
+	<p><b>48 · Are there political restrictions on access to the internet?</b></p>
+	<input type="radio" name="q48" id="q48-1" value=1>
+	<label for="q48-1">No</label><br>
+	<input type="radio" name="q48" id="q48-2" value=0.5>
+	<label for="q48-2">Some moderate restrictions</label><br>
+	<input type="radio" name="q48" id="q48-3" value=0>
+	<label for="q48-3">Yes</label>
+	
+	<p><b>49 · Are citizens free to form professional organisations and trade unions?</b></p>
+	<input type="radio" name="q49" id="q49-1" value=1>
+	<label for="q49-1">Yes</label><br>
+	<input type="radio" name="q49" id="q49-2" value=0.5>
+	<label for="q49-2">Officially free, but subject to some restrictions</label><br>
+	<input type="radio" name="q49" id="q49-3" value=0>
+	<label for="q49-3">No</label>
+	
+	<p><b>50 · Do institutions provide citizens with the opportunity to successfully petition government to redress grievances?</b></p>
+	<input type="radio" name="q50" id="q50-1" value=1>
+	<label for="q50-1">Yes</label><br>
+	<input type="radio" name="q50" id="q50-2" value=0.5>
+	<label for="q50-2">Some opportunities</label><br>
+	<input type="radio" name="q50" id="q50-3" value=0>
+	<label for="q50-3">No</label>
+	
+	<p><b>51 · The use of torture by the state</b></p>
+	<input type="radio" name="q51" id="q51-1" value=1>
+	<label for="q51-1">Torture is not used</label><br>
+	<input type="radio" name="q51" id="q51-2" value=0>
+	<label for="q51-2">Torture is used</label><br>
+	
+	<p><b>52 · The degree to which the judiciary is independent of government influence.</b> Consider the views of international legal and judicial watchdogs. Have the courts ever issued an important judgment against the government, or a senior government official?</p>
+	<input type="radio" name="q52" id="q52-1" value=1>
+	<label for="q52-1">High</label><br>
+	<input type="radio" name="q52" id="q52-2" value=0.5>
+	<label for="q52-2">Moderate</label><br>
+	<input type="radio" name="q52" id="q52-3" value=0>
+	<label for="q52-3">Low</label>
+	
+	<p><b>53 · The degree of religious tolerance and freedom of religious expression.</b> Are all religions permitted to operate freely, or are some restricted? Is the right to worship permitted both publicly and privately? Do some religious groups feel intimidated by others, even if the law requires equality and protection?</p>
+	<input type="radio" name="q53" id="q53-1" value=1>
+	<label for="q53-1">High</label><br>
+	<input type="radio" name="q53" id="q53-2" value=0.5>
+	<label for="q53-2">Moderate</label><br>
+	<input type="radio" name="q53" id="q53-3" value=0>
+	<label for="q53-3">Low</label>
+	
+	<p><b>54 · The degree to which citizens are treated equally under the law.</b> Consider whether favoured members of groups are spared prosecution under the law.</p>
+	<input type="radio" name="q54" id="q54-1" value=1>
+	<label for="q54-1">High</label><br>
+	<input type="radio" name="q54" id="q54-2" value=0.5>
+	<label for="q54-2">Moderate</label><br>
+	<input type="radio" name="q54" id="q54-3" value=0>
+	<label for="q54-3">Low</label>
+	
+	<p><b>55 · Do citizens enjoy basic security?</b></p>
+	<input type="radio" name="q55" id="q55-1" value=1>
+	<label for="q55-1">Yes</label><br>
+	<input type="radio" name="q55" id="q55-2" value=0.5>
+	<label for="q55-2">Crime is so pervasive as to endanger security for large segments</label><br>
+	<input type="radio" name="q55" id="q55-3" value=0>
+	<label for="q55-3">No</label>
+	
+	<p><b>56 · Extent to which private property rights protected and private business is free from undue government influence.</b></p>
+	<input type="radio" name="q56" id="q56-1" value=1>
+	<label for="q56-1">High</label><br>
+	<input type="radio" name="q56" id="q56-2" value=0.5>
+	<label for="q56-2">Moderate</label><br>
+	<input type="radio" name="q56" id="q56-3" value=0>
+	<label for="q56-3">Low</label>
+	
+	<p><b>57 · Extent to which citizens enjoy personal freedoms.</b> Consider gender equality, right to travel, choice of work and study.</p>
+	<input type="radio" name="q57" id="q57-1" value=1>
+	<label for="q57-1">High</label><br>
+	<input type="radio" name="q57" id="q57-2" value=0.5>
+	<label for="q57-2">Moderate</label><br>
+	<input type="radio" name="q57" id="q57-3" value=0>
+	<label for="q57-3">Low</label>
+	
+	<p><b>58 · Popular perceptions on human rights protection;</b> proportion of the population that think that basic human rights are well-protected.</p>
+	<input type="radio" name="q58" id="q58-1" value=1>
+	<label for="q58-1">High (more than 70% of people think that human rights are respected in their country)</label><br>
+	<input type="radio" name="q58" id="q58-2" value=0.5>
+	<label for="q58-2">Moderate (50-70% of people think that human rights are respected in their country)</label><br>
+	<input type="radio" name="q58" id="q58-3" value=0>
+	<label for="q58-3">Low (less than 50% of people think that human rights are respected in their country)</label>
+	
+	<p><b>59 · There is no significant discrimination on the basis of people’s race, colour or creed.</b></p>
+	<input type="radio" name="q59" id="q59-1" value=1>
+	<label for="q59-1">Yes</label><br>
+	<input type="radio" name="q59" id="q59-2" value=0.5>
+	<label for="q59-2">Yes, but some significant exceptions</label><br>
+	<input type="radio" name="q59" id="q59-3" value=0>
+	<label for="q59-3">No</label>
+	
+	<p><b>60 · Extent to which the government invokes new risks and threats as an excuse for curbing civil liberties.</b></p>
+	<input type="radio" name="q60" id="q60-1" value=1>
+	<label for="q60-1">Low</label><br>
+	<input type="radio" name="q60" id="q60-2" value=0.5>
+	<label for="q60-2">Moderate</label><br>
+	<input type="radio" name="q60" id="q60-3" value=0>
+	<label for="q60-3">High</label>
+	</form>
+	<br>
+	<button id="calcButton" onClick="calculateResult()">Calculate result</button> <button onClick="document.getElementById('form').reset(); document.getElementById('form').style = ''; document.getElementById('calcButton').style = ''; document.getElementById('errormsg').style = 'display: none'; document.getElementById('res').style = 'display: none;'">Reset form</button> <br>
+	<br>
+	<font id="errormsg" size="+2" color="red" style="display: none;"><b>All questions must be answered.</b></font>
+	<text id="res" style="display: none;">Electoral process and pluralism: <b id="res1"></b><br>
+	Functioning of government: <b id="res2"></b><br>
+	Political participation: <b id="res3"></b><br>
+	Democratic political culture: <b id="res4"></b><br>
+	Civil liberties: <b id="res5"></b><br>
+	<br>
+	Total results:<br>
+	<b><font size="+2" id="restotal"></font></b>
+	</text>
+	<br><br><br>
+	<script>
+	document.getElementById("form").reset(); 
+	
+	function calculateResult() {
+		var results = 0;
+		var error = false;
+		var currentvar = 0;
+		var queryString = "";
+		
+		var results_1 = 0;
+		var results_2 = 0;
+		var results_3 = 0;
+		var results_4 = 0;
+		var results_5 = 0;
+		
+		var result_name = "";
+		var result_color = "";
+		
+		for (let i = 1; i < (12+1); i++) {
+		  try {currentvar = document.querySelector('input[name="q' + i.toString() + '"]:checked').value} catch (error) {if (error.name == "TypeError") {currentvar = "-1"}};
+		  
+		  if (currentvar == "-1") {error = true; break} else {results_1 = results_1 + parseFloat(currentvar)}
+		}
+		
+		for (let i = 13; i < (26+1); i++) {
+		  try {currentvar = document.querySelector('input[name="q' + i.toString() + '"]:checked').value} catch (error) {if (error.name == "TypeError") {currentvar = "-1"}};
+		  
+		  if (currentvar == "-1") {error = true; break} else {results_2 = results_2 + parseFloat(currentvar)}
+		}
+		
+		for (let i = 27; i < (35+1); i++) {
+		  try {currentvar = document.querySelector('input[name="q' + i.toString() + '"]:checked').value} catch (error) {if (error.name == "TypeError") {currentvar = "-1"}};
+		  
+		  if (currentvar == "-1") {error = true; break} else {results_3 = results_3 + parseFloat(currentvar)}
+		}
+		
+		for (let i = 36; i < (43+1); i++) {
+		  try {currentvar = document.querySelector('input[name="q' + i.toString() + '"]:checked').value} catch (error) {if (error.name == "TypeError") {currentvar = "-1"}};
+		  
+		  if (currentvar == "-1") {error = true; break} else {results_4 = results_4 + parseFloat(currentvar)}
+		}
+		
+		for (let i = 44; i < (60+1); i++) {
+		  try {currentvar = document.querySelector('input[name="q' + i.toString() + '"]:checked').value} catch (error) {if (error.name == "TypeError") {currentvar = "-1"}};
+		  
+		  if (currentvar == "-1") {error = true; break} else {results_5 = results_5 + parseFloat(currentvar)}
+		}
+		
+		if (error == true) {console.log("error"); document.getElementById("errormsg").style = ""; document.getElementById("errormsg").scrollIntoView()} else {
+			results_1 = Math.max((results_1 * 10) / 12 - 1 + Math.min(parseFloat(document.querySelector('input[name="q1"]:checked').value), parseFloat(document.querySelector('input[name="q2"]:checked').value)) - 1 + parseFloat(document.querySelector('input[name="q5"]:checked').value), 0)
+			results_2 = Math.max((results_2 * 10) / 14 - 1 + parseFloat(document.querySelector('input[name="q17"]:checked').value) - ((document.querySelector('#q23-3').checked == true) ? 1 : 0), 0)
+			results_3 = (results_3 * 10) / 9
+			results_4 = (results_4 * 10) / 8
+			results_5 = (results_5 * 10) / 17
+			
+			results = parseInt((results_1 + results_2 + results_3 + results_4 + results_5) / 5 * 100)
+			
+			if (results > 800) {result_name = "Full democracy"; result_color = "blue"} else
+			if (results > 600) {result_name = "Flawed democracy"; result_color = "skyblue"} else
+			if (results > 400) {result_name = "Hybrid regime"; result_color = "orange"} else
+			{result_name = "Authoritarian regime"; result_color = "red"}
+			
+			results = results / 100
+		
+			document.getElementById('calcButton').style = 'display: none'
+			document.getElementById('form').style = 'display: none'
+			document.getElementById("errormsg").style = "display: none"
+			document.getElementById("res").style = ""
+			
+			document.getElementById("res1").innerHTML = results_1.toFixed(2)
+			document.getElementById("res2").innerHTML = results_2.toFixed(2)
+			document.getElementById("res3").innerHTML = results_3.toFixed(2)
+			document.getElementById("res4").innerHTML = results_4.toFixed(2)
+			document.getElementById("res5").innerHTML = results_5.toFixed(2)
+			
+			document.getElementById("restotal").innerHTML = result_name + " (" + results.toFixed(2) + ")"
+			document.getElementById("restotal").color = result_color
+			}
+	}
+	</script>
+  </body>
+</html>

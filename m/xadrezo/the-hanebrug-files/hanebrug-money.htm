@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanebrug money converter</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="all">
+<style>
+	td { text-align: right}
+</style>
+</head><body class="secondary prog">
+<section id="base">
+<h1>Hanebrug money converter</h1>
+<script>
+function roundProp(x) {
+	return Math.round(x * 10) / 10
+}
+
+function convert1() {
+	document.forms.baseform.value2.value = roundProp(document.forms.baseform.value1.value * 9)
+	document.forms.baseform.value3.value = roundProp(document.forms.baseform.value2.value * 9)
+	document.forms.baseform.value4.value = roundProp(document.forms.baseform.value3.value * 9)
+}
+function convert2() {
+	document.forms.baseform.value1.value = roundProp(document.forms.baseform.value2.value / 9)
+	document.forms.baseform.value3.value = roundProp(document.forms.baseform.value2.value * 9)
+	document.forms.baseform.value4.value = roundProp(document.forms.baseform.value3.value * 9)
+}
+function convert3() {
+	document.forms.baseform.value2.value = roundProp(document.forms.baseform.value3.value / 9)
+	document.forms.baseform.value1.value = roundProp(document.forms.baseform.value2.value / 9)
+	document.forms.baseform.value4.value = roundProp(document.forms.baseform.value3.value * 9)
+}
+function convert4() {
+	document.forms.baseform.value3.value = roundProp(document.forms.baseform.value4.value / 9)
+	document.forms.baseform.value2.value = roundProp(document.forms.baseform.value3.value / 9)
+	document.forms.baseform.value1.value = roundProp(document.forms.baseform.value2.value / 9)
+}
+</script>	
+</p><form name="baseform">
+<table>
+<tbody><tr><td>Gold block:</td><td><input type="text" name="value1" oninput="convert1();" value="0"></td></tr><tr><td>Gold bar:</td><td><input type="text" name="value2" oninput="convert2();" value="0"></td></tr><tr><td>Gold nugget:</td><td><input type="text" name="value3" oninput="convert3();" value="0"></td></tr><tr><td>Copper bar:</td><td><input type="text" name="value4" oninput="convert4();" value="0"></td></tr></tbody></table>
+</form>
+</section>
+</body></html>

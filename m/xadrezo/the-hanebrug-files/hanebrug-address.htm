@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanebrug address converter</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="all">
+<style>
+	td { text-align: right}
+</style>
+</head><body class="secondary prog">
+<section id="base">
+<h1>Hanebrug address converter</h1>
+<script>
+var baseLastNum = 0;
+function charToNum(ch) {
+	switch(ch) {
+		case '!': return -1;
+		case '@': return -2;
+		case '#': return -3;
+		case '$': return -4;
+		case '%': return -5;
+		case '^': return -6;
+		case '&': return -7;
+		case '*': return -8;
+		case '(': return -9;
+		default: return parseInt(ch,36);
+	}
+}
+function numToChar(num) {
+	if(num>=0&&num<36&&Math.floor(num)==num)
+		return num.toString(36);
+	else switch(num) {
+		case -1: return '!';
+		case -2: return '@';
+		case -3: return '#';
+		case -4: return '$';
+		case -5: return '%';
+		case -6: return '^';
+		case -7: return '&';
+		case -8: return '*';
+		case -9: return '(';
+		default: return '{'+num+'}';
+	}
+}
+
+function fromBase(str, base) {
+	var num = 0, dec = null, mult = 1;
+	for(var i = 0; i < str.length; i++) {
+		var ch = str.charAt(i);
+		if(i==0&&ch=='+')
+			continue;
+		if(i==0&&ch=='-') {
+			mult = -1;
+			continue;
+		}
+		if(ch==' '||ch=='_') continue;
+		p = ch=='.'||ch==','?'.':charToNum(ch);
+		if(p!=p)
+			return "====";
+		if(dec!=null) {
+			if(p=='.')
+				return "====";
+			num += dec*p;
+			dec /= base;
+		} else if(p=='.') {
+			dec = 1/base;
+		} else {
+			num *= base;
+			num += p;
+		}
+	}
+	return num*mult;
+}
+function toBase(num, base, start) {
+	if((typeof num)!='number')
+		return num;
+	if(num!=num||base!=base||start!=start)
+		return "====";
+	if(Math.abs(num)==Number.POSITIVE_INFINITY)
+		return num;
+	if(base>0&&start>=0&&num<0)
+		return '-'+toBase(-num,base,start);
+	var recip = false;
+	if(Math.abs(base)<1&&base!=0) {
+		base = 1/base;
+		recip = true;
+	}
+	var end = Math.ceil(Math.abs(base)+start);
+	if(num==0)
+		if(0>=start&&0<=end)
+			return '0';
+		else
+			return '(empty string)';
+	if(base==1) {
+		if(start==0)
+			return "====";
+		if(num%start!=0)
+			return "====";
+		var str = '';
+		for(var i = 0; i < num; i++)
+			str += numToChar(start);
+		return str;
+	}
+	if(base==-1)
+		return "====";
+	if(base==0)
+		return "====";
+	var ar = [], high = Math.max(Math.ceil(Math.log(Math.abs(num))/Math.log(Math.abs(base))),0), low = 0;
+	if(Math.floor(base)!=base)
+		ar[high] = num/Math.pow(base,high); // correct standard form (for phinary at least)
+	else
+		ar[0] = num; // more accurate
+	for(var i = high; i>-20; i--) {
+		if(ar[i]==null) ar[i] = 0;
+		if(Math.floor(ar[i])!=ar[i]) {
+			if(ar[i-1]==null) ar[i-1] = 0;
+			ar[i-1] += (ar[i]-Math.floor(ar[i]))*base;
+			ar[i] = Math.floor(ar[i]);
+			low = Math.min(low,i-1);
+		} else if(i<0)
+			break;
+	}
+	if(low<=-20) {
+		low = -19;
+		if(ar[-20]>base/2)
+			ar[-19]++;
+	}
+	for(var i = low; ; i++) {
+		if(ar[i]<start||ar[i]>=end) {
+			if(ar[i]==0&&i>=high || ar[i]==0&&ar[i+1]==0&&high==i+1)
+				break;
+			if(ar[i+1]==null) ar[i+1] = 0;
+			var n = (base<0?Math.ceil:Math.floor)((ar[i]-start)/base);
+			ar[i+1] += n;
+			ar[i] -= n*base;
+			high = Math.max(high,i+1);
+		} else if(i>high)
+			break;
+		if(i>Math.max(Math.ceil(Math.log(Math.abs(num))/Math.log(Math.abs(base))),0)*2+1)
+			return "Conversion failed";
+	}
+	var str = '', zero = true;
+	if(recip) {
+		for(var i = low; i <= 0; i++) {
+			if(ar[i]==0&&zero)
+				continue;
+			if(ar[i]!=0)
+				zero = false;
+			str += numToChar(ar[i]);
+		}
+		if(high>0) {
+			str += '.';
+			for(var i = 1; i <= high; i++)
+				str += numToChar(ar[i]);
+			if(str.match(/\.?0*$/))
+				str = RegExp["$`"];
+		}
+	} else {
+		for(var i = high; i >= 0; i--) {
+			if(ar[i]==0&&zero)
+				continue;
+			if(ar[i]!=0)
+				zero = false;
+			str += numToChar(ar[i]);
+		}
+		if(low<0) {
+			str += '.';
+			for(var i = -1; i >= low && i>-20; i--)
+				str += numToChar(ar[i]);
+			if(str.match(/\.?0*$/))
+				str = RegExp["$`"];
+		}
+	}
+	return str/*+' '+high+'/'+low*/;
+}
+function merge (str1, str2) {
+  var a = str1.split("").filter(Boolean);
+  var b = str2.split("");
+  var mergedString = '';
+  for(var i = 0; i <= a.length && i <= b.length; i++) {
+       mergedString +=  a[i] + b[i];
+    }
+    return mergedString;
+}
+function convertToPseudoOLC(x) {
+	var digit1 = ["(", "*", "&", "^", "%", "$", "#", "@", "!", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a"]
+	var digit2 = ["ｱ", "ｲ", "ｳ", "ｴ", "ｵ", "ｶ", "ｷ", "ｸ", "ｹ", "ｺ", "ｻ", "ｼ", "ｽ", "ｾ", "ｿ", "ﾀ", "ﾁ", "ﾂ", "ﾃ", "ﾄ"]
+	var digit3 = ["H", "J", "L", "M", "P", "Q", "R", "V", "X", "2", "3", "4", "5", "6", "7", "8", "9", "C", "F", "G"]
+	
+	var result = x.toString()
+	
+	for (let i = 0; i < digit1.length; i++) {
+		result = result.replaceAll(digit1[i], digit2[i])
+	}
+	
+	for (let i = 0; i < digit2.length; i++) {
+		result = result.replaceAll(digit2[i], digit3[i])
+	}
+	
+	return result;
+}
+function convertFromPseudoOLC(x) {
+	var digit1 = ["H", "J", "L", "M", "P", "Q", "R", "V", "X", "2", "3", "4", "5", "6", "7", "8", "9", "C", "F", "G"]
+	var digit2 = ["ｱ", "ｲ", "ｳ", "ｴ", "ｵ", "ｶ", "ｷ", "ｸ", "ｹ", "ｺ", "ｻ", "ｼ", "ｽ", "ｾ", "ｿ", "ﾀ", "ﾁ", "ﾂ", "ﾃ", "ﾄ"]
+	var digit3 = ["(", "*", "&", "^", "%", "$", "#", "@", "!", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a"]
+	
+	var result = x.toString()
+	
+	for (let i = 0; i < digit1.length; i++) {
+		result = result.replaceAll(digit1[i], digit2[i])
+	}
+	
+	for (let i = 0; i < digit2.length; i++) {
+		result = result.replaceAll(digit2[i], digit3[i])
+	}
+	
+	return result;
+}
+function vatychon(x) {
+	var digit1 = ["H", "J", "L", "M", "P", "Q", "R", "V", "X", "2", "3", "4", "5", "6", "7", "8", "9", "C", "F", "G"]
+	var digit2 = ["ⵄ", "ⵢ", "ⵍ", "ⵎ", "ⵒ", "ⵇ", "ⵔ", "ⵠ", "ⵞ", "Ꭲ", "Ꭳ", "Ꭴ", "Ꭵ", "Ꭶ", "Ꭷ", "Ꭸ", "Ꭹ", "ⴾ", "ⴼ", "ⴳ"]
+	
+	var result = x.toString()
+	
+	for (let i = 0; i < digit1.length; i++) {
+		result = result.replaceAll(digit1[i], digit2[i])
+	}
+	
+	return result;
+}
+
+var referencePoints = [
+  //{name: " ", x: 0, z: 0},
+];
+
+function d(point) {
+  return Math.pow(point.x, 2) + Math.pow(point.z, 2);
+}
+
+function distance(p, point) {
+    return Math.sqrt(Math.pow(point.x - p.x, 2) + Math.pow(point.z - p.z, 2))
+}
+
+function weirdDistance(p, point) {
+    return Math.sqrt(Math.max(Math.pow(point.x - p.x, 2), Math.pow(point.z - p.z, 2)))
+}
+
+function convert1() {
+	var baseFrom = 10, input1 = document.forms.baseform.value11.value, input2 = document.forms.baseform.value12.value, baseTo = 20, startTo = -9;
+	var num1 = baseFrom=='dec'?parseFloat(input1):fromBase(input1,parseFloat(baseFrom));
+	var num2 = baseFrom=='dec'?parseFloat(input2):fromBase(input2,parseFloat(baseFrom));
+	
+	num1 = parseInt(num1)
+	num2 = parseInt(num2)
+	
+	var padLength = Math.max(3, Math.max(toBase(num1,parseFloat(baseTo),parseFloat(startTo)).toString().length, toBase(num2,parseFloat(baseTo),parseFloat(startTo)).toString().length))
+	
+	var address = merge(String(toBase(num1,parseFloat(baseTo),parseFloat(startTo))).padStart(padLength, "0"), String(toBase(num2,parseFloat(baseTo),parseFloat(startTo))).padStart(padLength, "0")).slice(0, -3)
+	
+	
+	if (address.length > 4) {address = (address.substring(0, address.length-4) + "+" + address.substring(address.length-4)).toString();}
+	
+	var psolc = convertToPseudoOLC(address)
+	document.forms.baseform.value2.value = (psolc.includes("=") ? "Error" : psolc)
+	document.forms.baseform.place.value = ""
+	//document.forms.baseform.valueX.value = vatychon(psolc)
+	
+	/*
+	var point = { x: input1, z: input2},
+    closest = referencePoints.reduce((a, b) => distance(a, point) < distance(b, point) ? a : b);
+	
+	document.forms.baseform.value20.value = ((weirdDistance(closest, point) < 200) ? convertToPseudoOLC(address).slice(-4) + closest.name : "")
+	
+	
+	if (distance(closest, point) < 200) {
+		document.forms.baseform.value20.value = convertToPseudoOLC(address).slice(-4) + closest.name
+	} else if (distance(closest, point) < 4000) {
+		document.forms.baseform.value20.value = convertToPseudoOLC(address).slice(-7) + closest.name
+	} else {
+		document.forms.baseform.value20.value = ""
+	}
+	*/
+}
+function convert2() {
+	var baseFrom = 20, input = document.forms.baseform.value2.value.toUpperCase(), baseTo = 10, startTo = 0;
+	var num = baseFrom=='dec'?parseFloat(input):fromBase(input,parseFloat(baseFrom));
+	baseLastNum = num;
+	
+	if (input.includes("+") == false) {
+		input = document.forms.baseform.place.value + input
+	}
+	
+	input = input.replaceAll("+", "")
+	
+	var input1; var input2;
+	for (let i = 0; i < (input.length/2); i++) {
+		input1 += input[i*2]
+		input2 += input[i*2+1]
+	}
+	
+	if ((input1.length != input2.length) || (input1.includes(".") || (input.length < 6))) {
+		document.forms.baseform.value11.value = "Error"
+		document.forms.baseform.value12.value = "Error"
+		return
+	}
+	
+	var num1 = fromBase(convertFromPseudoOLC(input1).replaceAll("undefined", ""),parseFloat(baseFrom))
+	var num2 = fromBase(convertFromPseudoOLC(input2).replaceAll("undefined", ""),parseFloat(baseFrom))
+	
+	
+	if (toBase(num1,parseFloat(baseTo),parseFloat(startTo)).includes("=") || toBase(num2,parseFloat(baseTo),parseFloat(startTo)).includes("=")) {
+		document.forms.baseform.value11.value = "Error"
+		document.forms.baseform.value12.value = "Error"
+	} else {
+		document.forms.baseform.value11.value = toBase(num1,parseFloat(baseTo),parseFloat(startTo))
+		document.forms.baseform.value12.value = toBase(num2,parseFloat(baseTo),parseFloat(startTo))
+
+	}
+}
+</script>	
+</p><form name="baseform">
+<table>
+<tbody><tr><td>X:</td><td><input type="text" name="value11" oninput="convert1();" value="0"></td></tr><tr><td>Z:</td><td><input type="text" name="value12" oninput="convert1();" value="0"></td><td><input type="button" value="Convert" onclick="convert1();"></td>
+</td></tr><tr><td></td></tr><tr><td>Address:</td><td><input type="text" name="value2" oninput="convert2();" value="22+2222"></td><td><input type="button" value="Convert" onclick="convert2();"></td></tr>
+<tr><td></td><td><select name="place" id="place" style="width: 150px" onclick="convert2();"><option value=""></option><option value="3M+">Hanebrug (3M+)</option><option value="3M+">Sharkville (3M+)</option></select></td></tr></tbody></table>
+</form>
+</section>
+</section>
+</body></html>

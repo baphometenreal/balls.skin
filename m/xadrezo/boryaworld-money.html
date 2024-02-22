@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boryaworld currency converter</title>
+<link href="./css.css" rel="stylesheet" type="text/css" media="all">
+<style>
+	td { text-align: left}
+	input { text-align: right}
+</style>
+</head><body class="secondary prog">
+<section id="base">
+<h1>Boryaworld currency converter</h1>
+<p></p><form name="baseform">
+<table>
+<tbody>
+<tr><td><input type="text" name="valueEUR" oninput="convertEUR();" value="0.00"></td><td> <select name="currency" onchange="convertEUR();"><option value="eur">Euro</option></select> <text id="lastUpdated"></text></td></tr>
+<tr><td><hr></td><td></td></tr>
+<tr><td><input type="text" name="valueLOP" oninput="convertLOP();" value="0"></td><td> Loremese pitaca</td></tr>
+<tr><td><input type="text" name="valueALD" oninput="convertALD();" value="0.00"></td><td> Allotian dujulil</td></tr>
+<tr><td><input type="text" name="valueWNB" oninput="convertWNB();" value="0/0"></td><td> Baphian bouns and tehdh</td></tr>
+<!--<tr><td><input type="text" name="valueBEO" id="valueBEO" oninput="convertBEO();" value="0.00"><input type="text" name="valueBEO1" id="valueBEO1" oninput="convertBEO1();" style="display: none" value="0/0/0"></td><td> Bemanedup epen (<input type="checkbox" id="showBEO1" name="showBEO1" oninput="displayBEO1();"><label for="showBEO1"> show ÿkÿr and orar</label>)</td></tr>-->
+<tr><td><input type="text" name="valueSUZ" oninput="convertSUZ();" value="0.00"></td><td> Sunterian želtihnos</td></tr>
+<tr><td><input type="text" name="valueAZT" oninput="convertAZT();" value="0/0"></td><td> Azkali tokuzke and kátzzom</td></tr>
+</tbody></table>
+</form>
+</section>
+<script>
+var EURround = 2
+
+function roundProp(x, y) {
+	return (parseFloat(x)).toFixed(y)
+}
+
+function convertEUR(except) {
+	if (exchange[document.forms.baseform.currency.value]["date"] == "") {document.getElementById("lastUpdated").innerHTML = ""} else {document.getElementById("lastUpdated").innerHTML = " (last updated " + exchange[document.forms.baseform.currency.value]["date"] + ")"}
+
+	if (document.forms.baseform.currency.value == "jpy" || document.forms.baseform.currency.value == "krw") {EURround = 0} else {EURround = 2}
+	
+	if (except != "LOP") {document.forms.baseform.valueLOP.value = roundProp(document.forms.baseform.valueEUR.value * 200 * exchange[document.forms.baseform.currency.value]["inverseRate"], 0)}
+	if (except != "ALD") {document.forms.baseform.valueALD.value = roundProp(document.forms.baseform.valueEUR.value / 0.3 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)}
+	if (except != "WNB") {
+		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueWNB.value = NaN}
+		else {document.forms.baseform.valueWNB.value = (roundProp(document.forms.baseform.valueEUR.value * (320 * 42) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) < 0 ? "-" : "") + Math.floor(Math.abs(roundProp(document.forms.baseform.valueEUR.value * (320 * 42) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0)) / 42) + "/" + Math.abs(roundProp(document.forms.baseform.valueEUR.value * (320 * 42) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) % 42)}
+		}
+	/*
+	if (except != "BEO") {
+		document.forms.baseform.valueBEO.value = roundProp(document.forms.baseform.valueEUR.value / 29.12 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)
+	}
+	if (except != "BEO1") {
+		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueBEO1.value = NaN} else {
+		var orar = roundProp(document.forms.baseform.valueEUR.value / 29.12 * 144 * exchange[document.forms.baseform.currency.value]["inverseRate"], 0);
+		var ykyr = Math.abs((parseInt(orar / 12)) % 12);
+		var epen = Math.abs(parseInt(orar / 144));
+		orar = Math.abs(orar % 12)
+		
+		document.forms.baseform.valueBEO1.value = (roundProp(document.forms.baseform.valueEUR.value / 29.12 * 144 * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) < 0 ? "-" : "") + (epen + "/" + ykyr + "/" + orar)
+		}
+	}
+	*/
+	if (except != "SUZ") {document.forms.baseform.valueSUZ.value = roundProp(document.forms.baseform.valueEUR.value / 0.47 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)}
+	
+	if (except != "AZT") {
+		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueAZT.value = NaN}
+		else {document.forms.baseform.valueAZT.value = (roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) < 0 ? "-" : "") + Math.floor(Math.abs(roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0)) / 250) + "/" + Math.abs(roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) % 250)}
+		}
+}
+function convertLOP() {
+	document.forms.baseform.valueEUR.value = document.forms.baseform.valueLOP.value / 200 * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("LOP")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
+}
+function convertALD() {
+	document.forms.baseform.valueEUR.value = document.forms.baseform.valueALD.value * 0.3 * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("ALD")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
+}
+function convertWNB() {
+	var bouns = document.forms.baseform.valueWNB.value.split("/"); bouns[0] = parseInt(bouns[0]); bouns[1] = parseInt(bouns[1])
+	var sign; if (Object.is(bouns[0], -0)) {sign = -1} else if (Object.is(bouns[0], 0)) {sign = 1} else {sign = Math.sign(bouns[0])}
+	
+	var bounsVal = sign * (Math.abs(bouns[0] * 42) + Math.abs(bouns[1]))
+	document.forms.baseform.valueEUR.value = bounsVal / (320 * 42) * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("WNB")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
+}
+function convertBEO() {
+	/*
+	document.forms.baseform.valueEUR.value = document.forms.baseform.valueBEO.value * 29.12  * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("BEO")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
+	*/
+}
+function convertBEO1() {
+	/*
+	var epens = document.forms.baseform.valueBEO1.value.split("/"); epens[0] = parseInt(epens[0]); epens[1] = parseInt(epens[1]); epens[2] = parseInt(epens[2])
+	var sign; if (Object.is(epens[0], -0)) {sign = -1} else if (Object.is(epens[0], 0)) {sign = 1} else {sign = Math.sign(epens[0])}
+	
+	var epensVal = sign * (Math.abs(epens[0] * 144) + Math.abs(epens[1] * 12) + Math.abs(epens[2]))
+	
+	document.forms.baseform.valueEUR.value = epensVal * 29.12 / 144 * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("BEO1")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
+	*/
+}
+function convertSUZ() {
+	document.forms.baseform.valueEUR.value = document.forms.baseform.valueSUZ.value * 0.47 * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("SUZ")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
+}
+function convertAZT() {
+	var tokuzke = document.forms.baseform.valueAZT.value.split("/"); tokuzke[0] = parseInt(tokuzke[0]); tokuzke[1] = parseInt(tokuzke[1])
+	var sign; if (Object.is(tokuzke[0], -0)) {sign = -1} else if (Object.is(tokuzke[0], 0)) {sign = 1} else {sign = Math.sign(tokuzke[0])}
+	
+	var tokuzkeVal = sign * (Math.abs(tokuzke[0] * 250) + Math.abs(tokuzke[1]))
+	document.forms.baseform.valueEUR.value = (tokuzkeVal * 1.1433905936879981) / (250) * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("AZT")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
+}
+
+function displayBEO1() {
+	/*
+	if (document.getElementById("showBEO1").checked == true) {
+		document.getElementById("valueBEO").style = "display: none";
+		document.getElementById("valueBEO1").style = "";
+	} else {
+		document.getElementById("valueBEO1").style = "display: none";
+		document.getElementById("valueBEO").style = "";
+	}
+	*/
+}
+
+var exchange = {"eur":{"code":"EUR","alphaCode":"EUR","numericCode":"840","name":"Euro","rate":1,"date":"","inverseRate":1}}
+
+// displayBEO1()
+
+fetch('https://www.floatrates.com/daily/eur.json')
+	.then(res => res.json())
+	.then(out => exchange = Object.assign({}, exchange, out))
+	.then(() => document.forms.baseform.currency.innerHTML += '<option value="usd">US dollars</option><option value="gbp">Pounds sterling</option><option value="jpy">Japanese yen</option><option value="krw">South Korean won</option><option value="czk">Czech koruna</option><option value="kgs">Kyrgyz som</option>')
+
+</script>
+</body></html>

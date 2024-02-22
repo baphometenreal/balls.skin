@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boryaworld Combat Resolver</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+	<h1>Boryaworld Combat Resolver</h1>
+	
+	<form id="form">
+	<table><tbody>
+	<tr><td style="text-align: right;"><b><u>Battle location</u></b></td><td><input type="text" id="battlename" value=""></td></tr>
+	<!--<tr><td style="text-align: right;"><b><u>Date of battle</u></b></td><td><input type="datetime-local" id="battledate"> UTC</td></tr>-->
+	<tr><td colspan=2 style="visibility: hidden;"><hr></td></tr>
+	<tr><td style="text-align: right;"><b><u>Attacker name:</u></b></td><td><input type="text" id="attackname" value="Attacker"></td></tr>
+	<tr><td style="text-align: right;">Troop number:</td><td><input type="number" id="attack" min="0" value="0"></td></tr>
+	<tr><td style="text-align: right;">Troop quality:</td><td><input type="number" id="attackqual" min="0" value="100"> %</td></tr>
+	<tr><td colspan=2 style="visibility: hidden;"><hr></td></tr>
+	<tr><td style="text-align: right;"><b><u>Defender name:</u></b></td><td><input type="text" id="defendname" value="Defender"></td></tr>
+	<tr><td style="text-align: right;">Troop number:</td><td><input type="number" id="defend" min="0" value="0"></td></tr>
+	<tr><td style="text-align: right;">Troop quality:</td><td><input type="number" id="defendqual" min="0" value="100"> %</td></tr>
+	<tr><td style="text-align: right;">Fortification bonus:</td><td><input type="number" id="defendfort" value="0"> %</td></tr>
+	</tbody></table>
+	<br>
+	<button type="button" id="calcButton" onClick="startBattle()"><b>Start combat</b></button> <button type="button" onClick="document.getElementById('form').reset(); resetDatePicker(); document.getElementById('form').style = ''; document.getElementById('errormsg').style = 'display: none'">Reset values</button> <br>
+	</form>
+	<br>
+	<font id="errormsg" size="+2" color="red" style="display: none;"><b>Troop number or quality must not be less than or equal to zero.</b></font>
+	<br><br><br>
+	<script>
+	function resetDatePicker() {
+		/*
+		var now = new Date();
+		var offset = 0 // now.getTimezoneOffset() * 60000;
+		var adjustedDate = new Date(now.getTime() - offset);
+		var formattedDate = adjustedDate.toISOString().substring(0,16);
+		document.getElementById("battledate").value = formattedDate;
+		*/
+	}
+	
+	function parseMinutes(x) {
+		var absTotal= Math.abs(x);
+		var mins= absTotal % 60;
+		var hours = Math.floor(absTotal / 60);
+		var days= Math.floor(hours / 24);
+		var hourss = hours % 24;
+		
+		var dayString = (days != 0) ? days + " day" + (days != 1 ? "s" : "") : ""
+		var hourString = (hourss != 0) ? hourss + " hour" + (hourss != 1 ? "s" : "") : ""
+		var minString  = ((mins != 0) || (absTotal == 0)) ? mins + " minute" + (mins != 1 ? "s" : "") : ""
+		
+		return (dayString + ' '+ hourString + ' '+ minString).trim()
+	}
+	
+	function startBattle() {
+		window.battleround = 0;
+		
+		document.getElementById('errormsg').style = 'display: none'
+		
+		window.battlename = document.getElementById("battlename").value;
+		
+		window.attackname = document.getElementById("attackname").value;
+		window.attack = parseInt(document.getElementById("attack").value)
+		window.attackcasu = 0;
+		window.attackqual = parseFloat(parseInt(document.getElementById("attackqual").value) * 0.01);
+		
+		window.defendname = document.getElementById("defendname").value;
+		window.defend = parseInt(document.getElementById("defend").value);
+		window.defendcasu = 0;
+		window.defendqual = parseFloat(parseInt(document.getElementById("defendqual").value) * 0.01);
+		window.defendfort = parseFloat(parseInt(document.getElementById("defendfort").value) * 0.01);
+		
+		window.startdate = 0;
+		window.roundtime = Math.floor( Math.round(7.5 * (Math.min(window.attack, window.defend) ** 0.301)) / 5) * 5 * Math.min(72, Math.round(0.701 * Math.exp(1.18 * Math.abs(window.defendfort))));
+		
+		if ((window.attack * window.attackqual == 0) || ((window.defend * window.defendqual) + (window.defend * window.defendqual * window.defendfort) <= 0)) {
+			document.getElementById('errormsg').style = ''
+		} else {
+			document.getElementById("form").innerHTML = '<h2 id="battlename">Battle of X · Round 1</h2><table style="table-layout: fixed; width: 600px;"><tbody><tr><td colspan="2" style="text-align: center;"><b><u id="attackname">Attacker</u></b></td><td style="table-layout: fixed; width: 10%;"></td><td style="text-align: center;" colspan="2"><b><u id="defendname">Defender</u></b></td></tr><tr><td style="text-align: right;">Troop number:</td><td style="text-align: right;"><b id="attack">0</b></td><td></td><td style="text-align: right;">Troop number:</td><td style="text-align: right;"><b id="defend">0</b></td></tr><tr style="color: red;"><td style="text-align: right;">Casualties:</td><td style="text-align: right;"><b id="attackcasu">0</b>%</td><td></td><td style="text-align: right;">Casualties:</td><td style="text-align: right;"><b id="defendcasu">0</b>%</td></tr><tr><td style="text-align: right;">Troop quality:</td><td style="text-align: right;"><b id="attackqual">0</b>%</td><td></td><td style="text-align: right;">Troop quality:</td><td style="text-align: right;"><b id="defendqual">0</b>%</td></tr><tr><td style="text-align: right;"></td><td style="text-align: right;"></td><td></td><td style="text-align: right;">Fort. bonus:</td><td style="text-align: right;">+<b id="defendfort">0</b>%</td></tr><tr><td style="text-align: right;"><b>Effective attack:</b></td><td style="text-align: right;"><b id="effectiveattack">0</b></td><td></td><td style="text-align: right;"><b>Effective defence:</b></td><td style="text-align: right;"><b id="effectivedefend">0</b></td></tr><tr><td colspan="2" style="visibility: hidden;"><hr></td></tr><tr><td style="text-align: right;">Attack roll:</td><td style="text-align: right;"><b id="rollattack">0</b></td><td></td><td style="text-align: right;">Defence roll:</td><td style="text-align: right;"><b id="rolldefend">0</b></td></tr><tr><td id="outnumberA" style="text-align: right;">Outnumber:</td><td style="text-align: right;">+<b id="outnumberattack">0</b></td><td></td><td id="outnumberD" style="text-align: right;">Outnumber:</td><td style="text-align: right;">+<b id="outnumberdefend">0</b></td></tr><tr><td colspan="5" style="text-align: center;"><b id="rollresult">Attacker wins by 0</b></td></tr><tr><td colspan="2" style="visibility: hidden;"><hr></td></tr><tr style="color: red;"><td style="text-align: right;">New casualties:</td><td style="text-align: right;">+<b id="attacknewcasu">0</b>%</td><td></td><td style="text-align: right;">New casualties:</td><td style="text-align: right;">+<b id="defendnewcasu">0</b>%</td></tr><tr style="color: red;"><td style="text-align: right;">Total casualties:</td><td style="text-align: right;"><b id="attacktotalcasu">0</b>%</td><td></td><td style="text-align: right;">Total casualties:</td><td style="text-align: right;"><b id="defendtotalcasu">0</b>%</td></tr></tbody></table><br><section id="nextround"><button type="button" id="calcButton" onclick="nextRound()"><b>Next round</b></button><br><button type="button" id="attackgiveup" onclick="battleEnd(false, true)">Attacker retreat</button> <button type="button" id="bothgiveup" onclick="battleEnd(true, true)">Ceasefire</button> <button type="button" id="defendgiveup" onclick="battleEnd(true, false)">Defender retreat</button></section>'
+			
+			document.getElementById("calcButton").innerHTML = "<b>Next round</b> (+" + parseMinutes(window.roundtime) + ")"
+			document.getElementById("attackname").innerHTML = window.attackname
+			document.getElementById("defendname").innerHTML = window.defendname
+			
+			document.getElementById("attackgiveup").innerHTML = window.attackname + " retreat"
+			document.getElementById("defendgiveup").innerHTML = window.defendname + " retreat"
+			
+			nextRound()
+		}
+	}
+	
+	function rollD20() {
+		return Math.floor(Math.random() * 20) + 1;
+	}
+	
+	function outnumberBonus(x, y) {
+		return Math.max(0, Math.round(5.184 * Math.log(x / y) + 0.0693))
+	}
+	
+	function getCasualties(y) {
+		var win = 0
+		var lose = 0
+		
+		var x = Math.abs(y)
+		
+		lose = parseInt(Math.min(Math.floor(Math.round(10.0958 * Math.pow(x + 1, 0.449486))/5)*5, 100))
+		
+		// error correction!
+		if (x == 1) {lose += 5}
+		
+		if (x < 7) {
+			win = 10;
+		} else if (x < 15) {
+			win = 5;
+		} else {
+			win = 0;
+		}
+		
+		if (y < 0) { 
+			return [lose, win]
+		} else {
+			return [win, lose]
+		}
+	}
+	
+	function FFP(x) {
+		return parseFloat(x.toFixed(2))
+	}
+	
+	function battleEnd(attackwin, defendwin) {
+		document.getElementById("nextround").innerHTML = '<table style="table-layout: fixed; width: 600px;"><tbody><tr><td colspan="5" style="text-align: center;"><b><font size="+2" id="battleresult">Victory for Attacker</font></b></td></tr><tr><td style="text-align: right;">Unharmed:</td><td style="text-align: right;"><b id="attackunharm">0</b></td><td></td><td style="text-align: right;">Unharmed:</td><td style="text-align: right;"><b id="defendunharm">0</b></td></tr><tr><td style="text-align: right;">Recovered:</td><td style="text-align: right;"><b id="attackrecover">0</b></td><td></td><td style="text-align: right;">Recovered:</td><td style="text-align: right;"><b id="defendrecover">0</b></td></tr><tr><td style="text-align: right;"><b>Total survivors:</b></td><td style="text-align: right;"><b id="attacksurvive">0</b></td><td></td><td style="text-align: right;"><b>Total survivors:</b></td><td style="text-align: right;"><b id="defendsurvive">0</b></td></tr><tr><td colspan="2" style="visibility: hidden;"><hr></td></tr><tr style="color: red;"><td style="text-align: right;">Fell in battle:</td><td style="text-align: right;"><b id="attackfell">0</b></td><td></td><td style="text-align: right;">Fell in battle:</td><td style="text-align: right;"><b id="defendfell">0</b></td></tr><tr style="color: red;"><td style="text-align: right;">Fled:</td><td style="text-align: right;"><b id="attackfled">0</b></td><td></td><td style="text-align: right;">Fled:</td><td style="text-align: right;"><b id="defendfled">0</b></td></tr><tr style="color: red;"><td style="text-align: right;"><b>Total casualties:</b></td><td style="text-align: right;"><b id="attackallcasu">0</b></td><td></td><td style="text-align: right;"><b>Total casualties:</b></td><td style="text-align: right;"><b id="defendallcasu">0</b></td></tr></tbody></table>'
+
+		window.attackcasu = FFP(window.attackcasu)
+		window.defendcasu = FFP(defendcasu)
+		
+		var attackunharm = 0
+		var attackrecover = 0
+		var attacktruecasu = 0
+		var attackallcasu = 0
+		var attackfell = 0
+		var attackfled = 0
+		
+		var defendunharm = 0
+		var defendrecover = 0
+		var defendtruecasu = 0
+		var defendallcasu = 0
+		var defendfell = 0
+		var defendfled = 0
+		
+		if (attackwin == true) {
+			// true casualties are casualties halved & round down to nearest 5
+			attacktruecasu = FFP(Math.floor(window.attackcasu / 2 / 5 * 100) * 5 / 100)
+			document.getElementById("battleresult").innerHTML = "Victory for " + window.attackname
+		} else {
+			attacktruecasu = window.attackcasu
+		}
+		
+		if (defendwin == true) {
+			// true casualties are casualties halved & round down to nearest 5
+			defendtruecasu = FFP(Math.floor(window.defendcasu / 2 / 5 * 100) * 5 / 100)
+			document.getElementById("battleresult").innerHTML = "Victory for " + window.defendname
+		} else {
+			defendtruecasu = window.defendcasu
+		}
+		
+		if (attackwin == defendwin) {document.getElementById("battleresult").innerHTML = "Inconclusive result"}
+		
+		console.log(attacktruecasu + "; " + defendtruecasu)
+		
+		attackrecover = Math.floor(window.attack * FFP(window.attackcasu - attacktruecasu))
+		attackunharm = Math.round(window.attack - (window.attack * FFP(attacktruecasu))) - attackrecover
+		attackallcasu = window.attack - attackrecover - attackunharm
+		attackfell = Math.ceil(attackallcasu / 2)
+		attackfled = Math.floor(attackallcasu / 2)
+		
+		defendrecover = Math.floor(window.defend * FFP(window.defendcasu - defendtruecasu))
+		defendunharm = Math.round(window.defend - (window.defend * FFP(defendtruecasu))) - defendrecover
+		defendallcasu = window.defend - defendrecover - defendunharm
+		defendfell = Math.ceil(defendallcasu / 2)
+		defendfled = Math.floor(defendallcasu / 2)
+		
+		
+		document.getElementById("attackunharm").innerHTML = attackunharm
+		document.getElementById("attackrecover").innerHTML = attackrecover
+		document.getElementById("attacksurvive").innerHTML = attackunharm + attackrecover
+		document.getElementById("attackfell").innerHTML = attackfell
+		document.getElementById("attackfled").innerHTML = attackfled
+		document.getElementById("attackallcasu").innerHTML = attackallcasu
+		
+		document.getElementById("defendunharm").innerHTML = defendunharm
+		document.getElementById("defendrecover").innerHTML = defendrecover
+		document.getElementById("defendsurvive").innerHTML = defendunharm + defendrecover
+		document.getElementById("defendfell").innerHTML = defendfell
+		document.getElementById("defendfled").innerHTML = defendfled
+		document.getElementById("defendallcasu").innerHTML = defendallcasu
+	}
+	
+	function nextRound() {
+		// new round starts!
+		window.battleround += 1
+		var battletime = parseInt(window.startdate + (window.roundtime * (window.battleround)))
+		document.getElementById("battlename").innerHTML = ((window.battlename != "") ? "Battle of " + window.battlename + " · " : "") + "Round " + window.battleround + " · " + parseMinutes(battletime) + " in"
+		
+		// effective strengths, very important
+		var effectiveattack = (window.attack - (window.attackcasu * window.attack)) * window.attackqual
+		document.getElementById("attack").innerHTML = window.attack
+		document.getElementById("attackcasu").innerHTML = (window.attackcasu * 100).toFixed(0)
+		document.getElementById("attackqual").innerHTML = (window.attackqual * 100).toFixed(0)
+		document.getElementById("effectiveattack").innerHTML = effectiveattack.toFixed(1)
+		
+		var effectivedefend = ((window.defend - (window.defendcasu * window.defend)) * window.defendqual) + ((window.defend - (window.defendcasu * window.defend)) * window.defendqual) * window.defendfort
+		document.getElementById("defend").innerHTML = window.defend
+		document.getElementById("defendcasu").innerHTML = (window.defendcasu * 100).toFixed(0)
+		document.getElementById("defendqual").innerHTML = (window.defendqual * 100).toFixed(0)
+		document.getElementById("defendfort").innerHTML = (window.defendfort * 100).toFixed(0)
+		document.getElementById("effectivedefend").innerHTML = effectivedefend.toFixed(1)
+		
+		// da rolls
+		var rollattack = rollD20()
+		var rolldefend = rollD20()
+		document.getElementById("rollattack").innerHTML = rollattack
+		document.getElementById("rolldefend").innerHTML = rolldefend
+		
+		var outnumberattack = outnumberBonus(effectiveattack, effectivedefend)
+		var outnumberdefend = outnumberBonus(effectivedefend, effectiveattack)
+		document.getElementById("outnumberattack").innerHTML = outnumberattack
+		document.getElementById("outnumberdefend").innerHTML = outnumberdefend
+		
+		var rollresult = (rollattack + outnumberattack) - (rolldefend + outnumberdefend)
+		if (rollresult > 0) {
+			document.getElementById("rollresult").innerHTML = window.attackname + " wins by " + rollresult
+		} else if (rollresult < 0) {
+			document.getElementById("rollresult").innerHTML = window.defendname + " wins by " + (-1 * rollresult)
+		} else {
+			document.getElementById("rollresult").innerHTML = "Inconclusive result"
+		}
+		
+		var casualties = getCasualties(rollresult)
+		window.attackcasu = FFP(Math.min(1, window.attackcasu + casualties[0] * 0.01));
+		window.defendcasu = FFP(Math.min(1, window.defendcasu + casualties[1] * 0.01));
+		document.getElementById("attacknewcasu").innerHTML = casualties[0]
+		document.getElementById("attacktotalcasu").innerHTML = (window.attackcasu * 100).toFixed(0)
+		document.getElementById("defendnewcasu").innerHTML = casualties[1]
+		document.getElementById("defendtotalcasu").innerHTML = (window.defendcasu * 100).toFixed(0)
+		
+		if ((window.attackcasu == 1) || (window.defendcasu == 1)) {
+			battleEnd(!(window.attackcasu == 1), !(window.defendcasu == 1))
+		}
+		
+	}
+	
+	document.getElementById("form").reset(); 
+	resetDatePicker()
+	</script>
+  </body>
+</html>

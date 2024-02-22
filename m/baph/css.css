@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "Dark and Black";
+  src: url("./font/dab.otf");
+}
+
+h1 {font-family: "Dark and black"}
