@@ -1,0 +1,684 @@
+Let's make a game!
+	name:Jarvis Clicker
+	by:Noelle
+	desc:This is a simple idle game to showcase some of the basic functionalities of Idle Game Maker.<//>Make jarvises and shoot for the stars!
+	created:25/7/2017
+	updated:24/10/2017
+	version:1
+
+Settings
+	tiling background:https://balls.skin/jarvisclicker/img/ocean.png
+	building cost increase:110%
+	building cost refund:50%
+	spritesheet:icons, 48 by 48, https://balls.skin/jarvisclicker/img/icons.png
+	//stylesheet:stuff/bigBlue.css
+
+Layout
+	use default
+		
+Buttons
+	*jarvisButton
+		name:Make a jarvis
+		desc:Click this little jarvis to get more jarvises!
+		on click:anim icon wobble
+		on click:yield 1 jarvis
+		//on click:if (have goldenTouch and chance(1%)) yield 1 goldenCarrot
+		icon:https://balls.skin/jarvisclicker/img/jarvis.png
+		no text
+		class:bigButton hasFlares
+		icon class:shadowed
+		tooltip origin:bottom
+		tooltip class:red
+
+Resources
+	*jarvis|jarvises
+		name:Jarvis|Jarvises
+		desc:These are your jarvises. You can use them to purchase things. Your goal is to have as many jarvises as possible!
+		icon:icons[0,0]
+		class:noBackground
+		show earned
+	*organ|organs
+	  name:Organ|Organs
+	  icon:icons[1,0]
+	  desc:These are your organs. You can use these later when you reach a certain point.
+	  class:noBackground
+		show earned
+		
+Shinies
+  *chiquita
+    name:Rei Chiquita
+    on click:yield 1 organ
+    icon:icons[0,6]
+    movement:onLeft pulse bounce moveRight
+    req:trex
+    
+    req:trex
+  *moneystealer
+    name:Money stealer
+    movement:onThing:jarvisButton pulse
+    icon:icons[1,6]
+    frequency:(random(60,120))
+    on tick:yield -1%jarvis
+    req:100 jarvises:earned
+
+Buildings
+  *remora|remoras
+		name:Remora|Remoras
+		desc:A little fish that helps jarvises.
+		icon:icons[0,2]
+		cost:50 jarvises
+		on tick:yield 0.1 jarvis
+		unlocked
+	*isopod|isopods
+	  name:Isopod|Isopods
+	  desc:Oddly enough not named jim.
+	  icon:icons[1,2]
+	  cost:200 jarvises
+		on tick:yield 1 jarvis
+		req:200 jarvises:earned
+	*giraffe|giraffes
+	  name:Giraffe|Giraffes
+	  desc:Maybe might be from the demon realm?
+	  icon:icons[2,2]
+	  cost:1000 jarvises
+		on tick:yield 5 jarvis
+		req:2000 jarvises:earned
+	*orangecat|orangecats
+	  name:Orange Cat|Orange Cats
+	  desc:Guillermo the himbo
+	  icon:icons[3,2]
+	  cost:2000 jarvises
+		on tick:yield 20 jarvis
+		req:5000 jarvises:earned
+	*elephant|elephants
+	  name:Elephant|Elephants
+	  desc:Hates mice for some reason
+	  icon:icons[4,2]
+	  cost:6000 jarvises
+		on tick:yield 50 jarvis
+		req:15000 jarvises:earned
+	*dog|dogs
+	  name:Dog|Dogs
+	  desc:Lazy fucking shit
+	  icon:icons[5,2]
+	  cost:75000 jarvises
+		on tick:yield 100 jarvis
+		req:20000 jarvises:earned
+	*angel|angels
+	  name:Angel|Angels
+	  cost increase:195%
+	  desc:Gender
+	  icon:icons[6,2]
+	  cost:100000 jarvises
+	  on tick:yield 250 jarvis
+	  req:150000 jarvises:earned
+	*devil|devils
+	  name:Devil|Devils
+	  cost increase:195%
+	  desc:Gender?
+	  icon:icons[7,2]
+	  cost:150000 jarvises
+	  on tick:yield 500 jarvis
+	  req:200000 jarvises:earned
+	*vampire|vampires
+	  name:Vampire|Vampires
+	  cost increase:200%
+	  desc:Very gender
+	  icon:icons[8,2]
+	  cost:200000 jarvises
+	  on tick:yield 1000 jarvis
+	  req:250000 jarvises:earned
+	*zombie|zombies
+	  name:Zombie|Zombies
+	  cost increase:200%
+	  desc:Not very gender
+	  icon:icons[9,2]
+	  cost:250000 jarvises
+	  on tick:yield 1250 jarvis
+	  req:300000 jarvises:earned
+	*yokai
+	  name:Yokai
+	  cost increase:200%
+	  desc:Japanese ghosts? idk man
+	  icon:icons[10,2]
+	  cost:300000 jarvises
+	  on tick:yield 1500 jarvis
+	  req:500000 jarvises:earned
+  *wolf|wolves
+	  name:Wolf
+	  cost increase:225%
+	  desc:Majestic creatures...
+	  icon:icons[11,2]
+	  cost:500000 jarvises
+	  on tick:yield 5000 jarvis
+	  req:1000000 jarvises:earned
+	 *snail|snails
+	  name:Snail
+	  cost increase:225%
+	  desc:Best creature ever...
+	  icon:icons[12,2]
+	  cost:750000 jarvises
+	  on tick:yield 10001 jarvis
+	  req:10000000 jarvises:earned
+	 *cockroach|cockroaches
+	  name:Cockroach
+	  cost increase:225%
+	  desc:Best creature ever...
+	  icon:icons[13,2]
+	  cost:7500000 jarvises
+	  on tick:yield 200000 jarvis
+	  req:1000000000 jarvises:earned and 69 wolves
+	  
+Upgrades
+  *monster
+  		name:Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[0,3]
+  		cost:200 jarvises
+  		passive:increase jarvis yield of jarvisButton by 1
+	  	unlocked
+  *hamburger
+  		name:Hamburger
+  		desc:Nicely grilled burger, Jarvises can't eat it but the remoras can.
+  		icon:icons[0,1]
+  		cost:1000 jarvises
+  		passive:multiply yield of remoras by 2
+	  	req:1000 jarvises:earned and remora
+	  *strawberrymonster
+  		name:Strawberry Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[1,3]
+  		cost:500 jarvises
+  		passive:increase jarvis yield of jarvisButton by 1
+	  	req:500 jarvises:earned
+	  *cucumber
+  		name:Cucumber
+  		desc:Not a pickle.
+  		icon:icons[1,1]
+  		cost:1000 jarvises
+  		passive:multiply yield of isopods by 2
+	  	req:3000 jarvises:earned and hamburger and isopod
+	  *dreamsiclemonster
+  		name:Orange Dreamsicle Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[2,3]
+  		cost:1000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 1
+	  	req:1000 jarvises:earned
+	  *banana
+  		name:Banana
+  		desc:Grandpa's love this thing because of WW2, and so do giraffes!
+  		icon:icons[2,1]
+  		cost:1500 jarvises
+  		passive:multiply yield of giraffes by 2
+	  	req:5000 jarvises:earned and hamburger and giraffe
+	  *pipelinemonster
+  		name:Pipeline Punch Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[3,3]
+  		cost:1000 jarvises
+  		passive:multiply jarvis yield of jarvisButton by 2
+	  	req:2000 jarvises:earned and dreamsiclemonster
+	  *mooncake
+  		name:Mooncake
+  		desc:Asian food that cats like
+  		icon:icons[3,1]
+  		cost:2000 jarvises
+  		passive:multiply yield of orangecat by 2
+	  	req:7500 jarvises:earned and banana and orangecat
+	  *rosamonster
+  		name:Rosa Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[4,3]
+  		cost:1000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 5
+	  	req:5000 jarvises:earned and pipelinemonster
+	  *peanut
+  		name:Peanut
+  		desc:Pwee nut
+  		icon:icons[4,1]
+  		cost:5000 jarvises
+  		passive:multiply yield of elephant by 2
+	  	req:20000 jarvises:earned and mooncake and elephant
+	  *littlegulp
+	    name:Little Gulp
+	    desc:Literally who the fuck drinks from a little gulp cup does 7/11 even carry these still?
+	    icon:icons[0,4]
+	    cost:10000 jarvises
+	    passive:multiply yield of jarvises by 2
+	    req:50000 jarvises:earned and peanut
+	 *limemonster
+  		name:Lime Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[0,3]
+  		cost:2000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 7
+	  	req:littlegulp
+	 *meat
+	    name:Meat
+	    desc:Literally is rotting, only a dog would eat this
+	    icon:icons[5,1]
+	    cost:10000 jarvises
+	    passive:multiply yield of dog by 2
+	    req:littlegulp and dog
+	 *pinkmonster
+  		name:Pink Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[1,3]
+  		cost:3000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 6
+	  	req:meat
+	 *lollipop
+	    name:Lollipop
+	    desc:Do not forget both Ls
+	    icon:icons[6,1]
+	    cost:15000 jarvises
+	    passive:multiply yield of angel by 2
+	    req:meat and angel
+	 *orangemonster
+  		name:Orange Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[2,3]
+  		cost:4000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 6
+	  	req:lollipop
+	 *lamb
+	    name:Lamb
+	    desc:Sacrife this lamb to all your little devils
+	    icon:icons[7,1]
+	    cost:25000 jarvises
+	    passive:multiply yield of devils by 2
+	    req:lollipop and devil
+	 *redmonster
+  		name:Red Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[3,3]
+  		cost:5000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 6
+	  	req:lamb
+	 *blood
+	    name:Blood
+	    desc:A bloody needle for your vampires
+	    icon:icons[8,1]
+	    cost:30000 jarvises
+	    passive:multiply yield of vampires by 2
+	    req:lamb and vampire
+	 *mauvemonster
+  		name:Mauve Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[4,3]
+  		cost:5000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 6
+	  	req:blood
+	 *brain
+	    name:Brain
+	    desc:Where did you even get this?
+	    icon:icons[9,1]
+	    cost:35000 jarvises
+	    passive:multiply yield of zombies by 2
+	    req:blood and zombie
+	 *whitemonster
+  		name:White Monster
+  		desc:Energizes your jarvises.
+  		icon:icons[5,3]
+  		cost:6000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 6
+	  	req:brain
+	 *mushroom
+	    name:mushroom
+	    desc:A nicely picked mushroom, ghosts love this shit
+	    icon:icons[10,1]
+	    cost:75000 jarvises
+	    passive:multiply yield of yokai by 2
+	    req:yokai and brain
+	 *humanflesh
+	    name:Human Flesh
+	    desc:How are you getting this... anyway wolves like this
+	    icon:icons[11,1]
+	    cost:100000 jarvises
+	    passive:multiply yield of wolves by 2
+	    req:mushroom and wolves
+	 *leaves
+	    name:Leaves
+	    desc:how wholesome! snails will love this
+	    icon:icons[12,1]
+	    cost:500000 jarvises
+	    passive:multiply yield of snails by 2
+	    req:humanflesh and snails
+	 *mediumgulp
+	    name:Medium Gulp
+	    desc:Pretty big but not too big
+	    icon:icons[0,4]
+	    cost:50000 jarvises
+	    passive:multiply yield of jarvises by 2
+	    req:500000 jarvises:earned and humanflesh
+	 *stega
+	    name:Stegasaurus
+	    desc:Stegasaurus? Interesting...
+	    passive:multiply yield of jarvises by 10
+	    cost:100000 jarvises
+	    req:1000000 jarvises:earned and mushroom
+	    icon:icons[0,5]
+	 *hamburger2
+	    name:Hamburger L2
+	    desc:Another hamburger
+	    icon:icons[0,1]
+  		cost:100000 jarvises
+  		passive:multiply yield of remoras by 8
+  		req:1000000 jarvises:earned and mushroom
+   *monster2
+  		name:Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[0,3]
+  		cost:100000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 12
+	  	req:hamburger2
+   *cucumber2
+      name:Cucumber L2
+      desc:Another cucumber
+      icon:icons[1,1]
+      cost:1000000 jarvis
+      passive:multiply yield of isopods by 8
+      req:3000000 jarvis:earned and hamburger2
+   *strawberrymonster2
+  		name:Strawberry Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[1,3]
+  		cost:1000000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 12
+	  	req:cucumber2
+   *banana2
+  		name:Banana L2
+  		desc:Grandpa's love this thing because of WW2, and so do giraffes!
+  		icon:icons[2,1]
+  		cost:2000000 jarvises
+  		passive:multiply yield of giraffes by 8
+	  	req:5000000 jarvises:earned and cucumber2
+	 *dreamsiclemonster2
+  		name:Orange Dreamsicle Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[2,3]
+  		cost:2000000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 12
+	  	req:banana2
+   *mooncake2
+  		name:Mooncake L2
+  		desc:Asian food that cats like
+  		icon:icons[3,1]
+  		cost:3000000 jarvises
+  		passive:multiply yield of orangecat by 8
+	  	req:10000000 jarvises:earned and banana2
+	  *pipelinemonster2
+  		name:Pipeline Punch Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[3,3]
+  		cost:3000000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 24
+	  	req:mooncake2
+	  *peanut2
+	    name:Peanut L2
+	    desc:Pee nut
+	    icon:icons[4,1]
+	    cost:5000000 jarvises
+	    passive:multiply yield of orangecat by 8
+	    req:15000000 jarvises:earned and mooncake2
+	  *rosamonster2
+  		name:Rosa Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[4,3]
+  		cost:5000000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 24
+	  	req:peanut2
+	  *meat2
+	    name:Meat L2
+	    desc:Literally is rotting, only a dog would eat this
+	    icon:icons[5,1]
+	    cost:7500000 jarvises
+	    passive:multiply yield of dog by 8
+	    req:30000000 jarvises:earned and peanut2
+	  *limemonster2
+  		name:Lime Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[0,3]
+  		cost:7500000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 24
+	  	req:meat2
+	  *lollipop2
+	    name:Lollipop L2
+	    desc:Do not forget both Ls
+	    icon:icons[6,1]
+	    cost:8000000 jarvises
+	    passive:multiply yield of angel by 8
+	    req:75000000 jarvises:earned and meat2
+	  *pinkmonster2
+  		name:Pink Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[1,3]
+  		cost:8000000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 36
+  		req:lollipop2
+	  *lamb2
+	    name:Lamb L2
+	    desc:Sacrife this lamb to all your little devils
+	    icon:icons[7,1]
+	    cost:9500000 jarvises
+	    passive:multiply yield of devils by 2
+	    req:95000000 jarvises:earned and lollipop2
+	  *orangemonster2
+  		name:Orange Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[2,3]
+  		cost:9500000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 36
+	  	req:lamb2
+	  *blood2
+	    name:Blood L2
+	    desc:A bloody needle for your vampires
+	    icon:icons[8,1]
+	    cost:10000000 jarvises
+	    passive:multiply yield of vampires by 8
+	    req:100000000 jarvises:earned and lamb2
+	  *redmonster2
+  		name:Red Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[3,3]
+  		cost:10000000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 36
+	  	req:blood2
+	  *brain2
+	    name:Brain L2
+	    desc:Where did you even get this?
+	    icon:icons[9,1]
+	    cost:15000000 jarvises
+	    passive:multiply yield of zombies by 8
+	    req:150000000 jarvises:earned and blood2
+	  *mauvemonster2
+  		name:Mauve Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[4,3]
+  		cost:15000000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 48
+	  	req:brain2
+	  *mushroom2
+	    name:Mushroom L2
+	    desc:A nicely picked mushroom, ghosts love this shit
+	    icon:icons[10,1]
+	    cost:20000000 jarvises
+	    passive:multiply yield of yokai by 8
+	    req:200000000 jarvises and brain2
+	  *whitemonster2
+  		name:White Monster L2
+  		desc:Energizes your jarvises.
+  		icon:icons[5,3]
+  		cost:20000000 jarvises
+  		passive:increase jarvis yield of jarvisButton by 48
+	  	req:mushroom2
+	  *humanflesh2
+	    name:Human Flesh
+	    desc:How are you getting this... anyway wolves like this
+	    icon:icons[11,1]
+	    cost:2000000000 jarvises
+	    passive:multiply yield of wolves by 8
+	    req:mushroom2
+	 *leaves2
+	    name:Leaves
+	    desc:how wholesome! snails will love this
+	    icon:icons[12,1]
+	    cost:50000000 jarvises
+	    passive:multiply yield of snails by 8
+	    req:humanflesh2
+	  *biggulp
+	    name:Big Gulp
+	    desc:Big but not too big
+	    icon:icons[0,4]
+	    cost:5000000 jarvises
+	    passive:multiply yield of jarvises by 8
+	    req:500000 jarvises:earned and leaves2
+	 *trex
+	    name:T-rex
+	    desc:What the fuck? Dinosaurs? In my Jarvisclicker?...
+	    passive:multiply yield of jarvises by 20
+	    cost:10000000 jarvises
+	    req:100000000 jarvises:earned and leaves2
+	    icon:icons[1,5]
+	 *tree
+	    name:Tree
+	    desc:Just a tree?
+	    cost:2500000000000 jarvises and 100 organs
+	    passive:multiply jarvis yield of jarvisButton by 48
+	    req:trex and 2500000000 jarvises:earned
+	    
+Achievements
+  *00001a
+  icon:icons[0,0]
+  name:Wowie! Your first Jarvis!
+  req:1 jarvisButton:clicks
+  *00002a
+  icon:icons[0,0]
+  name:100 jarvises clicked!
+  req:100 jarvisButton:clicks
+  *00003a
+  icon:icons[0,0]
+  name:1000 jarvises clicked!
+  req:1000 jarvisButton:clicks
+  *00004a
+  icon:icons[0,0]
+  name:10000 jarvises clicked!
+  req:10000 jarvisButton:clicks
+  *00005a
+  icon:icons[0,0]
+  name:100000 jarvises clicked!
+  req:100000 jarvisButton:clicks
+  *00006a
+  icon:icons[0,0]
+  name:1000000 jarvises clicked!
+  req:1000000 jarvisButton:clicks
+  *00007a
+  icon:icons[0,0]
+  name:10000000 jarvises clicked!
+  req:10000000 jarvisButton:clicks
+  *00008a
+  icon:icons[0,0]
+  name:100000000 jarvises clicked!
+  req:100000000 jarvisButton:clicks
+  *00009a
+  icon:icons[0,0]
+  name:1000000000 jarvises clicked!
+  req:1000000000 jarvisButton:clicks
+  *00000a
+  icon:icons[0,0]
+  name:10000000000 jarvises clicked!
+  req:10000000000 jarvisButton:clicks
+  *00019a
+  icon:icons[0,0]
+  name:100000000000 jarvises clicked!
+  req:100000000000 jarvisButton:clicks
+  *00010a
+  icon:icons[0,0]
+  name:1000 jarvises earned!
+  req:1000 jarvis:earned
+  *00011a
+  icon:icons[0,0]
+  name:10000 jarvises earned!
+  req:10000 jarvis:earned
+  *00012a
+  icon:icons[0,0]
+  name:100000 jarvises earned!
+  req:100000 jarvis:earned
+  *00013a
+  icon:icons[0,0]
+  name:1000000 jarvises earned!
+  req:1000000 jarvis:earned
+  *00014a
+  icon:icons[0,0]
+  name:10000000 jarvises earned!
+  req:10000000 jarvis:earned
+  *00015a
+  icon:icons[0,0]
+  name:100000000 jarvises earned!
+  req:100000000 jarvisButton:earned
+  *00016a
+  icon:icons[0,0]
+  name:1000000000 jarvises earned!
+  req:1000000000 jarvis:earned
+  *00017a
+  icon:icons[0,0]
+  name:10000000000 jarvises earned!
+  req:10000000000 jarvis:earned
+  *00018a
+  icon:icons[0,0]
+  name:100000000000 jarvises earned!
+  req:100000000000 jarvis:earned
+  *00020a
+  icon:icons[0,0]
+  name:1000000000000 jarvises earned!
+  req:1000000000000 jarvis:earned
+  *00021a
+  icon:icons[0,0]
+  name:10000000000000 jarvises earned!
+  req:10000000000000 jarvis:earned
+  *00022a
+  icon:icons[0,0]
+  name:1000000000000000 jarvises earned!
+  req:1000000000000000 jarvis:earned
+  *00023a
+  icon:icons[0,0]
+  name:1000000000000000000 jarvises earned!
+  req:1000000000000000000 jarvis:earned
+  *00024a
+  icon:icons[0,0]
+  name:Why have you done this!
+  req:1000000000000000000000000 jarvis:earned
+  *00031a
+  icon:icons[0,0]
+  name:God, Why Hast Thou forsaken my jarvises?
+  req:1000000000000000000000000000 jarvis:earned
+  *00032a
+  icon:icons[0,0]
+  name:I have too many jarvises and i must scream
+  req:100000000000000000000000000000000000000000000000000000000000000000000000000000 jarvis:earned
+  *00025a
+  icon:icons[0,2]
+  name:That's remora! That's remora!
+  req:1 remora
+  *00027a
+  icon:icons[0,2]
+  name:That's 69 remora! That's 69 remora!
+  req:69 remora
+  *00026a
+  icon:icons[1,2]
+  name:Is this isopod jim?
+  req:1 isopod
+  *00028a
+  icon:icons[1,2]
+  name:Out of 69 isopods none of them are named jim?
+  req:69 isopod
+  *00029a
+  icon:icons[2,2]
+  name:Interesting creature?
+  req:1 giraffe
+  *00030a
+  icon:icons[2,2]
+  name:69 giraffe more like
+  req:69 giraffe
+  

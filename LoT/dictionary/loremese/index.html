@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loremese Dictionary</title>
+    <link href="/css.css" rel="stylesheet" type="text/css" media="screen" id="theme-link">
+	<style>
+	.entry:after {
+		content: " 📖";
+	}
+	
+	.entry {
+		color: black;
+		text-decoration: none
+	}
+	</style>
+  </head>
+  <body>
+	<div class="main2">
+		<h1>Loremese Dictionary</h1>
+		<div name="dictionary" id="dictionary">
+		
+		</div>
+	</div>
+	
+    <br><br><br>
+	<p id="footer"></p>
+	<script src="papaparse.min.js"></script>
+	<script>
+		//PAPA Parser (https://www.papaparse.com/) used to convert TEXT to CSV
+		function readFile() {  
+		  var reader = new FileReader();
+		
+		  // document.getElementById('errorMessage').innerHTML = ""	  
+		  fetch("words.csv")
+		  .then(res => res.blob()) // Gets the response and returns it as a blob
+		  .then(blob => {
+			var content = reader.readAsText(blob);
+		});
+
+		  reader.onload = function () {
+			var data = Papa.parse(reader.result, { header: false });
+
+			if (data.errors.length) {
+			  // document.getElementById('errorMessage').innerHTML = "* Error parsing CSV: " + JSON.stringify(data.errors)      
+			  console.error(data.errors)
+			} else {
+			  console.log("Loaded dictionary")
+			  dictData = Object.entries(data)[0][1]
+
+			  var totalEntries = ""
+			  
+			  for (var i = 0; i < dictData.length; i++) { 
+				var english = dictData[i][0]
+				var loremese = dictData[i][1]
+				var type = dictData[i][2]
+				var extra = dictData[i][3]
+				var notes = dictData[i][4]
+			  
+				var indEntry = ""
+				
+				if ((type == "") && (notes == "")) {
+					indEntry = "<p>" + english + ": <b>" + loremese.replaceAll("\'", "'") + "</b>"
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					indEntry += "</p>"
+				} else if  ((type == "") && (notes != "")) {
+					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + loremese + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + loremese + "</a></b>"
+					if (extra) { indEntry +=  " <i>(" + extra + ", see notes)</i>" } else {indEntry +=  " <i>(see notes)</i>" }
+					indEntry += "</p>"
+				} else {
+					var prettyArt = type
+					
+					switch (type) {
+						case "m":
+							prettyArt = "masculine noun"
+							break;
+						case "f":
+							prettyArt = "feminine noun"
+							break;
+						case "n":
+							prettyArt = "neuter noun"
+							break;
+						case "m / f":
+							prettyArt = "epicene noun"
+							break;
+						case "mp":
+							prettyArt = "masculine proper noun"
+							break;
+						case "fp":
+							prettyArt = "feminine proper noun"
+							break;
+						case "np":
+							prettyArt = "neuter proper noun"
+							break;
+						case "adjp":
+						case "adj":
+							prettyArt = "adjective"
+							break;
+						case "v":
+							prettyArt = "verb"
+							break;
+						case "prn":
+							prettyArt = "pronoun"
+							break;
+						case "num":
+							prettyArt = "declinable numeral"
+							break;
+					}
+					
+					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + loremese + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + loremese + "</a></b> <i>(" + prettyArt
+					if (extra) { indEntry +=  ", " + extra + ""}
+					if (notes) { indEntry +=  ", see notes"}
+					indEntry += ")</i></p>"
+				}
+			  
+				totalEntries += indEntry
+			  }
+			  document.getElementById("dictionary").innerHTML = totalEntries
+			}
+		  };
+		}
+		
+		function alveolarise(x) {
+			return x.replaceAll("bt", "pt").replaceAll("dt", "t").replaceAll("tt", "t").replaceAll("gt", "ct").replaceAll("mt", "nt").replaceAll("zt", "çt")
+		}
+		
+		function grammar(english, loremese, type, notes) {
+		if (type == "") {openNewPage(loremese + " \"" + english + "\"", "", notes); return}
+		
+		
+		var wortstamm = ""
+		var bes = ""
+		var ending = loremese.slice(-1);
+		var vowels = ["a", "e", "i", "o", "u"]
+		var fullvowels = ["a", "e", "o"]
+		
+		switch (type) {
+			// NOUN INFLECTION GOES HERE
+			case "m":
+			case "f":
+			case "n":
+			case "m / f":
+				switch (ending) {
+					case "o":
+						wortstamm = loremese.slice(0, -1);
+						var tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
+						tabelle += "<tr><th>Nominative</th><td>" + loremese + "</td><td>" + wortstamm + (type == "n" ? "a" : "os") + "</td></tr><tr><th>Genitive</th><td>" + loremese + "s" + "</td><td>" + wortstamm + "om" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + loremese + "i" + "</td><td>" + loremese + "m" + "</td></tr></table>"
+						break;
+					case "a":
+						wortstamm = loremese.slice(0, -1);
+						var tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
+						tabelle += "<tr><th>Nominative</th><td>" + loremese + "</td><td>" + loremese + "s" + "</td></tr><tr><th>Genitive</th><td>" + loremese + "s" + "</td><td>" + wortstamm + "om" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + loremese + "i" + "</td><td>" + loremese + "m" + "</td></tr></table>"
+						break;
+					case "i":
+						wortstamm = loremese.slice(0, -1);
+						var tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
+						tabelle += "<tr><th>Nominative</th><td>" + loremese + "</td><td>" + wortstamm + (type == "n" ? "ia" : (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis")) + "</td></tr><tr><th>Genitive</th><td>" + wortstamm + (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis") + "</td><td>" + loremese + "om" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + loremese + "ei" + "</td><td>" + loremese + "m" + "</td></tr></table>"
+						break;
+					case "u":
+						if (loremese == "zu") {
+							var tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
+							tabelle += "<tr><th>Nominative</th><td>" + "zu" + "</td><td>" + "zuves" + "</td></tr><tr><th>Genitive</th><td>" + "zuvos" + "</td><td>" + "zuvom" + "</td></tr>";
+							tabelle += "<tr><th>Dative</th><td>" + "zuvei" + "</td><td>" + "zuvem" + "</td></tr></table>"
+						} else {
+							wortstamm = loremese.slice(0, -1);
+							var tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
+							tabelle += "<tr><th>Nominative</th><td>" + loremese + "</td><td>" + (type == "n" ? wortstamm + "va" : (fullvowels.includes(wortstamm.slice(-1)) ? wortstamm + "us" : (wortstamm + "yaus").replace("cy", "ç").replace("gy", "z").replace("y", ""))) + "</td></tr><tr><th>Genitive</th><td>" + (fullvowels.includes(wortstamm.slice(-1)) ? wortstamm + "us" : (wortstamm + "yaus").replace("cy", "ç").replace("gy", "z").replace("y", "")) + "</td><td>" + wortstamm + "vom" + "</td></tr>";
+							tabelle += "<tr><th>Dative</th><td>" + wortstamm + "vei" + "</td><td>" + loremese + "m" + "</td></tr></table>"
+						}
+						break;
+					default:
+						var tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
+						tabelle += "<tr><th>Nominative</th><td>" + loremese + "</td><td>" + loremese + (type == "n" ? "a" : "es") + "</td></tr><tr><th>Genitive</th><td>" + loremese + "os" + "</td><td>" + loremese + "om" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + loremese + "ei" + "</td><td>" + loremese + "em" + "</td></tr></table>"
+						break;
+				}
+				break;
+			case "mp":
+			case "fp":
+			case "np":
+				switch (ending) {
+					case "o":
+						wortstamm = loremese.slice(0, -1);
+						var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + loremese + "s" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + loremese + "i" + "</td></tr></table>"
+						break;
+					case "a":
+						if (loremese == "Gatiantudrica Reipoplica") {
+							var tabelle = "<table><tr><th>Nominative</th><td>" + "Gatiantudrica Reipoplica" + "</td></tr><tr><th>Genitive</th><td>" + "Gatiantudricas Reipoplicas" + "</td></tr>";
+							tabelle += "<tr><th>Dative</th><td>" + "Gatiantudricai Reipoplicai" + "</td></tr></table>"
+						} else {
+							wortstamm = loremese.slice(0, -1);
+							var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + loremese + "s" + "</td></tr>";
+							tabelle += "<tr><th>Dative</th><td>" + loremese + "i" + "</td></tr></table>"
+						}
+						break;
+					case "i":
+						wortstamm = loremese.slice(0, -1);
+						var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + wortstamm + (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis") + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + loremese + "ei" + "</td></tr></table>"
+						break;
+					case "u":
+						wortstamm = loremese.slice(0, -1);
+						var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + (fullvowels.includes(wortstamm.slice(-1)) ? wortstamm + "us" : (wortstamm + "yaus").replace("cy", "ç").replace("gy", "z").replace("y", "")) + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + wortstamm + "vei" + "</td></tr></table>"
+						break;
+					default:
+						var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + loremese + "os" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + loremese + "ei" + "</td></tr></table>"
+						break;
+				}
+				break;
+			
+			// ADJECTIVE INFLECTION GOES HERE
+			case "adjp":
+			case "adj":
+				wortstamm = loremese.slice(0, -1);
+				comsupstamm = (wortstamm.slice(-1) == "i" ? wortstamm.slice(0, -1) : wortstamm)
+				
+				switch (ending) {
+					case "o":
+						var tabelle = "<table>" + (type == "adjp" ? "<tr><th rowspan=\"2\"></th>" : "<tr><th rowspan=\"3\"></th><th colspan=\"6\">Positive form</th></tr><tr>") + "<th colspan=\"3\">Singular</th><th colspan=\"3\">Plural</th></tr><tr><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + loremese + "</td><td>" + wortstamm + "a" + "</td><td>" + loremese + "</td><td>" + wortstamm + "os" + "</td><td>" + wortstamm + "as" + "</td><td>" + wortstamm + "a" + "</td></tr><tr><th>Genitive</th><td>" + loremese + "s" + "</td><td>" + wortstamm + "as" + "</td><td>" + loremese + "s" + "</td><td>" + wortstamm + "om" + "</td><td>" + wortstamm + "om" + "</td><td>" + wortstamm + "om" + "</td></tr><tr><th>Dative</th><td>" + loremese + "i" + "</td><td>" + wortstamm + "ai" + "</td><td>" + loremese + "i" + "</td><td>" + loremese + "m" + "</td><td>" + wortstamm + "am" + "</td><td>" + loremese + "m" + "</td></tr></table>";
+						break;
+					case "i":
+						var tabelle = "<table>" + (type == "adjp" ? "<tr><th rowspan=\"2\"></th>" : "<tr><th rowspan=\"3\"></th><th colspan=\"6\">Positive form</th></tr><tr>") + "<th colspan=\"3\">Singular</th><th colspan=\"3\">Plural</th></tr><tr><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + loremese + "</td><td>" + loremese + "</td><td>" + loremese + "</td><td>" + wortstamm + (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis") + "</td><td>" + wortstamm + (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis") + "</td><td>" + wortstamm + "ia" + "</td></tr><tr><th>Genitive</th><td>" + wortstamm + (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis") + "</td><td>" + wortstamm + (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis") + "</td><td>" + wortstamm + (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis") + "</td><td>" + loremese + "om" + "</td><td>" + loremese + "om" + "</td><td>" + loremese + "om" + "</td></tr><tr><th>Dative</th><td>" + loremese + "ei" + "</td><td>" + loremese + "ei" + "</td><td>" + loremese + "ei" + "</td><td>" + loremese + "m" + "</td><td>" + loremese + "m" + "</td><td>" + loremese + "m" + "</td></tr></table>";
+						break;
+					case "u":
+						comsupstamm = wortstamm + "v";
+						
+						var tabelle = "<table>" + (type == "adjp" ? "<tr><th rowspan=\"2\"></th>" : "<tr><th rowspan=\"3\"></th><th colspan=\"6\">Positive form</th></tr><tr>") + "<th colspan=\"3\">Singular</th><th colspan=\"3\">Plural</th></tr><tr><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + loremese + "</td><td>" + loremese + "</td><td>" + loremese + "</td><td>" + (fullvowels.includes(wortstamm.slice(-1)) ? wortstamm + "us" : (wortstamm + "yaus").replace("cy", "ç").replace("gy", "z").replace("y", "")) + "</td><td>" + (fullvowels.includes(wortstamm.slice(-1)) ? wortstamm + "us" : (wortstamm + "yaus").replace("cy", "ç").replace("gy", "z").replace("y", "")) + "</td><td>" + wortstamm + "va" + "</td></tr><tr><th>Genitive</th><td>" + (fullvowels.includes(wortstamm.slice(-1)) ? wortstamm + "us" : (wortstamm + "yaus").replace("cy", "ç").replace("gy", "z").replace("y", "")) + "</td><td>" + (fullvowels.includes(wortstamm.slice(-1)) ? wortstamm + "us" : (wortstamm + "yaus").replace("cy", "ç").replace("gy", "z").replace("y", "")) + "</td><td>" + (fullvowels.includes(wortstamm.slice(-1)) ? wortstamm + "us" : (wortstamm + "yaus").replace("cy", "ç").replace("gy", "z").replace("y", "")) + "</td><td>" + wortstamm + "vom" + "</td><td>" + wortstamm + "vom" + "</td><td>" + wortstamm + "vom" + "</td></tr><tr><th>Dative</th><td>" + wortstamm + "vei" + "</td><td>" + wortstamm + "vei" + "</td><td>" + wortstamm + "vei" + "</td><td>" + loremese + "m" + "</td><td>" + loremese + "m" + "</td><td>" + loremese + "m" + "</td></tr></table>";
+						break;
+					default:
+						var tabelle = "<table>" + (type == "adjp" ? "<tr><th rowspan=\"2\"></th>" : "<tr><th rowspan=\"3\"></th><th colspan=\"6\">Positive form</th></tr><tr>") + "<th colspan=\"3\">Singular</th><th colspan=\"3\">Plural</th></tr><tr><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + loremese + "</td><td>" + loremese + "</td><td>" + loremese + "</td><td>" + loremese + "es" + "</td><td>" + loremese + "es" + "</td><td>" + loremese + "a" + "</td></tr><tr><th>Genitive</th><td>" + loremese + "os" + "</td><td>" + loremese + "os" + "</td><td>" + loremese + "os" + "</td><td>" + loremese + "om" + "</td><td>" + loremese + "om" + "</td><td>" + loremese + "om" + "</td></tr><tr><th>Dative</th><td>" + loremese + "ei" + "</td><td>" + loremese + "ei" + "</td><td>" + loremese + "ei" + "</td><td>" + loremese + "em" + "</td><td>" + loremese + "em" + "</td><td>" + loremese + "em" + "</td></tr></table>";
+						break;
+				}
+				
+				if (type == "adjp") {} else {
+					tabelle += "<br>" + "<table><tr><th rowspan=\"3\"></th><th colspan=\"6\">Comparative form</th></tr><tr><th colspan=\"3\">Singular</th><th colspan=\"3\">Plural</th></tr><tr><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + comsupstamm + "is" + "</td><td>" + comsupstamm + "is" + "</td><td>" + comsupstamm + "is" + "</td><td>" + comsupstamm + "is" + "es" + "</td><td>" + comsupstamm + "is" + "es" + "</td><td>" + comsupstamm + "is" + "a" + "</td></tr><tr><th>Genitive</th><td>" + comsupstamm + "is" + "os" + "</td><td>" + comsupstamm + "is" + "os" + "</td><td>" + comsupstamm + "is" + "os" + "</td><td>" + comsupstamm + "is" + "om" + "</td><td>" + comsupstamm + "is" + "om" + "</td><td>" + comsupstamm + "is" + "om" + "</td></tr><tr><th>Dative</th><td>" + comsupstamm + "is" + "ei" + "</td><td>" + comsupstamm + "is" + "ei" + "</td><td>" + comsupstamm + "is" + "ei" + "</td><td>" + comsupstamm + "is" + "em" + "</td><td>" + comsupstamm + "is" + "em" + "</td><td>" + comsupstamm + "is" + "em" + "</td></tr></table>";
+					
+					tabelle += "<br><table><tr><th rowspan=\"3\"></th><th colspan=\"6\">Superlative form</th></tr><tr><th colspan=\"3\">Singular</th><th colspan=\"3\">Plural</th></tr><tr><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + comsupstamm + "isto" + "</td><td>" + comsupstamm + "ist" + "a" + "</td><td>" + comsupstamm + "isto" + "</td><td>" + comsupstamm + "ist" + "os" + "</td><td>" + comsupstamm + "ist" + "as" + "</td><td>" + comsupstamm + "ist" + "a" + "</td></tr><tr><th>Genitive</th><td>" + comsupstamm + "isto" + "s" + "</td><td>" + comsupstamm + "ist" + "as" + "</td><td>" + comsupstamm + "isto" + "s" + "</td><td>" + comsupstamm + "ist" + "om" + "</td><td>" + comsupstamm + "ist" + "om" + "</td><td>" + comsupstamm + "ist" + "om" + "</td></tr><tr><th>Dative</th><td>" + comsupstamm + "isto" + "i" + "</td><td>" + comsupstamm + "ist" + "ai" + "</td><td>" + comsupstamm + "isto" + "i" + "</td><td>" + comsupstamm + "isto" + "m" + "</td><td>" + comsupstamm + "ist" + "am" + "</td><td>" + comsupstamm + "isto" + "m" + "</td></tr></table>";
+				}
+				break;
+		
+			// VERB INFLECTION GOES HERE
+			case "v":
+				wortstamm = loremese.slice(0, -1) //loremese.split(" ").splice(-1).toString().slice(0, -1)
+				
+				// var prefix = loremese.split(" ").slice(0, -1).join(" ")
+				// prefix += (prefix ? " " : " ")
+				
+				var firstPersonStem = wortstamm
+				wortstamm = (firstPersonStem.slice(-1) == "v" ? firstPersonStem.slice(0, -1) + "u" : firstPersonStem).toString()
+				
+				var bufferE = (["a", "e", "i", "o", "u"].includes(wortstamm.slice(-1)) ? "" : "e")
+				var augment = (["a", "e", "o", "u"].includes(wortstamm.charAt(0)) ? "i" : "e")
+				
+				var actInf = alveolarise(wortstamm + "ti")
+				var pasInf = wortstamm + bufferE + "sdi"
+				
+				var actPar = wortstamm + bufferE + "nti"
+				var pasPar = alveolarise(wortstamm + "to")
+				
+				var x1sgAPre = firstPersonStem + "o"
+				var x2sgAPre = wortstamm + bufferE + "s"
+				var x3sgAPre = wortstamm + bufferE
+				var x1plAPre = wortstamm + bufferE + "mo"
+				var x2plAPre = wortstamm + bufferE + "te"
+				var x3plAPre = wortstamm + bufferE + "nti"
+				
+				var x1sgAPas = augment + x1sgAPre
+				var x2sgAPas = augment + x2sgAPre
+				var x3sgAPas = augment + x3sgAPre
+				var x1plAPas = augment + x1plAPre
+				var x2plAPas = augment + x2plAPre
+				var x3plAPas = augment + x3plAPre
+				
+				var x1sgPPre = firstPersonStem + "or"
+				var x2sgPPre = wortstamm + bufferE + "ta"
+				var x3sgPPre = wortstamm + bufferE + "tor"
+				var x1plPPre = wortstamm + bufferE + "mosda"
+				var x2plPPre = wortstamm + bufferE + "dave"
+				var x3plPPre = wortstamm + bufferE + "ntor"
+				
+				var x1sgPPas = augment + x1sgPPre
+				var x2sgPPas = augment + x2sgPPre
+				var x3sgPPas = augment + x3sgPPre
+				var x1plPPas = augment + x1plPPre
+				var x2plPPas = augment + x2plPPre
+				var x3plPPas = augment + x3plPPre
+				
+				// handle irregular verbs
+				switch (wortstamm) {
+					case "es":
+						x3sgAPre = "es"
+						x1plAPre = "semo"
+						x2plAPre = "sete"
+						x3plAPre = "senti"
+					
+						x1sgAPas = "buvo"
+						x2sgAPas = "bus"
+						x3sgAPas = "bu"
+						x1plAPas = "bumo"
+						x2plAPas = "bute"
+						x3plAPas = "bunti"
+						
+						actPar = "senti"
+						pasInf = ""
+						pasPar = ""
+						
+						x1sgPPre = ""
+						x2sgPPre = ""
+						x3sgPPre = ""
+						x1plPPre = ""
+						x2plPPre = ""
+						x3plPPre = ""
+						
+						x1sgPPas = ""
+						x2sgPPas = ""
+						x3sgPPas = ""
+						x1plPPas = ""
+						x2plPPas = ""
+						x3plPPas = ""
+						break;
+					default:
+						break;
+				}
+				
+				var tabelle = "<table><tbody><tr><th colspan=\"2\" rowspan=\"2\"></th><th colspan=\"2\">Active</th><th colspan=\"2\">Passive</th></tr><tr><th>Present</th><th>Perfect</th><th>Present</th><th>Perfect</th></tr><tr><th colspan=\"2\">Infinitive</th><td colspan=\"2\">" + actInf + "</td><td colspan=\"2\">" + pasInf + "</td></tr><tr><th colspan=\"2\">Participle</th><td colspan=\"2\">" + actPar + "</td><td colspan=\"2\">" + pasPar + "</td></tr><tr><th rowspan=\"3\">Singular</th><th>1st person</th><td>" + x1sgAPre + "</td><td>" + x1sgAPas + "</td><td>" + x1sgPPre + "</td><td>" + x1sgPPas + "</td></tr><tr><th>2nd person</th><td>" + x2sgAPre + "</td><td>" + x2sgAPas + "</td><td>" + x2sgPPre + "</td><td>" + x2sgPPas + "</td></tr><tr><th>3rd person</th><td>" + x3sgAPre + "</td><td>" + x3sgAPas + "</td><td>" + x3sgPPre + "</td><td>" + x3sgPPas + "</td></tr><tr><th rowspan=\"3\">Plural</th><th>1st person</th><td>" + x1plAPre + "</td><td>" + x1plAPas + "</td><td>" + x1plPPre + "</td><td>" + x1plPPas + "</td></tr><tr><th>2nd person</th><td>" + x2plAPre + "</td><td>" + x2plAPas + "</td><td>" + x2plPPre + "</td><td>" + x2plPPas + "</td></tr><tr><th>3rd person</th><td>" + x3plAPre + "</td><td>" + x3plAPas + "</td><td>" + x3plPPre + "</td><td>" + x3plPPas + "</td></tr></tbody></table>"
+				break;
+			
+			// MISC INFLECTION GOES HERE
+			case "prn":
+				switch (loremese) {
+					case "ez":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "ez" + "</td></tr><tr><th>Accusative</th><td>" + "me" + "</td></tr><tr><th>Genitive</th><td>" + "mos" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "mei" + "</td></tr></table>"
+						break;
+					case "nos":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "nos" + "</td></tr><tr><th>Accusative</th><td>" + "nos" + "</td></tr><tr><th>Genitive</th><td>" + "nosos" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "nosei" + "</td></tr></table>"
+						break;
+					case "tu":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "tu" + "</td></tr><tr><th>Accusative</th><td>" + "te" + "</td></tr><tr><th>Genitive</th><td>" + "tos" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "tei" + "</td></tr></table>"
+						break;
+					case "iu":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "iu" + "</td></tr><tr><th>Accusative</th><td>" + "iu" + "</td></tr><tr><th>Genitive</th><td>" + "iuvos" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "iuvei" + "</td></tr></table>"
+						break;
+					case "so":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "so" + "</td></tr><tr><th>Accusative</th><td>" + "so" + "</td></tr><tr><th>Genitive</th><td>" + "sos" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "sei" + "</td></tr></table>"
+						break;
+					case "sa":
+						if (english == "she") {
+							var tabelle = "<table><tr><th>Nominative</th><td>" + "sa" + "</td></tr><tr><th>Accusative</th><td>" + "sa" + "</td></tr><tr><th>Genitive</th><td>" + "sas" + "</td></tr>";
+							tabelle += "<tr><th>Dative</th><td>" + "sai" + "</td></tr></table>"
+						} else {
+							var tabelle = "<table><tr><th>Nominative</th><td>" + "sa" + "</td></tr><tr><th>Accusative</th><td>" + "sa" + "</td></tr><tr><th>Genitive</th><td>" + "som" + "</td></tr>";
+							tabelle += "<tr><th>Dative</th><td>" + "som" + "</td></tr></table>"
+						}
+						break;
+					case "sos":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "sos" + "</td></tr><tr><th>Accusative</th><td>" + "sos" + "</td></tr><tr><th>Genitive</th><td>" + "som" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "som" + "</td></tr></table>"
+						break;
+					case "sas":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "sas" + "</td></tr><tr><th>Accusative</th><td>" + "sas" + "</td></tr><tr><th>Genitive</th><td>" + "som" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "sam" + "</td></tr></table>"
+						break;
+					case "sve":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "" + "</td></tr><tr><th>Accusative</th><td>" + "sve" + "</td></tr><tr><th>Genitive</th><td>" + "svos" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "svei" + "</td></tr></table>"
+						break;
+					case "cuso":
+						var tabelle = "<table><tr><th></th><th>Masculine</th><th>Feminine</th></tr><tr><th>Nominative</th><td>" + "cuso" + "</td><td>" + "cusa" + "</td></tr><tr><th>Accusative</th><td>" + "cuso" + "</td><td>" + "cusa" + "</td></tr><tr><th>Genitive</th><td>" + "cusos" + "</td><td>" + "cusas" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "cusei" + "</td><td>" + "cusai" + "</td></tr></table>"
+						break;
+					case "ci":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "ci" + "</td></tr><tr><th>Accusative</th><td>" + "ci" + "</td></tr><tr><th>Genitive</th><td>" + "ces" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + "cei" + "</td></tr></table>"
+						break;
+				}
+			
+				break;
+			
+			case "num":
+				switch (loremese) {
+					case "oino":
+						var tabelle = "<table><tr><th></th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + "oino" + "</td><td>" + "oina" + "</td><td>" + "oino" + "</td></tr><tr><th>Genitive</th><td>" + "oinos" + "</td><td>" + "oinas" + "</td><td>" + "oinos" + "</td></tr><tr><th>Dative</th><td>" + "oinoi" + "</td><td>" + "oinai" + "</td><td>" + "oinoi" + "</td></tr></table>";
+						break;
+					case "dvos":
+						var tabelle = "<table><tr><th></th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + "dvos" + "</td><td>" + "dvas" + "</td><td>" + "dva" + "</td></tr><tr><th>Genitive</th><td>" + "dvom" + "</td><td>" + "dvom" + "</td><td>" + "dvom" + "</td></tr><tr><th>Dative</th><td>" + "dvom" + "</td><td>" + "dvam" + "</td><td>" + "dvom" + "</td></tr></table>";
+						break;
+					case "treis":
+						var tabelle = "<table><tr><th></th><th>Masculine</th><th>Feminine</th><th>Neuter</th></tr><tr><th>Nominative</th><td>" + "treis" + "</td><td>" + "treis" + "</td><td>" + "tria" + "</td></tr><tr><th>Genitive</th><td>" + "triom" + "</td><td>" + "triom" + "</td><td>" + "triom" + "</td></tr><tr><th>Dative</th><td>" + "trim" + "</td><td>" + "trim" + "</td><td>" + "trim" + "</td></tr></table>";
+						break;
+				}
+				break;
+			default:
+				var tabelle = "to be determined"
+				break;
+			}
+			
+			openNewPage(loremese + " \"" + english + "\"", tabelle, notes)
+		}
+	
+		function openNewPage(title, content, notes) {
+		  var opened = window.open("");
+		  opened.document.write("<html><head><title>" + title + "</title><link href=\"/css.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><style>table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + content + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + (notes).replaceAll("�", "\"").replaceAll("�", "\"") + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
+		}
+		
+		readFile()
+	</script>
+	<script src="/js.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "Eva";
+  src: url("/font/tnr.woff2");
+}
+@font-face {
+  font-family: "Evak";
+  src: url("/font/nskb.otf"); 
+}
+@font-face {
+  font-family: "Castle";
+  src: url("/font/prp.woff2");
+}
+@font-face {
+  font-family: "Castlek";
+  src: url("/font/prp-k.woff2");
+}
+.main {
+  max-width: 100%;
+  text-align: center;
+  background: #ffff99;
+  border-radius: 5px;
+  padding-bottom:5px;
+}
+.main2 {
+  max-width: 100%;
+  background: #ffff99;
+  border-radius: 5px;
+  padding-bottom:5px;
+}
+h1,h2,h3,h4,h5,h6,h7 {
+ font-family: "Eva", "Evak", times;
+}
+body {
+  margin-left:10%;
+  margin-right:10%;
+  background: #ffcc33;
+  color:black;
+}
+p {
+  font-family: "Castle", "Castlek", times;
+  font-size: 15px;
+}
+a, a:visited {
+  text-decoration: none;
+  font-family: "Castle", times;
+  background-color: #ffcc33;
+  color: black;
+  border-radius: 5px;
+  padding-top:5px;
+  padding-bottom:5px;
+  margin-bottom:15px;
+  padding-left:7px;
+  padding-right:7px;
+  font-size: 15px;
+}
+.tt {
+  width: 100%;
+  table-layout: fixed;
+  vertical-align: top;
+  }

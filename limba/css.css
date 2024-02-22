@@ -1,0 +1,66 @@
+/* Variables, the only area of this you should touch if you don't know how to work with css */
+
+:root {
+  --headersize: 32px;
+  --subhsize: 24px;
+  --textsize: 16px;
+  --headercolour: black; /*you can use both words and hexcodes for colours */
+  --subhcolour: #000;
+  --textcolour: #000000;
+  --bgcolour: white;
+  --glossbgcolour1: red;
+  --glosstextcolour1: white;
+  --glosstextsize1:16px;
+  --glossbgcolour2: yellow;
+  --glosstextcolour2: white;
+  --glosstextsize2:16px;
+  --glossbgcolour3: blue;
+  --glosstextcolour3: white;
+  --glosstextsize3:16px;
+  --glossbgcolour4: purple;
+  --glosstextcolour4: white;
+  --glosstextsize4:16px;
+  --headeralignment: center;
+  --textalignment: justify;
+}
+
+/* Dont go beyond this point if you do not understand how to work with css */
+h1 {
+  color: var(--headercolour);
+  font-size: var(--headersize); 
+}
+h2 {
+  color: var(--subhcolour);
+  font-size: var(--subhsize);
+}
+p {
+  color: var(--textcolour);
+  font-size: var(--textsize);
+  text-align: var(--textalignment);;
+}
+h1,h2 {
+  text-align: var(--headeralignment);
+}
+body {
+  background-color: var(--bgcolour)
+}
+a.gloss1 {
+  background-color: var(--glossbgcolour1);
+  color: var(--glosstextcolour1);
+  font-size: var(--glosstextsize1);
+}
+a.gloss2 {
+  background-color: var(--glossbgcolour2);
+  color: var(--glosstextcolour2);
+  font-size: var(--glosstextsize2);
+}
+a.gloss3 {
+  background-color: var(--glossbgcolour3);
+  color: var(--glosstextcolour3);
+  font-size: var(--glosstextsize3);
+}
+a.gloss4 {
+  background-color: var(--glossbgcolour4);
+  color: var(--glosstextcolour4);
+  font-size: var(--glosstextsize4);
+}

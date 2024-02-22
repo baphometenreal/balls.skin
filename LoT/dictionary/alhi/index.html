@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alhi Dictionary</title>
+    <link href="/css.css" rel="stylesheet" type="text/css" media="screen" id="theme-link">
+	<style>
+	.entry:after {
+		content: " 📖";
+	}
+	
+	.entry {
+		color: black;
+		text-decoration: none
+	}
+	</style>
+  </head>
+  <body>
+	<div class="main2">
+		<h1>Alhi Dictionary</h1>
+		<div name="dictionary" id="dictionary">
+		
+		</div>
+	</div>
+	
+    <br><br><br>
+	<p id="footer"></p>
+	<script src="papaparse.min.js"></script>
+	<script>
+		//PAPA Parser (https://www.papaparse.com/) used to convert TEXT to CSV
+		function readFile() {  
+		  var reader = new FileReader();
+		
+		  // document.getElementById('errorMessage').innerHTML = ""	  
+		  fetch("words.csv")
+		  .then(res => res.blob()) // Gets the response and returns it as a blob
+		  .then(blob => {
+			var content = reader.readAsText(blob);
+		});
+
+		  reader.onload = function () {
+			var data = Papa.parse(reader.result, { header: false });
+
+			if (data.errors.length) {
+			  // document.getElementById('errorMessage').innerHTML = "* Error parsing CSV: " + JSON.stringify(data.errors)      
+			  console.error(data.errors)
+			} else {
+			  console.log("Loaded dictionary")
+			  dictData = Object.entries(data)[0][1]
+
+			  var totalEntries = ""
+			  
+			  for (var i = 0; i < dictData.length; i++) { 
+				var english = dictData[i][0]
+				var alhi = dictData[i][1]
+				var type = dictData[i][2]
+				var extra = dictData[i][3]
+				var notes = dictData[i][4]
+			  
+				var indEntry = ""
+				
+				if ((type == "") && (notes == "")) {
+					indEntry = "<p>" + english + ": <b>" + alhi.replaceAll("\'", "'") + "</b>"
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					indEntry += "</p>"
+				} else if  ((type == "") && (notes != "")) {
+					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + alhi + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + alhi + "</a></b>"
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					indEntry += "</p>"
+				} else {
+					var prettyArt = type
+					
+					switch (type) {
+						case "na":
+							prettyArt = "A-type noun"
+							break;
+						case "ni":
+							prettyArt = "I-type noun"
+							break;
+						case "nu":
+							prettyArt = "U-type noun"
+							break;
+						case "ma":
+						case "mxa":
+							prettyArt = "A-type modifier"
+							break;
+						case "mi":
+						case "mxi":
+							prettyArt = "I-type modifier"
+							break;
+						case "mu":
+						case "mxu":
+							prettyArt = "U-type modifier"
+							break;
+						case "v":
+							prettyArt = "verb"
+							break;
+						case "prn":
+							prettyArt = "pronoun"
+							break;
+					}
+					
+					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + alhi + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + alhi + "</a></b> <i>(" + prettyArt
+					if (extra) { indEntry +=  ", " + extra + ""}
+					indEntry += ")</i></p>"
+				}
+			  
+				totalEntries += indEntry
+			  }
+			  document.getElementById("dictionary").innerHTML = totalEntries
+			}
+		  };
+		}
+		
+		function grammar(english, alhi, type, notes) {
+		if (type == "") {openNewPage(alhi + " \"" + english + "\"", "", notes); return}
+		
+		var wortstamm = ""
+		var bes = ""
+		var vowels = ["a", "e", "i", "ı", "o", "u"]
+		
+		switch (type) {
+			// NOUN INFLECTION GOES HERE
+			case "na":
+			case "ni":
+			case "nu":
+			case "ma":
+			case "mi":
+			case "mu":
+			case "mxa":
+			case "mxi":
+			case "mxu":
+				var x = "test"
+				
+				var insH = vowels.includes(alhi.slice(-1)) ? "h" : ""
+				
+				var accSgInd = ""
+				var locInd = "em"
+				var comitative = "or"
+				
+				var nomPlInd = ""
+				var accPlInd = ""
+				var datPlInd = ""
+				
+				var nomSgDef = ""
+				var accSgDef = ""
+				var datSgDef = ""
+				var locDef = "el"
+				
+				var nomPlDef = ""
+				var accPlDef = ""
+				var datPlDef = ""
+				
+				switch (type.slice(-1)) {
+					case "i":
+						accSgInd = "i"
+						
+						nomPlInd = (alhi.slice(-2) == "il" ? "al" : "il")
+						accPlInd = "in"
+						datPlInd = "ir"
+						
+						nomSgDef = "ili"
+						accSgDef = "ini"
+						datSgDef = "ind"
+						
+						nomPlDef = "ai"
+						accPlDef = "as"
+						datPlDef = "iyi"
+						break;
+					case "u":
+						accSgInd = "u"
+						
+						nomPlInd = (alhi.slice(-2) == "ul" ? "il" : "ul")
+						accPlInd = "un"
+						datPlInd = "ur"
+						
+						nomSgDef = "uli"
+						accSgDef = "uni"
+						datSgDef = "und"
+						
+						nomPlDef = "au"
+						accPlDef = "os"
+						datPlDef = "uy"
+						break;
+					case "a":
+						accSgInd = "a"
+						
+						nomPlInd = (alhi.slice(-2) == "al" ? "il" : "al")
+						accPlInd = "an"
+						datPlInd = "ar"
+						
+						nomSgDef = "ali"
+						accSgDef = "el"
+						datSgDef = "and"
+						
+						nomPlDef = "ei"
+						accPlDef = "as"
+						datPlDef = "ay"
+						break;
+					default:
+						break;
+				}
+				
+				tabelle = "<table><tbody><tr>" + ((type.slice(0, 1) == "m" && type.slice(0, 2) != "mx") ? "<th rowspan=\"3\"></th><th colspan=\"4\">Positive form</th></tr><tr>" : "<th rowspan=\"2\"></th>") + "<th colspan=\"2\">Indefinite</th><th colspan=\"2\">Definite</th></tr><tr><th>Singular</th><th>Plural</th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + alhi + "</td><td>" + alhi + insH + nomPlInd + "</td><td>" + alhi + insH + nomSgDef + "</td><td>" + alhi + insH + nomPlDef + "</td></tr><tr><th>Accusative</th><td rowspan=\"2\">" + alhi + insH + accSgInd + "</td><td>" + alhi + insH + accPlInd + "</td><td>" + alhi + insH + accSgDef + "</td><td>" + alhi + insH + accPlDef + "</td></tr><tr><th>Dative</th><td>" + alhi + insH + datPlInd + "</td><td>" + alhi + insH + datSgDef + "</td><td>" + alhi + insH + datPlDef + "</td></tr><tr><th>Locative</th><td colspan=\"2\">" + alhi + insH + locInd + "</td><td colspan=\"2\">" + alhi + insH + locDef + "</td></tr><tr><th>Comitative</th><td colspan=\"4\">" + alhi + insH + comitative + "</td></tr></tbody></table>"
+				
+				if (type.slice(0, 1) == "m" && type.slice(0, 2) != "mx") {
+					switch (alhi) {
+						case "col":
+							insH = "h"
+							
+							accSgInd = "a"
+							
+							nomPlInd = "al"
+							accPlInd = "an"
+							datPlInd = "ar"
+							
+							nomSgDef = "ali"
+							accSgDef = "el"
+							datSgDef = "and"
+							
+							nomPlDef = "ei"
+							accPlDef = "as"
+							datPlDef = "ay"
+							
+							tabelle += "<br><table><tbody><tr><th rowspan=\"3\"></th><th colspan=\"4\">Comparative form</th></tr><tr><th colspan=\"2\">Indefinite</th><th colspan=\"2\">Definite</th></tr><tr><th>Singular</th><th>Plural</th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + "uda" + "</td><td>" + "uda" + insH + nomPlInd + "</td><td>" + "uda" + insH + nomSgDef + "</td><td>" + "uda" + insH + nomPlDef + "</td></tr><tr><th>Accusative</th><td rowspan=\"2\">" + "uda" + insH + accSgInd + "</td><td>" + "uda" + insH + accPlInd + "</td><td>" + "uda" + insH + accSgDef + "</td><td>" + "uda" + insH + accPlDef + "</td></tr><tr><th>Dative</th><td>" + "uda" + insH + datPlInd + "</td><td>" + "uda" + insH + datSgDef + "</td><td>" + "uda" + insH + datPlDef + "</td></tr><tr><th>Locative</th><td colspan=\"2\">" + "uda" + insH + locInd + "</td><td colspan=\"2\">" + "uda" + insH + locDef + "</td></tr><tr><th>Comitative</th><td colspan=\"4\">" + "uda" + insH + comitative + "</td></tr></tbody></table>"
+							
+							tabelle += "<br><table><tbody><tr><th rowspan=\"3\"></th><th colspan=\"4\">Superlative form</th></tr><tr><th colspan=\"2\">Indefinite</th><th colspan=\"2\">Definite</th></tr><tr><th>Singular</th><th>Plural</th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + "osta" + "</td><td>" + "osta" + insH + nomPlInd + "</td><td>" + "osta" + insH + nomSgDef + "</td><td>" + "osta" + insH + nomPlDef + "</td></tr><tr><th>Accusative</th><td rowspan=\"2\">" + "osta" + insH + accSgInd + "</td><td>" + "osta" + insH + accPlInd + "</td><td>" + "osta" + insH + accSgDef + "</td><td>" + "osta" + insH + accPlDef + "</td></tr><tr><th>Dative</th><td>" + "osta" + insH + datPlInd + "</td><td>" + "osta" + insH + datSgDef + "</td><td>" + "osta" + insH + datPlDef + "</td></tr><tr><th>Locative</th><td colspan=\"2\">" + "osta" + insH + locInd + "</td><td colspan=\"2\">" + "osta" + insH + locDef + "</td></tr><tr><th>Comitative</th><td colspan=\"4\">" + "osta" + insH + comitative + "</td></tr></tbody></table>"
+							break
+						case "tus":
+							insH = "h"
+						
+							tabelle += "<br><table><tbody><tr><th rowspan=\"3\"></th><th colspan=\"4\">Comparative form</th></tr><tr><th colspan=\"2\">Indefinite</th><th colspan=\"2\">Definite</th></tr><tr><th>Singular</th><th>Plural</th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + "dou" + "</td><td>" + "dou" + insH + nomPlInd + "</td><td>" + "dou" + insH + nomSgDef + "</td><td>" + "dou" + insH + nomPlDef + "</td></tr><tr><th>Accusative</th><td rowspan=\"2\">" + "dou" + insH + accSgInd + "</td><td>" + "dou" + insH + accPlInd + "</td><td>" + "dou" + insH + accSgDef + "</td><td>" + "dou" + insH + accPlDef + "</td></tr><tr><th>Dative</th><td>" + "dou" + insH + datPlInd + "</td><td>" + "dou" + insH + datSgDef + "</td><td>" + "dou" + insH + datPlDef + "</td></tr><tr><th>Locative</th><td colspan=\"2\">" + "dou" + insH + locInd + "</td><td colspan=\"2\">" + "dou" + insH + locDef + "</td></tr><tr><th>Comitative</th><td colspan=\"4\">" + "dou" + insH + comitative + "</td></tr></tbody></table>"
+							
+							tabelle += "<br><table><tbody><tr><th rowspan=\"3\"></th><th colspan=\"4\">Superlative form</th></tr><tr><th colspan=\"2\">Indefinite</th><th colspan=\"2\">Definite</th></tr><tr><th>Singular</th><th>Plural</th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + "douta" + "</td><td>" + "douta" + insH + nomPlInd + "</td><td>" + "douta" + insH + nomSgDef + "</td><td>" + "douta" + insH + nomPlDef + "</td></tr><tr><th>Accusative</th><td rowspan=\"2\">" + "douta" + insH + accSgInd + "</td><td>" + "douta" + insH + accPlInd + "</td><td>" + "douta" + insH + accSgDef + "</td><td>" + "douta" + insH + accPlDef + "</td></tr><tr><th>Dative</th><td>" + "douta" + insH + datPlInd + "</td><td>" + "douta" + insH + datSgDef + "</td><td>" + "douta" + insH + datPlDef + "</td></tr><tr><th>Locative</th><td colspan=\"2\">" + "douta" + insH + locInd + "</td><td colspan=\"2\">" + "douta" + insH + locDef + "</td></tr><tr><th>Comitative</th><td colspan=\"4\">" + "douta" + insH + comitative + "</td></tr></tbody></table>"
+							break
+						default:
+							tabelle += "<br><table><tbody><tr><th rowspan=\"3\"></th><th colspan=\"4\">Comparative form</th></tr><tr><th colspan=\"2\">Indefinite</th><th colspan=\"2\">Definite</th></tr><tr><th>Singular</th><th>Plural</th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + alhi + "sei" + "</td><td>" + alhi + insH + nomPlInd + "sei" + "</td><td>" + alhi + insH + nomSgDef + "sei" + "</td><td>" + alhi + insH + nomPlDef + "sei" + "</td></tr><tr><th>Accusative</th><td rowspan=\"2\">" + alhi + insH + accSgInd + "sei" + "</td><td>" + alhi + insH + accPlInd + "sei" + "</td><td>" + alhi + insH + accSgDef + "sei" + "</td><td>" + alhi + insH + accPlDef + "sei" + "</td></tr><tr><th>Dative</th><td>" + alhi + insH + datPlInd + "sei" + "</td><td>" + alhi + insH + datSgDef + "sei" + "</td><td>" + alhi + insH + datPlDef + "sei" + "</td></tr><tr><th>Locative</th><td colspan=\"2\">" + alhi + insH + locInd + "sei" + "</td><td colspan=\"2\">" + alhi + insH + locDef + "sei" + "</td></tr><tr><th>Comitative</th><td colspan=\"4\">" + alhi + insH + comitative + "sei" + "</td></tr></tbody></table>"
+							
+							tabelle += "<br><table><tbody><tr><th rowspan=\"3\"></th><th colspan=\"4\">Superlative form</th></tr><tr><th colspan=\"2\">Indefinite</th><th colspan=\"2\">Definite</th></tr><tr><th>Singular</th><th>Plural</th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + "os" + alhi + "</td><td>" + "os" + alhi + insH + nomPlInd + "</td><td>" + "os" + alhi + insH + nomSgDef + "</td><td>" + "os" + alhi + insH + nomPlDef + "</td></tr><tr><th>Accusative</th><td rowspan=\"2\">" + "os" + alhi + insH + accSgInd + "</td><td>" + "os" + alhi + insH + accPlInd + "</td><td>" + "os" + alhi + insH + accSgDef + "</td><td>" + "os" + alhi + insH + accPlDef + "</td></tr><tr><th>Dative</th><td>" + "os" + alhi + insH + datPlInd + "</td><td>" + "os" + alhi + insH + datSgDef + "</td><td>" + "os" + alhi + insH + datPlDef + "</td></tr><tr><th>Locative</th><td colspan=\"2\">" + "os" + alhi + insH + locInd + "</td><td colspan=\"2\">" + "os" + alhi + insH + locDef + "</td></tr><tr><th>Comitative</th><td colspan=\"4\">" + "os" + alhi + insH + comitative + "</td></tr></tbody></table>"
+							break
+					}
+				}
+				break;
+				
+			// VERB INFLECTION GOES HERE
+			case "v":
+				wortstamm = alhi.slice(0, -2)
+				habitual = (vowels.includes(wortstamm.charAt(0)) ? "eh" : "e")
+				
+				var x1sgIndFut = wortstamm + "av"
+				var x2sgIndFut = wortstamm + "o"
+				var x3sgIndFut = wortstamm + "f"
+				var x1plIndFut = wortstamm + "an"
+				var x2plIndFut = wortstamm + "n"
+				var x3plIndFut = wortstamm + "am"
+				
+				var x1sgIndPre = wortstamm + "a"
+				var x2sgIndPre = wortstamm + "o"
+				var x3sgIndPre = wortstamm
+				var x1plIndPre = wortstamm + "au"
+				var x2plIndPre = wortstamm + "u"
+				var x3plIndPre = wortstamm + "eu"
+				
+				var x1sgIndNPs = wortstamm + "at"
+				var x2sgIndNPs = wortstamm + "ok"
+				var x3sgIndNPs = wortstamm + "ta"
+				var x1plIndNPs = wortstamm + "ut"
+				var x2plIndNPs = wortstamm + "ota"
+				var x3plIndNPs = wortstamm + "t"
+				
+				var x1sgIndFPs = wortstamm + "a"
+				var x2sgIndFPs = wortstamm + "i"
+				var x3sgIndFPs = wortstamm + "ec"
+				var x1plIndFPs = wortstamm + "a"
+				var x2plIndFPs = wortstamm + "oca"
+				var x3plIndFPs = wortstamm + "na"
+				
+				var x1sgSubFut = wortstamm + "una"
+				var x2sgSubFut = wortstamm + "ona"
+				var x3sgSubFut = wortstamm + "on"
+				var x1plSubFut = wortstamm + "in"
+				var x2plSubFut = wortstamm + "ul"
+				var x3plSubFut = wortstamm + "ana"
+				
+				var x1sgSubPre = wortstamm + "ou"
+				var x2sgSubPre = wortstamm + "ei"
+				var x3sgSubPre = wortstamm + "ai"
+				var x1plSubPre = wortstamm + "oul"
+				var x2plSubPre = wortstamm + "eil"
+				var x3plSubPre = wortstamm + "ail"
+				
+				var x1sgSubPas = wortstamm + "ka"
+				var x2sgSubPas = wortstamm + "ci"
+				var x3sgSubPas = wortstamm + "aja"
+				var x1plSubPas = wortstamm + "ni"
+				var x2plSubPas = wortstamm + "kou"
+				var x3plSubPas = wortstamm + "no"
+				
+				var x2sgImpReg = wortstamm + "!"
+				var x3sgImpReg = wortstamm + "i!"
+				var x2plImpReg = wortstamm + "ou!"
+				var x3plImpReg = wortstamm + "a!"
+				
+				var x2sgImpPol = wortstamm + "ul!"
+				var x3sgImpPol = wortstamm + "il!"
+				var x2plImpPol = wortstamm + "ou!"
+				var x3plImpPol = wortstamm + "e!"
+				
+				var x1sgIntFut = wortstamm + "er"
+				var x2sgIntFut = wortstamm + "oa"
+				var x3sgIntFut = wortstamm + "uı"
+				var x1plIntFut = wortstamm + "ar"
+				var x2plIntFut = wortstamm + "oa"
+				var x3plIntFut = wortstamm + "uı"
+				
+				var x1sgIntPre = wortstamm + "op"
+				var x2sgIntPre = wortstamm + "osa"
+				var x3sgIntPre = wortstamm + "osa"
+				var x1plIntPre = wortstamm + "ıs"
+				var x2plIntPre = wortstamm + "aı"
+				var x3plIntPre = wortstamm + "oi"
+				
+				var x1sgIntPas = wortstamm + "az"
+				var x2sgIntPas = wortstamm + "az"
+				var x3sgIntPas = wortstamm + "onto"
+				var x1plIntPas = wortstamm + "az"
+				var x2plIntPas = wortstamm + "az"
+				var x3plIntPas = wortstamm + "ıt"
+				
+				var x1sgHIndPre = habitual + wortstamm + "a"
+				var x2sgHIndPre = habitual + wortstamm + "o"
+				var x3sgHIndPre = habitual + wortstamm
+				var x1plHIndPre = habitual + wortstamm + "au"
+				var x2plHIndPre = habitual + wortstamm + "u"
+				var x3plHIndPre = habitual + wortstamm + "eu"
+				
+				var x1sgHIndPas = habitual + wortstamm + "at"
+				var x2sgHIndPas = habitual + wortstamm + "ok"
+				var x3sgHIndPas = habitual + wortstamm + "ta"
+				var x1plHIndPas = habitual + wortstamm + "ut"
+				var x2plHIndPas = habitual + wortstamm + "ota"
+				var x3plHIndPas = habitual + wortstamm + "t"
+				
+				var x1sgHSub = habitual + wortstamm + "ou"
+				var x2sgHSub = habitual + wortstamm + "ei"
+				var x3sgHSub = habitual + wortstamm + "ai"
+				var x1plHSub = habitual + wortstamm + "oul"
+				var x2plHSub = habitual + wortstamm + "eil"
+				var x3plHSub = habitual + wortstamm + "ail"
+				
+				// handle irregular verbs
+				switch (wortstamm) {
+					case "vul":
+						x1sgIndFut = "vos"
+						x2sgIndFut = "vuns"
+						x3sgIndFut = "vei"
+						x1plIndFut = "von"
+						x2plIndFut = "vou"
+						x3plIndFut = "vor"
+						
+						x1sgIndPre = "vo"
+						x2sgIndPre = "vu"
+						x3sgIndPre = "vei"
+						x1plIndPre = "voka"
+						x2plIndPre = "vun"
+						x3plIndPre = "veik"
+						
+						x1sgIndNPs = "sou"
+						x2sgIndNPs = "sun"
+						x3sgIndNPs = "seia"
+						x1plIndNPs = "souj"
+						x2plIndNPs = "so"
+						x3plIndNPs = "soui"
+						
+						x1sgIndFPs = "souj"
+						x2sgIndFPs = "suj"
+						x3sgIndFPs = "seija"
+						x1plIndFPs = "soj"
+						x2plIndFPs = "suj"
+						x3plIndFPs = "seca"
+						
+						x1sgSubFut = "hul"
+						x2sgSubFut = "hos"
+						x3sgSubFut = "houn"
+						x1plSubFut = "hos"
+						x2plSubFut = "huc"
+						x3plSubFut = "houn"
+						
+						x1sgSubPre = "hum"
+						x2sgSubPre = "hut"
+						x3sgSubPre = "hido"
+						x1plSubPre = "he"
+						x2plSubPre = "hido"
+						x3plSubPre = "hado"
+						
+						x1sgSubPas = "ho"
+						x2sgSubPas = "hon"
+						x3sgSubPas = "hoi"
+						x1plSubPas = "ho"
+						x2plSubPas = "hon"
+						x3plSubPas = "heia"
+						
+						x2sgImpReg = "vul!"
+						x3sgImpReg = "vuli!"
+						x2plImpReg = "vou!"
+						x3plImpReg = "voua!"
+						
+						x2sgImpPol = "voul!"
+						x3sgImpPol = "vouli!"
+						x2plImpPol = "vou!"
+						x3plImpPol = "voua!"
+						
+						x1sgIntFut = "ver"
+						x2sgIntFut = "voa"
+						x3sgIntFut = "vuı"
+						x1plIntFut = "var"
+						x2plIntFut = "voa"
+						x3plIntFut = "vuı"
+						
+						x1sgIntPre = "vop"
+						x2sgIntPre = "vosa"
+						x3sgIntPre = "vosa"
+						x1plIntPre = "vıs"
+						x2plIntPre = "vaı"
+						x3plIntPre = "voi"
+						
+						x1sgIntPas = "vaz"
+						x2sgIntPas = "vaz"
+						x3sgIntPas = "vonto"
+						x1plIntPas = "vaz"
+						x2plIntPas = "vaz"
+						x3plIntPas = "vıt"
+						
+						x1sgHIndPre = "evo"
+						x2sgHIndPre = "evu"
+						x3sgHIndPre = "evei"
+						x1plHIndPre = "evoka"
+						x2plHIndPre = "evun"
+						x3plHIndPre = "eveik"
+						
+						x1sgHIndPas = "zou"
+						x2sgHIndPas = "zun"
+						x3sgHIndPas = "zeia"
+						x1plHIndPas = "zou"
+						x2plHIndPas = "zo"
+						x3plHIndPas = "zoui"
+						
+						x1sgHSub = "oum"
+						x2sgHSub = "out"
+						x3sgHSub = "oido"
+						x1plHSub = "ohe"
+						x2plHSub = "oido"
+						x3plHSub = "ohado"
+						break;
+					default:
+						break;
+				}
+				
+				var tabelle = "<table><tbody><tr><th colspan=\"2\" rowspan=\"2\"></th><th colspan=\"3\">Singular</th><th colspan=\"3\">Plural</th></tr><tr><th>1st person</th><th>2nd person</th><th>3rd person</th><th>1st person</th><th>2nd person</th><th>3rd person</th></tr><tr><th colspan=\"8\">Non-aspectual</th></tr><tr><th rowspan=\"4\">Indicative</th><th>Future</th><td>" + x1sgIndFut + "</td><td>" + x2sgIndFut + "</td><td>" + x3sgIndFut + "</td><td>" + x1plIndFut + "</td><td>" + x2plIndFut + "</td><td>" + x3plIndFut + "</td></tr><tr><th>Present</th><td>" + x1sgIndPre + "</td><td>" + x2sgIndPre + "</td><td>" + x3sgIndPre + "</td><td>" + x1plIndPre + "</td><td>" + x2plIndPre + "</td><td>" + x3plIndPre + "</td></tr><tr><th>Near past</th><td>" + x1sgIndNPs + "</td><td>" + x2sgIndNPs + "</td><td>" + x3sgIndNPs + "</td><td>" + x1plIndNPs + "</td><td>" + x2plIndNPs + "</td><td>" + x3plIndNPs + "</td></tr><tr><th>Far past</th><td>" + x1sgIndFPs + "</td><td>" + x2sgIndFPs + "</td><td>" + x3sgIndFPs + "</td><td>" + x1plIndFPs + "</td><td>" + x2plIndFPs + "</td><td>" + x3plIndFPs + "</td></tr><tr><th rowspan=\"3\">Subjunctive</th><th>Future</th><td>" + x1sgSubFut + "</td><td>" + x2sgSubFut + "</td><td>" + x3sgSubFut + "</td><td>" + x1plSubFut + "</td><td>" + x2plSubFut + "</td><td>" + x3plSubFut + "</td></tr><tr><th>Present</th><td>" + x1sgSubPre + "</td><td>" + x2sgSubPre + "</td><td>" + x3sgSubPre + "</td><td>" + x1plSubPre + "</td><td>" + x2plSubPre + "</td><td>" + x3plSubPre + "</td></tr><tr><th>Past</th><td>" + x1sgSubPas + "</td><td>" + x2sgSubPas + "</td><td>" + x3sgSubPas + "</td><td>" + x1plSubPas + "</td><td>" + x2plSubPas + "</td><td>" + x3plSubPas + "</td></tr><tr><th rowspan=\"2\">Imperative</th><th>Regular</th><td rowspan=\"2\"></td><td>" + x2sgImpReg + "</td><td>" + x3sgImpReg + "</td><td rowspan=\"2\"></td><td>" + x2plImpReg + "</td><td>" + x3plImpReg + "</td></tr><tr><th>Polite</th><td>" + x2sgImpPol + "</td><td>" + x3sgImpPol + "</td><td>" + x2plImpPol + "</td><td>" + x3plImpPol + "</td></tr><tr><th rowspan=\"3\">Interrogative</th><th>Future</th><td>" + x1sgIntFut + "</td><td>" + x2sgIntFut + "</td><td>" + x3sgIntFut + "</td><td>" + x1plIntFut + "</td><td>" + x2plIntFut + "</td><td>" + x3plIntFut + "</td></tr><tr><th>Present</th><td>" + x1sgIntPre + "</td><td>" + x2sgIntPre + "</td><td>" + x3sgIntPre + "</td><td>" + x1plIntPre + "</td><td>" + x2plIntPre + "</td><td>" + x3plIntPre + "</td></tr><tr><th>Past</th><td>" + x1sgIntPas + "</td><td>" + x2sgIntPas + "</td><td>" + x3sgIntPas + "</td><td>" + x1plIntPas + "</td><td>" + x2plIntPas + "</td><td>" + x3plIntPas + "</td></tr><tr><th colspan=\"8\">Habitual</th></tr><tr><th rowspan=\"2\">Indicative</th><th>Present</th><td>" + x1sgHIndPre + "</td><td>" + x2sgHIndPre + "</td><td>" + x3sgHIndPre + "</td><td>" + x1plHIndPre + "</td><td>" + x2plHIndPre + "</td><td>" + x3plHIndPre + "</td></tr><tr><th>Past</th><td>" + x1sgHIndPas + "</td><td>" + x2sgHIndPas + "</td><td>" + x3sgHIndPas + "</td><td>" + x1plHIndPas + "</td><td>" + x2plHIndPas + "</td><td>" + x3plHIndPas + "</td></tr><tr><th colspan=\"2\">Subjunctive</th><td>" + x1sgHSub + "</td><td>" + x2sgHSub + "</td><td>" + x3sgHSub + "</td><td>" + x1plHSub + "</td><td>" + x2plHSub + "</td><td>" + x3plHSub + "</td></tr><tr><th colspan=\"8\">Progressive</th></tr><tr><td colspan=\"8\">" + wortstamm + "<i> + forms of</i> vulun</td></tr></tbody></table>"
+				break;
+			
+			// MISC INFLECTION GOES HERE
+			case "prn":
+				switch (alhi) {
+					case "ejo":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "ejo" + "</td></tr><tr><th>Accusative</th><td>" + "ejın" + "</td></tr><tr><th>Dative</th><td>" + "ehus" +
+						"</td></tr><tr><th>Possessive</th><td>" + "ej" +
+						"</td></tr><tr><th>Locative</th><td>" + "eji" +
+						"</td></tr></table>"
+						break;
+					case "mon":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "mon" + "</td></tr><tr><th>Accusative</th><td>" + "mıln" + "</td></tr><tr><th>Dative</th><td>" + "mos" +
+						"</td></tr><tr><th>Possessive</th><td>" + "mo" +
+						"</td></tr><tr><th>Locative</th><td>" + "mi" +
+						"</td></tr><tr><th>Vocative</th><td>" + "mu!" +
+						"</td></tr></table>"
+						break;
+					case "voi":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "voi" + "</td></tr><tr><th>Accusative</th><td>" + "vın" + "</td></tr><tr><th>Dative</th><td>" + "vis" +
+						"</td></tr><tr><th>Possessive</th><td rowspan=\"2\">" + "vi" +
+						"</td></tr><tr><th>Locative</th></tr></table>"
+						break;
+					case "ner":
+						var tabelle = "<table><tr><th>Nominative</th><td>" + "ner" + "</td></tr><tr><th>Accusative</th><td>" + "nen" + "</td></tr><tr><th>Dative</th><td>" + "nies" +
+						"</td></tr><tr><th>Possessive</th><td>" + "na" +
+						"</td></tr><tr><th>Locative</th><td>" + "nas" +
+						"</td></tr><tr><th>Vocative</th><td>" + "nuo!" +
+						"</td></tr></table>"
+						break;
+					case "ei":
+						var tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + "ei" + "</td><td>" + "eil" + "</td></tr><tr><th>Oblique</th><td>" + "eis" + "</td><td>" + "eisal" + "</td></tr></table>"
+						break;
+					case "ou":
+						var tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr><tr><th>Nominative</th><td>" + "ou" + "</td><td>" + "oul" + "</td></tr><tr><th>Oblique</th><td>" + "oum" + "</td><td>" + "oulom" + "</td></tr></table>"
+						break;
+				}
+			
+				break;
+			default:
+				var tabelle = "to be determined"
+				break;
+			}
+			
+			openNewPage(alhi + " \"" + english + "\"", tabelle, notes)
+		}
+	
+		function openNewPage(title, content, notes) {
+		  var opened = window.open("");
+		  opened.document.write("<html><head><title>" + title + "</title><link href=\"/css.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><style>table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + content + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + notes + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
+		}
+		
+		readFile()
+	</script>
+	<script src="/js.js"></script>
+  </body>
+</html>

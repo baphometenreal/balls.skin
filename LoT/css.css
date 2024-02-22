@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "igm";
+  src: url("./font/igm.woff2");
+}
+@font-face {
+  font-family: "nst"
+  src: url("./font/noellastani-sans.ttf");
+  
+  }
+.main {
+  max-width: 100%;
+  background: #303030;
+  
+}
+.indexa{text-align:center}
+h1,h2,h3,h4,h5,h6,h7 {
+ font-family: "igm", times;
+}
+.title{text-align:center}
+body {
+  margin-left:2%;
+  margin-right:2%;
+  background: black;
+  color:white;
+}
+p {
+  font-family: "igm", times;
+  font-size: 15px;
+}
+a, a:visited {
+  text-decoration: underline;
+  font-family: "igm", times;
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
+  font-family: "igm", times;
+  color: red;
+  }
+
+.index {
+  width: 100%;
+  table-layout: fixed;
+  vertical-align: top;
+  }
+.infobox {
+  float: right;
+  width:25%;
+  vertical-align: top;
+  }
