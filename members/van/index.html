@@ -7,6 +7,9 @@
         <title>Redirect</title>
     </head>
     <body>
-        If you are not redirected automatically, follow this <a href='(window.location).toString().replaceAll("/members/", "/m/")'>link</a>.
+        If you are not redirected automatically, follow this <a id="redirectLink" href='#'>link</a>.
     </body>
+	<script>
+		document.getElementById("redirectLink").href = (window.location).toString().replaceAll("/members/", "/m/")
+	</script>
 </html>
