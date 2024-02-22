@@ -4,18 +4,18 @@
 }
 @font-face {
   font-family: roboto;
-  src: url(https://balls.skin/members/charlotte/files/Roboto.woff2);
+  src: url(https://balls.skin/m/charlotte/files/Roboto.woff2);
 }
 @font-face {
   font-family: lato;
-  src: url(https://balls.skin/members/charlotte/files/Lato.woff2)
+  src: url(https://balls.skin/m/charlotte/files/Lato.woff2)
   }
 h1 {
   line-height:5px;
   font-family: roboto, sans-serif;
   }
 body{
-  background: url("https://balls.skin/members/charlotte/img/bg.jpg");
+  background: url("https://balls.skin/m/charlotte/img/bg.jpg");
   background-size: cover;
   color: white;
   vertical-align:top;
