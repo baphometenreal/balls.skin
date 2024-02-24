@@ -16,6 +16,19 @@ function loadLightMode() {
 }
 if (localStorage.lang == null) {localStorage.lang = "en"}
 async function loadLanguage(){
+  const response = await fetch("/languages/" + localStorage.lang + ".json")
+  window.lang = await response.json()
+  
+  const responseUndf = await fetch("/languages/undefined.json")
+  const undf = await response.json()
+  
+  const tags = document.getElementsByClassName("lang");
+  for (let i = 0; i < tags.length; i++) {
+  tags[i].innerHTML = window.lang[tags[i].id] ?? undf[tags[i].id]
+  //document.getElementById(tags[i]).innerHTML = window.lang[tags[i]]
+  }
+  
+  /*
   return fetch("/languages/" + localStorage.lang + ".json")
     .then(response => response.json())
     .then(json => window.lang = json)
@@ -23,8 +36,9 @@ async function loadLanguage(){
       const tags = document.getElementsByClassName("lang");
       for (let i = 0; i < tags.length; i++) {
       tags[i].innerHTML = window.lang[tags[i].id]
-  //document.getElementById(tags[i]).innerHTML = window.lang[tags[i]]
-}})
+      //document.getElementById(tags[i]).innerHTML = window.lang[tags[i]]
+      }})
+  */
 }
 window.addEventListener("storage", function(e) {
   if (e.key === "theme") {try {loadLightMode()} catch(error){}}
