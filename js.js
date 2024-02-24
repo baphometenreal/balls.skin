@@ -20,7 +20,7 @@ async function loadLanguage(){
   window.lang = await response.json()
   
   const responseUndf = await fetch("/languages/undefined.json")
-  const undf = await response.json()
+  const undf = await responseUndf.json()
   
   const tags = document.getElementsByClassName("lang");
   for (let i = 0; i < tags.length; i++) {
