@@ -3,4 +3,14 @@
   src: url("./font/dab.otf");
 }
 
-h1 {font-family: "Dark and black"}
+:root {
+  --bg-main: #CD0000;
+  --bg: #3D0606;
+  --text: #E8DCDC;
+}
+
+.main {background:var(--bg-main);text-align:center;border-radius:10px;}
+.pfp {width:275px;height:auto;margin-bottom:-2%;margin-top:-2%;}
+h1,h2,h3,p,text {color:var(--text);}
+body {background:var(--bg);margin-left:15%;margin-right:15%;}
+h1,h2,h3 {font-family: "Dark and black"}
