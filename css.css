@@ -1,19 +1,8 @@
 @font-face {
-  font-family: "Eva";
-  src: url("/font/tnr.woff2");
+  font-family: "Serif";
+  src: url("/font/Noto Serif.woff2");
 }
-@font-face {
-  font-family: "Evak";
-  src: url("/font/nskb.otf"); 
-}
-@font-face {
-  font-family: "Castle";
-  src: url("/font/prp.woff2");
-}
-@font-face {
-  font-family: "Castlek";
-  src: url("/font/prp-k.woff2");
-}
+
 .main {
   max-width: 100%;
   text-align: center;
@@ -27,7 +16,7 @@
   padding-bottom:5px;
 }
 h1,h2,h3,h4,h5,h6,h7 {
- font-family: "Eva", "Evak", times;
+ font-family: "Serif", times;
 }
 body {
   margin-left:10%;
@@ -36,12 +25,12 @@ body {
   color:white;
 }
 p {
-  font-family: "Castle", "Castlek", times;
+  font-family: "Serif", times;
   font-size: 15px;
 }
 a, a:visited {
   text-decoration: none;
-  font-family: "Castle", times;
+  font-family: "Serif", times;
   background-color: #1f1f1f;
   color: white;
   border-radius: 5px;
@@ -54,7 +43,7 @@ a, a:visited {
 }
 a.entry, a.entry:visited {
   text-decoration: none;
-  font-family: "Castle", times;
+  font-family: "Serif", times;
   color: white;
   font-size: 15px;
 }
