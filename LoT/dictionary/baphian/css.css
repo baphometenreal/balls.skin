@@ -2,17 +2,8 @@
    HTML content. To learn how to do something, just try searching Google for questions like
    "how to change link color." */
 
-@font-face {
-    font-family: 'mairri';
-    src: url('/mairri2-webfont.woff2') format('woff2');
-}
-
 body {
   background-color: white;
   color: black;
   font-family: Verdana;
-}
-
-mair {
-  font-family: mairri;
 }
