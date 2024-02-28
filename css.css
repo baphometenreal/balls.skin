@@ -17,8 +17,8 @@
   src: url("/font/NotoSerifSC-Black.otf");
 }
 @font-face {
-	font-family: "Evakr"
-	src: url("/font/NotoSerifKR-Black.otf");
+  font-family: "Evakr";
+  src: url("/font/NotoSerifKR-Black.otf");
 }
 .noto-serif jp-regular {
   font-family: "Noto Serif JP", serif;
