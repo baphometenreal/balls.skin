@@ -20,6 +20,11 @@
 	font-family: "Evakr"
 	src: url("/font/NotoSerifKR-Black.woff2");
 }
+.noto-serif jp-regular {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 .main {
   max-width: 100%;
   text-align: center;
