@@ -1,6 +1,29 @@
 @font-face {
-  font-family: "Serif";
-  src: url("/font/Noto Serif.woff2");
+  font-family: "timesh";
+  src: url("/font/TimesNewRomanPS-BaoldMT.woff2");
+}
+
+@font-face {
+  font-family: "Evajp";
+  src: url("/font/NotoSerifJP-Black.otf");
+}
+
+@font-face {
+  font-family: "Evatc";
+  src: url("/font/NotoSerifTC-Black.otf");
+}
+@font-face {
+  font-family: "Evasc";
+  src: url("/font/NotoSerifSC-Black.otf");
+}
+@font-face {
+	font-family: "Evakr"
+	src: url("/font/NotoSerifKR-Black.otf");
+}
+.noto-serif jp-regular {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .main {
   max-width: 100%;
@@ -14,9 +37,9 @@
   border-radius: 5px;
   padding-bottom:5px;
 }
+
 h1,h2,h3,h4,h5,h6,h7 {
- font-family: "Serif", times;
- font-style:bold;
+ font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr";
 }
 body {
   margin-left:10%;
@@ -25,12 +48,12 @@ body {
   color:white;
 }
 p {
-  font-family: "Serif", times;
+  font-family: times;
   font-size: 15px;
 }
 a, button, a:visited {
   text-decoration: none;
-  font-family: "Serif", times;
+  font-family: times;
   background-color: #A10301;
   color: white;
   border-radius: 5px;
