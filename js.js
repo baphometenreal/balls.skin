@@ -17,9 +17,9 @@ function loadLightMode() {
 if (localStorage.lang == null) {localStorage.lang = "en"}
 async function loadLanguage(){
   const response = await fetch("/languages/" + localStorage.lang + ".json")
-  window.lang = response.json()
+  window.lang = await response.json()
   
-  const responseUndf = await fetch("/languages/en.json")
+  const responseUndf = await fetch("/languages/undefined.json")
   window.undf = await responseUndf.json()
   
   const tags = document.getElementsByClassName("lang");
