@@ -3,6 +3,7 @@
   "title": "balls.skin에 오신 것을 환영합니다!",
   "titleb1": "balls.skin이란 무엇인가요?",
   "titlea1": "회원",
+
   "test": "테스트",
   "mbaph": "바포메트",
   "mbenzene": "벤젠",
@@ -18,14 +19,17 @@
   "mvan": "반",
   "mxad": "샤드레조",
   "mfeefiest":"빕잇트",
+
   "config": "구성",
   "theme": "테마",
   "lightmode": "빛",
   "darkmode": "어두운",
   "bloodmode": "혈액",
   "pweemode": "피스",
+
   "languageconf": "언어",
   "unfinishedtranslations": "미완성 번역",
+
   "howq": "balls.skin 페이지는 어떻게 생성하나요?",
   "howa": "그냥 물어보세요! 내 디스코드는 noelle6666(또는 noer6090)입니다.",
   "whatq1": "balls.skin이란 무엇인가요?",
@@ -35,6 +39,7 @@
   "whata2.1": "그리고 이름은 ㅋㅋㅋㅋㅋ",
   "whatq3": "어떻게 balls.skin하나요?",
   "whata3": "<a href='/how'>여기로</a> 이동",
+
   "noelletitle": "알라의 가장 편안한 잠자리",
   "noellesubq": "나는 누구인가?",
   "noellesuba": "저는 신대명사를 사용하는 구피족 바포메트입니다. 또는 이상하다고 생각되면(☠️) 이/그/저를 사용하세요.",
@@ -70,6 +75,7 @@
   "noellefansmt": "신 메가미 텐세이",
   "noellefaneva": "네온 제네시스 에반게리온",
   "noellefan1":"저는 많은 팬덤에 속해 있는데, 이 팬덤이 제가 가장 좋아하는 팬덤입니다.",
+
   "vantitle": "밴",
   "vanpronouns": "그/그녀",
   "van1": "west by god",
@@ -80,18 +86,21 @@
   "van6": "천사 악마 그래서 나 :3",
   "van7": "discord: vandalia12",
   "van8": "steam: <a href='https://steamcommunity.com/id/vandalia12'>vandalia12</a>",
+
   "moisst": "내 페이지에 오신 것을 환영합니다! 제 이름은 moiss (aj/val)이고 특별히 하는 일은 없습니다.!!!>:3",
   "moisscooltext1": "<img src='https://balls.skin/m/eternaldamnationmints/eternaldamnationmints/translations/kr/cooltext447777905201000.gif'>",
   "moisscooltext2": "<img src='https://balls.skin/m/eternaldamnationmints/eternaldamnationmints/translations/kr/cooltext447777966232667.gif'>",
   "moissgracinoeje": "감사합니다 노엘!",
   "moissshidamatemple": "시다마 절",
   "moissgoback": "뒤로 가기:",
+
   "emmasupertitle": "안녕하세요",
   "emmatitle": "엠마 볼 페이지 실제",
   "emma1": "안녕하세요 저는 엠마입니다 (그녀 / 그들)",
   "emma2": "나는 때때로 고양이 또는 상어 일 수 있습니다. 이것이 틀릴 수도 있습니다",
   "emma3": "이것은 내가 생각하는 웹 사이트입니다",
   "emmalink": "엠마 웹 페이지가 진짜인지 아닌지 여부",
+
   "xadtitle": "<b>지구 음식</b> 후원",
   "xadheader1": "<img class='head' src='https://balls.skin/m/xadrezo/translations/kr/hanebrug.png'>",
   "xadheader2": "<img class='head' src='https://balls.skin/m/xadrezo/translations/kr/boryaworld.png'>",
@@ -101,6 +110,8 @@
   "xadlink4": "보랴월드 캘린더",
   "xadlink5": "민주주의 지수",
   "xadlink6": "전투 해결사",
+  "xadlink7": "currency converter",
+
   "titlepsa": "공익 광고",
   "psatonetags": "톤 태그",
   "ttwarn": "전체 목록은 아니지만 제가 관리할 수 있는 범위 내에서 최대한 정리했습니다. 별표(*)가 붙은 태그는 (제 생각에) 가장 중요하고 알아야 할 중요한 태그입니다. 톤태그는 은어가 아니며, 보통 텍스트만으로는 전달하기 어려운 어조를 전달하기 위한 도구로, 이러한 경우에 도움을 주기 위한 것이므로 농담으로 사용해서는 안 됩니다. 이러한 단어들은 얼마나 자주 발견되었는지에 따라 정렬되어 있으며, 비슷한 단어, 비슷한 의미 등을 가진 경우 함께 그룹화됩니다. 다른 언어에서 톤 태그가 작동하는 방식으로 인해 이 목록에는 톤 태그의 영어 형식과 번역된 정의만 있습니다.",
@@ -116,5 +127,4 @@
   "ttpos":"긍정적. /pos는 말하는 내용이 긍정적이라는 것을 전달하려는 상황에서 사용합니다. 예: '구운 치즈는 제가 가장 좋아하는 음식입니다 /pos'. /pos는 혼란스러울 수 있으므로 다른 대체어 중 하나를 사용하되, /pos가 더 많이 사용됩니다.",
   "ttneu":"중립. /neu는 말하는 내용이 긍정적이거나 부정적이지 않은 중립적인 의미임을 전달하려는 상황에서 사용됩니다. 예: '구운 치즈는 제가 가장 좋아하는 음식 /neu'.",
   "ttneg":"부정. /neg는 말하는 내용이 부정적이라는 것을 전달하려는 상황에서 사용합니다. 예: '구운 치즈는 내가 가장 좋아하는 음식 /neg'.",
-  "hollymode": "크리스마스"
 }
