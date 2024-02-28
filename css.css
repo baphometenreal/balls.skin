@@ -1,12 +1,8 @@
 @font-face {
-  font-family: "tnrh";
-  src: url("/font/Noto Serif.woff2");
-  
+  font-family: "timesh";
+  src: url("/font/TimesNewRomanPS-BaoldMT.woff2");
 }
-@font-face {
-  font-family: "tnr";
-  src: url("/font/Noto Serif.woff2");
-}
+
 @font-face {
   font-family: "Eva";
   src: url("/font/NotoSerifJP-Black.woff2");
@@ -28,12 +24,9 @@
   border-radius: 5px;
   padding-bottom:5px;
 }
+
 h1,h2,h3,h4,h5,h6,h7 {
- font-family: times;
- font-weight:bold;
-}
-h1,h2,h3,h4,h5,h6,h7 {
- font-family: "Eva";
+ font-family: "timesh", "Eva";
  font-weight:bold;
 }
 body {
@@ -43,12 +36,12 @@ body {
   color:white;
 }
 p {
-  font-family: "Serif", times;
+  font-family: times;
   font-size: 15px;
 }
 a, button, a:visited {
   text-decoration: none;
-  font-family: "Serif", times;
+  font-family: times;
   background-color: #1f1f1f;
   color: white;
   border-radius: 5px;
@@ -62,7 +55,7 @@ a, button, a:visited {
 
 a.entry, a.entry:visited {
   text-decoration: none;
-  font-family: "Serif", times;
+  font-family: times;
   color: white;
   font-size: 15px;
 }
