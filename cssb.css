@@ -28,7 +28,7 @@ p {
   font-family: "Serif", times;
   font-size: 15px;
 }
-a, a:visited {
+a, button, a:visited {
   text-decoration: none;
   font-family: "Serif", times;
   background-color: #A10301;
