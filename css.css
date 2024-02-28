@@ -1,14 +1,19 @@
 @font-face {
-  font-family: "Serif";
+  font-family: "tnrh";
+  src: url("/font/Noto Serif.woff2");
+  
+}
+@font-face {
+  font-family: "tnr";
   src: url("/font/Noto Serif.woff2");
 }
 @font-face {
-	font-family: "Eva";
-	src: url("/font/NotoSerifJP-Black.woff2")
-	src: url("/font/NotoSerifHK-Black.woff2")
-	src: url("/font/NotoSerifTC-Black.woff2")
-	src: url("/font/NotoSerifSC-Black.woff2")
-	src: url("/font/NotoSerifKR-Black.woff2")
+  font-family: "Eva";
+  src: url("/font/NotoSerifJP-Black.woff2");
+  src: url("/font/NotoSerifHK-Black.woff2");
+  src: url("/font/NotoSerifTC-Black.woff2");
+  src: url("/font/NotoSerifSC-Black.woff2");
+  src: url("/font/NotoSerifKR-Black.woff2");
 }
 
 .main {
