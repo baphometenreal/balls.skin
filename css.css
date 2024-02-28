@@ -5,20 +5,20 @@
 
 @font-face {
   font-family: "Evajp";
-  src: url("/font/NotoSerifJP-Black.woff2");
+  src: url("/font/NotoSerifJP-Black.otf");
 }
 
 @font-face {
   font-family: "Evatc";
-  src: url("/font/NotoSerifTC-Black.woff2");
+  src: url("/font/NotoSerifTC-Black.otf");
 }
 @font-face {
   font-family: "Evasc";
-  src: url("/font/NotoSerifSC-Black.woff2");
+  src: url("/font/NotoSerifSC-Black.otf");
 }
 @font-face {
 	font-family: "Evakr"
-	src: url("/font/NotoSerifKR-Black.woff2");
+	src: url("/font/NotoSerifKR-Black.otf");
 }
 .noto-serif jp-regular {
   font-family: "Noto Serif JP", serif;
