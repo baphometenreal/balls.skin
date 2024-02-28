@@ -7,10 +7,7 @@
   font-family: "Evajp";
   src: url("/font/NotoSerifJP-Black.woff2");
 }
-@font-face {
-  font-family: "Evahk";
-  src: url("/font/NotoSerifHK-Black.woff2");
-}
+
 @font-face {
   font-family: "Evatc";
   src: url("/font/NotoSerifTC-Black.woff2");
@@ -37,7 +34,7 @@
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
- font-family: "timesh", "Evajp", "Evahk", "Evatc", "Evasc", "Evakr";
+ font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr";
 }
 body {
   margin-left:10%;
