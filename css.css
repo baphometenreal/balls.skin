@@ -4,14 +4,25 @@
 }
 
 @font-face {
-  font-family: "Eva";
+  font-family: "Evajp";
   src: url("/font/NotoSerifJP-Black.woff2");
-  src: url("/font/NotoSerifHK-Black.woff2");
-  src: url("/font/NotoSerifTC-Black.woff2");
-  src: url("/font/NotoSerifSC-Black.woff2");
-  src: url("/font/NotoSerifKR-Black.woff2");
 }
-
+@font-face {
+  font-family: "Evahk";
+  src: url("/font/NotoSerifHK-Black.woff2");
+}
+@font-face {
+  font-family: "Evatc";
+  src: url("/font/NotoSerifTC-Black.woff2");
+}
+@font-face {
+  font-family: "Evasc";
+  src: url("/font/NotoSerifSC-Black.woff2");
+}
+@font-face {
+	font-family: "Evakr"
+	src: url("/font/NotoSerifKR-Black.woff2");
+}
 .main {
   max-width: 100%;
   text-align: center;
@@ -26,8 +37,7 @@
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
- font-family: "Eva";
- font-weight:bold;
+ font-family: "timesh", "Evajp", "Evahk", "Evatc", "Evasc", "Evakr";
 }
 body {
   margin-left:10%;
