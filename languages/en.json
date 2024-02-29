@@ -28,6 +28,7 @@
   "hollymode": "Christmas mode",
   "languageconf": "Language",
   "unfinishedtranslations": "Unfinished Translations",
+  "trnsltwarn":" ",
   
   "howq": "How do i get a balls.skin page?",
   "howa": "Just ask! my discord is baphometenreal (or noer6090)",
@@ -145,4 +146,6 @@
   
   "baphh1":"welcome to hell~",
   "baphh2":"pick a door!"
+  "baphprngenh":"Pronoun Generator",
+  "baphprngenb":"Generate"
 }
