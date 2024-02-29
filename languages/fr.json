@@ -1,9 +1,11 @@
 {
   "undermaintenence": "En cours de maintenance",
+  
   "title": "Bienvenue à balls.skin !",
   "titleb1": "Qu'est-ce que balls.skin ?",
   "titlea1": "Membres",
   "test": "test",
+  
   "mbaph": "Rose",
   "mbenzene": "Benzene",
   "mcarlos": "Carlos",
@@ -18,14 +20,17 @@
   "mvan": "Van",
   "mxad": "xadrezo",
   "mfeefiest":"Feefiest",
+  
   "config": "Configurer",
   "theme": "Thème",
   "lightmode": "Lumière",
   "darkmode": "Noirs",
   "bloodmode": "Sang",
   "pweemode": "Pisse",
+  "hollymode": "Noël"
   "languageconf": "Langue",
   "unfinishedtranslations": "Traductions inachevées",
+  
   "howq": "Comment puis-je obtenir une page balls.skin ?",
   "howa": "Demandez ! mon discord est noelle6666 (ou noer6090)",
   "whatq1": "Qu'est-ce que balls.skin ?",
@@ -35,6 +40,7 @@
   "whata2.1": "et le nom est xd lol",
   "whatq3": "Comment puis-je obtenir une balls.skin ?",
   "whata3": "Cliquez  <a href='/how'>ici</a>",
+  
   "noelletitle": "La couchette la plus confortable d'Allah",
   "noellesubq": "qui suis-je ?",
   "noellesuba": "Je suis Baphomet, une otherkine genderfluid qui utilise des néoprononymes, ou si vous pensez que c'est bizarre (☠️), utilisez ce.",
@@ -70,6 +76,7 @@
   "noellefansmt": "Shin Megami Tensei",
   "noellefaneva": "Neon Genesis Evangelion",
   "noellefan1":"Je suis dans beaucoup de fandoms, ce sont juste ceux que j'aime le plus en ce moment.",
+  
   "vantitle": "Van",
   "vanpronouns": "il/lui",
   "van1": "west by god",
@@ -80,18 +87,21 @@
   "van6": "ange diable si moi :3",
   "van7": "discord: vandalia12",
   "van8": "steam: <a href='https://steamcommunity.com/id/vandalia12'>vandalia12</a>",
+  
   "moisst": "bienvenue sur ma page ! je m'appelle moist (aj/val), et je ne fais rien de particulier!!!>:3",
   "moisscooltext1": "<img src='/m/eternaldamnationmints/eternaldamnationmints/translations/fr/cooltext447300793445508.gif'>",
   "moisscooltext2": "<img src='/m/eternaldamnationmints/eternaldamnationmints/translations/fr/cooltext447300697895524.gif'>",
   "moissgracinoeje": "merci rose!",
   "moissshidamatemple": "LE TEMPLE DE LA SHIDAMA",
   "moissgoback": "retour:",
+  
   "emmasupertitle": "salut bienvenue à",
   "emmatitle": "emma page boules réelle",
   "emma1": "salut allô je m'appelle emma (she/they)",
   "emma2": "je suis peut-être chat ou requin de temps en temps idk cela pourrait être faux voyons",
   "emma3": "c’est un site web je pense",
   "emmalink": "emma page web si c’était réel et non",
+  
   "xadtitle": "sponsorisé par <b>L'ALIMENTATION DE LA TERRE</b>",
   "xadheader1": "<img class='head' src='https://balls.skin/m/xadrezo/hanebrug.png'>",
   "xadheader2": "<img class='head' src='https://balls.skin/m/xadrezo/boryaworld.png'>",
@@ -101,6 +111,7 @@
   "xadlink4": "calendrier boryaworld",
   "xadlink5": "indice de démocratie",
   "xadlink6": "résolveur de conflits",
+  
   "titlepsa": "PSAs",
   "psatonetags": "Tonetag",
   "ttwarn": "Cette liste n'est pas exhaustive, mais elle l'est autant que possible. Les balises marquées d'un astérisque (*) sont les plus importantes et les plus cruciales (à mon avis) à connaître. Les Tonetags ne sont pas de l'argot, ils sont utilisés pour transmettre un ton là où le texte tombe généralement à plat de lui-même, c'est un outil pour aider dans ces cas-là, et vous ne devriez pas les utiliser comme des blagues pour cette raison. Ils sont classés en fonction de la fréquence à laquelle je les ai trouvés et sont regroupés s'ils sont similaires, s'ils ont des significations similaires, etc. En raison du fonctionnement des tonetags dans d'autres langues, cette liste ne contiendra que les formes anglaises des tonetags et leurs définitions traduites.",
@@ -115,6 +126,25 @@
   "ttlh":"Allègre. /lh est utilisé dans les situations où l'on veut faire comprendre que l'on est léger et non méchant. Exemple : 'Le fromage grillé est mon plat préféré /lh'.",
   "ttpos":"Positif. /pos est utilisé dans les situations où l'on veut faire comprendre que ce que l'on dit est positif. Exemple : 'Le fromage grillé est mon plat préféré /pos'. /pos peut prêter à confusion, alors utilisez l'une des autres alternatives, c'est simplement que /pos est plus utilisé.",
   "ttneu":"Neutre. /neu est utilisé dans les situations où vous souhaitez indiquer que ce que vous dites est neutre, c'est-à-dire ni positif ni négatif. Exemple : 'Le fromage grillé est mon plat préféré /neu'.",
-  "ttneg":"Négatif. /neg est utilisé dans les situations où l'on veut faire comprendre que ce que l'on dit est négatif. Exemple : 'Le fromage grillé est mon plat préféré /neg'.",
-  "hollymode": "Noël"
+  "ttneg":"Négatif. /neg est utilisé dans les situations où l'on veut faire comprendre que ce que l'on dit est négatif. Exemple : 'Le fromage grillé est mon plat préféré /neg'."
+  
+  "charh1": "charlotte",
+  "charh2":"<mark class='gray'>ou</mark> <b>cj</b>",
+  "char1":"elle/elles",
+  "char2":"17 • New York • agender • omnisexuel",
+  "charh3":"<b>j'aime</b>",
+  "char3":"chats!! :3 la linguistiques, conlangue, construction du monde, voyageant, dessin, simulations, jeu de stratégie, jeux d'éveil, aider les gens, parler à des amis, bêtise, chaos, contradictions",
+  "charh4":"<b>je n'aime pas</b>",
+  "char4":"mon perfectionnisme, l'alcool, la haine, l'ignorance, préjudice, similitude, la capacité de jugement, suppression d'informations, romantisme (parfois), désordre, incertitude, sucre alimentaire, contradictions",
+  "charh5":"goût musical",
+  "char5":"rap / dark trap / hiphop / rock / screamo / hyperpop / underground / indie / reggae / latino",
+  "charh6":"jeux",
+  "char6":"terraria / minecraft / garry's mod / cities: skylines / geometry dash / lethal company / rimworld / cookie clicker / worldbox / various valve games",
+  "charh7":"profils",
+  "char7":"<a class='box' href='https://steamcommunity.com/id/cjraredeted/'>steam</a> | <a class='box' href='https://www.pinterest.com/cjraredeted/'>pinterest</a> | <a class='box' href='https://open.spotify.com/user/ul1nmawn04eip4b0wg4om1c6a?si=8b8a3777c61041a9'>spotify</a> | <a class='box' href='https://www.last.fm/user/CarlvonCarl'>last.fm</a>",
+  
+  "baphh1":"welcome to hell~",
+  "baphh2":"pick a door!"
+  "baphprngenh":"Pronoun Generator",
+  "baphprngenb":"Generate"
 }
