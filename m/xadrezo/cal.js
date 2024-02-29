@@ -734,7 +734,7 @@ function calcDateCRG(date) {
 	
 	var month = Math.floor(dayYear / 24)
 	
-	var monthNamesCRG = ["Ļiuyaš Tliuyalg", "Kouyačäj", "Ðauyaňk", "Fauyalg", "Mouyals", "Tliuyazz", "Kriuyaň", "Am Ndauyamm", "Ciuyažž", "Riuyant", "Kouyan", "Hauyakäj", "Żżauyaňk", "Vvauyant", "Stauyažej", "Ļiuyaš Souyalg"] //["Ļoeš Tloelg", "Kuočäj", "Ðoaňk", "Foalg", "Muols", "Tloezz", "Kroeň", "Am Ndoamm", "Coežž", "Roent", "Kuon", "Hoakäj", "Żżoaňk", "Vvoant", "Stoažej", "Ļoeš Suolg"]
+	var monthNamesCRG = ["Ļiuš Tliulg", "Koučej", "Ðauňk", "Faulg", "Mouls", "Tliuzz", "Kriuň", "Am Ndaumm", "Ciužž", "Riunt", "Koun", "Haukej", "Żżauňk", "Vvaunt", "Staužej", "Ļiuš Soulg"] //["Ļoeš Tloelg", "Kuočäj", "Ðoaňk", "Foalg", "Muols", "Tloezz", "Kroeň", "Am Ndoamm", "Coežž", "Roent", "Kuon", "Hoakäj", "Żżoaňk", "Vvoant", "Stoažej", "Ļoeš Suolg"]
 	
 	return [(relWeek == 5 ? romanNumCRG(day) : day), monthNamesCRG[month], complementCRG(yearNum)]
 }
