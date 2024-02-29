@@ -126,7 +126,7 @@
   "ttlh":"Allègre. /lh est utilisé dans les situations où l'on veut faire comprendre que l'on est léger et non méchant. Exemple : 'Le fromage grillé est mon plat préféré /lh'.",
   "ttpos":"Positif. /pos est utilisé dans les situations où l'on veut faire comprendre que ce que l'on dit est positif. Exemple : 'Le fromage grillé est mon plat préféré /pos'. /pos peut prêter à confusion, alors utilisez l'une des autres alternatives, c'est simplement que /pos est plus utilisé.",
   "ttneu":"Neutre. /neu est utilisé dans les situations où vous souhaitez indiquer que ce que vous dites est neutre, c'est-à-dire ni positif ni négatif. Exemple : 'Le fromage grillé est mon plat préféré /neu'.",
-  "ttneg":"Négatif. /neg est utilisé dans les situations où l'on veut faire comprendre que ce que l'on dit est négatif. Exemple : 'Le fromage grillé est mon plat préféré /neg'."
+  "ttneg":"Négatif. /neg est utilisé dans les situations où l'on veut faire comprendre que ce que l'on dit est négatif. Exemple : 'Le fromage grillé est mon plat préféré /neg'.",
   
   "charh1": "charlotte",
   "charh2":"<mark class='gray'>ou</mark> <b>cj</b>",
@@ -144,7 +144,7 @@
   "char7":"<a class='box' href='https://steamcommunity.com/id/cjraredeted/'>steam</a> | <a class='box' href='https://www.pinterest.com/cjraredeted/'>pinterest</a> | <a class='box' href='https://open.spotify.com/user/ul1nmawn04eip4b0wg4om1c6a?si=8b8a3777c61041a9'>spotify</a> | <a class='box' href='https://www.last.fm/user/CarlvonCarl'>last.fm</a>",
   
   "baphh1":"welcome to hell~",
-  "baphh2":"pick a door!"
+  "baphh2":"pick a door!",
   "baphprngenh":"Pronoun Generator",
   "baphprngenb":"Generate"
 }
