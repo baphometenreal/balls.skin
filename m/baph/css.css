@@ -11,3 +11,6 @@
 h1,h2,h3,p,text {color:var(--text);}
 body {background:var(--bg);margin-left:15%;margin-right:15%;}
 h1,h2,h3 {font-family: "Dark and black"}
+td {vertical-align: top}
+table {width: 100%;table-layout: fixed;vertical-align: top;}
+.flag {width: 65%;}
