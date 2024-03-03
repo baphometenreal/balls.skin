@@ -19,6 +19,8 @@
   "mvan": "Van",
   "mxad": "xadrezo",
   "mfeefiest":"Feefiest",
+  "mkaz":"Kazimir",
+  "mlucas":"Lucas",
   "config": "Einstellungen",
   "theme": "Seitendesign",
   "lightmode": "Hell",
@@ -26,6 +28,9 @@
   "bloodmode": "Blut",
   "pweemode": "Pisse",
   "hollymode": "Weihnachten",
+  "grapemode": "Traubensaft",
+  "tearmode":"Tränen",
+  
   "languageconf": "Sprache",
   "unfinishedtranslations": "Unfertige Übersetzungen",
   
