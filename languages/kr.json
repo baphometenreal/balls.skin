@@ -19,6 +19,8 @@
   "mvan": "반",
   "mxad": "샤드레조",
   "mfeefiest":"빕잇트",
+  "mkaz":"카지미르",
+  "mlucas":"루카스",
 
   "config": "구성",
   "theme": "테마",
@@ -27,12 +29,14 @@
   "bloodmode": "혈액",
   "pweemode": "피스",
   "hollymode":"크리스마스",
+  "grapemode": "와인",
+  "tearmode":"눈물",
 
   "languageconf": "언어",
   "unfinishedtranslations": "미완성 번역",
 
   "howq": "balls.skin 페이지는 어떻게 생성하나요?",
-  "howa": "그냥 물어보세요! 내 디스코드는 noelle6666(또는 noer6090)입니다.",
+  "howa": "그냥 물어보세요! 내 디스코드는 baphometenreal(또는 noer6090)입니다.",
   "whatq1": "balls.skin이란 무엇인가요?",
   "whata1": "balls.skin은 제 친구들을 위해 저(노엘)가 호스팅하는 페이지의 허브입니다!",
   "whatq2": "왜 balls.skin인가요?",

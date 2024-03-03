@@ -20,6 +20,8 @@
   "mvan": "Van",
   "mxad": "xadrezo",
   "mfeefiest":"Feefiest",
+  "mkaz":"Kazimir",
+  "mlucas":"Lucas",
   
   "config": "Configurer",
   "theme": "Thème",
@@ -28,11 +30,13 @@
   "bloodmode": "Sang",
   "pweemode": "Pisse",
   "hollymode": "Noël",
+  "grapemode": "Jus de raisin",
+  "tearmode":"Larmes",
   "languageconf": "Langue",
   "unfinishedtranslations": "Traductions inachevées",
   
   "howq": "Comment puis-je obtenir une page balls.skin ?",
-  "howa": "Demandez ! mon discord est noelle6666 (ou noer6090)",
+  "howa": "Demandez ! mon discord est baphometenreal (ou noer6090)",
   "whatq1": "Qu'est-ce que balls.skin ?",
   "whata1": "balls.skin est un hub de pages hébergées par moi (rose) pour mes amis !",
   "whatq2": "Pourquoi existe-t-il balls.skin ?",
@@ -146,5 +150,11 @@
   "baphh1":"welcome to hell~",
   "baphh2":"pick a door!",
   "baphprngenh":"Pronoun Generator",
-  "baphprngenb":"Generate"
+  "baphprngenb":"Generate",
+  "baphxh1":"my xenogenders!~",
+  "baphxpb":"find out what name and pronouns you have to use for me",
+  "baphxp1":"Gender is a construct anyway so why not have fun with it? I do genuinelly identify with these, these aren't a joke/shitpost to me. If you think this is cringe I do not care. If you have questions ask.",
+  "baphxe1":"General/Miscellaneous",
+  "baphxe2":"Related to caprini (Goats and sheep)",
+  "baphxe3":"Related to angels and demons"
 }

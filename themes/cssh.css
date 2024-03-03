@@ -17,14 +17,10 @@
   src: url("/font/NotoSerifSC-Black.otf");
 }
 @font-face {
-	font-family: "Evakr"
+	font-family: "Evakr";
 	src: url("/font/NotoSerifKR-Black.otf");
 }
-.noto-serif jp-regular {
-  font-family: "Noto Serif JP", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+
 .main {
   max-width: 100%;
   text-align: center;
