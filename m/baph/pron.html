@@ -8,29 +8,29 @@
   </head>
   <body>
 	<div class="main">
-	<h2 id="baphprngenh" class="lang">Pronoun generator</h2>
-	<font id="xender" size="+3.5"></font><br><br>
-	<a id="baphprngenb" class="lang" type="button" onclick="clickButton()" href="#">Generate</button></center>
-	<script>
-		function clickButton() {
-			var output = document.getElementById("xender")
-			output.innerHTML = ""
-			
-			var Names = ["Baphomet", "Noelle", "Jarvis", "Sock", "Moose", "Gutz", "Rammie", "Agi", "Sushishi"]
-			
-			var step0 = Math.floor(Math.random() * Names.length)
-			output.innerHTML = Names[step0]+"<br>"
-			
-			var step1 = Math.floor(Math.random() * 2)
-			
-			if (step1 == 0) {output.innerHTML += "it/its"; return}
-			
-			var otherPronouns = ["test", "test2", "test3", "test4", "test5", "test6", "test7"]
-			
-			var step2 = Math.floor(Math.random() * otherPronouns.length)
-			output.innerHTML += otherPronouns[step2]
-		}
-	</script>
+		<h2 id="baphprngenh" class="lang">Pronoun generator</h2>
+		<font id="xender" size="+3.5"></font><br><br>
+		<a id="baphprngenb" class="lang" type="button" onclick="clickButton()" href="#">Generate</a></center>
+		<script>
+			function clickButton() {
+				var output = document.getElementById("xender")
+				output.innerHTML = ""
+				
+				var Names = ["Baphomet", "Noelle", "Jarvis", "Sock", "Moose", "Gutz", "Rammie", "Agi", "Sushishi"]
+				
+				var step0 = Math.floor(Math.random() * Names.length)
+				output.innerHTML = Names[step0]+"<br>"
+				
+				var step1 = Math.floor(Math.random() * 2)
+				
+				if (step1 == 0) {output.innerHTML += "it/its"; return}
+				
+				var otherPronouns = ["test", "test2", "test3", "test4", "test5", "test6", "test7"]
+				
+				var step2 = Math.floor(Math.random() * otherPronouns.length)
+				output.innerHTML += otherPronouns[step2]
+			}
+		</script>
 	</div>
 	<script src="/js.js"></script>
       <script>
