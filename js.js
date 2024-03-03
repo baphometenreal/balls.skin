@@ -1,21 +1,21 @@
 function loadLightMode() {
         const theme = document.querySelector("#theme-link");
         if (localStorage.theme == "light") {
-          theme.href = "/cssl.css"
+          theme.href = "/themes/cssl.css"
         } else if (localStorage.theme == "dark") {
-          theme.href = "/css.css"
+          theme.href = "/themes/css.css"
         } else if (localStorage.theme == "blood") {
-          theme.href = "/cssb.css"
+          theme.href = "/themes/cssb.css"
         } else if (localStorage.theme == "piss") {
-          theme.href = "/cssp.css"
+          theme.href = "/themes/cssp.css"
         } else if (localStorage.theme == "holly") {
-          theme.href = "/cssh.css"
+          theme.href = "/themes/cssh.css"
         } else if (localStorage.theme == "grape") {
-          theme.href = "/cssh.css"
+          theme.href = "/themes/cssh.css"
         } else if (localStorage.theme == "tears") {
-          theme.href = "/cssh.css"
+          theme.href = "/themes/cssh.css"
         } else {
-          theme.href = "/css.css" 
+          theme.href = "/themes/css.css" 
         }
 }
 if (localStorage.lang == null) {localStorage.lang = "en"}
