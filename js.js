@@ -10,6 +10,10 @@ function loadLightMode() {
           theme.href = "/cssp.css"
         } else if (localStorage.theme == "holly") {
           theme.href = "/cssh.css"
+        } else if (localStorage.theme == "grape") {
+          theme.href = "/cssh.css"
+        } else if (localStorage.theme == "tears") {
+          theme.href = "/cssh.css"
         } else {
           theme.href = "/css.css" 
         }
