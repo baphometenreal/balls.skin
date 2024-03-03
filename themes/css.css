@@ -48,12 +48,12 @@ body {
   color:white;
 }
 p {
-  font-family: times;
+  font-family: times, serif;
   font-size: 15px;
 }
 a, button, a:visited {
   text-decoration: none;
-  font-family: times;
+  font-family: times, serif;
   background-color: #1f1f1f;
   color: white;
   border-radius: 5px;

@@ -45,13 +45,13 @@ body {
   color:red;
 }
 p {
-  font-family: times;
+  font-family: times, serif;
   font-size: 15px;
 }
 a, button, a:visited {
   color: darkred;
   text-decoration: none;
-  font-family: times;
+  font-family: times, serif;
   background-color: #ff0000;
   border-radius: 5px;
   padding-top:5px;
