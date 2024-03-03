@@ -1,9 +1,9 @@
 @font-face {font-family: "Dark and Black";src: url("./font/dab.otf");}
 
 :root {
-  --bg-main: #FF76CA;
-  --bg: #871B5E;
-  --text: #EAD0E0;
+  --bg-main: #cf9d9b;
+  --bg: #724847;
+  --text: #fff0f0;
 }
 
 .main {background:var(--bg-main);text-align:center;border-radius:10px;}
