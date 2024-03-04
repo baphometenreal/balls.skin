@@ -86,10 +86,10 @@
 				<li><a href="#" name="sysfile" id="tykh" onclick="highlight(this)">TeachYourKidHrax.PDF</font></li>
 			</ul> 
 		</div></th>
-		<td rowspan="2" style="border-left:6px solid grey; " class="fix"><div id="currdoc">CURRENT DOCUMENT HERE</div></th>
+		<td rowspan="2" style="border-left:6px solid grey; " class="fix"><div id="currdoc"><center><h2>pweeWorks 4.2</h2><h4>Copyright Winter Language Institute, 2069</h4><br><h4>Select a file to start working.</h4></center></div></th>
 	  </tr>
 	  <tr style="height: 52%; max-height: 50%;">
-		<td class="fix" style="border-top:2px solid grey;"><div id="dictionary">Dictionary</div></td>
+		<td class="fix" style="border-top:2px solid grey;"><div id="dictionary">No dictionary entries</div></td>
 	  </tr>
 	</table>
 	<script>
@@ -104,7 +104,13 @@
 			
 			var currdoc = document.getElementById("currdoc")
 			
-			currdoc.innerHTML = clicked.id
+			currdoc.innerHTML = "Loading <b>" + clicked.innerHTML + "</b>..."
+			
+			fetch('./files/' + clicked.id + '.txt')
+			  .then(response => response.text())
+			  .then((data) => {
+				currdoc.innerHTML = data
+			  })
 		}
 	
 	</script>
