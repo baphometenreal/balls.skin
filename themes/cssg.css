@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "timesh";
+  src: url("/font/TimesNewRomanPS-BaoldMT.woff2");
+}
+
+@font-face {
+  font-family: "Evajp";
+  src: url("/font/NotoSerifJP-Black.otf");
+}
+
+@font-face {
+  font-family: "Evatc";
+  src: url("/font/NotoSerifTC-Black.otf");
+}
+@font-face {
+  font-family: "Evasc";
+  src: url("/font/NotoSerifSC-Black.otf");
+}
+@font-face {
+  font-family: "Evakr";
+  src: url("/font/NotoSerifKR-Black.otf");
+}
+.noto-serif jp-regular {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.main {
+  max-width: 100%;
+  text-align: center;
+  background: #BA68C8;
+  border-radius: 5px;
+  padding-bottom:5px;
+}
+.main2 {
+  max-width: 100%;
+  border-radius: 5px;
+  padding-bottom:5px;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+ font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr";
+}
+body {
+  margin-left:10%;
+  margin-right:10%;
+  background: #4A148C;
+  color:white;
+}
+p {
+  font-family: times, serif;
+  font-size: 15px;
+}
+a, button, a:visited {
+  text-decoration: none;
+  font-family: times, serif;
+  background-color: #7B1FA2;
+  color: white;
+  border-radius: 5px;
+  padding-top:5px;
+  padding-bottom:5px;
+  margin-bottom:15px;
+  padding-left:7px;
+  padding-right:7px;
+  font-size: 15px;
+}
+
+a.entry, a.entry:visited {
+  text-decoration: none;
+  font-family: times;
+  color: white;
+  font-size: 15px;
+}
+.tt {
+  width: 100%;
+  table-layout: fixed;
+  vertical-align: top;
+  }
