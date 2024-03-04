@@ -11,9 +11,9 @@ function loadLightMode() {
         } else if (localStorage.theme == "holly") {
           theme.href = "/themes/cssh.css"
         } else if (localStorage.theme == "grape") {
-          theme.href = "/themes/cssh.css"
+          theme.href = "/themes/cssg.css"
         } else if (localStorage.theme == "tears") {
-          theme.href = "/themes/cssh.css"
+          theme.href = "/themes/csst.css"
         } else {
           theme.href = "/themes/css.css" 
         }
