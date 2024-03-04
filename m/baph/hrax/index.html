@@ -63,8 +63,8 @@
 		<td class="data fix"><div id="filesystem">
 			root/
 			<ul>
-				<li><a href="#" class="sysfile" id="readme" onclick="highlight(this)">README.TXT</font></li>
-				<li><a href="#" class="sysfile" id="tykh" onclick="highlight(this)">TeachYourKidHrax.PDF</font></li>
+				<li><a href="#" name="sysfile" id="readme" onclick="highlight(this)">README.TXT</font></li>
+				<li><a href="#" name="sysfile" id="tykh" onclick="highlight(this)">TeachYourKidHrax.PDF</font></li>
 			</ul> 
 		</div></th>
 		<td rowspan="2" class="fix"><div id="currdoc">CURRENT DOCUMENT HERE</div></th>
@@ -75,13 +75,13 @@
 	</table>
 	<script>
 		function highlight(clicked) {
-			var allLinks = document.getElementsByClassName("sysfile")
+			var allLinks = document.getElementsByName("sysfile")
 			
 			for (let i = 0; i < allLinks.length; i++) {
-				allLinks[i].style = "";
+				allLinks[i].className = "";
 			}
 			
-			clicked.style = "background-color: blue; color: white;"
+			clicked.className = "selected"
 			
 			var currdoc = document.getElementById("currdoc")
 			
