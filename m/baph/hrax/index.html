@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Game</title>
 	<style>
+		@font-face {font-family: "sanfran-b"; src: url("./sanfran-b.tff");}
+		
 		table {
 			height:100%;
 			width:100%;
@@ -56,6 +58,11 @@
 			background-repeat: repeat-x;
 			background-size: contain;
 			padding: 2px;
+			font-family: "sanfran-b";
+		}
+		.bean {
+			width: auto;
+			height: 16px;
 		}
 	</style>
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
@@ -63,7 +70,7 @@
   <body>
 	<table>
 	  <tr style="height:1em;">
-	   <td class="topbar" colspan="2">File Edit View Settings</th>
+	   <td class="topbar" colspan="2"><img class="bean" src="./bean.png">  Finder File Edit View Go Window Settings</th>
 	  </tr>
 	  <tr style="height: 48%; max-height: 50%">
 		<td class="data fix"><div id="filesystem">
