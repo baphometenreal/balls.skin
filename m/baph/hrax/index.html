@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Game</title>
+	<style>
+		table {
+			height:100%;
+			width:100%;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+		
+		table, th, td {
+		  border:1px solid black;
+		  vertical-align: top;
+		}
+		
+		th, td {
+			background-color: #FFFFFF;
+		}
+		
+		div {
+			display: block;
+			
+			overflow:auto;
+			width: 100%;
+			height: 100%;
+		}
+		.data {
+			width: 25%;
+		}
+		.fix{
+			height: 0;
+		}
+		
+		ul {
+			margin: 0;
+		}
+		
+		.selected {
+			background-color: blue;
+			color: white;
+		}
+		
+		a {
+			color: inherit;
+			text-decoration: inherit;
+		}
+	</style>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body style="background-color:lightgrey;">
+	<table>
+	  <tr style="height:1em;">
+	   <td style="padding: 2px;" colspan="2">File Edit View Settings</th>
+	  </tr>
+	  <tr style="height: 48%; max-height: 50%">
+		<td class="data fix"><div id="filesystem">
+			root/
+			<ul>
+				<li><a href="#" class="sysfile" id="readme" onclick="highlight(this)">README.TXT</font></li>
+				<li><a href="#" class="sysfile" id="tykh" onclick="highlight(this)">TeachYourKidHrax.PDF</font></li>
+			</ul> 
+		</div></th>
+		<td rowspan="2" class="fix"><div id="currdoc">CURRENT DOCUMENT HERE</div></th>
+	  </tr>
+	  <tr style="height: 52%; max-height: 50%;">
+		<td class="fix"><div id="dictionary">Dictionary</div></td>
+	  </tr>
+	</table>
+	<script>
+		function highlight(clicked) {
+			var allLinks = document.getElementsByClassName("sysfile")
+			
+			for (let i = 0; i < allLinks.length; i++) {
+				allLinks[i].style = "";
+			}
+			
+			clicked.style = "background-color: blue; color: white;"
+			
+			var currdoc = document.getElementById("currdoc")
+			
+			currdoc.innerHTML = clicked.id
+		}
+	
+	</script>
+  </body>
+</html>
