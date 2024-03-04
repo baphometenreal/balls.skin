@@ -47,6 +47,8 @@
 		.selected {
 			background-color: blue;
 			color: white;
+			border-radius: 5px;
+			padding: 1px;
 		}
 		
 		a {
@@ -61,9 +63,12 @@
 			font-family: "sanfran";
 			font-style: bold;
 		}
-		.bean {
+		.icon {
 			width: auto;
 			height: 16px;
+		}
+		.finderheader {
+			font-size: 1.3em;
 		}
 	</style>
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
@@ -71,11 +76,11 @@
   <body>
 	<table>
 	  <tr style="height:1em;">
-	   <td class="topbar" colspan="2"><img class="bean" src="./bean.png">  <b>Finder File Edit View Go Window Settings</b></th>
+	   <td class="topbar" colspan="2"><img class="icon" src="./bean.png">  <b>Finder File Edit View Go Window Settings</b></th>
 	  </tr>
 	  <tr style="height: 48%; max-height: 50%">
 		<td class="data fix"><div id="filesystem">
-			root/
+			<img class="icon" src="./disk.png"> <text class="finderheader">Beanrod HDD</text>
 			<ul>
 				<li><a href="#" name="sysfile" id="readme" onclick="highlight(this)">README.TXT</font></li>
 				<li><a href="#" name="sysfile" id="tykh" onclick="highlight(this)">TeachYourKidHrax.PDF</font></li>
