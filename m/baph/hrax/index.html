@@ -16,7 +16,7 @@
 		}
 		
 		table, th, td {
-		  border:1px solid black;
+		  
 		  vertical-align: top;
 		}
 		
@@ -51,13 +51,19 @@
 			color: inherit;
 			text-decoration: inherit;
 		}
+		.topbar {
+			background-image: url(topbar.png);
+			background-repeat: repeat-x;
+			background-size: contain;
+			padding: 2px;
+		}
 	</style>
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body style="background-color:lightgrey;">
+  <body>
 	<table>
 	  <tr style="height:1em;">
-	   <td style="padding: 2px;" colspan="2">File Edit View Settings</th>
+	   <td class="topbar" colspan="2">File Edit View Settings</th>
 	  </tr>
 	  <tr style="height: 48%; max-height: 50%">
 		<td class="data fix"><div id="filesystem">
