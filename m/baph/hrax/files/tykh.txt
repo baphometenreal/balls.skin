@@ -1,2 +1,8 @@
-<center><h1>Placeholder text idfk</h1></center>
-<hrax>This is hraks</hrax> penis
+<center><h1>Teach Your Kid Hrax! <hrax>Hraks Tekstbook for humans</hrax></h1></center>
+<font size="+2">
+<!--<hrax>Simple things</hrax><br><br>-->
+<hrax>apl</hrax> 🍎<br>
+<hrax>kau</hrax> 🐄<br>
+<hrax>ugly</hrax> 🧍<br>
+<hrax>target</hrax> 🌍
+</font>

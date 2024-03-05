@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Game</title>
+	<title>Hrax Investigator</title>
 	<style>
 		@font-face {font-family: "sanfran"; src: url("./sanfran.ttf");}
 		@font-face {font-family: "Hrax"; src: url("./hrax.ttf")}
@@ -73,8 +73,13 @@
 		.finderheader {
 			font-size: 1.3em;
 		}
+		a.hrax:hover {
+			// color: white;
+			border-radius: 2px;
+			background-color: #f1807e;
+		}
 	</style>
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <!-- <link href="/style.css" rel="stylesheet" type="text/css" media="all"> -->
   </head>
   <body>
 	<table>
@@ -96,6 +101,26 @@
 	  </tr>
 	</table>
 	<script>
+		function lookUpHrax(word) {
+			word = word.toLowerCase()
+			
+			console.log(word)
+		}
+		
+		function parseHrax() {
+			var hraxTexts = document.getElementById("currdoc").getElementsByTagName("hrax")
+			
+			for (let i = 0; i < hraxTexts.length; i++) {
+				var innerText = hraxTexts[i].innerHTML
+				
+				const regex = /\b(\w+)\b/ig;
+				innerText = innerText.replaceAll(/\b(\w+)\b/ig, '<a href="#" class="hrax" onclick="lookUpHrax(\'$1\')">$1</a>')
+				
+				hraxTexts[i].innerHTML = innerText
+			}
+		}
+		
+		
 		function highlight(clicked) {
 			var allLinks = document.getElementsByName("sysfile")
 			
@@ -114,6 +139,7 @@
 			  .then((data) => {
 				currdoc.innerHTML = data
 			  })
+			  .then(() => parseHrax())
 		}
 	
 	</script>
