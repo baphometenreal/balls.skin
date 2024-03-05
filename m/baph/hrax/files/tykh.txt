@@ -1,8 +1,8 @@
 <center><h1>Teach Your Kid Hrax! <hrax>Hraks Tekstbook for humans</hrax></h1></center>
 <font size="+2">
 <!--<hrax>Simple things</hrax><br><br>-->
-<hrax>apl</hrax> 🍎<br>
-<hrax>kau</hrax> 🐄<br>
-<hrax>ugly</hrax> 🧍<br>
-<hrax>target</hrax> 🌍
+<hrax>apl</hrax> <img src="./tykh/apple.png"><br>
+<hrax>kao</hrax> 🐄<br>
+<hrax>ogi</hrax> 🧍<br>
+<hrax>eta</hrax> 🌍
 </font>
