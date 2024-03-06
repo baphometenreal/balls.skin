@@ -1,10 +1,39 @@
 {
   "title": "fi'i vitke fi la'oi balls.skin!",
+  "titleb1": "la'oi balls.skin mo?",
+  "titlea1": "cmima",
+
   "test": "cipra",
-  "lightmode": "cenba lo ni gusni",
-  "languageconf": "bau lo jbobau (jo'au la jecus)",
+  "mbaph": "Baphomet",
+  "mbenzene": "Benzene",
+  "mcarlos": "Carlos",
+  "mchar": "Char",
+  "memma": "la bisri'e",
+  "mgalvnice": "Gal.v.nice",
+  "marcie": "la .arkadiys.",
+  "mjade": "Jade",
+  "mjuice": "Juice",
+  "mkath": "Kathy",
+  "mmoiss": "Moiss",
+  "mvan": "Van",
+  "mxad": "xadrezo",
+  "mfeefiest":"Feefiest",
+  "mkaz":"Kazimir",
+  "mlucas":"Lucas",
+
+  "config": "galfi",
+  "theme": "skari",
+  "languageconf": "bau lo jbobau",
+  "lightmode": "gusni",
+  "darkmode": "manku",
+  "bloodmode": "ciblu",
+  "pweemode": "pinca",
+  "hollymode": "xisyjbe",
+  "grapemode": "vanjba",
+  "tearmode":"selklaku",
+
   "howq": "ni'o jmina fi su'o kibybapri co srana mi kei ta'i ma",
-  "howa": "i ko cpedu sa'u .i zo'oi noelle6666 .e zo'oi noer6090 cu .diskord. zei cmene mi",
+  "howa": "i ko cpedu sa'u .i zo'oi baphometenreal .e zo'oi noer6090 cu .diskord. zei cmene mi",
   "whatq1": "ni'o la'oi balls.skin mo",
   "whata1": ".i by. se kibypapri lo su'o da gi'e jai te kibyse'u lo mi (to va'i la'oi noelle toi) co'e va'u lo mi pendo!",
   "whatq2": "ni'o by. mu'i ma co'e",
@@ -12,6 +41,7 @@
   "whata2.1": ".ije .u'inmo le cmene",
   "whatq3": "ni'o mi by. co'e ta'i ma",
   "whata3": ".i <a href='/how'>.urli</a>",
+
   "noelletitle": "lo kufrai ipna pe la .alax.",
   "noellesubq": "ni'o mi mo?",
   "noellesuba": "mi'e la'oi noelle .i mi cizbebna je cu se lingeni le cenba je cu se nalremymenli .i mi se glico sumka'i lo cnino .ije va'o lo nu do la'edi'u se cizra (ki'ai ☠️) kei mi co'e zoi gy. it/its gy.",
@@ -24,6 +54,8 @@
   "noellexenov": "srana lo vampire",
   "noellexenoc": "srana lo mlatu",
   "noellexenow": "srana lo labno",
+  "noellexenoh": "srana lo angeli ja di'albo",
+
   "vantitle": "Van",
   "vanpronouns": "he/him",
   "van1": "west by god",
@@ -34,8 +66,13 @@
   "van6": ".i la'oi .angel devil. jibni mi :3",
   "van7": "discord: vandalia12",
   "van8": "steam: <a href='https://steamcommunity.com/id/vandalia12'>vandalia12</a>",
-  "ultlang1": "emma ball dot skin",
-  "ultlang2": "adugfasij udgjuifg ahgsfohjsafd ogharofjvhafsdjgfas hafjh afog hap",
-  "ultlang3": "the",
-  "ultlang4": "emma WEB PAGE if it was real adn not"
+
+  "emmasupertitle": "coi do fi'i zgana",
+  "emmatitle": "le je'u kibystu pe la bisri'e",
+  "emma1": "coi coi mi'au mi'e la bisri'e .i bau lo drata zoi cy. Emma cy. cmene",
+  "emma2": ".i cumki fa po mi mlatu ja serlaxi .i sruma po'o la'e di'u .i ba filsmu",
+  "emma3": ".i vi kibystu pe'i",
+  "emmalink": "le la bisri'e ku kibystu be tai ZASTI jenai",
+
+  "oughhh": "hm i suck at lojban and also at translations whoops"
 }

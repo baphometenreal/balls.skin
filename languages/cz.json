@@ -2,8 +2,8 @@
 	"undermaintenence": "V údržbě",
 	"title": "Vítej na balls.skin!",
 	"titleb1": "Co je balls.skin?",
-
 	"titlea1": "Členové",
+
 	"test": "test",
 	"mbaph": "Bafomet",
 	"mbenzene": "Benzene",
@@ -18,6 +18,10 @@
 	"mmoiss": "Moiss",
 	"mvan": "Van",
 	"mxad": "xadrezo",
+	"mfeefiest":"Feefiest",
+	"mkaz":"Kazimir",
+	"mlucas":"Lucas",
+
 	"config": "Nastavení",
 	"theme": "Motiv",
 	"lightmode": "Světlý režim",
@@ -25,11 +29,14 @@
 	"bloodmode": "Krvavý režim",
 	"pweemode": "Chcankový režim",
 	"hollymode": "Vánoční režim",
+	"grapemode": "Hroznový režim",
+	"tearmode": "Slzný režim",
+
 	"languageconf": "Jazyk: česky",
 	"unfinishedtranslations": "Nedokončené překlady",
 
 	"howq": "Jak si zařídit stránku na balls.skin?",
-	"howa": "Prostě se zeptej! můj discord je noelle6666 (nebo noer6090)",
+	"howa": "Prostě se zeptej! můj discord je baphometenreal (nebo noer6090)",
 	"whatq1": "Co je balls.skin?",
 	"whata1": "balls.skin je rozcestník stránek hostován mnou (noelle) pro moje kamarády!",
 	"whatq2": "Proč je balls.skin?",
@@ -111,12 +118,12 @@
 	"xadlink4": "kalendář boryaworldu",
 	"xadlink5": "index demokracie",
 	"xadlink6": "vyhodnocovač bitev",
+	"xadlink7": "převodník měn",
 
 	"titlepsa": "Oznámení",
 	"psatonetags": "Tonetags",
 	"ttwarn": "This is not an exhaustive list, but it is as exhaustive as I can manage. Tags with an astrisk (*) mean they are the most important and crucial (in my opinion) to know. Tonetags aren't slang, they are used to convey tone where text usually falls flat by itself, it's meant as a tool to help in those cases, and you shouldn't use them as jokes for this reason. These are ordered by how often I found them and and are grouped together if they have similar meanings or are antinyms, ect. [the following is for non english languages] Due to how tonetags work in other languages, this list will only have the english forms of tonetags and their translated definitions.",
 	"ttsources": "Zdroje:",
-	"ttgen":"Genuine. /g is used in situations where you want to make it clear what you are saying is genuine. Example: 'Grilled cheese is my favourite food /gen'",
 
 	"charh1": "charlotte",
 	"charh2":"<mark class='gray'>nebo</mark> <b>cj</b>",
@@ -131,5 +138,33 @@
 	"charh6":"hry",
 	"char6":"terraria / minecraft / garry's mod / cities: skylines / geometry dash / lethal company / rimworld / cookie clicker / worldbox / různé hry od valve",
 	"charh7":"profily",
-	"char7":"<a href='https://steamcommunity.com/id/cjraredeted/'>steam</a>"
+	"char7":"<a href='https://steamcommunity.com/id/cjraredeted/'>steam</a>",
+
+	"baphh1":"vítej v pekle~",
+	"baphh2":"vyber si dveře!",
+	"baphprngenh":"Generátor zájmen",
+	"baphprngenb":"Vygenerovat",
+	"baphxh1":"moje xenogendery!~",
+	"baphxpb":"zjisti, jaké jméno a zájmena pro mě máš používat",
+	"baphxp1":"Gender je stejně konstrukt, tak proč si s tím nevyhrát? Opravdu se s těmito identifikuji, není to pro mě jenom sranda/shitpost. Je mi jedno, jestli ti to připadá trapný. Pokud se chceš na něco zeptat, zeptej se.",
+	"baphxe1":"Obecné/Ostatní",
+	"baphxe2":"Související s Caprinae (kozami a ovcemi)",
+	"baphxe3":"Související s anděly a čerty",
+
+	"kazcompositions1":"Skladby",
+	"kazcompositions2":"Pozor: toto není kompletní seznam.",
+	"kazcompositionssolopiano":"Solo piano:",
+	"kazcompositionsquadrille":"Quadrille, Op. 1 (2023)",
+	"kazcompositionselectronic":"Elektronika:",
+	"kazcompositionsysrti":"You Slightly Resemble The Infant (2021)",
+	"kazperformances1":"Performances",
+	"kazperformancestanaka":"Karen Tanaka: Our Planet Earth</b> - No. 5: Magma",
+	"kazhome1":"Kazimir A.L. Solan",
+	"kazhome2":"Student na Gustavus Adolphus College",
+	"kazhome3":"O mně",
+	"kazhome4":"Jsem Kazimir Solan, a budding skladatel-pianista z Minnesoty. Mezi mé koníčky patří tvorba jazyků a světů, skládání a sbírání hudby a občas kreslení .",
+	"kazhome5":"Obory výzkumu",
+	"kazhome6":"Právě <s>se svým kolegou <a href=\"/m/kazimir/index\">Henrym Durandem</a> pracuji na překladu jednoho z rukopisů v Hovlandské sbírce </s> píšu metafikční dílo zasazené do jednoho z mých imaginárních světů",
+	"kazhome7":"Kontakt:<br/>pontisconlangs [at] gmail.com",
+	"kaztpdisclaimer":""
 }
