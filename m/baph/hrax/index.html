@@ -78,7 +78,26 @@
 			border-radius: 2px;
 			background-color: #f1807e;
 		}
-	</style>
+		.menu {
+		  font-family: "sanfran";
+		  font-size: 16px;
+		  font-weight: normal;
+		  text-align: start;
+		
+		  position: absolute;
+		  z-index: 1;
+		  width: fit-content;
+		  min-width: 100px;
+		  height: fit-content;
+		  min-height: 1.2em;
+		  
+		  background-color: lightgrey;
+		  border: 1px solid grey;
+		  border-radius: 5px;
+		  padding: 1px;
+		}
+		
+		</style>
     <!-- <link href="/style.css" rel="stylesheet" type="text/css" media="all"> -->
   </head>
   <body>
@@ -101,10 +120,44 @@
 	  </tr>
 	</table>
 	<script>
-		function lookUpHrax(word) {
-			word = word.toLowerCase()
+		window.onresize = function() {
+			var menuOld = document.getElementsByClassName("menu")
 			
-			console.log(word)
+			for (let i = 0; i < menuOld.length; i++)
+			{ menuOld[i].remove() }
+		}
+		
+		document.addEventListener('click', (event) => {
+		  const target = document.getElementsByClassName("menu")
+		  const target2 = document.getElementsByTagName("a")
+		  
+		  if (target.length == 0 || event.composedPath()[0].className == "hrax") {return}
+		  
+		  const withinBoundaries = event.composedPath().includes(target[0])
+
+		  if (!withinBoundaries) {
+			target[0].remove()
+		  }
+		})
+		
+		function lookUpHrax(clicked) {
+			//console.log(clicked)
+			var menuOld = document.getElementsByClassName("menu")
+			
+			for (let i = 0; i < menuOld.length; i++)
+			{ menuOld[i].remove() }
+			
+			var leftPos = ((Math.min(window.innerWidth - 105, clicked.offsetLeft + document.getElementById("currdoc").getBoundingClientRect().x) - 1) / window.innerWidth) * 100
+			
+			word = clicked.innerHTML.toLowerCase()
+			
+			clicked.parentElement.outerHTML += '<div class="menu"><b><i>' + word + '</b></i><br>Menu 1<br>Menu 2</div>'
+			
+			var menu = document.getElementsByClassName("menu")[0]
+			//console.log(menu)
+			
+			menu.style.left = leftPos+'%';
+			//console.log(word)
 		}
 		
 		function parseHrax() {
@@ -114,7 +167,7 @@
 				var innerText = hraxTexts[i].innerHTML
 				
 				const regex = /\b(\w+)\b/ig;
-				innerText = innerText.replaceAll(/\b(\w+)\b/ig, '<a href="#" class="hrax" onclick="lookUpHrax(\'$1\')">$1</a>')
+				innerText = innerText.replaceAll(/\b(\w+)\b/ig, '<a href="#" class="hrax" onclick="lookUpHrax(this)">$1</a>')
 				
 				hraxTexts[i].innerHTML = innerText
 			}
