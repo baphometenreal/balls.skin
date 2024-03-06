@@ -147,7 +147,9 @@
 			for (let i = 0; i < menuOld.length; i++)
 			{ menuOld[i].remove() }
 			
-			var leftPos = ((Math.min(window.innerWidth - 105, clicked.offsetLeft + document.getElementById("currdoc").getBoundingClientRect().x) - 1) / window.innerWidth) * 100
+			var leftPos = Math.min(window.innerWidth - 105, clicked.offsetLeft + document.getElementById("currdoc").getBoundingClientRect().x) - 1
+			
+			var topPos = clicked.offsetTop + document.getElementById("currdoc").getBoundingClientRect().y - 1
 			
 			word = clicked.innerHTML.toLowerCase()
 			
@@ -156,7 +158,8 @@
 			var menu = document.getElementsByClassName("menu")[0]
 			//console.log(menu)
 			
-			menu.style.left = leftPos+'%';
+			menu.style.left = leftPos + 'px';
+			//menu.style.top = 'calc(' + topPos + 'px + 1.2em)';
 			//console.log(word)
 		}
 		
