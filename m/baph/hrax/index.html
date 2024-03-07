@@ -184,7 +184,7 @@
 		function setMeaning(menu) {
 			console.log(menu.dataset["word"])
 			console.log(menu.querySelector("#innerMenu"))
-			menu.querySelector("#innerMenu").innerHTML = "<input type='text' id='meaningInput'></input><br><a class='menuoption' onclick='dict[\"" + menu.dataset["word"] + "\"] = document.getElementById(\"meaningInput\").value; renderDictionary(); removeMenu()'>Save meaning</a>"
+			menu.querySelector("#innerMenu").innerHTML = "<input type='text' id='meaningInput'></input><br><a class='menuoption' href='#' onclick='dict[\"" + menu.dataset["word"] + "\"] = document.getElementById(\"meaningInput\").value; renderDictionary(); removeMenu()'>Save meaning</a>"
 			console.log(menu.querySelector("#meaningInput"))
 			positionMenu(menu)
 		}
@@ -218,7 +218,7 @@
 			var offsetleft = clicked.offsetLeft
 			var offsettop = clicked.offsetTop + clicked.offsetHeight
 			
-			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + offsetleft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + (newWord ? '" <font style="color: red">(new word)</font>' : '"') + '</b></i><hr><font id="innerMenu"><a class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br><a class="menuoption">Open in dictionary</a></font></div>'
+			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + offsetleft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + (newWord ? '" <font style="color: red">(new word)</font>' : '"') + '</b></i><hr><font id="innerMenu"><a href="#" class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br><a href="#" class="menuoption">Open in dictionary</a></font></div>'
 			
 			var menu = document.getElementsByClassName("menu")[0]
 			
