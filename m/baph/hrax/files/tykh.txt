@@ -7,6 +7,8 @@
     <td><hrax>kao</hrax> 🐄
     <td><hrax>ogi</hrax> 🧍
     <td><hrax>eta</hrax> 🌍
+    <td><hrax>awul</hrax> 🏠
   <tr>
+    <td><hrax>ul</hrax> 🏢
 </table>
 </font>
