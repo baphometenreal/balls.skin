@@ -215,9 +215,26 @@
 				newWord = true
 			}
 			
-			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + clicked.offsetLeft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + (newWord ? '" <font style="color: red">(new word)</font>' : '"') + '</b></i><hr><font id="innerMenu"><a class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br><a class="menuoption">Open in dictionary</a></font></div>'
+			var offsetleft = clicked.offsetLeft
+			var offsettop = clicked.offsetTop + clicked.offsetHeight
 			
-			positionMenu(document.getElementsByClassName("menu")[0])
+			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + offsetleft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + (newWord ? '" <font style="color: red">(new word)</font>' : '"') + '</b></i><hr><font id="innerMenu"><a class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br><a class="menuoption">Open in dictionary</a></font></div>'
+			
+			var menu = document.getElementsByClassName("menu")[0]
+			
+			if (menu.parentElement.parentElement.parentElement.parentElement.className == "doc") {
+				var tableCol = menu.parentElement
+				var tableRow = menu.parentElement.parentElement
+				var tableBody = menu.parentElement.parentElement.parentElement.parentElement
+				
+				offsetleft += tableBody.offsetLeft + tableCol.offsetLeft
+				offsettop += tableBody.offsetTop + tableRow.offsetTop
+				
+				menu.dataset["offsetleft"] = offsetleft
+				menu.dataset["offsettop"] = offsettop
+			}
+			
+			positionMenu(menu)
 		}
 		
 		function parseHrax() {
