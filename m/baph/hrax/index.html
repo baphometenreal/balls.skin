@@ -97,6 +97,22 @@
 		  filter: drop-shadow(0px 3px 5px black);
 		}
 		
+		hr {
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+		
+		.menuoption {
+			display: inline-block;
+			width: 100%;
+			height: fit-content;
+		}
+		
+		.menuoption:hover {
+			// color: white;
+			background-color: lightblue;
+		}
+		
 		</style>
     <!-- <link href="/style.css" rel="stylesheet" type="text/css" media="all"> -->
   </head>
@@ -116,10 +132,31 @@
 		<td rowspan="2" style="border-left:6px solid grey; " class="fix"><div id="currdoc" onscroll="removeMenu()"><center><h2>pweeWorks 1.0</h2><h4>Copyright Winter Language Institute, 2001</h4><br><h4>Select a file to start working.</h4></center></div></th>
 	  </tr>
 	  <tr style="height: 52%; max-height: 50%;">
-		<td class="fix" style="border-top:2px solid grey;"><div id="dictionary">No dictionary entries</div></td>
+		<td class="fix" style="border-top:2px solid grey;"><div id="dictionary">Loading dictionary...</div></td>
 	  </tr>
 	</table>
 	<script>
+		var dict = {}
+		
+		function renderDictionary() {
+			var dictMenu = document.getElementById("dictionary")
+			
+			if (Object.keys(dict).length == 0) {
+				dictMenu.innerHTML = "No dictionary entries";
+				return
+			}
+			
+			var menuText = "<ul>"
+			
+			for (let i = 0; i < Object.keys(dict).length; i++) {
+				menuText += "<li><hrax>" + Object.keys(dict)[i] + "</hrax>: \"" + dict[Object.keys(dict)[i]] + "\"</li>"
+			}
+			
+			menuText += "</ul>"
+			
+			dictMenu.innerHTML = menuText
+		}
+		
 		function removeMenu() {
 			var menuOld = document.getElementsByClassName("menu")
 			
@@ -142,29 +179,43 @@
 		  }
 		})
 		
+		function setMeaning(menu) {
+			console.log(menu.dataset["word"])
+			console.log(menu.querySelector("#innerMenu"))
+			menu.querySelector("#innerMenu").innerHTML = "<input type='text' id='meaningInput'></input><br><a class='menuoption' onclick='dict[\"" + menu.dataset["word"] + "\"] = document.getElementById(\"meaningInput\").value; renderDictionary(); removeMenu()'>Save meaning</a>"
+			console.log(menu.querySelector("#meaningInput"))
+			positionMenu(menu)
+		}
+		
+		function positionMenu(menu) {
+			var leftPos = parseFloat(menu.dataset["offsetleft"]) + document.getElementById("currdoc").getBoundingClientRect().x - 1
+			var topPos = parseFloat(menu.dataset["offsettop"]) + document.getElementById("currdoc").getBoundingClientRect().y - document.getElementById("currdoc").scrollTop + 1
+			
+			leftPos = Math.min(window.innerWidth - menu.offsetWidth, leftPos) - 1
+			topPos = Math.min(window.innerHeight - menu.offsetHeight, topPos) - 1
+			
+			menu.style.left = leftPos + 'px';
+			menu.style.top = topPos + "px"
+		}
+		
 		function lookUpHrax(clicked) {
-			//console.log(clicked)
 			var menuOld = document.getElementsByClassName("menu")
 			
 			for (let i = 0; i < menuOld.length; i++)
 			{ menuOld[i].remove() }
 			
-			var leftPos = Math.min(window.innerWidth - 105, clicked.offsetLeft + document.getElementById("currdoc").getBoundingClientRect().x) - 1
-			var topPos = clicked.offsetTop + clicked.offsetHeight + document.getElementById("currdoc").getBoundingClientRect().y - document.getElementById("currdoc").scrollTop+ 1
-			
 			word = clicked.innerHTML.toLowerCase()
 			
-			clicked.parentElement.outerHTML += '<div class="menu"><b><i>' + word + '</b></i><br>Menu 1<br>Menu 2</div>'
+			var newWord = false
+			if (!Object.keys(dict).includes(word)) {
+				dict[word] = "???";
+				renderDictionary()
+				newWord = true
+			}
 			
-			var menu = document.getElementsByClassName("menu")[0]
-			//console.log(menu)
-
-			leftPos = Math.min(window.innerWidth - menu.offsetWidth, leftPos) - 1
-			topPos = Math.min(window.innerHeight - menu.offsetHeight, topPos) - 1
+			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + clicked.offsetLeft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + (newWord ? '" <font style="color: red">(new word)</font>' : '"') + '</b></i><hr><font id="innerMenu"><a class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br><a class="menuoption">Open in dictionary</a></font></div>'
 			
-			menu.style.left = leftPos + 'px';
-			menu.style.top = topPos + "px"; //'calc(' + topPos + 'px + 1.2em)';
-			//console.log(word)
+			positionMenu(document.getElementsByClassName("menu")[0])
 		}
 		
 		function parseHrax() {
@@ -201,7 +252,8 @@
 			  })
 			  .then(() => parseHrax())
 		}
-	
+		
+		window.onload = renderDictionary
 	</script>
   </body>
 </html>
