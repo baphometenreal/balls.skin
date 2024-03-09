@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Hrax Investigator</title>
+	<title>Hrax Investigations</title>
 	<style>
 		@font-face {font-family: "sanfran"; src: url("./sanfran.ttf");}
 		@font-face {font-family: "Hrax"; src: url("./hrax.ttf")}
@@ -115,22 +115,35 @@
 			background-color: lightblue;
 		}
 		
+		.metalink:hover {
+			// color: white;
+			background-color: lightblue;
+		}
+		
+		.topBar {
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+		
 		</style>
     <!-- <link href="/style.css" rel="stylesheet" type="text/css" media="all"> -->
   </head>
   <body>
 	<table class="ui">
 	  <tr style="height:1em;">
-	   <td class="topbar" colspan="2"><img class="icon" src="./bean.png">  <b>pweeWorks File Edit View Go Window Settings</b></th>
+	   <td class="topbar" colspan="2"><a id="" class="topBar"><img class="icon" id="beanMenu" src="./bean.png"></a> <b><a href="#" id="" class="topBar" onclick="topBarMenu(this)">pweeWorks</a> <a href="#" id="menu-file" class="topBar" onclick="topBarMenu(this)">File</a> <a href="#" id="" class="topBar" onclick="topBarMenu(this)">Edit</a> <a href="#" id="" class="topBar" onclick="topBarMenu(this)">View</a> <a href="#" id="" class="topBar" onclick="topBarMenu(this)">Go</a> <a href="#" id="" class="topBar" onclick="topBarMenu(this)">Window</a> <a href="#" id="menu-settings" class="topBar" onclick="topBarMenu(this)">Settings</a></b></th>
 	  </tr>
 	  <tr style="height: 48%; max-height: 50%">
 		<td class="data fix"><div id="filesystem">
+			Loading files...
+			<!--
 			<img class="icon" src="./disk.png"> <text class="finderheader">Beanrod HDD</text>
 			<ul>
 				<li><a href="#" name="sysfile" id="readme" onclick="highlight(this)">README.TXT</font></li>
 				<li><a href="#" name="sysfile" id="tykh" onclick="highlight(this)">TeachYourKidHrax.PDF</font></li>
-			</ul> 
-		</div></th>
+			</ul>
+			-->
+		</div></td>
 		<td rowspan="2" style="border-left:6px solid grey; " class="fix"><div id="currdoc" onscroll="removeMenu()"><center><h2>pweeWorks 1.0</h2><h4>Copyright Winter Language Institute, 2001</h4><br><h4>Select a file to start working.</h4></center></div></th>
 	  </tr>
 	  <tr style="height: 52%; max-height: 50%;">
@@ -138,7 +151,13 @@
 	  </tr>
 	</table>
 	<script>
-		var dict = {}
+		var dict = {} //starting dictionary
+		var correctDict = {} //correct words
+		var drive = ["readme", "tykh"] //starting files
+		
+		function isCorrect(word) {
+			return correctDict[word].map(v => v.toLowerCase()).includes(dict[word].toLowerCase())
+		}
 		
 		function renderDictionary() {
 			var dictMenu = document.getElementById("dictionary")
@@ -151,12 +170,33 @@
 			var menuText = "<ul>"
 			
 			for (let i = 0; i < Object.keys(dict).length; i++) {
-				menuText += "<li><hrax>" + Object.keys(dict)[i] + "</hrax>: \"" + dict[Object.keys(dict)[i]] + "\"</li>"
+				var meaningCorrect = isCorrect(Object.keys(dict)[i])
+				
+				menuText += "<li><hrax>" + Object.keys(dict)[i] + "</hrax>: \"" + dict[Object.keys(dict)[i]] + "\" " + (meaningCorrect ? "<font style=\"color: blue\">(✓)</font>" : "") + "</li>"
 			}
 			
 			menuText += "</ul>"
 			
 			dictMenu.innerHTML = menuText
+		}
+		
+		function renderDrive() {
+			var fileMenu = document.getElementById("filesystem")
+			
+			var fileNames = {
+				"readme": "README.TXT",
+				"tykh": "TeachYourKidHrax.PDF"
+			}
+			
+			var menuText = "<img class='icon' src='./disk.png'> <text class='finderheader'>Beanrod HDD</text><ul>"
+			
+			for (let i = 0; i < drive.length; i++) {
+				menuText += "<li><a href='#' name='sysfile' id='" + drive[i] + "' onclick='highlight(this)'>" + fileNames[drive[i]] + "</font></li>"
+			}
+			
+			menuText += "</ul>"
+			fileMenu.innerHTML = menuText
+			
 		}
 		
 		function removeMenu() {
@@ -171,8 +211,8 @@
 		document.addEventListener('click', (event) => {
 		  const target = document.getElementsByClassName("menu")
 		  const target2 = document.getElementsByTagName("a")
-		  
-		  if (target.length == 0 || event.composedPath()[0].className == "hrax") {return}
+		
+		  if (target.length == 0 || event.composedPath()[0].className == "hrax" || event.composedPath()[0].className == "topBar" || event.composedPath()[0].id == "beanMenu") {return}
 		  
 		  const withinBoundaries = event.composedPath().includes(target[0])
 
@@ -182,10 +222,8 @@
 		})
 		
 		function setMeaning(menu) {
-			console.log(menu.dataset["word"])
-			console.log(menu.querySelector("#innerMenu"))
 			menu.querySelector("#innerMenu").innerHTML = "<input type='text' id='meaningInput'></input><br><a class='menuoption' href='#' onclick='dict[\"" + menu.dataset["word"] + "\"] = document.getElementById(\"meaningInput\").value; renderDictionary(); removeMenu()'>Save meaning</a>"
-			console.log(menu.querySelector("#meaningInput"))
+			
 			positionMenu(menu)
 		}
 		
@@ -198,6 +236,91 @@
 			
 			menu.style.left = leftPos + 'px';
 			menu.style.top = topPos + "px"
+		}
+		
+		function exportSave() {
+			var saveData = {"dict": dict, "drive": drive}
+			
+			var filename = "savedata.pwee"
+			var text = btoa(JSON.stringify(saveData))
+			
+			var element = document.createElement('a');
+			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+			element.setAttribute('download', filename);
+
+			element.style.display = 'none';
+			document.body.appendChild(element);
+
+			element.click();
+
+			document.body.removeChild(element);
+		}
+		
+		
+		function loadSave() {
+			var element = document.createElement('input');
+			element.setAttribute('type', 'file');
+			element.setAttribute('accept', '.pwee');
+			element.style.display = 'none';
+			document.body.appendChild(element);
+			
+			element.click();
+			
+			element.onchange = function(e){
+			  var reader = new FileReader
+			  reader.readAsText(e.target.files[0])
+			  reader.onload = function() {		
+				var saveData = JSON.parse(atob(reader.result));
+				dict = saveData["dict"];
+				drive = saveData["drive"];
+				
+				renderDrive();
+				renderDictionary();
+				
+				document.getElementById("currdoc").innerHTML = "<center><h2>pweeWorks 1.0</h2><h4>Copyright Winter Language Institute, 2001</h4><br><h4>Select a file to start working.</h4></center>"
+			  }
+			}
+
+			document.body.removeChild(element);
+		}
+		
+		function resetSave() {
+			removeMenu();
+			
+			dict = {};
+			drive = ["readme", "tykh"];
+			
+			renderDrive();
+			renderDictionary();
+			
+			document.getElementById("currdoc").innerHTML = "<center><h2>pweeWorks 1.0</h2><h4>Copyright Winter Language Institute, 2001</h4><br><h4>Select a file to start working.</h4></center>"
+		}
+		
+		function topBarMenu(clicked) {
+			removeMenu();
+
+			var offsetleft = clicked.offsetLeft
+			var offsettop = clicked.offsetTop + clicked.offsetHeight + 3
+			
+			var menuOptions
+			
+			switch (clicked.id) {
+				case "menu-settings":
+					menuOptions = '<a href="#" class="menuoption" id="about" onclick="removeMenu(); highlight(this);">About pweeWorks</a>'
+					break;
+				case "menu-file":
+					menuOptions = '<a href="#" class="menuoption" id="" onclick="exportSave()">Export save data</a><br><a href="#" class="menuoption" id="" onclick="loadSave()">Load save data</a><hr><a href="#" class="menuoption" id="" onclick="resetSave()" style="color: red">Reset save data</a>'
+					break;
+				default:
+					menuOptions = '<i>No options</i>'
+			}
+			
+			clicked.parentElement.outerHTML += '<div class="menu">' + menuOptions + '</div>'
+			
+			var menu = document.getElementsByClassName("menu")[0]
+			
+			menu.style.left = offsetleft + 'px';
+			menu.style.top = offsettop + "px"
 		}
 		
 		function lookUpHrax(clicked) {
@@ -218,7 +341,9 @@
 			var offsetleft = clicked.offsetLeft
 			var offsettop = clicked.offsetTop + clicked.offsetHeight
 			
-			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + offsetleft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + (newWord ? '" <font style="color: red">(new word)</font>' : '"') + '</b></i><hr><font id="innerMenu"><a href="#" class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br><a href="#" class="menuoption">Open in dictionary</a></font></div>'
+			var meaningCorrect = isCorrect(word)
+			
+			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + offsetleft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + '"' + (newWord ? ' <font style="color: red">(new word)</font>' : '') + (meaningCorrect ? ' <font style="color: blue">(✓)</font>' : '') + '</b></i><hr><font id="innerMenu">' + (meaningCorrect ? '' : '<a href="#" class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br>') + '<a href="#" class="menuoption">Open in dictionary</a></font></div>'
 			
 			var menu = document.getElementsByClassName("menu")[0]
 			
@@ -250,13 +375,14 @@
 			}
 		}
 		
-		
 		function highlight(clicked) {
 			var allLinks = document.getElementsByName("sysfile")
 			
 			for (let i = 0; i < allLinks.length; i++) {
 				allLinks[i].className = "";
 			}
+			
+			if (clicked === undefined) {return}
 			
 			clicked.className = "selected"
 			
@@ -272,7 +398,16 @@
 			  .then(() => parseHrax())
 		}
 		
-		window.onload = renderDictionary
+		window.onload = function() {
+			renderDrive();
+			renderDictionary();
+			
+			fetch("./dic.json")
+			  .then(response => response.json())
+			  .then((data) => {
+				correctDict = data
+			  })
+		}
 	</script>
   </body>
 </html>
