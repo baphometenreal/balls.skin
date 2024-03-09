@@ -120,13 +120,18 @@
 			background-color: lightblue;
 		}
 		
+		.topBar {
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+		
 		</style>
     <!-- <link href="/style.css" rel="stylesheet" type="text/css" media="all"> -->
   </head>
   <body>
 	<table class="ui">
 	  <tr style="height:1em;">
-	   <td class="topbar" colspan="2"><img class="icon" src="./bean.png">  <b>pweeWorks File Edit View Go Window <a href="#" class="topBar" onclick="topBarMenu(this)">Settings</a></b></th>
+	   <td class="topbar" colspan="2"><a href="#" id="" class="topBar" onclick="topBarMenu(this)"><img class="icon" id="beanMenu" src="./bean.png"></a> <b><a href="#" id="" class="topBar" onclick="topBarMenu(this)">pweeWorks</a> <a href="#" id="menu-file" class="topBar" onclick="topBarMenu(this)">File</a> <a href="#" id="" class="topBar" onclick="topBarMenu(this)">Edit</a> <a href="#" id="" class="topBar" onclick="topBarMenu(this)">View</a> <a href="#" id="" class="topBar" onclick="topBarMenu(this)">Go</a> <a href="#" id="" class="topBar" onclick="topBarMenu(this)">Window</a> <a href="#" id="menu-settings" class="topBar" onclick="topBarMenu(this)">Settings</a></b></th>
 	  </tr>
 	  <tr style="height: 48%; max-height: 50%">
 		<td class="data fix"><div id="filesystem">
@@ -206,8 +211,8 @@
 		document.addEventListener('click', (event) => {
 		  const target = document.getElementsByClassName("menu")
 		  const target2 = document.getElementsByTagName("a")
-		  
-		  if (target.length == 0 || event.composedPath()[0].className == "hrax" || event.composedPath()[0].className == "topBar") {return}
+		
+		  if (target.length == 0 || event.composedPath()[0].className == "hrax" || event.composedPath()[0].className == "topBar" || event.composedPath()[0].id == "beanMenu") {return}
 		  
 		  const withinBoundaries = event.composedPath().includes(target[0])
 
@@ -217,10 +222,8 @@
 		})
 		
 		function setMeaning(menu) {
-			// console.log(menu.dataset["word"])
-			// console.log(menu.querySelector("#innerMenu"))
 			menu.querySelector("#innerMenu").innerHTML = "<input type='text' id='meaningInput'></input><br><a class='menuoption' href='#' onclick='dict[\"" + menu.dataset["word"] + "\"] = document.getElementById(\"meaningInput\").value; renderDictionary(); removeMenu()'>Save meaning</a>"
-			// console.log(menu.querySelector("#meaningInput"))
+			
 			positionMenu(menu)
 		}
 		
@@ -235,13 +238,84 @@
 			menu.style.top = topPos + "px"
 		}
 		
-		function topBarMenu(clicked) {
+		function exportSave() {
+			var saveData = {"dict": dict, "drive": drive}
+			
+			var filename = "savedata.pwee"
+			var text = btoa(JSON.stringify(saveData))
+			
+			var element = document.createElement('a');
+			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+			element.setAttribute('download', filename);
+
+			element.style.display = 'none';
+			document.body.appendChild(element);
+
+			element.click();
+
+			document.body.removeChild(element);
+		}
+		
+		
+		function loadSave() {
+			var element = document.createElement('input');
+			element.setAttribute('type', 'file');
+			element.setAttribute('accept', '.pwee');
+			element.style.display = 'none';
+			document.body.appendChild(element);
+			
+			element.click();
+			
+			element.onchange = function(e){
+			  var reader = new FileReader
+			  reader.readAsText(e.target.files[0])
+			  reader.onload = function() {		
+				var saveData = JSON.parse(atob(reader.result));
+				dict = saveData["dict"];
+				drive = saveData["drive"];
+				
+				renderDrive();
+				renderDictionary();
+				
+				document.getElementById("currdoc").innerHTML = "<center><h2>pweeWorks 1.0</h2><h4>Copyright Winter Language Institute, 2001</h4><br><h4>Select a file to start working.</h4></center>"
+			  }
+			}
+
+			document.body.removeChild(element);
+		}
+		
+		function resetSave() {
 			removeMenu();
 			
+			dict = {};
+			drive = ["readme", "tykh"];
+			
+			renderDrive();
+			renderDictionary();
+			
+			document.getElementById("currdoc").innerHTML = "<center><h2>pweeWorks 1.0</h2><h4>Copyright Winter Language Institute, 2001</h4><br><h4>Select a file to start working.</h4></center>"
+		}
+		
+		function topBarMenu(clicked) {
+			removeMenu();
+
 			var offsetleft = clicked.offsetLeft
 			var offsettop = clicked.offsetTop + clicked.offsetHeight + 3
 			
-			clicked.parentElement.outerHTML += '<div class="menu"><a href="#" class="menuoption" id="about" onclick="removeMenu(); highlight(this);">About pweeWorks</a></font></div>'
+			var menuOptions
+			
+			switch (clicked.id) {
+				case "menu-settings":
+					menuOptions = '<a href="#" class="menuoption" id="about" onclick="removeMenu(); highlight(this);">About pweeWorks</a>'
+					break;
+				case "menu-file":
+					menuOptions = '<a href="#" class="menuoption" id="" onclick="exportSave()">Export save data</a><br><a href="#" class="menuoption" id="" onclick="loadSave()">Load save data</a><hr><a href="#" class="menuoption" id="" onclick="resetSave()" style="color: red">Reset save data</a>'
+					break;
+				default:
+					menuOptions = '<i>No options</i>'
+			}
+			
+			clicked.parentElement.outerHTML += '<div class="menu">' + menuOptions + '</div>'
 			
 			var menu = document.getElementsByClassName("menu")[0]
 			
