@@ -156,8 +156,6 @@
 		var drive = ["readme", "tykh"] //starting files
 		
 		function isCorrect(word) {
-			if (!Object.keys(correctDict).includes(word)) {return false}
-			
 			return correctDict[word].map(v => v.toLowerCase()).includes(dict[word].toLowerCase())
 		}
 		
@@ -340,25 +338,12 @@
 				newWord = true
 			}
 			
-			var subWord = word.split(",")
-			
-			if (subWord.length > 1) {
-				for (let i = 0; i < subWord.length; i++) {
-					if (!Object.keys(dict).includes(subWord[i])) {
-						dict[subWord[i]] = "???";
-						renderDictionary()
-					}
-					
-					subWord[i] = dict[subWord[i]]
-				}
-			}
-			
 			var offsetleft = clicked.offsetLeft
 			var offsettop = clicked.offsetTop + clicked.offsetHeight
 			
 			var meaningCorrect = isCorrect(word)
 			
-			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + offsetleft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + '"' + (newWord ? ' <font style="color: red">(new word)</font>' : '') + (meaningCorrect ? ' <font style="color: blue">(✓)</font>' : '') + '</b>' + (subWord.length > 1 ? '<br>("' + subWord.join('" + "') + '")' : "") + '</i><hr><font id="innerMenu">' + (meaningCorrect ? '' : '<a href="#" class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br>') + '<a href="#" class="menuoption">Open in dictionary</a></font></div>'
+			clicked.parentElement.outerHTML += '<div class="menu" data-offsetleft="' + offsetleft + '" data-offsettop="' + parseFloat(parseFloat(clicked.offsetTop) + parseFloat(clicked.offsetHeight)) + '" data-word="' + word +'"><b><i>"' + dict[word] + '"' + (newWord ? ' <font style="color: red">(new word)</font>' : '') + (meaningCorrect ? ' <font style="color: blue">(✓)</font>' : '') + '</b></i><hr><font id="innerMenu">' + (meaningCorrect ? '' : '<a href="#" class="menuoption" onclick="setMeaning(this.parentElement.parentElement)">Set meaning</a><br>') + '<a href="#" class="menuoption">Open in dictionary</a></font></div>'
 			
 			var menu = document.getElementsByClassName("menu")[0]
 			
@@ -383,8 +368,8 @@
 			for (let i = 0; i < hraxTexts.length; i++) {
 				var innerText = hraxTexts[i].innerHTML
 				
-				const regex = /\b([A-Za-z\,]+)\b/ig; // /\b(\w+)\b/ig;
-				innerText = innerText.replaceAll(regex, '<a href="#" class="hrax" onclick="lookUpHrax(this)">$1</a>')
+				const regex = /\b(\w+)\b/ig;
+				innerText = innerText.replaceAll(/\b(\w+)\b/ig, '<a href="#" class="hrax" onclick="lookUpHrax(this)">$1</a>')
 				
 				hraxTexts[i].innerHTML = innerText
 			}
