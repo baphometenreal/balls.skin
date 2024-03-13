@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-11-01 Wed 20:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Architecture 1</title>
+<meta name="author" content="Crystal" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../src/css/colors.css"/>
+<link rel="stylesheet" type="text/css" href="../src/css/style.css"/>
+<link rel="icon" type="image/x-icon" href="https://crystal.tilde.institute/favicon.png">
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../../../uni_notes/"> UP </a>
+ |
+ <a accesskey="H" href="https://crystal.tilde.institute/"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">Architecture 1</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org3fa8932">Premier cours : Les systémes de numération <i>Sep 27</i> :</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgb23a1f3"><b>Examples :</b></a></li>
+</ul>
+</li>
+<li><a href="#orga02a1f6">Comment passer d&rsquo;un systéme a base 10 a un autre</a>
+<ul>
+<li><a href="#org8c7a5f5">Pour les chiffres entiers :</a></li>
+<li><a href="#org6378ac0">Pour les chiffres non entiers :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org251a561">2nd cours : Les systèmes de numération (Suite) <i>Oct 3</i> :</a>
+<ul>
+<li><a href="#org2a38085">Comment passer d&rsquo;une base N a la base 10 :</a></li>
+<li><a href="#orgc0fdca1">Comment passer d&rsquo;une base N a une base N^(n) :</a>
+<ul>
+<li><a href="#orgba624be">Exemple :</a></li>
+</ul>
+</li>
+<li><a href="#org789d800">L&rsquo;arithmétique binaire :</a>
+<ul>
+<li><a href="#orgac84614">L&rsquo;addition :</a></li>
+<li><a href="#org4829f28">La soustraction :</a></li>
+</ul>
+</li>
+<li><a href="#org110b8dd">TP N°1 :</a>
+<ul>
+<li><a href="#org54d7fdf">Exo1:</a></li>
+<li><a href="#org6654eb2">Exo2:</a></li>
+<li><a href="#org9da39d0">Exo3:</a></li>
+</ul>
+</li>
+<li><a href="#org2039fb1">L&rsquo;arithmétique binaire (Suite): <i>Oct 4</i></a>
+<ul>
+<li><a href="#orgfc45d53">La multiplication :</a></li>
+<li><a href="#org91fcccc">La division :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcbf8da9">4th cours : Le codage <i>Oct 10</i></a>
+<ul>
+<li><a href="#org34693c1">Le codage des entiers positifs</a></li>
+<li><a href="#org3c8ed5c">Le codage des nombres relatifs</a>
+<ul>
+<li><a href="#orgb2d4951">Remarque</a></li>
+<li><a href="#orgca1d761">Le codage en signe + valeur absolue (SVA):</a></li>
+<li><a href="#orgd2c678f">Codage en compliment a 1 (CR):</a></li>
+<li><a href="#org9961620">Codage en compliment a 2 (CV):</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3fa8932" class="outline-2">
+<h2 id="org3fa8932">Premier cours : Les systémes de numération <i>Sep 27</i> :</h2>
+<div class="outline-text-2" id="text-org3fa8932">
+<p>
+Un système de numération est une méthode pour représenter des nombres à l&rsquo;aide de symboles et de règles. Chaque système, comme le décimal (base 10) ou le binaire (base 2), utilise une base définie pour représenter des valeurs numériques. Il est caractérisé par 3 entitiés mathématiques importantes:<br />
+</p>
+
+<ol class="org-ol">
+<li>Une base (genre 10, ou 2)<br /></li>
+<li>Un ensemble de chiffres<br /></li>
+<li>Des régles de représentations des nombres<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgb23a1f3" class="outline-4">
+<h4 id="orgb23a1f3"><b>Examples :</b></h4>
+<div class="outline-text-4" id="text-orgb23a1f3">
+<p>
+<i>B10 est un systéme de numération caractérisé par:</i><br />
+</p>
+<ul class="org-ul">
+<li>Base = 10<br /></li>
+<li>Un ensemble de chiffres : (0,1,2,3,4,5,6,7,8,9)<br /></li>
+</ul>
+
+<p>
+<i>B16 est un autre systéme de numération caractérisé par:</i><br />
+</p>
+<ul class="org-ul">
+<li>Base = 16<br /></li>
+<li><p>
+Un ensemble de chiffres : (0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F)<br />
+</p>
+
+<p>
+<b>Puisse-qu&rsquo;on peut pas utiliser des nombres a deux chiffres, on utilise des lettres aprés 9, en leur donnant des valeurs tel que :</b><br />
+</p>
+
+<p>
+A : 10 ; B : 11 ; C : 12 ; D : 13 ; E : 14 ; F : 15<br />
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga02a1f6" class="outline-3">
+<h3 id="orga02a1f6">Comment passer d&rsquo;un systéme a base 10 a un autre</h3>
+<div class="outline-text-3" id="text-orga02a1f6">
+<p>
+On symbolise un chiffre dans la base x par : (Nombre)x<br />
+</p>
+</div>
+<div id="outline-container-org8c7a5f5" class="outline-4">
+<h4 id="org8c7a5f5">Pour les chiffres entiers :</h4>
+<div class="outline-text-4" id="text-org8c7a5f5">
+<p>
+<b>On fait une division successive, on prends le nombre 3257 comme exemple, on veut le faire passer d&rsquo;une base décimale á une base 16:</b><br />
+</p>
+
+
+<p>
+(3257)10 -&#x2014;&gt; (?)16<br />
+</p>
+
+
+<p>
+On dévise 3257 par 16, et les restants de la division serra la valeur en base16:<br />
+</p>
+
+<p>
+3257/16 = 203 + <b>9</b> / 16<br />
+</p>
+
+<p>
+203/16 = 12 + <b>B</b> / 16  <i>REMARQUE, 11 N&rsquo;APPARTIENS PAS A L&rsquo;ENSEMBLE DES CHIFFRES EN BASE16, CE QUI VEUT DIRE QU&rsquo;ON LE REMPLACE PAR SON EQUIVALENT, DANS CE CAS LA: <b>B</b></i><br />
+</p>
+
+<p>
+12/16 = 0 + <b>C</b> / 16 <i>Pareil ici, 12 n&rsquo;existe pas, donc c&rsquo;est C. Autre note : La division s&rsquo;arréte quand le résultat de la division est nul</i><br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org9a466ee"></a><b>Conclusion:</b><br />
+<div class="outline-text-5" id="text-org9a466ee">
+<p>
+(3257)10 -&#x2014;&gt; (CB9)16<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org6378ac0" class="outline-4">
+<h4 id="org6378ac0">Pour les chiffres non entiers :</h4>
+<div class="outline-text-4" id="text-org6378ac0">
+<p>
+<b>On fait la division successive pour la partie entiére, et une multiplication successive pour la partie rationelle:</b><br />
+</p>
+
+<p>
+(3257,32)10 -&#x2014;&gt; (?)16<br />
+</p>
+
+<p>
+On a déja la partie entiére donc on s&rsquo;occupe de la partie aprés la virgule:<br />
+</p>
+
+<p>
+0,32 x 16 = <b>5</b>,12<br />
+</p>
+
+<p>
+0,12 x 16 = <b>1</b>,92<br />
+</p>
+
+<p>
+0,92 x 16 = <b>E</b>,72 <i>On a pas de 15 donc c&rsquo;est un E</i><br />
+</p>
+
+<p>
+0,72 x 16 = <b>B</b>,52<br />
+</p>
+
+<p>
+0,52 x 16 = <b>8</b>,32<br />
+</p>
+
+<p>
+0,32 x 16 = <b>5</b>,12<br />
+</p>
+
+<p>
+&#x2026;<br />
+</p>
+
+<p>
+<i>On s&rsquo;arréte quand on trouve un chiffre entier, et si on trouve pas, on s&rsquo;arréte quand on remarque une répetition, dans ce cas la, la séquance 51EB8 vas se répéter indéfiniment, donc on se contente d&rsquo;écrire la partie qui se répéte avec une barre en haut</i><br />
+</p>
+
+
+<p>
+(3257,32)10 -&#x2014;&gt; (CB9, <span class="underline">51EB8</span>)16<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org251a561" class="outline-2">
+<h2 id="org251a561">2nd cours : Les systèmes de numération (Suite) <i>Oct 3</i> :</h2>
+<div class="outline-text-2" id="text-org251a561">
+</div>
+<div id="outline-container-org2a38085" class="outline-3">
+<h3 id="org2a38085">Comment passer d&rsquo;une base N a la base 10 :</h3>
+<div class="outline-text-3" id="text-org2a38085">
+<p>
+Prenons comme exemple le nombre (11210,0011)3 , chaque chiffre dans ce nombre a un rang qui commence par 0 au premier chiffre (a gauche de la virgule) et qui augmente d&rsquo;un plus qu&rsquo;on avance a gauche, et diminue si on part a droite. Dans ce cas la :<br />
+</p>
+
+
+<p>
+(11210,0011)3 ; le 0 est de rang 0, le 1 est de rang 1, le 2 est de rang 2, le 1 est de rang 3, le 1 est de rang 4. Et si on part du coté de la virgule, 0 est de rang -1, 0 est de rang -2, le 1 est de rang -3, et le 1 est de rang -4.<br />
+</p>
+
+
+<p>
+Et pour passer a la base 10, il suffit d&rsquo;appliquer cette formule : <b>Chiffre x Base^(rang) + 2emeChiffre x Base^(rang)&#x2026; etc</b>, donc dans notre example:<br />
+</p>
+
+
+<p>
+<i>0 x 3° + 1 x 3¹ + 2 x 3² + 1 x 3³ + 1 x 3^4 + 0 x 3¯¹ + 0 x 3¯² + 1 x 3¯³ + 1 x 3^(-4) ≈ (129,05)10</i><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc0fdca1" class="outline-3">
+<h3 id="orgc0fdca1">Comment passer d&rsquo;une base N a une base N^(n) :</h3>
+<div class="outline-text-3" id="text-orgc0fdca1">
+<p>
+Si il ya une relation entre une base et une autre, on peut directement transformer vers cette base.<br />
+</p>
+</div>
+<div id="outline-container-orgba624be" class="outline-4">
+<h4 id="orgba624be">Exemple :</h4>
+<div class="outline-text-4" id="text-orgba624be">
+<p>
+Pour passer de la base 2 a la base 8 (8 qui est 2³) on découpe les chiffres 3 par 3<br />
+</p>
+
+
+<p>
+(1 101 011, 011)2 ; Pour le dernier 1 qui est seul <code>tout comme moi</code> il suffit d&rsquo;ajouter des 0 à gauche (car on peut) pour compléter le découpage.<br />
+</p>
+
+
+<p>
+(001 101 011, 011)2; Next step c&rsquo;est de dessiner le tableau de conversion de la base 2 a la base 8 ( un tableau a 3 bits )<br />
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">N</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Pour remplir on a qu&rsquo;a diviser les chiffres en deux, et mettre des 0 dans la première partie et des 1 dans la 2éme, et en faire de même pour les autres colonnes .<br />
+</p>
+
+
+<p>
+Maintenant il suffit de trouver l&rsquo;équivalent de la base2 en base8 :<br />
+</p>
+
+
+<p>
+001 c&rsquo;est 1 ; 101 c&rsquo;est 5 ; 011 c&rsquo;est 3 ; donc <b>(1101011,011)2 &#x2014;&gt; (153,3)8</b><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org789d800" class="outline-3">
+<h3 id="org789d800">L&rsquo;arithmétique binaire :</h3>
+<div class="outline-text-3" id="text-org789d800">
+</div>
+<div id="outline-container-orgac84614" class="outline-4">
+<h4 id="orgac84614">L&rsquo;addition :</h4>
+<div class="outline-text-4" id="text-orgac84614">
+<p>
+0 + 0 = 0 On retiens 0<br />
+</p>
+
+
+<p>
+1 + 0 = 1 On retiens 0<br />
+</p>
+
+
+<p>
+0 + 1 = 1 On retiens 0<br />
+</p>
+
+
+<p>
+1 + 1 = 0 On retiens 1<br />
+</p>
+
+
+<p>
+1 + 1 + 1 = 1 On retiens 1<br />
+</p>
+
+
+<p>
+Donc 0110 + 1101 = 10011<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org4829f28" class="outline-4">
+<h4 id="org4829f28">La soustraction :</h4>
+<div class="outline-text-4" id="text-org4829f28">
+<p>
+0 - 0 = 0 On emprunt = 0<br />
+</p>
+
+
+<p>
+1 - 0 = 1 On emprunt = 0<br />
+</p>
+
+
+<p>
+0 - 1 = 1 On emprunt = 1<br />
+</p>
+
+
+<p>
+1 - 1 = 0 On emprunt = 0<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org110b8dd" class="outline-3">
+<h3 id="org110b8dd">TP N°1 :</h3>
+<div class="outline-text-3" id="text-org110b8dd">
+</div>
+<div id="outline-container-org54d7fdf" class="outline-4">
+<h4 id="org54d7fdf">Exo1:</h4>
+<div class="outline-text-4" id="text-org54d7fdf">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Base 10</th>
+<th scope="col" class="org-left">Base 2</th>
+<th scope="col" class="org-left">Base 3</th>
+<th scope="col" class="org-left">Base 8</th>
+<th scope="col" class="org-left">Base 16</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">22,75</td>
+<td class="org-left">10110,11</td>
+<td class="org-left">211, <span class="underline">20</span></td>
+<td class="org-left">26,6</td>
+<td class="org-left">F6,C</td>
+</tr>
+
+<tr>
+<td class="org-left">684,125</td>
+<td class="org-left">1010101100,001</td>
+<td class="org-left">221100, <span class="underline">01</span></td>
+<td class="org-left">1254,1</td>
+<td class="org-left">2AC,2</td>
+</tr>
+
+<tr>
+<td class="org-left">3931,625</td>
+<td class="org-left">111101011011,101</td>
+<td class="org-left">1101121, <span class="underline">12</span></td>
+<td class="org-left">7533,5</td>
+<td class="org-left">F5B,A</td>
+</tr>
+
+<tr>
+<td class="org-left">52,38</td>
+<td class="org-left">110100,011</td>
+<td class="org-left">1221,101</td>
+<td class="org-left">64,3</td>
+<td class="org-left">34,6147</td>
+</tr>
+
+<tr>
+<td class="org-left">10,67</td>
+<td class="org-left">1010,101</td>
+<td class="org-left">23,5</td>
+<td class="org-left">12,5</td>
+<td class="org-left">A,AB85</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="org-ul">
+<li><a id="orga7c42ee"></a>(10110,11)2<br />
+<div class="outline-text-5" id="text-orga7c42ee">
+<p>
+0 x 2° + 1 x 2¹ + 1 x 2² + 0 x 2³ + 1 x 2^(4) + 1 x 2¯¹ + 1 x 2¯² = (22.75)10<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org02d1304"></a>(22,75)10 -&#x2014;&gt; (3)<br />
+<div class="outline-text-6" id="text-org02d1304">
+<p>
+22/3 = 7 R <b>1</b> ; 7/3 = 2 R <b>1</b> ; 2/3 = 0 R <b>2</b><br />
+</p>
+
+
+<p>
+0,75 x 3 = <b>2</b>.25 ; 0,25 x 3 = <b>0</b>.75 &#x2026;..<br />
+</p>
+
+
+<p>
+(22,75)10 -&#x2014;&gt; (211, <span class="underline">20</span>)<br />
+</p>
+</div>
+</li>
+<li><a id="org00a17b7"></a>(10110,11)2 -&#x2014;&gt; (8)<br />
+<div class="outline-text-6" id="text-org00a17b7">
+<p>
+8 = 2³ ; (010 110,110)2 -&#x2014;&gt; (?)8<br />
+</p>
+
+
+<p>
+En utilisant le tableau 3bits :<br />
+</p>
+
+
+<p>
+010 : 2 ; 110 : 6 ; 110 : 6<br />
+</p>
+
+
+<p>
+(10110,11)2 -&#x2014;&gt; (26,6)8<br />
+</p>
+</div>
+</li>
+<li><a id="org8bffc7b"></a>(22,75)10 -&#x2014;&gt; (16)<br />
+<div class="outline-text-6" id="text-org8bffc7b">
+<p>
+22/16 = 1 R <b>6</b> ; 1/16 : 0 R <b>F</b><br />
+</p>
+
+
+<p>
+0,75 x 16 = <b>C</b><br />
+</p>
+
+
+<p>
+(22,75)10 -&#x2014;&gt; (F6,C)16<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+<li><a id="orgd6d1187"></a>(1254,1)8<br />
+<div class="outline-text-5" id="text-orgd6d1187">
+<p>
+4 x 8° + 5 x 8¹ + 2 x 8² + 1 x 8³ + 1 x 8¯¹ = (684,125)10<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgfe79941"></a>(1254,1)8 -&#x2014;&gt; (?)2<br />
+<div class="outline-text-6" id="text-orgfe79941">
+<p>
+En utilisant le tableau 3bits :<br />
+</p>
+
+
+<p>
+001 010 101 100,001 <i>We will get rid of the leading zeros</i><br />
+</p>
+
+
+<p>
+(1010101100,001)2<br />
+</p>
+</div>
+</li>
+<li><a id="org5468c02"></a>(684,125)10 -&#x2014;&gt; (?)3<br />
+<div class="outline-text-6" id="text-org5468c02">
+<p>
+684/3 = 228 R <b>0</b> ; 228/3 = 76 R <b>0</b> ; 76/3 = 25 R <b>1</b> ; 25/3 = 8 R <b>1</b> ; 8/3 = 2 R <b>2</b> ; 2/3 = 0 R <b>2</b><br />
+</p>
+
+
+<p>
+0,125 x 3 = <b>0</b>,375 ; 0,375 x 3 = <b>1</b>,125<br />
+</p>
+
+
+<p>
+(221100, <span class="underline">01</span>)3<br />
+</p>
+</div>
+</li>
+<li><a id="org8acf355"></a>(684,125)10 -&#x2014;&gt; (?)16<br />
+<div class="outline-text-6" id="text-org8acf355">
+<p>
+684/16 = 42 R <b>C</b> ; 42/16 = 2 R <b>A</b> ; 2/16 0 R <b>2</b><br />
+</p>
+
+
+<p>
+0,125 x 16 = <b>2</b><br />
+</p>
+
+
+<p>
+(2AC,2)16<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+<li><a id="orgaed5ea2"></a>(F5B,A)16<br />
+<div class="outline-text-5" id="text-orgaed5ea2">
+<p>
+11 x 16° + 5 x 16 + 15 x 16² + 10 x 16¯¹ = (3931,625)10<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org56c0052"></a>(3931,625)10 -&#x2014;&gt; (8)<br />
+<div class="outline-text-6" id="text-org56c0052">
+<p>
+3931/8 = 491 R <b>3</b> ; 491/8 = 61 R <b>3</b> ; 61/8 = 7 R <b>5</b> ; 7/8 = 0 R <b>7</b><br />
+</p>
+
+
+<p>
+0,625 x 8 = <b>5</b><br />
+</p>
+
+
+<p>
+(7533,5)8<br />
+</p>
+</div>
+</li>
+<li><a id="org64e9962"></a>(7533,5)8 -&#x2014;&gt; (2)<br />
+<div class="outline-text-6" id="text-org64e9962">
+<p>
+En utilisant le tableau 3bits<br />
+</p>
+
+<p>
+(111 101 011 011,101)2<br />
+</p>
+</div>
+</li>
+<li><a id="org2850a22"></a>(3931,625)10 -&#x2014;&gt; (3)<br />
+<div class="outline-text-6" id="text-org2850a22">
+<p>
+3931/3 = 1310 R <b>1</b> ; 1310/3 = 436 R <b>2</b> ; 436/3 = 145 R <b>1</b> ; 145/3 = 48 R <b>1</b> ; 48/3 = 16 R <b>0</b> ; 16/3 = 5 R <b>1</b> ; 5/3 = 1 R <b>2</b> ; 1/3 = 0 R <b>1</b><br />
+</p>
+
+
+<p>
+0.625 x 3 = <b>1</b>,875 ; 0,875 x 3 = <b>2</b>,625<br />
+</p>
+
+
+<p>
+(1101121, <span class="underline">12</span>)3<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org2ee5d93"></a>(52,38)10<br />
+<div class="outline-text-5" id="text-org2ee5d93">
+<p>
+52/2 = 26 R <b>0</b> ; 26/2 = 13 R <b>0</b> ; 13/2 = 6 R <b>1</b> ; 6/2 = 3 R <b>0</b> ; 3/2 = 1 R <b>1</b> ; 1/2 = 0 R <b>1</b><br />
+</p>
+
+
+<p>
+0,38 x 2 = <b>0</b>,76 ; 0,76 x 2 = <b>1</b>,52 ; 0,52 x 2 = <b>1</b>,04 ; 0,04 x 2 = <b>0</b>,08 &#x2026;.<br />
+</p>
+
+
+<p>
+(110100,0110)2<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org3f89d6a"></a>(52,38)10 -&#x2014;&gt; (3)<br />
+<div class="outline-text-6" id="text-org3f89d6a">
+<p>
+52/3 = 17 R <b>1</b> ; 17/3 = 5 R <b>2</b> ; 5/3 = 1 R <b>2</b> ; 1/3 = 0 R <b>1</b><br />
+</p>
+
+
+<p>
+0,38 x 3 = <b>1</b>.14 ; 0,14 x 3 = <b>0</b>.42 ; 0,42 x 3 = <b>1</b>.26 ; 0.26 x 3 = <b>0</b>.78 &#x2026;<br />
+</p>
+
+
+<p>
+(1221,101)3<br />
+</p>
+</div>
+</li>
+<li><a id="org388e3c0"></a>(110100,011)2 -&#x2014;&gt; (8)<br />
+<div class="outline-text-6" id="text-org388e3c0">
+<p>
+En utilisant le tableau 3bits:<br />
+</p>
+
+
+<p>
+(110 100,011)2 -&#x2014;&gt; (64,3)8<br />
+</p>
+</div>
+</li>
+<li><a id="orgb909e73"></a>(52,38)10 -&#x2014;&gt; (16)<br />
+<div class="outline-text-6" id="text-orgb909e73">
+<p>
+52/16 = 3 R <b>4</b> ; 3/16 = 0 R <b>3</b><br />
+</p>
+
+
+<p>
+0,38 x 16 = <b>6</b>,08 ; 0,08 x 16 = <b>1</b>,28 ; 0,28 x 16 = <b>4</b>,48 ; 0,48 x 16 = <b>7</b>,68 &#x2026;.<br />
+</p>
+
+
+<p>
+(34,6147)16<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org75b2f51"></a>(23,5)3<br />
+<div class="outline-text-5" id="text-org75b2f51">
+<p>
+3 x 3° + 2 x 3 + 5 x 3¯¹ = (10.67)10<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgbc5bb6a"></a>(10,67)10 -&#x2014;&gt; (2)<br />
+<div class="outline-text-6" id="text-orgbc5bb6a">
+<p>
+10/2 = 5 R <b>0</b> ; 5/2 = 2 R <b>1</b> ; 2/2 = 1 R <b>0</b> ; 1/2 = 0 R <b>1</b><br />
+</p>
+
+
+<p>
+0,67 x 2 = <b>1</b>,34 ; 0,34 x 2 = <b>0</b>,68 ; 0,68 x 2 = <b>1</b>,36 ; 0,36 x 2 = <b>0</b>,72 &#x2026;<br />
+</p>
+
+
+<p>
+(1010,101)2<br />
+</p>
+</div>
+</li>
+<li><a id="org0edf1dd"></a>(001 010,101)2 -&#x2014;&gt; (8)<br />
+<div class="outline-text-6" id="text-org0edf1dd">
+<p>
+<b>Ô Magic 3bits table, save me soul, me children and me maiden:</b><br />
+</p>
+
+
+<p>
+(12,5)8<br />
+</p>
+</div>
+</li>
+<li><a id="org58aafdf"></a>(10,67)10 -&#x2014;&gt; (16)<br />
+<div class="outline-text-6" id="text-org58aafdf">
+<p>
+10/16 = 0 R <b>A</b><br />
+</p>
+
+
+<p>
+0,67 x 16 = <b>A</b>,72 ; 0,72 x 16 = <b>B</b>,52 ; 0,52 x 16 = <b>8</b>,32 ; 0,32 x 16 = <b>5</b>,12 &#x2026;<br />
+</p>
+
+
+<p>
+(A,AB85)16<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-org6654eb2" class="outline-4">
+<h4 id="org6654eb2">Exo2:</h4>
+<div class="outline-text-4" id="text-org6654eb2">
+</div>
+<ul class="org-ul">
+<li><a id="org15754eb"></a>(34)? = (22)10<br />
+<div class="outline-text-5" id="text-org15754eb">
+<p>
+(34)a = (22)10 ; 4 x a° + 3 x a = 22 ; 4 + 3a = 22 ; 3a = 18<br />
+</p>
+
+
+<p>
+<b>a = 6</b><br />
+</p>
+</div>
+</li>
+<li><a id="org1c4cbd0"></a>(75)? = (117)10<br />
+<div class="outline-text-5" id="text-org1c4cbd0">
+<p>
+(75)b = (117)10 ; 5 x b° + 7 x b¹ = 117 ; 5 + 7b = 117 ; 7b = 112<br />
+</p>
+
+
+<p>
+<b>b = 16</b><br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org9da39d0" class="outline-4">
+<h4 id="org9da39d0">Exo3:</h4>
+<div class="outline-text-4" id="text-org9da39d0">
+</div>
+<ul class="org-ul">
+<li><a id="org9098512"></a>(101011)2 + (111011)2<br />
+<div class="outline-text-5" id="text-org9098512">
+<p>
+101011 + 111011 = 1100110<br />
+</p>
+</div>
+</li>
+<li><a id="org390626e"></a>(1011,1101)2 + (11,1)2<br />
+<div class="outline-text-5" id="text-org390626e">
+<p>
+1011,1101 + 11,1000 = 1111,0101<br />
+</p>
+</div>
+</li>
+<li><a id="org3d08c66"></a>(1010,0101)2 - (110,1001)2<br />
+<div class="outline-text-5" id="text-org3d08c66">
+<p>
+1010,0101 - 110,1001 = 11,1100<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2039fb1" class="outline-3">
+<h3 id="org2039fb1">L&rsquo;arithmétique binaire (Suite): <i>Oct 4</i></h3>
+<div class="outline-text-3" id="text-org2039fb1">
+</div>
+<div id="outline-container-orgfc45d53" class="outline-4">
+<h4 id="orgfc45d53">La multiplication :</h4>
+<div class="outline-text-4" id="text-orgfc45d53">
+<p>
+0 x 0 = 0<br />
+</p>
+
+
+<p>
+0 x 1 = 0<br />
+</p>
+
+
+<p>
+1 x 0 = 0<br />
+</p>
+
+
+<p>
+1 x 1 = 1<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org91fcccc" class="outline-4">
+<h4 id="org91fcccc">La division :</h4>
+<div class="outline-text-4" id="text-org91fcccc">
+<p>
+On divise de la manière la plus normale du monde !!!<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcbf8da9" class="outline-2">
+<h2 id="orgcbf8da9">4th cours : Le codage <i>Oct 10</i></h2>
+<div class="outline-text-2" id="text-orgcbf8da9">
+</div>
+<div id="outline-container-org34693c1" class="outline-3">
+<h3 id="org34693c1">Le codage des entiers positifs</h3>
+<div class="outline-text-3" id="text-org34693c1">
+<p>
+Le codage sur n bits permet de representer tout les entiers naturels compris entre [0, 2^n - 1]. On peut coder sur 8bits les entiers entre [0;2^8 - 1(255)]<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org3c8ed5c" class="outline-3">
+<h3 id="org3c8ed5c">Le codage des nombres relatifs</h3>
+<div class="outline-text-3" id="text-org3c8ed5c">
+</div>
+<div id="outline-container-orgb2d4951" class="outline-4">
+<h4 id="orgb2d4951">Remarque</h4>
+<div class="outline-text-4" id="text-orgb2d4951">
+<p>
+Quelque soit le codage utilise, par convention le dernier bit est reserve pour le signe. ou 1 est negatif et 0 est positif.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgca1d761" class="outline-4">
+<h4 id="orgca1d761">Le codage en signe + valeur absolue (SVA):</h4>
+<div class="outline-text-4" id="text-orgca1d761">
+<p>
+Avec n bits le n eme est reserve au signe : [-(2^n-1)-1 , 2^n-1 -1]. Sur 8bits [-127, 127]<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd2c678f" class="outline-4">
+<h4 id="orgd2c678f">Codage en compliment a 1 (CR):</h4>
+<div class="outline-text-4" id="text-orgd2c678f">
+<p>
+On obtiens le compliment a 1 d&rsquo;un nombre binaire en inversant chaqu&rsquo;un de ses bits (1 -&gt; 0 et 0-&gt; 1) les nombres positifs sont la meme que SVA (il reste tel qu&rsquo;il est)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org9961620" class="outline-4">
+<h4 id="org9961620">Codage en compliment a 2 (CV):</h4>
+<div class="outline-text-4" id="text-org9961620">
+<p>
+C&rsquo;est literallement CR + 1 pour les negatifs et SVA pour les nombres positifs<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Crystal</p>
+<p class="date">Created: 2023-11-01 Wed 20:16</p>
+</div>
+</body>
+</html>

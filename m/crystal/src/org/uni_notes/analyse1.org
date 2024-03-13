@@ -1,0 +1,579 @@
+#+title: Analyse 1
+#+AUTHOR: Crystal
+#+OPTIONS: ^:{}
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../../uni_notes/analyse.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/style.css"/>
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+#+HTML_LINK_UP: ../../../uni_notes/
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:4
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="https://crystal.tilde.institute/favicon.png">
+#+OPTIONS: \n:y
+* Contenu de la Matiére
+** Chapitre 1 : Quelque propriétés de ℝ
+- Structure algébrique de ℝ
+- L'ordre dans ℝ
+- Majorant, minorant, borne superieure, borne inférieure
+
+** Chapitre 2 : Les suites numériques réelles
+- Définition : convergence, opérations sur les suites convergentes
+- Theoréme de convergence, Theoréme de ___ suites, sans suites, extension au limites infinies
+- Suites de cauchy, suites adjacentes et suites récurentes
+
+** Chapitre 3 : Limites et continuité des fonctions réelles d'une variable réelle
+- Les limites : définition, opérations sur les limites, les formes inditerminées
+- La continuité : définition, Theorémes fondamentaux
+- La continuité informe les fonctions Lepchitziennes
+
+** Chapitre 4 : La dérivabilité et son interprétation géometrique
+- Opérations sur les fonctions dérivales, Theoréme de Rolle, Theoréme des accroissements finis, régle de L'Hopital et formule de Taylor
+
+** Chapitre 5 : Les fonctions trigonométriques réciproques, fonctions hypérboliques réciproques
+- Comparaison asymptotique
+- Symbole de lamdau (lambda ?), et notions des fonctions équivalentes
+- Développements limites polynominaux (D.L) et opérations sur les D.L
+- Généralisations des D.L
+- Application au calcul de limite et l'étude des branches infinies
+
+
+* Premier cours : Quelque propriétés de ℝ /Sep 26/ :
+
+** La loi de composition interne dans E :
+@ : E x E ---> E
+    (x,y) ---> x @ y
+
+@ est une lois de composition interne seulement si :
+
+*∀ x,y ε E*
+
+
+*** *Example : Addition*
+Est ce que l'addition (+) est L.C.I dans ℕ  ?
+
+ℕ x ℕ ---> ℕ
+
+(x,y) ---> x + y ? /En gros : Pour que l'addition soit une L.C.I dans ℕ, il faut que: quand on additionne *n'importe quel* chiffre x et y de N, il faut que le résultat appertiens aussi a ℕ/
+
+∀ x,y ∈ ℕ , x + y ∈ ℕ /En gros: Pour TOUTE valeur de x et y appartenant a ℕ, leur somme est toujours dans ℕ/
+
+Donc : + est L.C.I dans ℕ
+
+*** *Example : soustraction*
+Est ce que la soustraction (-) est L.C.I dans ℕ?
+
+ℕ x ℕ ---> ℕ
+
+(x,y) ---> x - y ?
+
+
+∃ x , y ∈ ℕ , x - y ∉ ℕ /En gros: il existe au moins une valeur de x et y dans ℕ tel que leur différence n'est *PAS* dans ℕ . tel que : si x est 5, et y c'est 9. Leur différence est -4, qui appartiens pas a ℕ/
+
+** La loi de composition externe dans E :
+
+@ est L.C.E dans E, K est un corps
+
+K x E ---> E
+
+(a,x) ---> a @ x
+
+∀ (a , x) ∈ K x E , a @ x ∈ E
+
+** Groupes :
+/Soit E un ensemble, soit @ une L.C.I dans E/
+
+(E, @) est un groupe Si :
+
+*** Il contiens un élement neutre
+
+∀ x ∈ E ; ∃ e ∈ E
+
+x @ e = e @ x = x
+
+On appelle *e* élement neutre
+
+/Ex: (ℕ,+) accepte un élement neutre, qui est 0, parceque x + 0 = 0 + x = x....cependent (ℕ,+) n'est pas un groupe. La raison est dans la prochaine condition/
+
+*** Il contiens un élément symétrique
+
+∀ x ∈ E ; ∃ x' ∈ E ; x @ x' = x' @ x = e
+
+On appelle *x'* élèment symétrique
+
+/Dans l'example en haut, on remarque qu'il n'y ya pas de chiffre x' pour chaque chiffre x, qui est, l'hors de leur addition est egal a e (0), tout simplement car:/
+
+/x + x' = e ; x + x' = 0 ; x = -x'/
+
+*Or, Dans ℕ, on a pas de nombres négatifs*
+
+*** @ est cummutative :
+
+∀ (x , x') ∈ E x E ; x @ x' = x' @ x
+
+/L'addition est cummutative, la soustraction ne l'es pas. 5 + 3 ou 3 + 5 est pareil, mais 5 - 3 et 3 - 5 sont différents/
+
+** Anneaux :
+Soit E un ensemble, (E , @ , !) est un anneau si :
+*** (E ; @) est un groupe cummutatif
+*** ! est une loi associative :
+∀ x , y , z ∈ E
+
+(x ! y) ! z = x ! (y ! z)
+*** Distribution de ! par rapport à @ :
+∀ x , y , z ∈ E
+
+(x @ y) ! z = ( x ! z ) @ ( y ! z )
+*** L'existance d'un élèment neutre de ! :
+
+∀ x ∈ E , ∃ e ∈ E , x ! e = e ! x = x
+
+*** ! est cummutative :
+
+∀ x , y ∈ E , x ! y = y ! x
+
+** Corps :
+(E , @ , !) est un corps si les 5 conditions en haut sont vérifiées + cette condition :
+
+*** La symétrie :
+
+∀ x ∈ E ; ∃ x' ∈ E , x ! x' = x' ! x = e
+
+x' est l'élément symétrique de x par rapport à !
+(sauf élément neutre première lois )
+
+
+** Exercice : (ℝ, +, x) corps ou pas ?
+*** Est-ce un Anneau ?
+- (ℝ, +) est un groupe commutatif
+- x est une loi associative : (a x b) x c = a x (b x c)
+- On peut distribuer x par rapport a + : (a + b) x c = (a x c) + (b x c)
+- Il existe un élément neutre de x which is 1 : a x 1 = 1 x a = a
+- La multiplication est commutative : a x b = b x a
+
+Oui c'est un anneau
+*** Est-ce un corps ?
+- Oui : ∀ x ∈ ℝ\{e} ; x * x' = 1
+
+
+* 2nd cours :L'ordre dans ℝ, Majorant, minorant, borne superieure, borne inférieure /Oct 3/ :
+** L'ordre dans ℝ
+(ℝ, +, x) est un corps, Soit R une relation d'ordre dans ℝ si :
+
+1. R est antisymétrique :
+
+   ∀ x, y ℝ  ; (x R y et y R x) ⇒ (x = y)
+
+2. R est reflexive :
+
+  ∀ x ∈ ℝ ; x R x
+
+3. R est transitive :
+  ∀ x, y, z ∈ ℝ , (x R y and y R z) ⇒ x R z
+
+*** Exemples :
+**** Exemple numéro 1:
+(ℝ , +, x) est un corps. Est ce la relation < est une relation d'ordre dans ℝ ?
+
+
+Non, pourquoi ? parce que elle est pas réflexive : ∀ x ∈ ℝ, x < x **is obviously false**
+**** Exemple numéro 2:
+(ℝ , +, x) est un corps. Est ce la relation ≥ est une relation d'ordre dans ℝ ?
+
+1. (Antisymétrique) ∀ x, y ℝ ; (x ≥ y AND y ≥ x) ⇒ x = y  is true
+2. (Réflexive) ∀ x, y ℝ ; x ≥ x is true
+3. (Transitive) ∀ x, y, z ℝ ; (x ≥ y AND y ≥ z) ⇒ x ≥ z is also true
+
+** Majorant, minorant, borne supérieure, borne inférieure
+*** Majorant:
+Soit E un sous-ensemble de ℝ (E ⊆ ℝ)
+
+
+Soit a ∈ ℝ, a est un majorant de E Si :∀ x ∈ E , x ≤ a
+
+*** Minorant:
+Soit E un sous-ensemble de ℝ (E ⊆ ℝ)
+
+
+Soit b ∈ ℝ, b est un minorant de E Si :∀ x ∈ E , x ≥ b
+
+
+*** Borne supérieure:
+La borne supérieure est le plus petit des majorants /Sup(E) = Borne supérieure/
+
+*** Borne inférieure:
+La borne inférieure est le plus grand des minorant /Inf (E) = Borne inférieure/
+
+*** Maximum :
+E ⊆ ℝ, a est un maximum de E (Max(E)) Si : a ∈ E ; ∀x ∈ E, x ≤ a.
+*** Minimum :
+E ⊆ ℝ, b est un minimum de E (Min(E)) Si : b ∈ E ; ∀x ∈ E, x ≥ b.
+
+*** Remarques :
+A et B deux ensembles bornés (Minoré et Majoré) :
+1. A ∪ B est borné
+2. A ∩ B est borné
+3. Sup(A ∪ B)= Max(sup A, sup B)
+4. Inf (A ∩ B)= Min(inf A, inf B)
+5. Sup(A ∩ B)= Min(sup A, sup B) /Le plus petit des Supérieur de A et B/
+6. Inf (A ∩ B)= Max(inf A, inf B) /Le plus grand des inférieur de A et B/
+
+* 3rd cours :Les suites numériques /Oct 5/ :
+*** Définition :
+Soit (Un)n ∈ ℕ une suite numérique , (Un)n est une application de ℕ dans ℝ:
+
+
+ℕ ----> ℝ
+
+
+n ----> U(n) = Un
+
+1. (Un) ou (Un)n ∈ ℝ : une suite
+2. Un : terme général
+
+***** Exemple :
+U : ℕ* ----> ℝ
+
+
+    n  ----> 1/n
+
+
+    (Un) est une suite définit par Un = 1/n
+
+*** Définition N°2 :
+On peut définir une suite â partir d'une relation de récurrence entre deux termes successifs et le premier terme.
+***** Exemple :
+U(n+1) = Un /2
+
+
+U(1)= 1
+** Opérations sur les suites :
+*** La somme :
+Soient (Un) et (Vn) deux suites, la somme de (Un) et (Vn) est une suite de terme général Un + Vn
+*** Le produit :
+Soient (Un)n et (Vn)n deux suites alors (Un) x (Vn) est une autre suite de terme général Un x Vn
+*** Inverse d'une suite :
+Soit Un une suite de terme général Un alors l'inverse de (Un) est une autre suite (Vn) = 1/(Un) de terme général de Vn = 1/Un
+*** Produit d'une suite par un scalaire :
+Soit (Un) une suite de T.G Un
+
+
+∀ λ ∈ ℝ , λ(Un) n ∈ ℕ est une suite de T.G Vn= λUn
+
+** Suite bornée :
+Une suite (Un) est bornée si (Un) majorée et minorée
+** Suite majorée :
+Soit (Un) une suite
+
+
+U : (Un) est majorée par M ∈ ℝ ; ∀ n ∈ ℕ ; ∃ M ∈ ℝ , Un ≤ M
+
+** Suite minorée :
+Soit (Un) une suite
+
+
+U : (Un) est minorée par M ∈ ℝ ; ∀ n ∈ ℕ ; ∃ M ∈ ℝ , Un ≥ M
+
+** Suites monotones :
+*** Les suites croissantes :
+Soit (Un)n est une suite
+
+
+(Un) est croissante si : ∀ n ∈ ℕ ;  U(n+1) - Un ≥ 0  ⇔ Un+1 ≥ Un
+
+*** Les suites décroissantes :
+Soit (Un)n est une suite
+
+
+(Un) est décroissante si : ∀ n ∈ ℕ ;  U(n+1) - Un ≤ 0  ⇔ Un+1 ≤ Un
+
+
+* Série TD N°1 : /Oct 6/
+** Exo 1 :
+*** Ensemble A :
+
+A = {-1/n , n ∈ ℕ *}
+
+**** Borne inférieure
+∀ n ∈  ℕ*  , -1/n ≥ -1 . -1 est la borne inférieure de l'ensemble A
+
+**** Minimum :
+∀ n ∈  ℕ*  , -1/n ≥ -1 . -1 est le Minimum de l'ensemble A
+
+**** Borne supérieure :
+∀ n ∈  ℕ*  , -1/n ≤ 0 . 0 est la borne supérieure de l'ensemble A
+**** Maximum :
+L'ensemble A n'as pas de maximum
+*** Ensemble B :
+B = [-1 , 3[ ∩ ℚ
+**** Borne inférieure :
+Inf (B) = Max(inf ([-1 , 3[) , inf (ℚ))
+
+
+Puisse que ℚ n'as pas de Borne inférieure, donc par convention c'est  *-∞*,
+
+
+*Inf (B) = -1*
+
+**** Borne supérieure :
+Sup(B) = Min(sup([-1 ,3[) , sup(ℚ))
+
+
+Puisse que ℚ n'as pas de Borne supérieure, donc par convention c'est  *+∞*,
+
+
+*Sup(B) = 3*
+
+**** Minimum :
+*Min(B) = -1*
+
+**** Maximum :
+L'ensemble B n'as pas de Maximum
+*** Ensemble C :
+C = {3n ,n ∈ ℕ}
+
+**** Borne inférieure :
+Inf (C) = 0
+
+**** Borne supérieure :
+Sup(C) = +∞
+**** Minimum :
+Min(C) = 0
+**** Maximum :
+L'ensemble C n'as pas de Maximum
+
+*** Ensemble D :
+D = {1 - 1/n , n ∈ ℕ*}
+**** Borne inférieure :
+Inf (D)= 0
+**** Borne supérieure :
+Sup(D)= 1
+**** Minimum :
+Min(D)= 0
+**** Maximum :
+L'ensemble D n'as pas de Maximum
+
+*** Ensemble E :
+E = { [2n + (-1)^n]/ n + 1 , n ∈ ℕ }
+
+
+*Les valeurs que E peut prendre sont : "(2n + 1)/(n+1)" Si n est pair, et "(2n - 1)/(n+1)" si n est impair*
+
+
+*On définit un ensemble F et G : F = { (2n + 1)/ (n+1) , n ∈ 2k},  G = { (2n - 1)/(n+1), n ∈ 2k+1}*
+
+
+*Donc E = F ∪ G*
+
+**** Borne inférieure :
+Inf (E) = Min(inf (F), inf (G))
+
+
+Inf (F) = 1 ; Inf (G) = -1
+
+
+*Inf (E)= -1*
+
+**** Borne supérieure :
+Sup(E) = Max(sup(F), sup(G))
+
+
+sup(F) = +∞ ; sup(G) = +∞
+
+
+*Sup(E)= +∞*
+**** Minimum :
+Min(E)= -1
+**** Maximum :
+E n'as pas de maximum
+** Exo 2 :
+*** Ensemble A :
+A = {x ∈ ℝ , 0 < x <√3}
+
+**** Borné
+*Oui*, Inf (A)= 0 ; Sup(A)=√3
+*** Ensemble B :
+B = { x ∈ ℝ , 1/2 < sin x <√3/2} ;
+**** Borné
+*∀ x ∈ B, sin x > 1/2 ∴ Inf (B)= 1/2*
+
+
+*∀ x ∈ B, sin x < √3/2 ∴ Sup(B)= √3/2*
+*** Ensemble C :
+C = {x ∈  ℝ , x³ > 3}
+**** Minoré
+*∀ x ∈ C, x³ > 3 ∴ Inf (C)= 3*
+*** Ensemble D :
+D = {x ∈ ℝ , e^x < 1/2}
+**** Borné
+*∀ x ∈ C, e^x > 0 ∴ Inf (C)= 0*
+
+
+*∀ x ∈ C, e^x < 1/2 ∴ Sup(C)= 1/2*
+*** Ensemble E :
+E = {x ∈ ℝ , ∃ p ∈ ℕ* : x = √2/p}
+**** Majoré
+p = √2/x . Donc : *Sup(E)=1*
+** Exo 3 :
+U0 = 3/2 ; U(n+1) = (Un - 1)² + 1
+*** Question 1 :
+Montrer que : ∀ n ∈ ℕ , 1 < Un < 2 .
+
+
+*(Un - 1)² ≥ 0 /Parce que c'est un carré/*
+
+
+*(Un - 1)² + 1 > 1* ; *U(n+1) ≥ 1*
+
+
+**** Raisonnement par récurrence :
+P(n) : ∀ n ∈ ℕ ; 1 < Un < 2
+
+
+P(0) est vraie : 1 < 3/2 < 2
+
+
+On suppose que P(n) est vraie et on vérifie P(n+1) pour une contradiction
+
+
+1< Un < 2 ; 0 < Un - 1 < 1 ; 0 < (Un - 1)² < 1 ; 1 < (Un - 1)² + 1< 2 ; *1 < U(n+1) < 2* Donc elle est correcte
+
+*** Question 2 :
+Montrer que (Un)n est strictement monotone :
+
+
+*U(n+1) - Un = (Un - 1)² + 1 - Un* ; *U(n+1) - Un = Un² + 1 - 2Un + 1 - Un* ; *U(n+1) - Un = Un² - 3Un + 2*
+
+
+On étudie *Un² - 3Un + 2* sur l'intervalle ]1, 2[ : Un² - 3Un + 2 = 0 est une équation du 2nd ordre, *Δ = 1* , elle accepte deux solutions : Un = 1 et Un = 2
+
+
+On déduit que *Un² - 3Un + 2* est négatif sur [1 , 2] et positif en dehors, donc *∀ 1 < Un < 2 , Un² - 3Un + 2 < 0* ; *∀ 1 < Un < 2 , U(n+1) - Un < 0* ; *∀ 1 < Un < 2 , U(n+1) < Un* Donc (Un)n est une suite strictement monotonne décroissante
+* 4th cours (Suite) : /Oct 10/
+** Les suites convergentes
+Soit (Un)n est une suite convergente si lim Un n--> +∞ = l
+*** Remarque :
+1. Un est une suite convergente alors Un est bornee
+2. Un est une suite convergente  lim Un n---> +∞ = l ⇔ lim |Un| n---> +∞ = |l|
+3. Un est une suite majoree et croissante ⇒ Un converge
+4. Un est une suite minoree et decroissante ⇒ Un converge
+5. Soient (Un) et (Vn) deux suites convergentes, alors
+   a. Un + Vn est convergente
+   b. Un * Vn est convergente
+   c. ∀λ ∈ ℝ , (λUn) converge
+6. Soit Un est une suite bornee et soit Vn une suite. lim Vn n->+∞ = 0 Alors lim Vn * Un n-> +∞ = 0
+** Theoreme d'encadrement
+Soient Un Vn et Wn trois suites ∀n ∈ ℕ, Un ≤ Vn ≤ Wn . et lim Un n->∞ = lim Wn n-> +∞  = l ⇒ lim Vn n-> +∞ = l
+** Suites arithmetiques
+Un est une suite arithmetique si : U(n+1) = Un + r ; r etant la raison de la suite
+*** Forme general
+*Un = U0 + nr* ; *Un = Up + (n - p)r*
+*** Somme des n premiers termes
+Un est une suite arithmetique, Sn = [(U0 + Un)(n + 1)]/2
+
+
+Sn = (n, k = 0)ΣUk est une somme partielle et lim Sn n->+∞ = k≥0ΣUk est une serie
+** Suites géométriques
+*** Forme general
+*Un = U0 x r^n*
+*** Somme des n premiers termes
+n ∈ ℕ\{1} Sn = U0 (1 - r^(n+1))/1-r
+* 5th cours (suite) : /Oct 12/
+** Suites adjacentes:
+Soient (Un) et (Vn) deux suites, elles sont adjacentes si:
+1. (Un) est croissante et (Vn) est décroissante
+2. Un ≤ Vn
+3. lim (Un - Vn) n->+∞ = 0
+** Suites extraites (sous-suites):
+Soit (Un) une suite: ;U: ℕ ----> ℝ ;   n ----> Un ;ϕ: ℕ ----> ℕ ;   n ----> ϕn ;(U(ϕ(n))) est appelée une sous suite de (Un) ou bien une suite extraite.
+*** Remarques:
+a. Si (Un) converge ⇒ ∀ n ∈ ℕ , U(ϕ(n)) converge aussi.
+b. Mais le contraire n'es pas toujours vrais.
+c. U(2n) et U(2n+1) convergent vers la même limite (l), alors Un aussi converge vers l
+** Suites de Cauchy:
+(Un) n ∈ ℕ est une suite de Cauchy Si ; ;∀ ε > 0 , ∃ N ∈ ℕ ; ∀ n > m > N ; |Un - Um| < ε
+*** Remarque :
+1. Toute suite convergente est une suite de Cauchy et toute suite Cauchy est une suite convergente
+** Théorème de Bolzano Weirstrass:
+On peut extraire une sous suite convergente de toute suite bornée
+* Chapitre 3 : Les limites et la continuité /Nov 14/
+** Fonction réelle à variable réelle :
+Soit  f : I --> ℝ , I ⊂= ℝ
+         x --> f (x)
+*** L'ensemble de départ :
+L'ensemble de définition (Df)
+**** Propriétés:
+Soit f et g deux fonctions :
+f : I --> ℝ
+    x --> f (x)
+
+g : I --> ℝ
+    x --> g(x)
+***** 1) f+g
+(g+f): I --> ℝ
+       x --> (f+g)(x) = f (x) + g(x)
+***** 2) λf
+∀λ ∈ ℝ : λf : I --> ℝ
+              x --> (λf)(x) = λf (x)
+***** 3) f*g
+(f*g): I --> ℝ
+       x --> (f*g)(x) = f (x) x g(x)
+***** 4) f/g
+f/g :  I --> ℝ
+       x --> f (x)/g(x) , g(x) ≠ 0
+*** Les Limites :
+f : I --> ℝ
+   x --> f (x)
+   x_{0} ∈ I ; x_{0} extrémité de l'intervalle.
+
+   Lim_{x --> x_{0}} f (x) est a Limite de f (x) quand x tend vers x_{0}
+**** Lim_{x --> x_{0}} f (x) = l
+=> |x - x_{0}| < ẟ , |f (x) - l| < ε
+
+*** La continuité :
+Soit f : I --> ℝ         I = Df
+        x --> f (x)      x_{0} ∈ I
+f est continue en x_{0} ⇔ Lim_{x --> x_{0}} f (x) = f (x_{0})
+∀ε > 0 , ∃ẟ > 0 , |x - x_{0}| < ẟ ⇒ |f (x) - f (x_{0})| < ε
+*** Prolongement par continuité :
+Soit f : I/ {x_{0}} --> ℝ
+        x --> f (x)
+
+Si lim_{x --> x_{0}} f (x) = l Alors f est prolongéable par continuité en x_{0}
+
+On défini :
+f~ = f (x) si x ≠ x_{0}
+ET
+l si x = x_{0}
+           f~ : I --> ℝ
+                x --> f (x)
+*** Théorème des valeurs intermédiaires :
+f : [a,b] --> ℝ
+Si f est continue sur [a,b]
+Alors ∀y ∈ f ([a,b]) ⇒ ∃x ∈ [a,b] ; y = f (x)
+
+1. Si f est continue sur [a,b]
+2. Si f (a) * f (b) < 0
+Donc ∃ c ∈ ]a,b[ , f (c) = 0
+*** Fonction croissante :
+f : I --> J
+    f est croissante si ∀ x_{1},x_{2} ∈ I
+        x_{1} < x_{2} ⇒ f (x_{1}) ≤ f (x_{2})
+
+    f est strictement croissante si ∀ x_{1},x_{2} ∈ I
+        x_{1} < x_{2} ⇒ f (x_{1}) < f (x_{2})
+
+Si f est croissante ou décroissante, alors elle est bornée.
+*** Injection = Strictement monotonne :
+f : I --> J
+f est injective si ∀ x_{1},x_{2} ∈ I , f (x_{1}) = f (x_{2}) ⇒ x_{1} = x_{2}
+*** Surjection = Continuité :
+f est surjective si ∀ y ∈ J, ∃ x ∈ I , y = f (x)
+*** Bijection :
+Si f est injective et surjective, alors f est bijective
+f est bijective donc elle admet une bijection réciproque
+*** Théorème de bijection :
+Si f est continue et strictement monotone alors elle est bijective.
+f admet une bijection réciproque f{-1}.
+f{-1} a le même sens de variation que f.
+

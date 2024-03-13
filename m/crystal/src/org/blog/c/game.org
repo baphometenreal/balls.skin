@@ -1,0 +1,291 @@
+#+title: The loneliness Game
+#+AUTHOR: Crystal
+#+OPTIONS: ^:{}
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../../../blog/c/game.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../src/css/style.css"/>
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:nil
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="../../../favicon.png">
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+
+
+
+Hello !!, I hope you are doing great you amazing person whoever you are, and I really appreciate you reading my little C programming adventure. Soo basically I wanted to blog about a little game I made when bored, and figured out it would be a great way to optimize it, and learn new stuff too by documenting the process!
+
+
+** The concept :
+Basically the player is faced with a NxM field made up with the sign *"-"* and the player is denoted by the symbol *"+"*, there are also Bonuses *"B"* which add 1 to your score, Traps *"T"*, that remove one from your score, and Dead *"D"* which resets the score to 0. I will go into more of the specifics later but for now this is how it works, and the controls are Basic WASD bindings, though i may go for a HJKL style later.
+
+** The code :
+    #+BEGIN_SRC c -n
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char *argv[]) {
+    char input,map[5][5] = {
+        {'-', '-', '-', '-', '-'},
+        {'-', '-', '-', '-', '-'},
+        {'-', '-', '-', '-', '-'},
+        {'-', '-', '-', '-', '-'},
+        {'-', '-', '-', '-', '-'}
+    };
+    int stop=0,i=0,moves=0,score=0,pos[2] = {2, 2};
+    int bonus[2];
+    int trap[2] ;
+    int death[2];
+    map[pos[0]][pos[1]] = '+';
+    do{
+    bonus[0] = arc4random_uniform(5); bonus[1] = arc4random_uniform(5);
+    trap[0] = arc4random_uniform(5); trap[1] = arc4random_uniform(5);
+    death[0] = arc4random_uniform(5); death[1] = arc4random_uniform(5);
+    }while((bonus[0] == trap[0] && bonus[1] == trap[1]) || (bonus[0] == death[0] && bonus[1] == death[1]) || (trap[0] == death[0] && trap[1] == death[1]) || (bonus[0] == pos[0] && bonus[1] == pos[1]) || (trap[0] == pos[0] && trap[1] == pos[1]) || (death[0] == pos[0] && death[1] == pos[1]));
+    map[bonus[0]][bonus[1]] = 'B';
+    map[trap[0]][trap[1]] = 'T';
+    map[death[0]][death[1]] = 'D';
+    do{
+    printf("Map:\n");
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%c ", map[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Score: %d\n", score);
+    printf("Moves: %d\n", moves);
+    printf("Enter a direction (w,a,s,d) or c to quit: ");
+    scanf(" %c", &input);
+// pos[0] updown pos[1] lr
+    if (input == 'w') {
+        printf("Moving up\n");
+        map[pos[0]][pos[1]] = '-';
+        if (pos[0] == 0) {
+            pos[0] = 4;
+        }
+        else {
+            pos[0]--;
+        }
+    } else if (input == 'a') {
+        printf("Moving left\n");
+        map[pos[0]][pos[1]] = '-';
+        if (pos[1] == 0) {
+            pos[1] = 4;
+        }
+        else {
+            pos[1]--;
+        }
+    } else if (input == 's') {
+
+        printf("Moving down\n");
+        map[pos[0]][pos[1]] = '-';
+        if (pos[0] == 4) {
+            pos[0] = 0;
+        }
+        else {
+            pos[0]++;
+        }
+    } else if (input == 'd') {
+        printf("Moving right\n");
+        map[pos[0]][pos[1]] = '-';
+        if (pos[1] == 4) {
+            pos[1] = 0;
+        }
+        else {
+            pos[1]++;
+        }
+    } else if (input == 'c') {
+        printf("Quitting\n");
+    } else {
+        printf("Invalid input\n");
+    }
+    map[pos[0]][pos[1]] = '+';
+    if (pos[0] == bonus[0] && pos[1] == bonus[1]) {
+        score++;
+        do{
+        bonus[0]= arc4random_uniform(5);
+        bonus[1]= arc4random_uniform(5);
+        }while((bonus[0] == trap[0] && bonus[1] == trap[1]) || (bonus[0] == death[0] && bonus[1] == death[1]) || (bonus[0] == pos[0] && bonus[1] == pos[1]));
+    }
+    if (pos[0] == trap[0] && pos[1] == trap[1]) {
+        score--;
+        do{
+        trap[0]= arc4random_uniform(5);
+        trap[1]= arc4random_uniform(5);
+        }while((trap[0] == bonus[0] && trap[1] == bonus[1]) || (trap[0] == death[0] && trap[1] == death[1]) || (trap[0] == pos[0] && trap[1] == pos[1]));
+        }
+    if (pos[0] == death[0] && pos[1] == death[1]) {
+        score = 0;
+        do{
+        death[0]= arc4random_uniform(5);
+        death[1]= arc4random_uniform(5);
+        }while((death[0] == bonus[0] && death[1] == bonus[1]) || (death[0] == trap[0] && death[1] == trap[1]) || (death[0] == pos[0] && death[1] == pos[1]));
+    }
+    if (score % 3 == 0 && score != 0 && stop == 0) {
+        map[death[0]][death[1]] = '-';
+        do{
+        death[0]= arc4random_uniform(5);
+        death[1]= arc4random_uniform(5);
+        }while((death[0] == bonus[0] && death[1] == bonus[1]) || (death[0] == trap[0] && death[1] == trap[1]) || (death[0] == pos[0] && death[1] == pos[1]));
+        stop = 1;
+    }
+    else if (score % 3 != 0) {
+    stop = 0;
+    }
+    if (moves % 5 == 0 && moves != 0) {
+        do{
+            map[trap[0]][trap[1]] = '-';
+        trap[0]= arc4random_uniform(5);
+        trap[1]= arc4random_uniform(5);
+        }while((trap[0] == bonus[0] && trap[1] == bonus[1]) || (trap[0] == death[0] && trap[1] == death[1]) || (trap[0] == pos[0] && trap[1] == pos[1]));
+
+    }
+    map[bonus[0]][bonus[1]] = 'B';
+    map[trap[0]][trap[1]] = 'T';
+    map[death[0]][death[1]] = 'D';
+    moves++;
+    }while(input != 'c');
+    return 0;
+}
+
+    #+END_SRC
+
+
+    Let's go step by step and see what we can fix or improve, to start off, line 4 to 10 can be reduced to 7 or 8 lines (which will be  beneficial later too)
+    #+BEGIN_SRC c -n 4
+int n=5,m=5;
+char input,map[50][50];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            map[i][j] = '-';
+        }
+    }
+
+    #+END_SRC
+
+    For now at least, n and m are hardcoded to 5, but this will change later. And I picked 50x50 as a max size because why not
+
+    Of course we have the usual inits on line 11, though since we are using variables instead of hardcoding 5, we will have to find the center by ourselves
+    #+BEGIN_SRC c -n 11
+    int stop=0,i=0,moves=0,score=0,pos[2] = {n/2,m/2};
+    #+END_SRC
+
+This is getting better, of course we then initialize the coordinates of bonus, trap, and death, and set the player as a *'+'* in the field.
+
+
+Here comes the line 17-21, where it generates a random coordinate for the aforementioned pickups, and do that until there is no conflict between eachother and the player) here we will need to change it a tiny bit.
+    #+BEGIN_SRC c -n 17
+    bonus[0] = arc4random_uniform(n); bonus[1] = arc4random_uniform(m);
+    trap[0] = arc4random_uniform(n); trap[1] = arc4random_uniform(m);
+    death[0] = arc4random_uniform(n); death[1] = arc4random_uniform(m);
+    #+END_SRC
+
+Looking good so far!!, We then have line 21-23 which also shows the pickups as their respective symbols in the map.
+
+
+The main interactive program starts here, which will learn at least one time and stop if the received input is a *'c'*, it starts with a nested for loop on line 26 up to 31 to show the content of the map, nothing fancy, just some matrix stuff. we need to change the 5 though!
+    #+BEGIN_SRC c -n 26
+  for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%c ", map[i][j]);
+        }
+        printf("\n");
+    }
+
+    #+END_SRC
+We show the score and the moves too, which at the start of the game are set to 0. and we prompt the user for a direction. Note here the space before the %c, this basically allows for the program to not choke on newlines and also even if the user writes multiple keys at the same time, they will still be done, like *ww* will make the player move twice up.
+
+After that we have some logic which should also be changed to account for the n and m changes yet again
+#+BEGIN_SRC c -n 37
+    if (input == 'w') {
+        printf("Moving up\n");
+        map[pos[0]][pos[1]] = '-';
+        if (pos[0] == 0) {
+            pos[0] = n-1;
+        }
+        else {
+            pos[0]--;
+        }
+    } else if (input == 'a') {
+        printf("Moving left\n");
+        map[pos[0]][pos[1]] = '-';
+        if (pos[1] == 0) {
+            pos[1] = m-1;
+        }
+        else {
+            pos[1]--;
+        }
+    } else if (input == 's') {
+
+        printf("Moving down\n");
+        map[pos[0]][pos[1]] = '-';
+        if (pos[0] == n-1) {
+            pos[0] = 0;
+        }
+        else {
+            pos[0]++;
+        }
+    } else if (input == 'd') {
+        printf("Moving right\n");
+        map[pos[0]][pos[1]] = '-';
+        if (pos[1] == m-1) {
+            pos[1] = 0;
+        }
+        else {
+            pos[1]++;
+        }
+    } else if (input == 'c') {
+        printf("Quitting\n");
+    } else {
+        printf("Invalid input\n");
+    }
+#+END_SRC
+
+What this achieves is the "teleportation effect" whenever you are at the border of the screen!
+
+
+Now we fix things from line 80 to the end of the program, aka replacing ever occurrence of 5 with n or m
+#+BEGIN_SRC c -n 80
+    if (pos[0] == bonus[0] && pos[1] == bonus[1]) {
+        score++;
+        do{
+        bonus[0]= arc4random_uniform(n);
+        bonus[1]= arc4random_uniform(m);
+        }while((bonus[0] == trap[0] && bonus[1] == trap[1]) || (bonus[0] == death[0] && bonus[1] == death[1]) || (bonus[0] == pos[0] && bonus[1] == pos[1]));
+    }
+    if (pos[0] == trap[0] && pos[1] == trap[1]) {
+        score--;
+        do{
+        trap[0]= arc4random_uniform(n);
+        trap[1]= arc4random_uniform(m);
+        }while((trap[0] == bonus[0] && trap[1] == bonus[1]) || (trap[0] == death[0] && trap[1] == death[1]) || (trap[0] == pos[0] && trap[1] == pos[1]));
+        }
+    if (pos[0] == death[0] && pos[1] == death[1]) {
+        score = 0;
+        do{
+        death[0]= arc4random_uniform(n);
+        death[1]= arc4random_uniform(m);
+        }while((death[0] == bonus[0] && death[1] == bonus[1]) || (death[0] == trap[0] && death[1] == trap[1]) || (death[0] == pos[0] && death[1] == pos[1]));
+    }
+    if (score % 3 == 0 && score != 0 && stop == 0) {
+        map[death[0]][death[1]] = '-';
+        do{
+        death[0]= arc4random_uniform(n);
+        death[1]= arc4random_uniform(m);
+        }while((death[0] == bonus[0] && death[1] == bonus[1]) || (death[0] == trap[0] && death[1] == trap[1]) || (death[0] == pos[0] && death[1] == pos[1]));
+        stop = 1;
+    }
+    else if (score % 3 != 0) {
+    stop = 0;
+    }
+    if (moves % 5 == 0 && moves != 0) {
+        do{
+            map[trap[0]][trap[1]] = '-';
+        trap[0]= arc4random_uniform(n);
+        trap[1]= arc4random_uniform(m);
+        }while((trap[0] == bonus[0] && trap[1] == bonus[1]) || (trap[0] == death[0] && trap[1] == death[1]) || (trap[0] == pos[0] && trap[1] == pos[1]));
+
+    }
+#+END_SRC
+
+
+Aaaaand this should be it

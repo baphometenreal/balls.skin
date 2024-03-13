@@ -1,0 +1,108 @@
+#+TITLE: **Discord** : an internet cancer
+#+AUTHOR: Crystal
+#+OPTIONS: ^:{}
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../../articles/discord.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/style.css"/>
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:nil
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="../../favicon.png">
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+#+HTML_LINK_UP: https://crystal.tilde.institute/
+* Preamble
+
+Before I start writing this article, I just want to clarify that I will NOT go over the technical aspect of **Discord** (such as the spyware and all) as it has been covered many times by other websites like [[https://spyware.neocities.org/articles/discord][This one !!!]], but basically, it's exactly how you expect it to be, spying, selling data, monitoring open processes, terrible electron based app....etc
+
+I also wanted to make it clear that this is PURELY from my personal experience with **Discord** and the **Internet** as a whole, this isn't an exact science and everybody can have an - although similar - different experience with the platform. Peace and love <3
+
+* Chapter one : Curiosity
+
+Picture yourself, it's 2018/2019 and you are playing your favorite game, be it **Minecraft**, **League of Legends**, **CS:GO**, doesn't matter. You start to play nicely, you make some friends, some enemies, typical gameplay. And then, one of them decides to take a step closer into your life, so they invite you to this cool new platform you have never heard about, **Discord**. Upon checking, you notice it's a modern chat application for gamers.... "huh, must be nice" you might say. And then you are faced with a choice, you either create an account, or you don't.
+
+If you decide to NOT make an account, you would be made fun of by that friend, or even get blamed for loses because "you weren't in the voice chat", you will be called a "Skype user", probably miss out on events, giveaways, exclusive prizes and sometimes even get banned from that game server (Yeah, it happened on **Minecraft** before, failure to join the discord server actually rejects you from the Minecraft server). And even if we take a more...casual example, you found a cool piece of software online, but their guides and download links are all on **Discord**, or Discord exclusive, maybe you want to work with a team that solely use Discord. Basically you are missing out on a LOT.
+
+However, if you take the path of least resistance and decide to sign up, entering your e-mail address, password, birth date, and in the unfortunate case where you use a **VPN** or **TOR**, your phone number, pick a username and a profile picture. Congratulations, you now cursed yourself for the rest of your life. Remember that friend we imagined ? You play a few games together in VC, you crack jokes, you get to know each other... it's all fun and games, but then, they send you a link you never saw before. Apparently it's how you add people to groups in discord, they are called "Servers"
+
+> emkey.jpeg
+
+So you join that group they invited you to, it could be anything from a small friend group, to a large server with giveaways and events. But they all share one aspect, a hierarchy.
+
+* Chapter two : The hierarchy
+
+Now this hierarchy is not inherently bad, but this is how **Discord** (and even the communities on Discord) keep you addicted to them. When you join, you start as a peasant, a pleb, a noobie even. You have an ugly color for your username, and no access to "channels", only few ones with cooldowns so you don't talk much. And then you look at the members list, and you see a beautiful rainbow, people divided into categories, or roles as they like to call them!!
+
+At the top you will most likely find the Owner(s) or their loved ones, with colors that inspire majesty and fear, like a dark purple, these are the masters of the server, they shape it the way they want and in the rare occasion where they join the plebs in their discussions, they are met with rounds of applause.
+
+Then just below them you have the Right hand(s) of the owners, generally veterans and original members, they have a bright, warm yet still majestic color to their role. These have the same power as the Owners, but are more active in the server and are actually hated by a lot of users, who unfairly got banned or kicked.
+
+Then just below them you have the Bots, non-human, non-sentient beings, most of the time with a silvery metallic color as their username which are there to execute the Owners commands, or just to annoy the plebs, like a tax collector after a long day of work *"Congratulations you just advanced to level 5"*
+
+Now, you have the Moderators, these have some power, have an aggressive color as their role and are generally the ones who try to control the Chaos in the server, although most of the time they fail due to a lack of permissions, or threats from the Owners themselves. Regardless, these are the ones with the biggest ego, and most importantly they are the ones causing server splits.
+
+If the aforementioned roles are considered black, and normal users are white, then Helpers are definitely the gray line separating them. They are peasants who strive to go a rank higher, to be a majesty, and have some power. But most of the time, they are there for an eternity, or they just go from there all the way up to a Right hand using some witchcraft....Oh and their color is almost always Green :D
+
+After that we have the Plebeians which are also separated in an attempt to control them easily. But I'm going to go through the list quickly otherwise this article will take ages : you have the supporters - people who helped the server financially or in other ways -, partners which are just owners of other servers who decided to become living billboards, you have event winners to remind the others of what they can achieve if they wait long enough, then we have the activity roles, the more you are active, the more you have rights over casual users, this is definitely not a way to keep you addicted to the group discussion ;3
+
+And finally, you have the outcasts, warned or muted people are all the way down the list, and they have little to no rights or uses in the server, quite frankly if they left they would have a better time !!!!
+
+
+Okay so, in all seriousness. This at first glance doesn't seem like a bad idea, after all you need order and laws in an easily accessible group. But this is not the way it's used, this hierarchy is constantly there to remind you of what you can be if you are liked enough by the owners, what you can achieve. And in most cases, you get access to exclusive channels, a secret club, creating a sense of scarcity and power. This is bad because it keeps people invested in discussions they honestly don't want nor need to have, but they are obliged, otherwise they are just a "powerless normie".
+
+Now what happens if a Mod or an Owner decides to abuse their power ? Well in this case, here are the different outcomes :
+
+- Either people get angry and start spamming and protesting (usually ends with a purge or a mass ban)
+- People just blame the victim because it's more profitable
+- An other rogue mod decides to take control and destroy the server
+- Or if it's a disagreement between Owners, the server undergoes a split
+
+
+  If you are paying attention, you would know that all of these will always end with the same ending : "Another server gets created", and so this is how...
+
+* Chapter three : **Discord** takes a once thriving community and splits it
+
+Yes, there are always splits, and communities divide into multiple tiny sub-communities with their own opinions about useless matters. That is how you are kept invested. People love Drama, they love wars and they love picking sides.
+
+Let's imagine together a simulation for what i mean, since i can't draw or animate, use your imagination:
+- You have a big red circle, its *Group A*, a pretty large tech community, with tiny dots inside with different colors, these are members and the colors represent their roles.
+- Once in a while, a fight happens in this group. Let's say there is a fight between two normal users, a mod steps in and bans the user who is in the wrong. Not a big deal so far !
+- Now let's imagine this scenario again, but with a different person, *Kevin*, a normal user in the group, but with a consistent presence, he is loved by a handful of people. Sadly he gets wrongly banned... wrong move for the mod, because now *Kevin* takes his supporters and make their own group, a blue one called *Group B*
+- *Group A*'s growth is starting to diminish because there is nothing to do there, and people are slowly moving to group *Group B* because of the overall aesthetic, in an attempt to win back their following, *Group A* decide to make events and reward their loyal followers. It kinda works but *Group B* is in a study growth
+- Oopsie, there is a minor disagreement between *Group A* owners, and it turns into a big war between them. which ends up with members taking sides and dividing the server in half, creating two new communities *Group C* and *Group D*
+- And now, you know what is interesting ? is that all these 4 groups are not only semi-dead, but have the same users in them. AND SHARE THE SAME TOPIC
+
+So you basically killed a community, in 6 easy steps !!! And of course this will end up either by a mass deletion of these groups by a rogue Moderator, or a ban, or a screw up. So if the server contained important non-archived data. They are looong gone!!!
+
+* Chapter four : **Discord** users are NOT your friends
+
+**Discord** is made in a way that makes it easy to get attached to people, and also really hard to get rid of them, because you share the same servers, same friends, and the border between Private talk and Public talk is really blurred. Not to mention how hard, if not impossible it is to find someone who you met before but lost their contact. Because not only could they change their tag, but there is no way to search their username, and the servers can disappear from a minute to an other, or go private, or anything really !!! Now [[http://shystudios.us/blog/discord/discord.html][Shy actually talked about this issue on their article about Discord,]] but here I'm making a different point, in their article they say that it's hard to get rid of someone you know via Discord, which is absolutely true. But it's also easy to lost contact with someone literally in a split second, even people you deem "close" to you, they just...disappear!! So for y'all thinking about dating on Discord, that's a terrible idea !!!!
+Imagine you're in a **Discord** server, vibing with some awesome people, chatting about everything from the latest memes to the mysteries of the universe. You've become practically inseparable online pals, sharing inside jokes and bonding over your mutual hatred for pineapple on pizza. Life is grand, right?
+
+But, brace yourself for the plot twist: **Discord** friendships are like a box of chocolates - you never know what you're going to get. People appear and disappear from servers faster than you can say "dank meme." One day, your best Discord buddy is there, cracking jokes and sharing dog pics, and the next day, poof, they're gone. Maybe they got bored, maybe real life called, or maybe they wandered into the Discord Bermuda Triangle. Who knows?
+
+Now, here's the kicker: finding a lost **Discord** friend is like trying to find a grain of sand on a beach during a hurricane. You can't just Google them, and even if you know their username, it's about as useful as a chocolate teapot if they've changed it. Servers vanish, go private, or morph faster than a Pokémon in a battle. It's like trying to capture smoke with a butterfly net.
+
+So, for those pondering the idea of **Discord** romance, think twice! While forming connections is a breeze, keeping tabs on those connections is like herding cats in a hurricane!
+
+* Final Chapter : Login-walls
+
+People have made this point before and i will make it again, but locking important information behind a log-in page, with no way to find them using a Google search is stupid at best and manipulative at worst, because in this situation. Not only are you putting your faith on **Discord** servers to not fail one day, but on server Owners to not delete their work (and potentially rare unrecoverable work from other users). Not to mention that you actually need to be in that server to even know of the existence of these kind of resources. Regardless of how you see it, this is just putting valuable info in the hands of random people who could easily lock them behind a specific role that can be obtained either by paying, or by stroking their digital e-penis !!!
+
+You see, **Discord**, in all its infinite wisdom, believes it's a brilliant idea to squirrel away precious knowledge behind a digital fortress that demands a username and password. It's like saying, "Sure, I'll share this life-changing information with you, but only if you can recall your umpteenth password!"
+
+Now, let's break this down. First, you're entrusting your prized data to **Discord** servers, which, let's face it, are about as stable as a Jenga tower during an earthquake. One moment they're there, and the next... poof! Gone with the wind. So much for your treasure trove of wisdom.
+
+And it gets even better. Server owners have the power to lock away valuable resources behind specific roles, which can be obtained through a combination of charm, flattery, or, heaven forbid, a cash transaction. It's like saying, "Want to see the good stuff? Well, pony up or start groveling!"
+
+So, what's the bottom line here? **Discord** has effectively become a modern-age Sphinx, guarding its secrets with a riddle of log-in screens. Your valuable info? In the hands of random folks who could decide to hoard it like misers guarding their gold or sell it to the highest bidder. It's like a digital Wild West, and your information is the wild mustang everyone's trying to wrangle.
+
+In conclusion, **Discord**'s penchant for login-walls is like locking away the Ark of the Covenant in a storage locker and hoping for the best. It's the digital equivalent of hiding your keys in a haystack and hoping you can find them before the cows come home.
+* Conclusion
+
+While **Discord** has its quirks and pitfalls, it's essential to remember that it's a reflection of the internet itself - a vast, ever-changing landscape filled with both wonder and peril. Your experience on Discord is uniquely yours, but it's bound to be filled with surprises, friendships, and even the occasional drama.
+
+As we wrap up this exploration, it's worth noting that **Discord**, like any digital space, is shaped by its users. The tales of adventures and misadventures, the rise and fall of servers, and the endless cycle of drama are all part of the grand tapestry of online life.
+
+So, if you find yourself lost in the labyrinthine corridors of **Discord** or stumble upon its peculiarities, remember, you're not alone. Many have ventured before you, and many more will follow. The internet, after all, is an ever-evolving, enigmatic landscape where, as in life, every twist and turn holds the promise of a new adventure.
+
+If you ever have more anecdotes, insights, or questions to add to this digital saga, feel free to reach out. The story of **Discord** is far from over, and your voice could be the missing piece of the puzzle in this fascinating online journey. Until then, peace and love in your digital endeavors, and may your Discord adventures be filled with more joy than chaos!

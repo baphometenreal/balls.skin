@@ -1,0 +1,696 @@
+#+title: Algebra 1
+#+AUTHOR: Crystal
+#+OPTIONS: ^:{}
+#+OPTIONS: \n:y
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../../uni_notes/algebra.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/style.css"/>
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:4
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+#+HTML_LINK_UP: ../../../uni_notes/
+#+OPTIONS: tex:imagemagick
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+* Contenu de la Matiére
+** Rappels et compléments (11H)
+- Logique mathématique et méthodes du raisonnement mathématique
+- Ensembles et Relations
+- Applications
+
+** Structures Algébriques (11H)
+- Groupes et morphisme de groupes
+- Anneaux et morphisme d'anneaux
+- Les corps
+
+** Polynômes et fractions rationnelles
+- Notion du polynôme à une indéterminée á coefficients dans un anneau
+- Opérations Algébriques sur les polynômes
+- Arithmétique dans l'anneau des polynômes
+- Polynôme dérivé et formule de Taylor
+- Notion de racine d'un polynôme
+- Notion de Fraction rationelle á une indéterminée
+- Décomposition des fractions rationelles en éléments simples
+
+* Premier cours : Logique mathématique et méthodes du raisonnement mathématique /Sep 25/ :
+
+Let *P* *Q* and *R* be propositions which can either be *True* or *False*. And let's also give the value *1* to each *True* proposition and *0* to each false one.
+
+/Ex:/
+- *5 ≥ 2* is a proposition, a correct one !!!
+- *The webmaster is a girl* is also a proposition, which is also correct.
+- *x is always bigger than 5* is *not* a proposition, because we CAN'T determine if it's correct or not as *x* changes.
+...etc
+
+In order to avoid repetition, and rewriting the proposition over and over, we just assign a capital letter to them such as *P Q* or *R*.
+
+So now we could write :
+*Let the proposition P be 5 ≥ 2, we notice that P is always True, therefor its validity is 1*
+
+We also have the opposite of *P*, which is *not(P)* but for simplicity we use *P̅* (A P with a bar on top, in case it doesn't load for you), now let's go back to the previous example:
+
+*Since we know that the proposition P is true, we can conclude that P̅ is false. As P and P̅ can NOT be true at the same time. It's like saying 5 is greater and also lesser than 2...doesn't make sense, does it ?*
+
+Now let's say we have two propositions, and we want to test the validity of their disjunction..... Okay what is this "disjunction" ? *Great Question Billy !!!* A disjunction is true if either propositions are true
+
+Ex:
+*Let proposition P be "The webmaster is asleep", and Q be "The reader loves pufferfishes". The disjunction of these two propositions can have 4 different values showed in this Table of truth (such a badass name):*
+
+| P | Q | Disjunction |
+|---+---+-------------|
+| 1 | 1 |           1 |
+| 1 | 0 |           1 |
+| 0 | 1 |           1 |
+| 0 | 0 |           0 |
+
+/What the hell is this ?/
+The first colomn is equivalent to saying : "The webmaster is asleep AND The reader loves pufferfishes"
+The second one means : "The webmaster is asleep AND The reader DOESN'T love pufferfishes (if you are in this case, then *I HATE YOU*)"
+The third one... /zzzzzzz/
+
+You got the idea !!!
+And since we are talking about a disjunction here, *one of the propositions* need to be true in order for this disjunction to be true.
+
+You may be wondering.... Crystal, can't we write a disjunction in magical math symbols ? And to this I respond with a big *YES*. A disjunction is symbolized by a *∨* . So the disjunction between proposition *P & Q* can be written this way : *P ∨ Q*
+
+What if, we want to test whether or not two propositions are true AT THE SAME TIME ? Long story short, we can, it's called a conjunction, same concept, as before, only this time the symbol is *P ∧ Q*, and is only true if *P* and *Q* are true. So we get a Table like this :
+
+| P | Q | P ∨ Q | P ∧ Q |
+|---+---+-------+-------|
+| 1 | 1 |     1 |     1 |
+| 1 | 0 |     1 |     0 |
+| 0 | 1 |     1 |     0 |
+| 0 | 0 |     0 |     0 |
+
+*Always remember: 1 means true and 0 means false*
+
+There are two more basics to cover here before going to some properties, the first one is implication symbolized by the double arrow *⇒*
+
+Implication is kinda hard for my little brain to explain, so I will just say what it means:
+
+*If P implies Q, this means that either Q, or the opposite of P are correct*
+
+or in math terms
+
+*P ⇒ Q translates to P̅ ∨ Q*
+Let's illustrate :
+
+| P | Q | P̅ | Q̅ | P ∨ Q | P ∧ Q | P ⇒ Q (P̅ ∨ Q) |
+|---+---+---+---+-------+-------+---------------|
+| 1 | 1 | 0 | 0 |     1 |     1 |             1 |
+| 1 | 0 | 0 | 1 |     1 |     0 |             0 |
+| 0 | 1 | 1 | 0 |     1 |     0 |             1 |
+| 0 | 0 | 1 | 1 |     0 |     0 |             1 |
+
+*If you look clearly, there is only one case where an implication is false. therefor you just need to find it, and blindly say that the others are correct. A rule of thumb is that: "A correct never implies a false", or  "If a 1 tries to imply a 0, the implication is a 0"*
+
+Aight, a last one and we are done!!! Equivalence, which is fairly easy, symbolized by a *⇔* symbol.
+
+A proposition is equivalent to another only when both of them have *the same value of truth* AKA: both true or both false. a little table will help demonstrate what i mean.
+
+| P | Q | P̅ | Q̅ | P ∨ Q | P ∧ Q | P ⇒ Q (P̅ ∨ Q) | P ⇔ Q |
+|---+---+---+---+-------+-------+---------------+-------|
+| 1 | 1 | 0 | 0 |     1 |     1 |             1 |     1 |
+| 1 | 0 | 0 | 1 |     1 |     0 |             0 |     0 |
+| 0 | 1 | 1 | 0 |     1 |     0 |             1 |     0 |
+| 0 | 0 | 1 | 1 |     0 |     0 |             1 |     1 |
+
+/Note: P implying Q is equivalent to P̅ implying Q̅, or: (P ⇒ Q) ⇔ (P̅ ⇒ Q̅)/
+
+** Properties:
+*** *Absorption*:
+(P ∨ P) ⇔ P
+
+(P ∧ P) ⇔ P
+
+*** *Commutativity*:
+(P ∧ Q) ⇔ (Q ∧ P)
+
+(P ∨ Q) ⇔ (Q ∨ P)
+
+*** *Associativity*:
+P ∧ (Q ∧ R) ⇔ (P ∧ Q) ∧ R
+
+P ∨ (Q ∨ R) ⇔ (P ∨ Q) ∨ R
+
+*** *Distributivity*:
+P ∧ (Q ∨ R) ⇔ (P ∧ Q) ∨ (P ∧ R)
+
+P ∨ (Q ∧ R) ⇔ (P ∨ Q) ∧ (P ∨ R)
+
+*** *Neutral element*:
+/We define proposition *T* to be always *true* and *F* to be always *false*/
+
+P ∧ T ⇔ P
+
+P ∨ F ⇔ P
+*** *Negation of a conjunction & a disjunction*:
+Now we won't use bars here because my lazy ass doesn't know how, so instead I will use not()!!!
+
+not(*P ∧ Q*) ⇔ P̅ ∨ Q̅
+
+not(*P ∨ Q*) ⇔ P̅ ∧ Q̅
+
+*A rule I really like to use here is: Break and Invert. Basically you break the bar into the three characters of the propositions, so you get not(P) not(∧ or ∨) /NOT AN ACTUAL MATH WRITING. DONT USE IT ANYWHERE ELSE OTHER THAN YOUR BRAIN/ and not(Q)*
+
+*** *Transitivity*:
+[(P ⇒ Q) AND (Q ⇒ R)] ⇔ P ⇒ R
+
+*** *Contraposition*:
+(P ⇒ Q) ⇔ (Q̅ ⇒ P̅)
+
+*** God only knows what this property is called:
+/If/
+
+(P ⇒ Q) is true
+
+and
+
+(P̅ ⇒ Q) is true
+
+then
+
+Q is always true
+
+** Some exercices I found online :
+
+*** USTHB 2022/2023 Section B :
+
+**** Exercice 1: Démontrer les équivalences suivantes:
+1. (P ⇒ Q) ⇔ (Q̅ ⇒ P̅)
+
+   Basically we are asked to prove contraposition, so here we have ( P ⇒ Q ) which is equivalent to P̅ ∨ Q *By definition : (P ⇒ Q) ⇔  (P̅ ∨ Q)*
+
+
+   So we end up with : *(P̅ ∨ Q) ⇔ (Q̅ ⇒ P̅)*, now we just do the same with the second part of the contraposition. *(Q̅ ⇒ P̅) ⇔ (Q ∨ P̅)* therefor :
+
+
+   *(Q ∨ P̅) ⇔ (P̅ ∨ Q)*, which is true because of commutativity
+
+2. not(P ⇒ Q) ⇔  P ∧ Q̅
+
+
+Okaaaay so, let's first get rid of the implication, because I don't like it : *not(P̅ ∨ Q)*
+
+
+Now that we got rid of it, we can negate the whole disjunction *not(P̅ ∨ Q) ⇔ (P ∧ Q̅)*. Which is the equivalence we needed to prove
+
+3. P ⇒ (Q ∧ R) ⇔ (P ⇒ Q) ∧ (P ⇒ R)
+
+   One might be tempted to replace P with P̅ to get rid of the implication...sadly this isnt it. All we have to do here is resort to *Distributivity*, because yeah, we can distribute an implication across a {con/dis}junction
+
+4. P ∧ (Q ∨ R) ⇔ (P ∧ Q) ∨ (P ∧ R)
+
+   Literally the same as above 🩷
+
+
+**** Exercice 2: Dire si les propositions suivantes sont vraies ou fausses, et les nier:
+
+1. ∀x ∈ ℝ ,∃y ∈ ℝ*+, tels que e^x = y
+
+   For each x from the set of Real numbers, there exists a number y from the set of non-zero positive Real numbers that satisfies the equation : e^x = y
+
+
+"The function f(x)=e^x is always positive and non-null", the very definition of an exponential function !!!!
+
+
+*So the proposition is true*
+
+
+2. ∃x ∈ ℝ, tels que x^2 < x < x^3
+
+
+We just need to find a value that satisifies this condition...thankfully its easy....
+
+x² < x < x³ , we divide the three terms by x so we get :
+
+
+x < 1 < x² , or :
+
+
+*x < 1* ; *1 < x²* ⇔  *x < 1* ; *1 < x* /We square root both sides/
+
+
+We end up with a contradiction, therefor its wrong
+
+
+3. ∀x ∈ ℝ, ∃y ∈ ℝ tels que y = 3x - 8
+
+
+I dont really understand this one, so let me translate it "For any value of x from the set of Real numbers, 3x - 8 is a Real number".... i mean....yeah, we are substracting a Real number from an other real number...
+
+*Since substraction is an  Internal composition law in ℝ, therefor all results of a substraction between two Real numbers is...Real*
+
+4. ∃x ∈ ℕ, ∀y ∈ ℕ, x > y ⇒ x + y < 8
+
+   "There exists a number x from the set of Natural numbers such as for all values of y from the set of Natural numbers, x > y implies x + y < 8"
+
+
+Let's get rid of the implication :
+
+∃x ∈ ℕ, ∀y ∈ ℕ, (y > x) ∨ (x + y < 8) /There exists a number x from the set of Natural numbers such as for all values of y from the set of Natural numbers y > x OR x + y < 8/
+
+This proposition is true, because there exists a value of x that satisfies this condition, it's *all numbers under 8* let's take 3 as an example:
+
+
+*x = 3 , if y > 3 then the first condition is true ; if y < 3 then the second one is true*
+
+
+Meaning that the two propositions CAN NOT BE WRONG TOGETHER, either one is wrong, or the other
+
+
+y > x
+
+
+*y - x > 0*
+
+
+y + x < 8
+
+
+*y < 8 - x* /This one is always true for all values of x below 8, since we are working in the set ℕ/
+
+
+5. ∀x ∈ ℝ, x² ≥ 1 ⇔  x ≥ 1
+
+   ....This is getting stupid. of course it's true it's part of the definition of the power of 2
+
+
+* 2éme cours /Oct 2/
+
+** Quantifiers
+
+A propriety P can depend on a parameter x
+
+
+∀ is the universal quantifier which stands for "For any value of..."
+
+
+∃ is the existential quantifier which stands for "There exists at least one..."
+
+
+***** Example
+P(x) : x+1≥0
+
+P(X) is True or False depending on the values of x
+
+
+*** Proprieties
+**** Propriety Number 1:
+The negation of the universal quantifier is the existential quantifier, and vice-versa :
+
+- not(∀x ∈ E , P(x)) ⇔ ∃ x ∈ E, not(P(x))
+- not(∃x ∈ E , P(x)) ⇔ ∀ x ∈ E, not(P(x))
+
+***** Example:
+∀ x ≥ 1  x² > 5 ⇔ ∃ x ≥ 1 x² < 5
+**** Propriety Number 2:
+
+*∀x ∈ E, [P(x) ∧ Q(x)] ⇔ [∀ x ∈ E, P(x)] ∧ [∀ x ∈ E, Q(x)]*
+
+
+The propriety "For any value of x from a set E , P(x) and Q(x)" is equivalent to "For any value of x from a set E, P(x) AND for any value of x from a set E, Q(x)"
+***** Example :
+P(x) : sqrt(x) > 0 ;  Q(x) : x ≥ 1
+
+
+∀x ∈ ℝ*+, [sqrt(x) > 0 , x ≥ 1] ⇔ [∀x ∈ R*+, sqrt(x) > 0] ∧ [∀x ∈ R*+, x ≥ 1]
+
+
+*Which is true*
+**** Propriety Number 3:
+
+*∃ x ∈ E, [P(x) ∧ Q(x)] /⇒/ [∃ x ∈ E, P(x)] ∧ [∃ x ∈ E, Q(x)]*
+
+
+/Here its an implication and not an equivalence/
+
+***** Example of why it's NOT an equivalence :
+P(x) : x > 5  ;  Q(x) : x < 5
+
+
+Of course there is no value of x such as its inferior and superior to 5 at the same time, so obviously the proposition is false. However, the two propositions separated are correct on their own, because there is a value of x such as its superior to 5, and there is also a value of x such as its inferior to 5. This is why it's an implication and NOT AN EQUIVALENCE!!!
+**** Propriety Number 4:
+
+*[∀ x ∈ E, P(x)] ∨ [∀ x ∈ E, Q(x)] /⇒/ ∀x ∈ E, [P(x) ∨ Q(x)]*
+
+
+/Same here, implication and NOT en equivalence/
+
+
+** Multi-parameter proprieties :
+
+A propriety P can depend on two or more parameters, for convenience we call them x,y,z...etc
+
+***** Example :
+P(x,y): x+y > 0
+
+
+P(0,1) is a True proposition
+
+
+P(-2,-1) is a False one
+
+***** WARNING :
+
+∀x ∈ E, ∃y ∈ F , P(x,y)
+
+
+∃y ∈ F, ∀x ∈ E , P(x,y)
+
+
+Are different because in the first one y depends on x, while in the second one, it doesn't
+****** Example :
+∀ x ∈ ℕ , ∃ y ∈ ℕ y > x ------ True
+
+
+∃ y ∈ ℕ , ∀ x ∈ ℕ y > x ------ False
+
+**** Proprieties :
+1. not(∀x ∈ E ,∃y ∈ F P(x,y)) ⇔ ∃x ∈ E, ∀y ∈ F not(P(x,y))
+2. not(∃x ∈ E ,∀y ∈ F P(x,y)) ⇔ ∀x ∈ E, ∃y ∈ F not(P(x,y))
+
+** Methods of mathematical reasoning :
+*** Direct reasoning :
+
+To show that an implication P ⇒ Q is true, we suppose that P is true and we show that Q is true
+
+**** Example:
+Let a,b be two Real numbers, we have to prove that *a² + b² = 1 ⇒ |a + b| ≤ 2*
+
+
+We suppose that a²+b² = 1 and we prove that |a + b| ≤ 2
+
+
+a²+b²=1 ⇒  b² = 1 - a² ; a² = 1 - b²
+
+
+a²+b²=1 ⇒  1 - a² ≥ 0 ; 1 - b² ≥ 0
+
+
+a²+b²=1 ⇒  a² ≤ 1 ; b² ≤ 1
+
+
+a²+b²=1 ⇒ -1 ≤ a ≤ 1 ; -1 ≤ b ≤ 1
+
+
+a²+b²=1 ⇒ -2 ≤ a + b ≤ 2
+
+
+a²+b²=1 ⇒ |a + b| ≤ 2 *Which is what we wanted to prove, therefor the implication is correct*
+
+*** Reasoning by the Absurd:
+To prove that a proposition is True, we suppose that it's False and we must come to a contradiction
+
+
+And to prove that an implication P ⇒ Q is true using the reasoning by the absurd, we suppose that  P ∧ not(Q) is true, and then we come to a contradiction as well
+**** Example:
+Prove that this proposition is correct using the reasoning by the absurd : ∀x ∈ ℝ* , sqrt(1+x²) ≠ 1 + x²/2
+
+
+We assume that ∃ x ℝ* , sqrt(1+x²) = 1 + x²/2
+
+
+sqrt(1+x²) = 1 + x²/2 ; 1 + x² = (1+x²/2)² ; 1 + x² = 1 + x^4/4 + x²  ;  x^(4)/4 = 0 ... Which contradicts with our proposition, since x = 4 and we are working on the ℝ* set
+
+
+*** Reasoning by contraposition:
+If an implication P ⇒ Q is too hard to prove, we just have to prove not(Q) ⇒ not(P) is true !!! or in other words that both not(P) and not(Q) are true
+
+
+*** Reasoning by counter example:
+To prove that a proposition ∀x ∈ E, P(x) is false, all we have to do is find a single value of x from E such as not(P(x)) is true
+* 3eme Cours : /Oct 9/
+*** Reasoning by recurrence :
+P is a propriety dependent of *n ∈ ℕ*. If for n0 ∈ ℕ P(n0) is true, and if for n ≥ n0 (P(n) ⇒ P(n+1)) is true. Then P(n) is true for n ≥ n0
+
+**** Example:
+Let's prove that ∀ n ≥ 1 , (n,k=1)Σk = [n(n+1)]/2
+
+
+P(n) : (n,k=1)Σk = [n(n+1)]/2
+
+
+
+*Pour n = 1:* (1,k=1)Σk = 1 ; [n(n+1)]/2 = 1 . *So P(1) is true*
+
+
+
+For n ≥ 1. We assume that P(n) is true, OR : *(n, k=1)Σk = n(n+1)/2*. We now have to prove that P(n+1) is true, Or : *(n+1, k=1)Σk = (n+1)(n+2)/2*
+
+
+(n+1, k=1)Σk = 1 + 2 + .... + n + (n+1) ; (n+1, k=1)Σk = (n, k=1)Σk + (n+1) ; = n(n+1)/2 + (n+1) ; = [n(n+1) + 2(n+1)]/2 ; = *[(n+2)(n+1)]/2* /WHICH IS WHAT WE NEEDED TO FIND/
+
+
+*Conclusion: ∀n ≥ 1 , (n,k=1)Σk = n(n+1)/2*
+
+* 4eme Cours : Chapitre 2 : Sets and Operations
+** Definition of a set :
+A set is a collection of objects that share the sane propriety
+
+** Belonging, inclusion, and equality :
+a. Let E be a set. If x is an element of E, we say that x belongs to E we write *x ∈ E*, and if it doesn't, we write *x ∉ E*
+b. A set E is included in a set F if all elements of E are elements of F and we write *E ⊂ F ⇔ (∀x , x ∈ E ⇒ x ∈ F)*. We say that E is a subset of F, or a part of F. The negation of this propriety is : *E ⊄ F ⇔ ∃x , x ∈ E and x ⊄ F*
+c. E and F are equal if E is included in F and F is included in E, and we write *E = F ⇔ (E ⊂ F) et (F ⊂ E)*
+d. The empty set (symbolized by ∅) is a set without elements, and is included in all sets (by convention) : *∅ ⊂ E*
+
+** Intersections and reunions :
+*** Intersection:
+E ∩ F = {x / x ∈ E AND x ∈ F} ; x ∈ E ∩ F ⇔ x ∈ F AND x ∈ F
+
+
+x ∉ E ∩ F ⇔ x ∉ E OR x ∉ F
+
+*** Union:
+E ∪ F = {x / x ∈ E OR x ∈ F} ;  x ∈ E ∪ F ⇔ x ∈ F OR x ∈ F
+
+
+x ∉ E ∪ F ⇔ x ∉ E AND x ∉ F
+*** Difference between two sets:
+E\F(Which is also written as : E - F) = {x / x ∈ E and x ∉ F}
+*** Complimentary set:
+If F ⊂ E. E - F is the complimentary of F in E.
+
+
+FCE = {x /x ∈ E AND x ∉ F} *ONLY WHEN F IS A SUBSET OF E*
+*** Symmetrical difference
+E Δ F = (E - F) ∪ (F - E) ; = (E ∪ F) - (E ∩ F)
+** Proprieties :
+Let E,F and G be 3 sets. We have :
+*** Commutativity:
+E ∩ F = F ∩ E
+E ∪ F = F ∪ E
+*** Associativity:
+E ∩ (F ∩ G) = (E ∩ F) ∩ G
+E ∪ (F ∪ G) = (E ∪ F) ∪ G
+*** Distributivity:
+E ∩ (F ∪ G) = (E ∩ F) ∪ (E ∩ G)
+E ∪ (F ∩ G) = (E ∪ F) ∩ (E ∪ G)
+*** Lois de Morgan:
+If E ⊂ G and F ⊂ G ;
+
+(E ∩ F)CG = ECG ∪ FCG ; (E ∪ F)CG = ECG ∩ FCG
+*** An other one:
+E - (F ∩ G) = (E-F) ∪ (E-G) ;  E - (F ∪ G) = (E-F) ∩ (E-G)
+*** An other one:
+E ∩ ∅ = ∅ ; E ∪ ∅ = E
+*** And an other one:
+E ∩ (F Δ G) = (E ∩ F) Δ (E ∩ G)
+*** And the last one:
+E Δ ∅ = E ; E Δ E = ∅
+* 5eme cours: L'ensemble des parties d'un ensemble /Oct 16/
+Let E be a set. We define P(E) as the set of all parts of E : *P(E) = {X/X ⊂ E}*
+
+
+*** Notes :
+∅ ∈ P(E) ; E ∈ P(E)
+
+
+cardinal E = n /The number of terms in E/ , cardinal P(E) = 2^n /The number of all parts of E/
+
+*** Examples :
+E = {a,b,c} ; P(E)={∅, {a}, {b}, {c}, {a,b}, {b,c}, {a,c}, {a,b,c}}
+
+** Partition of a set :
+We say that *A* is a partition of E if:
+a. ∀ x ∈ A , x ≠ 0
+b. All the elements of *A* are two by two disjoint. Or in other terms, there should not be two elements that intersects with each other.
+c. The reunion of all elements of *A* is equal to E
+** Cartesian products :
+Let E and F be two sets, the set EXF = {(x,y)/ x ∈ E AND y ∈ F} is called the Cartesian product of E and F
+*** Example :
+A = {4,5} ; B= {4,5,6} ; AxB = {(4,4), (4,5), (4,6), (5,4), (5,5), (5,6)}
+
+
+BxA = {(4,4), (4,5), (5,4), (5,5), (6,4), (6,5)} ; Therefore AxB ≠ BxA
+*** Some proprieties:
+1. ExF = ∅ ⇔ E=∅ OR F=∅
+2. ExF = FxE ⇔ E=F OR E=∅ OR F=∅
+3. E x (F∪G) = (ExF) ∪ (ExG)
+4. (E∪F) x G = (ExG) ∪ (FxG)
+5. (E∪F) ∩ (GxH) = (E ∩ G) x (F ∩ H)
+6. Generally speaking : (ExF) ∪ (GxH) ≠ (E∪G) x (F∪H)
+* Binary relations in a set :
+** Definition :
+Let E be a set and x,y ∈ E. If there exists a link between x and y, we say that they are tied by a relation *R* and we write *xRy*
+** Proprieties :
+Let E be a set and R a relation defined in E
+1. We say that R is reflexive if ∀ x ∈ E, xRx (for any element x in E,x is related to itself)
+2. We say that R is symmetrical if ∀ x,y ∈ E , xRy ⇒ yRx
+3. We say that R is transitive if ∀ x,y,z ∈ E (xRy , yRz) ⇒ xRz
+4. We say that R is anti-symmetrical if ∀ x,y ∈ E xRy AND yRx ⇒ x = y
+** Equivalence relationship :
+We say that R is a relation of equivalence in E if its reflexive, symetrical and transitive
+*** Equivalence class :
+Let R be a relation of equivalence in E and a ∈ E, we call equivalence class of *a*, and we write ̅a or ȧ, or cl a the following set :
+
+
+*a̅ = {y ∈ E/ y R a}*
+**** The quotient set :
+E/R = {̅a , a ∈ E}
+** Order relationship :
+Let E be a set and R be a relation defined in E. We say that R is a relation of order if its reflexive, anti-symetrical and transitive.
+1. The order R is called total if ∀ x,y ∈ E xRy OR yRx
+2. The order R is called partial if ∃ x,y ∈ E xR̅y AND yR̅x
+*** TODO Examples :
+∀x,y ∈ ℝ , xRy ⇔ x²-y²=x-y
+1. Prove that R is an equivalence relation
+2. Let a ∈ ℝ, find ̅a
+* TP exercices /Oct 20/ :
+** Exercice 3 :
+*** Question 3
+Montrer par l'absurde que P : ∀x ∈ ℝ*, √(4+x³) ≠ 2 + x³/4 est vraies
+
+#+BEGIN_VERSE
+On suppose que ∃ x ∈ ℝ* , √(4+x³) = 2 + x³/4
+4+x³ = (2 + x³/4)²
+4+x³ = 4 + x⁶/16 + 4*(x³/4)
+4+x³ = 4 + x⁶/16 + x³
+x⁶/16 = 0
+x⁶ = 0
+x = 0 . Or, x appartiens a ℝ\{0}, donc P̅ est fausse. Ce qui est equivalent a dire que P est vraie
+#+END_VERSE
+** Exercice 4 :
+*** DONE Question 1 :
+#+BEGIN_VERSE
+∀ n ∈ ℕ* , (n ,k=1)Σ1/k(k+1) = 1 - 1/1+n
+P(n) : (n ,k=1)Σ1/k(k+1) = 1 - 1/1+n
+1. *On vérifie P(n) pour n = 1*
+(1 ,k=1)Σ1/k(k+1) = 1/1(1+1)
+                  = 1/2 --- (1)
+1 - 1/1+1         = 1 - 1/2
+                  = 1/2 --- (2)
+De (1) et (2), P(0) est vraie ---- (a)
+
+2. *On suppose que P(n) est vraie pour n ≥ n1 puis on vérifie pour n+1*
+(n ,k=1)Σ1/k(k+1) = 1 - 1/1+n
+(n ,k=1)Σ1/k(k+1) + 1/(n+1)(n+2) = 1 - (1/(1+n)) + 1/(n+1)(n+2)
+(n+1 ,k=1)Σ1/k(k+1) = 1 - 1/(n+1) + 1/[(n+1)(n+2)]
+(n+1 ,k=1)Σ1/k(k+1) = 1 + 1/[(n+1)(n+2)] - (n+2)/[(n+1)(n+2)]
+(n+1 ,k=1)Σ1/k(k+1) = 1 + [1-(n+2)]/[(n+1)(n+2)]
+(n+1 ,k=1)Σ1/k(k+1) = 1 + [-n-1]/[(n+1)(n+2)]
+(n+1 ,k=1)Σ1/k(k+1) = 1 - [n+1]/[(n+1)(n+2)]
+(n+1 ,k=1)Σ1/k(k+1) = 1 - 1/(n+1+1) *CQFD*
+
+Donc P(n+1) est vraie. ---- (b)
+De (a) et (b) on conclus que la proposition de départ est vraie
+#+END_VERSE
+* Chapter 3 : Applications
+** 3.1 Generalities about applications :
+*** Definition :
+Let E and F be two sets.
+1. We call a function of the set E to the set F any relation from E to F such as for any element of E, we can find _at most one_ element of F that corresponds to it.
+2. We call an application of the set E to the set F a relation from E to F such as for any element of E, we can find _one and only one_ element of F that corresponds to it.
+3. f: E_{1} ---> F_{1} ; g: E_{2} ---> F_{2} ; f ≡ g ⇔ [E_{1 }= E_{2} ; F_{1} = F_{2} ; f(x) = g(x) ∀x ∈ E_{1}
+
+   Generally speaking, we schematize a function or an application by this writing :
+   #+BEGIN_VERSE
+   f : E ---> F
+       x ---> f(x)=y
+      Γ = {(x , f(x))/ x ∈ E ; f(x) ∈ F} is the graph of f
+   #+END_VERSE
+**** Some examples :
+***** Ex1:
+#+BEGIN_VERSE
+f : ℝ ---> ℝ
+    x ---> f(x) = (x-1)/x
+is a function, because 0 does NOT have a corresponding element using that relation.
+#+END_VERSE
+***** Ex2:
+#+BEGIN_VERSE
+f : ℝ^{*} ---> ℝ
+    x ---> f(x)= (x-1)/x
+is, however, an application
+#+END_VERSE
+*** Restriction and prolongation of an application :
+Let f : E -> F an application and E_{1} ⊂ E therefore :
+#+BEGIN_VERSE
+g : E_{1} -> F
+g(x) = f(x) ∀x ∈ E_{1}
+
+g is called the *restriction* of f to E_{1}. And f is called the *prolongation* of g to E.
+#+END_VERSE
+**** Example
+#+BEGIN_VERSE
+f : ℝ ---> ℝ
+    x ---> f(x) = x^{2}
+
+g : [0 , +∞[ ---> ℝ
+    x ---> g(x) = x²
+
+g is called the *restriction* of f to ℝ^{+}. And f is called the *prolongation* of g to ℝ.
+#+END_VERSE
+*** Composition of applications :
+Let E,F, and G be three sets, f: E -> F and g: F -> G are two applications. We define their composition, symbolized by g_{o}f as follow :
+
+
+g_{o}f : E -> G . ∀x ∈ E (g_{o}f)_{(x)}= g(f(x))
+** 3.2 Injection, surjection and bijection :
+Let f: E -> F be an application :
+1. We say that f is injective if : ∀x,x' ∈ E : f(x) = f(x') ⇒ x = x'
+2. We say that f is surjective if : ∀ y ∈ F , ∃ x ∈ E : y = f(x)
+3. We say that if is bijective if it's both injective and surjective at the same time.
+*** Proposition :
+Let f : E -> F be an application. Therefore:
+1. f is injective ⇔ y = f(x) has at most one solution.
+2. f is surjective ⇔ y = f(x) has at least one solution.
+3. f is bijective ⇔ y = f(x) has a single and unique solution.
+** 3.3 Reciprocal applications :
+*** Def :
+Let f : E -> F a bijective application. So there exists an application named f^{-1} : F -> E such as : y = f(x) ⇔ x = f^{-1}(y)
+*** Theorem :
+Let f : E -> F be a bijective application. Therefore its reciprocal f^{-1} verifies : f^{-1}_{o}f=Id_{E }; f_{o}f^{-1}=Id_{F} Or :
+
+
+Id_{E} : E -> E ; x -> Id_{E}(x) = x
+*** Some proprieties :
+1. (f^{-1})^{-1} = f
+2. (g_{o}f)⁻¹ = f⁻¹_{o}g⁻¹
+3. The graphs of f and f⁻¹ are symmetrical to each other by the first bis-sectrice of the equation y = x
+** 3.4 Direct Image and reciprocal Image :
+*** Direct Image :
+   Let f: E-> F be an application and A ⊂ E. We call a direct image of A by f, and we symbolize as f(A) the subset of F defined by :
+
+
+f(A) = {f(x)/ x ∈ A} ; = { y ∈ F ∃ x ∈ A  y=f(x)}
+**** Example :
+#+BEGIN_VERSE
+f: ℝ -> ℝ
+   x -> f(x) = x²
+A = {0,4}
+f(A) = {f(0), f(4)} = {0, 16}
+#+END_VERSE
+*** Reciprocal image :
+Let f: E -> F be an application and B ⊂ F. We call the reciprocal image of E by F the subset f^{-1}(B) :
+
+
+f^{-1}(B) = {x ∈ E/f(x) ∈ B} ; x ∈ f^{-1}(B) ⇔ f(x) ∈ B
+**** Example :
+#+BEGIN_VERSE
+f: ℝ -> ℝ
+   x -> f(x) = x²
+B = {1,9,4}
+f^{-1}(B) = {1,-1,2,-2,3,-3}
+      = {x ∈ ℝ/x² ∈ {1,4,9}}
+#+END_VERSE

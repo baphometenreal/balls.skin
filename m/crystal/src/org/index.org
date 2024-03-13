@@ -1,0 +1,99 @@
+#+TITLE: Crystal's Website 💜
+#+AUTHOR: Crystal
+#+OPTIONS: ^:{}
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../index.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="src/css/style.css"/>
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="favicon.png">
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:nil
+* Welcome to the wired
+Hi there, [[./super_secret.html][adorable you!]]
+
+And welcome to my little corner of the internet, here I will be posting my random thoughts, some class notes, random articles, funny links...etc. Basically a way for me to play around with HTML and CSS.
+
+
+#+ATTR_HTML: :width 200px
+[[./src/gifs/Lain_chibi.png]]
+
+* Articles ( NEW !!!! )
+- *[[./articles/feminism1_alex.html][Existing as a woman is a rebellion]]* /Thu Nov  2 23:01:23 2023/
+- *[[./articles/discord.html][Discord : an internet cancer]]* /Sun Sep 10 15:25:22 2023/
+* Blogs ( NEWER !!!! )
+** C programming :
+- *[[https://crystal.tilde.institute/blog/c/game.html][The Loneliness game]]* /Wed Feb 14 23:46:35 2024/
+
+** x86 ASM Programming:
+- *[[https://crystal.tilde.institute/blog/asm/1.html][x86 Assembly from my understanding]]*
+* root@localhost $ whoami
+** About me :
+- Name : *Crystal*
+- Age : *18 years old*
+- Nationality : *Algerian*
+- Pronouns : *She/her*
+- Sexuality : *Pansexual transgender*
+- Political affiliation : *Anarchism*
+- Hobbies : *Include but not limited to programming, exploring new OSes, new music genres and making friends*
+This might surprise you, but I also listen to music (A shocker, right?) though I mostly listen to *vaporwave* *glitchore* *weirdcore* *synthwave* and *dreamcore*
+
+If you want to contact me (which would be really surprising) contact me via mailto:crystaltrd@cumallover.me
+
+
+** About my Navi :
+My current setup is :
+- Primary OS: *OpenBSD -current*
+- Text Editor: *Doom Emacs*
+- Web Browser: *Ungoogled-chromium*
+- Desktop Environment: *NsCDE*
+- Shell: *Historic Ksh93*
+- Secondary OS: *Void Linux*
+- Games I play: *Hollow Knight*, *Cult of the lamb*, *Dead Cells* & Rythm games(like *Phigros* and *A dance of fire and ice*)
+I also host this website on the https://tilde.institute *pubNIX* which also runs *OpenBSD*
+
+My GNUPG (GPG) public key [[./src/txt/pubkey.asc]]
+
+[[https://git.tilde.institute/crystal/www][This website is fully open-source with no licensing restrictions, check the source code and feel free to reuse everything!!!]]
+
+* Sign my Guestbook (External website warning)
+Want to leave a message, opinion, review or a salty insult ? Be sure to Sign my Guestbook then, it takes two seconds but it will mean the world to me !!!
+
+[[https://crystaltilde.123guestbook.com/][file:./src/gifs/links/sign_my_guestbook-anim.gif]]
+* Blinkies
+#+BEGIN_EXPORT html
+    <a href="http://validator.w3.org/check?uri=referer"><img
+      src="./src/gifs/blinkies/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+          <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="./src/gifs/blinkies/vcss.gif"
+            alt="Valid CSS!" />
+    </a>
+#+END_EXPORT
+[[https://nishi.boats/][file:./src/gifs/blinkies/nishiboats.jpg]] [[./src/gifs/blinkies/girlsnow.png]] [[./src/gifs/blinkies/cookiefree.gif]] [[./src/gifs/blinkies/transnow2.gif]] [[./src/gifs/blinkies/gaywebring.gif]] [[./src/gifs/blinkies/tranarchy.gif]] [[./src/gifs/blinkies/button-torrents.gif]] [[./src/gifs/blinkies/tyg.gif]] [[./src/gifs/blinkies/fuck-google.gif]] [[./src/gifs/blinkies/fuck_facebook.gif]] [[./src/gifs/blinkies/graphics_by_gimp.gif]] [[./src/gifs/blinkies/learn_html.gif]] [[./src/gifs/blinkies/leave-twitter.gif]][[./src/gifs/blinkies/stop_microsoft.gif]] [[./src/gifs/blinkies/web-pi.png]] [[./src/gifs/blinkies/piracy.gif]] [[./src/gifs/blinkies/best_viewed_with_eyes.gif]] [[https://spyware.neocities.org/articles/discord][file:./src/gifs/blinkies/discord-no-way-2.gif]] [[https://yesterweb.org/no-to-web3/][file:./src/gifs/blinkies/roly-saynotoweb3.gif]]
+[[https://my.faith.rip/][file:./src/gifs/links/myfaithrip.gif]]
+[[https://wiredcollective.neocities.org][file:./src/gifs/blinkies/wiredcollectivebutton.png]]
+[[https://razorback95.com][file:./src/gifs/blinkies/rz95_button.gif]]
+[[https://blueosmuseum.com][file:./src/gifs/blinkies/blueos_button.gif]]
+[[./src/gifs/blinkies/mafumafu.gif]]
+[[./src/gifs/blinkies/winxp.gif]]
+[[./src/gifs/blinkies/ihatems.gif]]
+[[./src/gifs/blinkies/openbsdart.gif]]
+[[./src/gifs/blinkies/win10no.gif]]
+[[./src/gifs/blinkies/seedyourtorrents.gif]]
+[[./src/gifs/blinkies/chrmevil.gif]]
+[[./src/gifs/blinkies/3dot5mmfc-button.gif]]
+[[./src/gifs/blinkies/iecrash.gif]]
+[[./src/gifs/blinkies/gregdock.gif]]
+[[https://sapphic-cafe.neocities.org][file:./src/gifs/blinkies/sapphic-cafe-button.png]]
+[[https://neotomic.neocities.org/][file:./src/gifs/blinkies/neotomic.gif]]
+[[https://openbsd.org/][file:./src/gifs/blinkies/openbsd.png]]
+[[https://partysepe13.neocities.org/][file:./src/gifs/blinkies/partysepe.png]]
+** My banner
+If you enjoyed my website, you could link me on your personal website using this banner. If you don't want to, then no pressure  💜 I still love you and I hope that this small shrine of mine will impress you in the future!!!
+
+[[./src/gifs/crystal-tilde.gif]]
+#+ATTR_HTML: :width 240px
+[[./src/gifs/my_buttons/lain_crystal_glitch.gif]]
+
+/And others too are in this directory [[./src/gifs/my_buttons/]]. All of them were made by https://julians-art.neocities.org/ Thanks a lot Julian !!!/
+* [[https://crystal.tilde.institute/links.html][Close this website, txEn eht nepO.( Webrings , so expect JavaScript on this page)!!]]

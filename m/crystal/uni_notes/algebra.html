@@ -1,0 +1,1870 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-11-01 Wed 20:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Algebra 1</title>
+<meta name="author" content="Crystal" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../src/css/colors.css"/>
+<link rel="stylesheet" type="text/css" href="../src/css/style.css"/>
+<link rel="icon" type="image/x-icon" href="https://crystal.tilde.institute/favicon.png">
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../../../uni_notes/"> UP </a>
+ |
+ <a accesskey="H" href="https://crystal.tilde.institute/"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">Algebra 1</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org42f27fc">Contenu de la Matiére</a>
+<ul>
+<li><a href="#orgf20cf94">Rappels et compléments (11H)</a></li>
+<li><a href="#orgf700058">Structures Algébriques (11H)</a></li>
+<li><a href="#org7a29a82">Polynômes et fractions rationnelles</a></li>
+</ul>
+</li>
+<li><a href="#org7207cb0">Premier cours : Logique mathématique et méthodes du raisonnement mathématique <i>Sep 25</i> :</a>
+<ul>
+<li><a href="#orgb936329">Properties:</a>
+<ul>
+<li><a href="#orgf5da498"><b>Absorption</b>:</a></li>
+<li><a href="#org49dbf9d"><b>Commutativity</b>:</a></li>
+<li><a href="#orge255044"><b>Associativity</b>:</a></li>
+<li><a href="#org31cc6c8"><b>Distributivity</b>:</a></li>
+<li><a href="#orgf861930"><b>Neutral element</b>:</a></li>
+<li><a href="#org8cb6e02"><b>Negation of a conjunction &amp; a disjunction</b>:</a></li>
+<li><a href="#orgfe01ac7"><b>Transitivity</b>:</a></li>
+<li><a href="#org976f527"><b>Contraposition</b>:</a></li>
+<li><a href="#org0865f2b">God only knows what this property is called:</a></li>
+</ul>
+</li>
+<li><a href="#org316b141">Some exercices I found online :</a>
+<ul>
+<li><a href="#orga3825f4">USTHB 2022/2023 Section B :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org21d6c03">2éme cours <i>Oct 2</i></a>
+<ul>
+<li><a href="#orgd6c9f49">Quantifiers</a>
+<ul>
+<li><a href="#orgb332b43">Proprieties</a></li>
+</ul>
+</li>
+<li><a href="#orged685c1">Multi-parameter proprieties :</a></li>
+<li><a href="#org78d7ed0">Methods of mathematical reasoning :</a>
+<ul>
+<li><a href="#org7d21c38">Direct reasoning :</a></li>
+<li><a href="#orgcfd8723">Reasoning by the Absurd:</a></li>
+<li><a href="#org102d3fa">Reasoning by contraposition:</a></li>
+<li><a href="#org81cb388">Reasoning by counter example:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc2178b8">3eme Cours : <i>Oct 9</i></a>
+<ul>
+<li>
+<ul>
+<li><a href="#org4855f6f">Reasoning by recurrence :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgde6bfac">4eme Cours : Chapitre 2 : Sets and Operations</a>
+<ul>
+<li><a href="#orgfe8000a">Definition of a set :</a></li>
+<li><a href="#orgfe04671">Belonging, inclusion, and equality :</a></li>
+<li><a href="#orga2eb99d">Intersections and reunions :</a>
+<ul>
+<li><a href="#org560d563">Intersection:</a></li>
+<li><a href="#org7147bc3">Union:</a></li>
+<li><a href="#org16b5ab2">Difference between two sets:</a></li>
+<li><a href="#orgdac190b">Complimentary set:</a></li>
+<li><a href="#org4e0b111">Symmetrical difference</a></li>
+</ul>
+</li>
+<li><a href="#org691c863">Proprieties :</a>
+<ul>
+<li><a href="#org9cc9f31">Commutativity:</a></li>
+<li><a href="#org471083b">Associativity:</a></li>
+<li><a href="#orge63be10">Distributivity:</a></li>
+<li><a href="#orgfb01947">Lois de Morgan:</a></li>
+<li><a href="#orge1a41eb">An other one:</a></li>
+<li><a href="#org9939b0f">An other one:</a></li>
+<li><a href="#org90bfdc4">And an other one:</a></li>
+<li><a href="#org1e49001">And the last one:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org272eca3">5eme cours: L&rsquo;ensemble des parties d&rsquo;un ensemble <i>Oct 16</i></a>
+<ul>
+<li>
+<ul>
+<li><a href="#org5b29e32">Notes :</a></li>
+<li><a href="#org5636bd8">Examples :</a></li>
+</ul>
+</li>
+<li><a href="#orgd8cb2c3">Partition of a set :</a></li>
+<li><a href="#orgf40404d">Cartesian products :</a>
+<ul>
+<li><a href="#orgd526cb8">Example :</a></li>
+<li><a href="#org56dd088">Some proprieties:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5ee4278">Binary relations in a set :</a>
+<ul>
+<li><a href="#orgddc9af6">Definition :</a></li>
+<li><a href="#orge65424e">Proprieties :</a></li>
+<li><a href="#orgd7877d3">Equivalence relationship :</a>
+<ul>
+<li><a href="#org85cf025">Equivalence class :</a></li>
+</ul>
+</li>
+<li><a href="#orge18dcc7">Order relationship :</a>
+<ul>
+<li><a href="#org60d471a"><span class="todo TODO">TODO</span> Examples :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org77de6e3">TP exercices <i>Oct 20</i> :</a>
+<ul>
+<li><a href="#org3ca8006">Exercice 3 :</a>
+<ul>
+<li><a href="#orgad95ec3">Question 3</a></li>
+</ul>
+</li>
+<li><a href="#org8180ae0">Exercice 4 :</a>
+<ul>
+<li><a href="#orgfe0b1e2"><span class="done DONE">DONE</span> Question 1 :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org2d6e0ba">Chapter 3 : Applications</a>
+<ul>
+<li><a href="#orga5be12f">3.1 Generalities about applications :</a>
+<ul>
+<li><a href="#org805d7bc">Definition :</a></li>
+<li><a href="#org7947331">Restriction and prolongation of an application :</a></li>
+<li><a href="#orgd94bc69">Composition of applications :</a></li>
+</ul>
+</li>
+<li><a href="#org257d05a">3.2 Injection, surjection and bijection :</a>
+<ul>
+<li><a href="#org1612e09">Proposition :</a></li>
+</ul>
+</li>
+<li><a href="#orgebdf518">3.3 Reciprocal applications :</a>
+<ul>
+<li><a href="#orgf072e42">Def :</a></li>
+<li><a href="#org244b352">Theorem :</a></li>
+<li><a href="#org1479c0e">Some proprieties :</a></li>
+</ul>
+</li>
+<li><a href="#orgaf81bb3">3.4 Direct Image and reciprocal Image :</a>
+<ul>
+<li><a href="#org87b91e2">Direct Image :</a></li>
+<li><a href="#org500bc40">Reciprocal image :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org42f27fc" class="outline-2">
+<h2 id="org42f27fc">Contenu de la Matiére</h2>
+<div class="outline-text-2" id="text-org42f27fc">
+</div>
+<div id="outline-container-orgf20cf94" class="outline-3">
+<h3 id="orgf20cf94">Rappels et compléments (11H)</h3>
+<div class="outline-text-3" id="text-orgf20cf94">
+<ul class="org-ul">
+<li>Logique mathématique et méthodes du raisonnement mathématique<br /></li>
+<li>Ensembles et Relations<br /></li>
+<li>Applications<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf700058" class="outline-3">
+<h3 id="orgf700058">Structures Algébriques (11H)</h3>
+<div class="outline-text-3" id="text-orgf700058">
+<ul class="org-ul">
+<li>Groupes et morphisme de groupes<br /></li>
+<li>Anneaux et morphisme d&rsquo;anneaux<br /></li>
+<li>Les corps<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7a29a82" class="outline-3">
+<h3 id="org7a29a82">Polynômes et fractions rationnelles</h3>
+<div class="outline-text-3" id="text-org7a29a82">
+<ul class="org-ul">
+<li>Notion du polynôme à une indéterminée á coefficients dans un anneau<br /></li>
+<li>Opérations Algébriques sur les polynômes<br /></li>
+<li>Arithmétique dans l&rsquo;anneau des polynômes<br /></li>
+<li>Polynôme dérivé et formule de Taylor<br /></li>
+<li>Notion de racine d&rsquo;un polynôme<br /></li>
+<li>Notion de Fraction rationelle á une indéterminée<br /></li>
+<li>Décomposition des fractions rationelles en éléments simples<br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org7207cb0" class="outline-2">
+<h2 id="org7207cb0">Premier cours : Logique mathématique et méthodes du raisonnement mathématique <i>Sep 25</i> :</h2>
+<div class="outline-text-2" id="text-org7207cb0">
+<p>
+Let <b>P</b> <b>Q</b> and <b>R</b> be propositions which can either be <b>True</b> or <b>False</b>. And let&rsquo;s also give the value <b>1</b> to each <b>True</b> proposition and <b>0</b> to each false one.<br />
+</p>
+
+<p>
+<i>Ex:</i><br />
+</p>
+<ul class="org-ul">
+<li><b>5 ≥ 2</b> is a proposition, a correct one !!!<br /></li>
+<li><b>The webmaster is a girl</b> is also a proposition, which is also correct.<br /></li>
+<li><b>x is always bigger than 5</b> is <b>not</b> a proposition, because we CAN&rsquo;T determine if it&rsquo;s correct or not as <b>x</b> changes.<br /></li>
+</ul>
+<p>
+&#x2026;etc<br />
+</p>
+
+<p>
+In order to avoid repetition, and rewriting the proposition over and over, we just assign a capital letter to them such as <b>P Q</b> or <b>R</b>.<br />
+</p>
+
+<p>
+So now we could write :<br />
+<b>Let the proposition P be 5 ≥ 2, we notice that P is always True, therefor its validity is 1</b><br />
+</p>
+
+<p>
+We also have the opposite of <b>P</b>, which is <b>not(P)</b> but for simplicity we use <b>P̅</b> (A P with a bar on top, in case it doesn&rsquo;t load for you), now let&rsquo;s go back to the previous example:<br />
+</p>
+
+<p>
+<b>Since we know that the proposition P is true, we can conclude that P̅ is false. As P and P̅ can NOT be true at the same time. It&rsquo;s like saying 5 is greater and also lesser than 2&#x2026;doesn&rsquo;t make sense, does it ?</b><br />
+</p>
+
+<p>
+Now let&rsquo;s say we have two propositions, and we want to test the validity of their disjunction&#x2026;.. Okay what is this &ldquo;disjunction&rdquo; ? <b>Great Question Billy !!!</b> A disjunction is true if either propositions are true<br />
+</p>
+
+<p>
+Ex:<br />
+<b>Let proposition P be &ldquo;The webmaster is asleep&rdquo;, and Q be &ldquo;The reader loves pufferfishes&rdquo;. The disjunction of these two propositions can have 4 different values showed in this Table of truth (such a badass name):</b><br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">P</th>
+<th scope="col" class="org-right">Q</th>
+<th scope="col" class="org-right">Disjunction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<i>What the hell is this ?</i><br />
+The first colomn is equivalent to saying : &ldquo;The webmaster is asleep AND The reader loves pufferfishes&rdquo;<br />
+The second one means : &ldquo;The webmaster is asleep AND The reader DOESN&rsquo;T love pufferfishes (if you are in this case, then <b>I HATE YOU</b>)&rdquo;<br />
+The third one&#x2026; <i>zzzzzzz</i><br />
+</p>
+
+<p>
+You got the idea !!!<br />
+And since we are talking about a disjunction here, <b>one of the propositions</b> need to be true in order for this disjunction to be true.<br />
+</p>
+
+<p>
+You may be wondering&#x2026;. Crystal, can&rsquo;t we write a disjunction in magical math symbols ? And to this I respond with a big <b>YES</b>. A disjunction is symbolized by a <b>∨</b> . So the disjunction between proposition <b>P &amp; Q</b> can be written this way : <b>P ∨ Q</b><br />
+</p>
+
+<p>
+What if, we want to test whether or not two propositions are true AT THE SAME TIME ? Long story short, we can, it&rsquo;s called a conjunction, same concept, as before, only this time the symbol is <b>P ∧ Q</b>, and is only true if <b>P</b> and <b>Q</b> are true. So we get a Table like this :<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">P</th>
+<th scope="col" class="org-right">Q</th>
+<th scope="col" class="org-right">P ∨ Q</th>
+<th scope="col" class="org-right">P ∧ Q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Always remember: 1 means true and 0 means false</b><br />
+</p>
+
+<p>
+There are two more basics to cover here before going to some properties, the first one is implication symbolized by the double arrow <b>⇒</b><br />
+</p>
+
+<p>
+Implication is kinda hard for my little brain to explain, so I will just say what it means:<br />
+</p>
+
+<p>
+<b>If P implies Q, this means that either Q, or the opposite of P are correct</b><br />
+</p>
+
+<p>
+or in math terms<br />
+</p>
+
+<p>
+<b>P ⇒ Q translates to P̅ ∨ Q</b><br />
+Let&rsquo;s illustrate :<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">P</th>
+<th scope="col" class="org-right">Q</th>
+<th scope="col" class="org-right">P̅</th>
+<th scope="col" class="org-right">Q̅</th>
+<th scope="col" class="org-right">P ∨ Q</th>
+<th scope="col" class="org-right">P ∧ Q</th>
+<th scope="col" class="org-right">P ⇒ Q (P̅ ∨ Q)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>If you look clearly, there is only one case where an implication is false. therefor you just need to find it, and blindly say that the others are correct. A rule of thumb is that: &ldquo;A correct never implies a false&rdquo;, or  &ldquo;If a 1 tries to imply a 0, the implication is a 0&rdquo;</b><br />
+</p>
+
+<p>
+Aight, a last one and we are done!!! Equivalence, which is fairly easy, symbolized by a <b>⇔</b> symbol.<br />
+</p>
+
+<p>
+A proposition is equivalent to another only when both of them have <b>the same value of truth</b> AKA: both true or both false. a little table will help demonstrate what i mean.<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">P</th>
+<th scope="col" class="org-right">Q</th>
+<th scope="col" class="org-right">P̅</th>
+<th scope="col" class="org-right">Q̅</th>
+<th scope="col" class="org-right">P ∨ Q</th>
+<th scope="col" class="org-right">P ∧ Q</th>
+<th scope="col" class="org-right">P ⇒ Q (P̅ ∨ Q)</th>
+<th scope="col" class="org-right">P ⇔ Q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<i>Note: P implying Q is equivalent to P̅ implying Q̅, or: (P ⇒ Q) ⇔ (P̅ ⇒ Q̅)</i><br />
+</p>
+</div>
+<div id="outline-container-orgb936329" class="outline-3">
+<h3 id="orgb936329">Properties:</h3>
+<div class="outline-text-3" id="text-orgb936329">
+</div>
+<div id="outline-container-orgf5da498" class="outline-4">
+<h4 id="orgf5da498"><b>Absorption</b>:</h4>
+<div class="outline-text-4" id="text-orgf5da498">
+<p>
+(P ∨ P) ⇔ P<br />
+</p>
+
+<p>
+(P ∧ P) ⇔ P<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org49dbf9d" class="outline-4">
+<h4 id="org49dbf9d"><b>Commutativity</b>:</h4>
+<div class="outline-text-4" id="text-org49dbf9d">
+<p>
+(P ∧ Q) ⇔ (Q ∧ P)<br />
+</p>
+
+<p>
+(P ∨ Q) ⇔ (Q ∨ P)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orge255044" class="outline-4">
+<h4 id="orge255044"><b>Associativity</b>:</h4>
+<div class="outline-text-4" id="text-orge255044">
+<p>
+P ∧ (Q ∧ R) ⇔ (P ∧ Q) ∧ R<br />
+</p>
+
+<p>
+P ∨ (Q ∨ R) ⇔ (P ∨ Q) ∨ R<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org31cc6c8" class="outline-4">
+<h4 id="org31cc6c8"><b>Distributivity</b>:</h4>
+<div class="outline-text-4" id="text-org31cc6c8">
+<p>
+P ∧ (Q ∨ R) ⇔ (P ∧ Q) ∨ (P ∧ R)<br />
+</p>
+
+<p>
+P ∨ (Q ∧ R) ⇔ (P ∨ Q) ∧ (P ∨ R)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgf861930" class="outline-4">
+<h4 id="orgf861930"><b>Neutral element</b>:</h4>
+<div class="outline-text-4" id="text-orgf861930">
+<p>
+<i>We define proposition <b>T</b> to be always <b>true</b> and <b>F</b> to be always <b>false</b></i><br />
+</p>
+
+<p>
+P ∧ T ⇔ P<br />
+</p>
+
+<p>
+P ∨ F ⇔ P<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org8cb6e02" class="outline-4">
+<h4 id="org8cb6e02"><b>Negation of a conjunction &amp; a disjunction</b>:</h4>
+<div class="outline-text-4" id="text-org8cb6e02">
+<p>
+Now we won&rsquo;t use bars here because my lazy ass doesn&rsquo;t know how, so instead I will use not()!!!<br />
+</p>
+
+<p>
+not(<b>P ∧ Q</b>) ⇔ P̅ ∨ Q̅<br />
+</p>
+
+<p>
+not(<b>P ∨ Q</b>) ⇔ P̅ ∧ Q̅<br />
+</p>
+
+<p>
+<b>A rule I really like to use here is: Break and Invert. Basically you break the bar into the three characters of the propositions, so you get not(P) not(∧ or ∨) <i>NOT AN ACTUAL MATH WRITING. DONT USE IT ANYWHERE ELSE OTHER THAN YOUR BRAIN</i> and not(Q)</b><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgfe01ac7" class="outline-4">
+<h4 id="orgfe01ac7"><b>Transitivity</b>:</h4>
+<div class="outline-text-4" id="text-orgfe01ac7">
+<p>
+[(P ⇒ Q) AND (Q ⇒ R)] ⇔ P ⇒ R<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org976f527" class="outline-4">
+<h4 id="org976f527"><b>Contraposition</b>:</h4>
+<div class="outline-text-4" id="text-org976f527">
+<p>
+(P ⇒ Q) ⇔ (Q̅ ⇒ P̅)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org0865f2b" class="outline-4">
+<h4 id="org0865f2b">God only knows what this property is called:</h4>
+<div class="outline-text-4" id="text-org0865f2b">
+<p>
+<i>If</i><br />
+</p>
+
+<p>
+(P ⇒ Q) is true<br />
+</p>
+
+<p>
+and<br />
+</p>
+
+<p>
+(P̅ ⇒ Q) is true<br />
+</p>
+
+<p>
+then<br />
+</p>
+
+<p>
+Q is always true<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org316b141" class="outline-3">
+<h3 id="org316b141">Some exercices I found online :</h3>
+<div class="outline-text-3" id="text-org316b141">
+</div>
+<div id="outline-container-orga3825f4" class="outline-4">
+<h4 id="orga3825f4">USTHB 2022/2023 Section B :</h4>
+<div class="outline-text-4" id="text-orga3825f4">
+</div>
+<ul class="org-ul">
+<li><a id="orge27aa8d"></a>Exercice 1: Démontrer les équivalences suivantes:<br />
+<div class="outline-text-5" id="text-orge27aa8d">
+<ol class="org-ol">
+<li><p>
+(P ⇒ Q) ⇔ (Q̅ ⇒ P̅)<br />
+</p>
+
+<p>
+Basically we are asked to prove contraposition, so here we have ( P ⇒ Q ) which is equivalent to P̅ ∨ Q <b>By definition : (P ⇒ Q) ⇔  (P̅ ∨ Q)</b><br />
+</p></li>
+</ol>
+
+
+<p>
+So we end up with : <b>(P̅ ∨ Q) ⇔ (Q̅ ⇒ P̅)</b>, now we just do the same with the second part of the contraposition. <b>(Q̅ ⇒ P̅) ⇔ (Q ∨ P̅)</b> therefor :<br />
+</p>
+
+
+<p>
+<b>(Q ∨ P̅) ⇔ (P̅ ∨ Q)</b>, which is true because of commutativity<br />
+</p>
+
+<ol class="org-ol">
+<li>not(P ⇒ Q) ⇔  P ∧ Q̅<br /></li>
+</ol>
+
+
+<p>
+Okaaaay so, let&rsquo;s first get rid of the implication, because I don&rsquo;t like it : <b>not(P̅ ∨ Q)</b><br />
+</p>
+
+
+<p>
+Now that we got rid of it, we can negate the whole disjunction <b>not(P̅ ∨ Q) ⇔ (P ∧ Q̅)</b>. Which is the equivalence we needed to prove<br />
+</p>
+
+<ol class="org-ol">
+<li><p>
+P ⇒ (Q ∧ R) ⇔ (P ⇒ Q) ∧ (P ⇒ R)<br />
+</p>
+
+<p>
+One might be tempted to replace P with P̅ to get rid of the implication&#x2026;sadly this isnt it. All we have to do here is resort to <b>Distributivity</b>, because yeah, we can distribute an implication across a {con/dis}junction<br />
+</p></li>
+
+<li><p>
+P ∧ (Q ∨ R) ⇔ (P ∧ Q) ∨ (P ∧ R)<br />
+</p>
+
+<p>
+Literally the same as above 🩷<br />
+</p></li>
+</ol>
+</div>
+</li>
+<li><a id="orgd9c7023"></a>Exercice 2: Dire si les propositions suivantes sont vraies ou fausses, et les nier:<br />
+<div class="outline-text-5" id="text-orgd9c7023">
+<ol class="org-ol">
+<li><p>
+∀x ∈ ℝ ,∃y ∈ ℝ*+, tels que e^x = y<br />
+</p>
+
+<p>
+For each x from the set of Real numbers, there exists a number y from the set of non-zero positive Real numbers that satisfies the equation : e^x = y<br />
+</p></li>
+</ol>
+
+
+<p>
+&ldquo;The function f(x)=e^x is always positive and non-null&rdquo;, the very definition of an exponential function !!!!<br />
+</p>
+
+
+<p>
+<b>So the proposition is true</b><br />
+</p>
+
+
+<ol class="org-ol">
+<li>∃x ∈ ℝ, tels que x^2 &lt; x &lt; x^3<br /></li>
+</ol>
+
+
+<p>
+We just need to find a value that satisifies this condition&#x2026;thankfully its easy&#x2026;.<br />
+</p>
+
+<p>
+x² &lt; x &lt; x³ , we divide the three terms by x so we get :<br />
+</p>
+
+
+<p>
+x &lt; 1 &lt; x² , or :<br />
+</p>
+
+
+<p>
+<b>x &lt; 1</b> ; <b>1 &lt; x²</b> ⇔  <b>x &lt; 1</b> ; <b>1 &lt; x</b> <i>We square root both sides</i><br />
+</p>
+
+
+<p>
+We end up with a contradiction, therefor its wrong<br />
+</p>
+
+
+<ol class="org-ol">
+<li>∀x ∈ ℝ, ∃y ∈ ℝ tels que y = 3x - 8<br /></li>
+</ol>
+
+
+<p>
+I dont really understand this one, so let me translate it &ldquo;For any value of x from the set of Real numbers, 3x - 8 is a Real number&rdquo;&#x2026;. i mean&#x2026;.yeah, we are substracting a Real number from an other real number&#x2026;<br />
+</p>
+
+<p>
+<b>Since substraction is an  Internal composition law in ℝ, therefor all results of a substraction between two Real numbers is&#x2026;Real</b><br />
+</p>
+
+<ol class="org-ol">
+<li><p>
+∃x ∈ ℕ, ∀y ∈ ℕ, x &gt; y ⇒ x + y &lt; 8<br />
+</p>
+
+<p>
+&ldquo;There exists a number x from the set of Natural numbers such as for all values of y from the set of Natural numbers, x &gt; y implies x + y &lt; 8&rdquo;<br />
+</p></li>
+</ol>
+
+
+<p>
+Let&rsquo;s get rid of the implication :<br />
+</p>
+
+<p>
+∃x ∈ ℕ, ∀y ∈ ℕ, (y &gt; x) ∨ (x + y &lt; 8) <i>There exists a number x from the set of Natural numbers such as for all values of y from the set of Natural numbers y &gt; x OR x + y &lt; 8</i><br />
+</p>
+
+<p>
+This proposition is true, because there exists a value of x that satisfies this condition, it&rsquo;s <b>all numbers under 8</b> let&rsquo;s take 3 as an example:<br />
+</p>
+
+
+<p>
+<b>x = 3 , if y &gt; 3 then the first condition is true ; if y &lt; 3 then the second one is true</b><br />
+</p>
+
+
+<p>
+Meaning that the two propositions CAN NOT BE WRONG TOGETHER, either one is wrong, or the other<br />
+</p>
+
+
+<p>
+y &gt; x<br />
+</p>
+
+
+<p>
+<b>y - x &gt; 0</b><br />
+</p>
+
+
+<p>
+y + x &lt; 8<br />
+</p>
+
+
+<p>
+<b>y &lt; 8 - x</b> <i>This one is always true for all values of x below 8, since we are working in the set ℕ</i><br />
+</p>
+
+
+<ol class="org-ol">
+<li><p>
+∀x ∈ ℝ, x² ≥ 1 ⇔  x ≥ 1<br />
+</p>
+
+<p>
+&#x2026;.This is getting stupid. of course it&rsquo;s true it&rsquo;s part of the definition of the power of 2<br />
+</p></li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org21d6c03" class="outline-2">
+<h2 id="org21d6c03">2éme cours <i>Oct 2</i></h2>
+<div class="outline-text-2" id="text-org21d6c03">
+</div>
+<div id="outline-container-orgd6c9f49" class="outline-3">
+<h3 id="orgd6c9f49">Quantifiers</h3>
+<div class="outline-text-3" id="text-orgd6c9f49">
+<p>
+A propriety P can depend on a parameter x<br />
+</p>
+
+
+<p>
+∀ is the universal quantifier which stands for &ldquo;For any value of&#x2026;&rdquo;<br />
+</p>
+
+
+<p>
+∃ is the existential quantifier which stands for &ldquo;There exists at least one&#x2026;&rdquo;<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orge92d880"></a>Example<br />
+<div class="outline-text-6" id="text-orge92d880">
+<p>
+P(x) : x+1≥0<br />
+</p>
+
+<p>
+P(X) is True or False depending on the values of x<br />
+</p>
+</div>
+</li>
+</ul>
+<div id="outline-container-orgb332b43" class="outline-4">
+<h4 id="orgb332b43">Proprieties</h4>
+<div class="outline-text-4" id="text-orgb332b43">
+</div>
+<ul class="org-ul">
+<li><a id="org8587885"></a>Propriety Number 1:<br />
+<div class="outline-text-5" id="text-org8587885">
+<p>
+The negation of the universal quantifier is the existential quantifier, and vice-versa :<br />
+</p>
+
+<ul class="org-ul">
+<li>not(∀x ∈ E , P(x)) ⇔ ∃ x ∈ E, not(P(x))<br /></li>
+<li>not(∃x ∈ E , P(x)) ⇔ ∀ x ∈ E, not(P(x))<br /></li>
+</ul>
+</div>
+<ul class="org-ul">
+<li><a id="org3a19f5f"></a>Example:<br />
+<div class="outline-text-6" id="text-org3a19f5f">
+<p>
+∀ x ≥ 1  x² &gt; 5 ⇔ ∃ x ≥ 1 x² &lt; 5<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+<li><a id="orgab7b647"></a>Propriety Number 2:<br />
+<div class="outline-text-5" id="text-orgab7b647">
+<p>
+<b>∀x ∈ E, [P(x) ∧ Q(x)] ⇔ [∀ x ∈ E, P(x)] ∧ [∀ x ∈ E, Q(x)]</b><br />
+</p>
+
+
+<p>
+The propriety &ldquo;For any value of x from a set E , P(x) and Q(x)&rdquo; is equivalent to &ldquo;For any value of x from a set E, P(x) AND for any value of x from a set E, Q(x)&rdquo;<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org8ba49ff"></a>Example :<br />
+<div class="outline-text-6" id="text-org8ba49ff">
+<p>
+P(x) : sqrt(x) &gt; 0 ;  Q(x) : x ≥ 1<br />
+</p>
+
+
+<p>
+∀x ∈ ℝ*+, [sqrt(x) &gt; 0 , x ≥ 1] ⇔ [∀x ∈ R*+, sqrt(x) &gt; 0] ∧ [∀x ∈ R*+, x ≥ 1]<br />
+</p>
+
+
+<p>
+<b>Which is true</b><br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org91796f9"></a>Propriety Number 3:<br />
+<div class="outline-text-5" id="text-org91796f9">
+<p>
+<b>∃ x ∈ E, [P(x) ∧ Q(x)] <i>⇒</i> [∃ x ∈ E, P(x)] ∧ [∃ x ∈ E, Q(x)]</b><br />
+</p>
+
+
+<p>
+<i>Here its an implication and not an equivalence</i><br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org1f20a27"></a>Example of why it&rsquo;s NOT an equivalence :<br />
+<div class="outline-text-6" id="text-org1f20a27">
+<p>
+P(x) : x &gt; 5  ;  Q(x) : x &lt; 5<br />
+</p>
+
+
+<p>
+Of course there is no value of x such as its inferior and superior to 5 at the same time, so obviously the proposition is false. However, the two propositions separated are correct on their own, because there is a value of x such as its superior to 5, and there is also a value of x such as its inferior to 5. This is why it&rsquo;s an implication and NOT AN EQUIVALENCE!!!<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org2b9f54b"></a>Propriety Number 4:<br />
+<div class="outline-text-5" id="text-org2b9f54b">
+<p>
+<b>[∀ x ∈ E, P(x)] ∨ [∀ x ∈ E, Q(x)] <i>⇒</i> ∀x ∈ E, [P(x) ∨ Q(x)]</b><br />
+</p>
+
+
+<p>
+<i>Same here, implication and NOT en equivalence</i><br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orged685c1" class="outline-3">
+<h3 id="orged685c1">Multi-parameter proprieties :</h3>
+<div class="outline-text-3" id="text-orged685c1">
+<p>
+A propriety P can depend on two or more parameters, for convenience we call them x,y,z&#x2026;etc<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org747b217"></a>Example :<br />
+<div class="outline-text-6" id="text-org747b217">
+<p>
+P(x,y): x+y &gt; 0<br />
+</p>
+
+
+<p>
+P(0,1) is a True proposition<br />
+</p>
+
+
+<p>
+P(-2,-1) is a False one<br />
+</p>
+</div>
+</li>
+<li><a id="org5d93eaf"></a>WARNING :<br />
+<div class="outline-text-6" id="text-org5d93eaf">
+<p>
+∀x ∈ E, ∃y ∈ F , P(x,y)<br />
+</p>
+
+
+<p>
+∃y ∈ F, ∀x ∈ E , P(x,y)<br />
+</p>
+
+
+<p>
+Are different because in the first one y depends on x, while in the second one, it doesn&rsquo;t<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgc60c61d"></a>Example :<br />
+<div class="outline-text-7" id="text-orgc60c61d">
+<p>
+∀ x ∈ ℕ , ∃ y ∈ ℕ y &gt; x -&#x2013;&#x2014; True<br />
+</p>
+
+
+<p>
+∃ y ∈ ℕ , ∀ x ∈ ℕ y &gt; x -&#x2013;&#x2014; False<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<li><a id="orgda9f614"></a>Proprieties :<br />
+<div class="outline-text-5" id="text-orgda9f614">
+<ol class="org-ol">
+<li>not(∀x ∈ E ,∃y ∈ F P(x,y)) ⇔ ∃x ∈ E, ∀y ∈ F not(P(x,y))<br /></li>
+<li>not(∃x ∈ E ,∀y ∈ F P(x,y)) ⇔ ∀x ∈ E, ∃y ∈ F not(P(x,y))<br /></li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org78d7ed0" class="outline-3">
+<h3 id="org78d7ed0">Methods of mathematical reasoning :</h3>
+<div class="outline-text-3" id="text-org78d7ed0">
+</div>
+<div id="outline-container-org7d21c38" class="outline-4">
+<h4 id="org7d21c38">Direct reasoning :</h4>
+<div class="outline-text-4" id="text-org7d21c38">
+<p>
+To show that an implication P ⇒ Q is true, we suppose that P is true and we show that Q is true<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org59d34b3"></a>Example:<br />
+<div class="outline-text-5" id="text-org59d34b3">
+<p>
+Let a,b be two Real numbers, we have to prove that <b>a² + b² = 1 ⇒ |a + b| ≤ 2</b><br />
+</p>
+
+
+<p>
+We suppose that a²+b² = 1 and we prove that |a + b| ≤ 2<br />
+</p>
+
+
+<p>
+a²+b²=1 ⇒  b² = 1 - a² ; a² = 1 - b²<br />
+</p>
+
+
+<p>
+a²+b²=1 ⇒  1 - a² ≥ 0 ; 1 - b² ≥ 0<br />
+</p>
+
+
+<p>
+a²+b²=1 ⇒  a² ≤ 1 ; b² ≤ 1<br />
+</p>
+
+
+<p>
+a²+b²=1 ⇒ -1 ≤ a ≤ 1 ; -1 ≤ b ≤ 1<br />
+</p>
+
+
+<p>
+a²+b²=1 ⇒ -2 ≤ a + b ≤ 2<br />
+</p>
+
+
+<p>
+a²+b²=1 ⇒ |a + b| ≤ 2 <b>Which is what we wanted to prove, therefor the implication is correct</b><br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgcfd8723" class="outline-4">
+<h4 id="orgcfd8723">Reasoning by the Absurd:</h4>
+<div class="outline-text-4" id="text-orgcfd8723">
+<p>
+To prove that a proposition is True, we suppose that it&rsquo;s False and we must come to a contradiction<br />
+</p>
+
+
+<p>
+And to prove that an implication P ⇒ Q is true using the reasoning by the absurd, we suppose that  P ∧ not(Q) is true, and then we come to a contradiction as well<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orga4a0e2d"></a>Example:<br />
+<div class="outline-text-5" id="text-orga4a0e2d">
+<p>
+Prove that this proposition is correct using the reasoning by the absurd : ∀x ∈ ℝ* , sqrt(1+x²) ≠ 1 + x²/2<br />
+</p>
+
+
+<p>
+We assume that ∃ x ℝ* , sqrt(1+x²) = 1 + x²/2<br />
+</p>
+
+
+<p>
+sqrt(1+x²) = 1 + x²/2 ; 1 + x² = (1+x²/2)² ; 1 + x² = 1 + x^4/4 + x²  ;  x^(4)/4 = 0 &#x2026; Which contradicts with our proposition, since x = 4 and we are working on the ℝ* set<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org102d3fa" class="outline-4">
+<h4 id="org102d3fa">Reasoning by contraposition:</h4>
+<div class="outline-text-4" id="text-org102d3fa">
+<p>
+If an implication P ⇒ Q is too hard to prove, we just have to prove not(Q) ⇒ not(P) is true !!! or in other words that both not(P) and not(Q) are true<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org81cb388" class="outline-4">
+<h4 id="org81cb388">Reasoning by counter example:</h4>
+<div class="outline-text-4" id="text-org81cb388">
+<p>
+To prove that a proposition ∀x ∈ E, P(x) is false, all we have to do is find a single value of x from E such as not(P(x)) is true<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc2178b8" class="outline-2">
+<h2 id="orgc2178b8">3eme Cours : <i>Oct 9</i></h2>
+<div class="outline-text-2" id="text-orgc2178b8">
+</div>
+<div id="outline-container-org4855f6f" class="outline-4">
+<h4 id="org4855f6f">Reasoning by recurrence :</h4>
+<div class="outline-text-4" id="text-org4855f6f">
+<p>
+P is a propriety dependent of <b>n ∈ ℕ</b>. If for n0 ∈ ℕ P(n0) is true, and if for n ≥ n0 (P(n) ⇒ P(n+1)) is true. Then P(n) is true for n ≥ n0<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orga792d9c"></a>Example:<br />
+<div class="outline-text-5" id="text-orga792d9c">
+<p>
+Let&rsquo;s prove that ∀ n ≥ 1 , (n,k=1)Σk = [n(n+1)]/2<br />
+</p>
+
+
+<p>
+P(n) : (n,k=1)Σk = [n(n+1)]/2<br />
+</p>
+
+
+
+<p>
+<b>Pour n = 1:</b> (1,k=1)Σk = 1 ; [n(n+1)]/2 = 1 . <b>So P(1) is true</b><br />
+</p>
+
+
+
+<p>
+For n ≥ 1. We assume that P(n) is true, OR : <b>(n, k=1)Σk = n(n+1)/2</b>. We now have to prove that P(n+1) is true, Or : <b>(n+1, k=1)Σk = (n+1)(n+2)/2</b><br />
+</p>
+
+
+<p>
+(n+1, k=1)Σk = 1 + 2 + &#x2026;. + n + (n+1) ; (n+1, k=1)Σk = (n, k=1)Σk + (n+1) ; = n(n+1)/2 + (n+1) ; = [n(n+1) + 2(n+1)]/2 ; = <b>[(n+2)(n+1)]/2</b> <i>WHICH IS WHAT WE NEEDED TO FIND</i><br />
+</p>
+
+
+<p>
+<b>Conclusion: ∀n ≥ 1 , (n,k=1)Σk = n(n+1)/2</b><br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde6bfac" class="outline-2">
+<h2 id="orgde6bfac">4eme Cours : Chapitre 2 : Sets and Operations</h2>
+<div class="outline-text-2" id="text-orgde6bfac">
+</div>
+<div id="outline-container-orgfe8000a" class="outline-3">
+<h3 id="orgfe8000a">Definition of a set :</h3>
+<div class="outline-text-3" id="text-orgfe8000a">
+<p>
+A set is a collection of objects that share the sane propriety<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgfe04671" class="outline-3">
+<h3 id="orgfe04671">Belonging, inclusion, and equality :</h3>
+<div class="outline-text-3" id="text-orgfe04671">
+<ol class="org-ol">
+<li>Let E be a set. If x is an element of E, we say that x belongs to E we write <b>x ∈ E</b>, and if it doesn&rsquo;t, we write <b>x ∉ E</b><br /></li>
+<li>A set E is included in a set F if all elements of E are elements of F and we write <b>E ⊂ F ⇔ (∀x , x ∈ E ⇒ x ∈ F)</b>. We say that E is a subset of F, or a part of F. The negation of this propriety is : <b>E ⊄ F ⇔ ∃x , x ∈ E and x ⊄ F</b><br /></li>
+<li>E and F are equal if E is included in F and F is included in E, and we write <b>E = F ⇔ (E ⊂ F) et (F ⊂ E)</b><br /></li>
+<li>The empty set (symbolized by ∅) is a set without elements, and is included in all sets (by convention) : <b>∅ ⊂ E</b><br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orga2eb99d" class="outline-3">
+<h3 id="orga2eb99d">Intersections and reunions :</h3>
+<div class="outline-text-3" id="text-orga2eb99d">
+</div>
+<div id="outline-container-org560d563" class="outline-4">
+<h4 id="org560d563">Intersection:</h4>
+<div class="outline-text-4" id="text-org560d563">
+<p>
+E ∩ F = {x / x ∈ E AND x ∈ F} ; x ∈ E ∩ F ⇔ x ∈ F AND x ∈ F<br />
+</p>
+
+
+<p>
+x ∉ E ∩ F ⇔ x ∉ E OR x ∉ F<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org7147bc3" class="outline-4">
+<h4 id="org7147bc3">Union:</h4>
+<div class="outline-text-4" id="text-org7147bc3">
+<p>
+E ∪ F = {x / x ∈ E OR x ∈ F} ;  x ∈ E ∪ F ⇔ x ∈ F OR x ∈ F<br />
+</p>
+
+
+<p>
+x ∉ E ∪ F ⇔ x ∉ E AND x ∉ F<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org16b5ab2" class="outline-4">
+<h4 id="org16b5ab2">Difference between two sets:</h4>
+<div class="outline-text-4" id="text-org16b5ab2">
+<p>
+E(Which is also written as : E - F) = {x / x ∈ E and x ∉ F}<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgdac190b" class="outline-4">
+<h4 id="orgdac190b">Complimentary set:</h4>
+<div class="outline-text-4" id="text-orgdac190b">
+<p>
+If F ⊂ E. E - F is the complimentary of F in E.<br />
+</p>
+
+
+<p>
+FCE = {x /x ∈ E AND x ∉ F} <b>ONLY WHEN F IS A SUBSET OF E</b><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org4e0b111" class="outline-4">
+<h4 id="org4e0b111">Symmetrical difference</h4>
+<div class="outline-text-4" id="text-org4e0b111">
+<p>
+E Δ F = (E - F) ∪ (F - E) ; = (E ∪ F) - (E ∩ F)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org691c863" class="outline-3">
+<h3 id="org691c863">Proprieties :</h3>
+<div class="outline-text-3" id="text-org691c863">
+<p>
+Let E,F and G be 3 sets. We have :<br />
+</p>
+</div>
+<div id="outline-container-org9cc9f31" class="outline-4">
+<h4 id="org9cc9f31">Commutativity:</h4>
+<div class="outline-text-4" id="text-org9cc9f31">
+<p>
+E ∩ F = F ∩ E<br />
+E ∪ F = F ∪ E<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org471083b" class="outline-4">
+<h4 id="org471083b">Associativity:</h4>
+<div class="outline-text-4" id="text-org471083b">
+<p>
+E ∩ (F ∩ G) = (E ∩ F) ∩ G<br />
+E ∪ (F ∪ G) = (E ∪ F) ∪ G<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orge63be10" class="outline-4">
+<h4 id="orge63be10">Distributivity:</h4>
+<div class="outline-text-4" id="text-orge63be10">
+<p>
+E ∩ (F ∪ G) = (E ∩ F) ∪ (E ∩ G)<br />
+E ∪ (F ∩ G) = (E ∪ F) ∩ (E ∪ G)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgfb01947" class="outline-4">
+<h4 id="orgfb01947">Lois de Morgan:</h4>
+<div class="outline-text-4" id="text-orgfb01947">
+<p>
+If E ⊂ G and F ⊂ G ;<br />
+</p>
+
+<p>
+(E ∩ F)CG = ECG ∪ FCG ; (E ∪ F)CG = ECG ∩ FCG<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orge1a41eb" class="outline-4">
+<h4 id="orge1a41eb">An other one:</h4>
+<div class="outline-text-4" id="text-orge1a41eb">
+<p>
+E - (F ∩ G) = (E-F) ∪ (E-G) ;  E - (F ∪ G) = (E-F) ∩ (E-G)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org9939b0f" class="outline-4">
+<h4 id="org9939b0f">An other one:</h4>
+<div class="outline-text-4" id="text-org9939b0f">
+<p>
+E ∩ ∅ = ∅ ; E ∪ ∅ = E<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org90bfdc4" class="outline-4">
+<h4 id="org90bfdc4">And an other one:</h4>
+<div class="outline-text-4" id="text-org90bfdc4">
+<p>
+E ∩ (F Δ G) = (E ∩ F) Δ (E ∩ G)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1e49001" class="outline-4">
+<h4 id="org1e49001">And the last one:</h4>
+<div class="outline-text-4" id="text-org1e49001">
+<p>
+E Δ ∅ = E ; E Δ E = ∅<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org272eca3" class="outline-2">
+<h2 id="org272eca3">5eme cours: L&rsquo;ensemble des parties d&rsquo;un ensemble <i>Oct 16</i></h2>
+<div class="outline-text-2" id="text-org272eca3">
+<p>
+Let E be a set. We define P(E) as the set of all parts of E : <b>P(E) = {X/X ⊂ E}</b><br />
+</p>
+</div>
+<div id="outline-container-org5b29e32" class="outline-4">
+<h4 id="org5b29e32">Notes :</h4>
+<div class="outline-text-4" id="text-org5b29e32">
+<p>
+∅ ∈ P(E) ; E ∈ P(E)<br />
+</p>
+
+
+<p>
+cardinal E = n <i>The number of terms in E</i> , cardinal P(E) = 2^n <i>The number of all parts of E</i><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org5636bd8" class="outline-4">
+<h4 id="org5636bd8">Examples :</h4>
+<div class="outline-text-4" id="text-org5636bd8">
+<p>
+E = {a,b,c} ; P(E)={∅, {a}, {b}, {c}, {a,b}, {b,c}, {a,c}, {a,b,c}}<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd8cb2c3" class="outline-3">
+<h3 id="orgd8cb2c3">Partition of a set :</h3>
+<div class="outline-text-3" id="text-orgd8cb2c3">
+<p>
+We say that <b>A</b> is a partition of E if:<br />
+</p>
+<ol class="org-ol">
+<li>∀ x ∈ A , x ≠ 0<br /></li>
+<li>All the elements of <b>A</b> are two by two disjoint. Or in other terms, there should not be two elements that intersects with each other.<br /></li>
+<li>The reunion of all elements of <b>A</b> is equal to E<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgf40404d" class="outline-3">
+<h3 id="orgf40404d">Cartesian products :</h3>
+<div class="outline-text-3" id="text-orgf40404d">
+<p>
+Let E and F be two sets, the set EXF = {(x,y)/ x ∈ E AND y ∈ F} is called the Cartesian product of E and F<br />
+</p>
+</div>
+<div id="outline-container-orgd526cb8" class="outline-4">
+<h4 id="orgd526cb8">Example :</h4>
+<div class="outline-text-4" id="text-orgd526cb8">
+<p>
+A = {4,5} ; B= {4,5,6} ; AxB = {(4,4), (4,5), (4,6), (5,4), (5,5), (5,6)}<br />
+</p>
+
+
+<p>
+BxA = {(4,4), (4,5), (5,4), (5,5), (6,4), (6,5)} ; Therefore AxB ≠ BxA<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org56dd088" class="outline-4">
+<h4 id="org56dd088">Some proprieties:</h4>
+<div class="outline-text-4" id="text-org56dd088">
+<ol class="org-ol">
+<li>ExF = ∅ ⇔ E=∅ OR F=∅<br /></li>
+<li>ExF = FxE ⇔ E=F OR E=∅ OR F=∅<br /></li>
+<li>E x (F∪G) = (ExF) ∪ (ExG)<br /></li>
+<li>(E∪F) x G = (ExG) ∪ (FxG)<br /></li>
+<li>(E∪F) ∩ (GxH) = (E ∩ G) x (F ∩ H)<br /></li>
+<li>Generally speaking : (ExF) ∪ (GxH) ≠ (E∪G) x (F∪H)<br /></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org5ee4278" class="outline-2">
+<h2 id="org5ee4278">Binary relations in a set :</h2>
+<div class="outline-text-2" id="text-org5ee4278">
+</div>
+<div id="outline-container-orgddc9af6" class="outline-3">
+<h3 id="orgddc9af6">Definition :</h3>
+<div class="outline-text-3" id="text-orgddc9af6">
+<p>
+Let E be a set and x,y ∈ E. If there exists a link between x and y, we say that they are tied by a relation <b>R</b> and we write <b>xRy</b><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orge65424e" class="outline-3">
+<h3 id="orge65424e">Proprieties :</h3>
+<div class="outline-text-3" id="text-orge65424e">
+<p>
+Let E be a set and R a relation defined in E<br />
+</p>
+<ol class="org-ol">
+<li>We say that R is reflexive if ∀ x ∈ E, xRx (for any element x in E,x is related to itself)<br /></li>
+<li>We say that R is symmetrical if ∀ x,y ∈ E , xRy ⇒ yRx<br /></li>
+<li>We say that R is transitive if ∀ x,y,z ∈ E (xRy , yRz) ⇒ xRz<br /></li>
+<li>We say that R is anti-symmetrical if ∀ x,y ∈ E xRy AND yRx ⇒ x = y<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgd7877d3" class="outline-3">
+<h3 id="orgd7877d3">Equivalence relationship :</h3>
+<div class="outline-text-3" id="text-orgd7877d3">
+<p>
+We say that R is a relation of equivalence in E if its reflexive, symetrical and transitive<br />
+</p>
+</div>
+<div id="outline-container-org85cf025" class="outline-4">
+<h4 id="org85cf025">Equivalence class :</h4>
+<div class="outline-text-4" id="text-org85cf025">
+<p>
+Let R be a relation of equivalence in E and a ∈ E, we call equivalence class of <b>a</b>, and we write ̅a or ȧ, or cl a the following set :<br />
+</p>
+
+
+<p>
+<b>a̅ = {y ∈ E/ y R a}</b><br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orga316a01"></a>The quotient set :<br />
+<div class="outline-text-5" id="text-orga316a01">
+<p>
+E/R = {̅a , a ∈ E}<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge18dcc7" class="outline-3">
+<h3 id="orge18dcc7">Order relationship :</h3>
+<div class="outline-text-3" id="text-orge18dcc7">
+<p>
+Let E be a set and R be a relation defined in E. We say that R is a relation of order if its reflexive, anti-symetrical and transitive.<br />
+</p>
+<ol class="org-ol">
+<li>The order R is called total if ∀ x,y ∈ E xRy OR yRx<br /></li>
+<li>The order R is called partial if ∃ x,y ∈ E xR̅y AND yR̅x<br /></li>
+</ol>
+</div>
+<div id="outline-container-org60d471a" class="outline-4">
+<h4 id="org60d471a"><span class="todo TODO">TODO</span> Examples :</h4>
+<div class="outline-text-4" id="text-org60d471a">
+<p>
+∀x,y ∈ ℝ , xRy ⇔ x²-y²=x-y<br />
+</p>
+<ol class="org-ol">
+<li>Prove that R is an equivalence relation<br /></li>
+<li>Let a ∈ ℝ, find ̅a<br /></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org77de6e3" class="outline-2">
+<h2 id="org77de6e3">TP exercices <i>Oct 20</i> :</h2>
+<div class="outline-text-2" id="text-org77de6e3">
+</div>
+<div id="outline-container-org3ca8006" class="outline-3">
+<h3 id="org3ca8006">Exercice 3 :</h3>
+<div class="outline-text-3" id="text-org3ca8006">
+</div>
+<div id="outline-container-orgad95ec3" class="outline-4">
+<h4 id="orgad95ec3">Question 3</h4>
+<div class="outline-text-4" id="text-orgad95ec3">
+<p>
+Montrer par l&rsquo;absurde que P : ∀x ∈ ℝ*, √(4+x³) ≠ 2 + x³/4 est vraies<br />
+</p>
+
+<p class="verse">
+On suppose que ∃ x ∈ ℝ* , √(4+x³) = 2 + x³/4<br />
+4+x³ = (2 + x³/4)²<br />
+4+x³ = 4 + x⁶/16 + 4*(x³/4)<br />
+4+x³ = 4 + x⁶/16 + x³<br />
+x⁶/16 = 0<br />
+x⁶ = 0<br />
+x = 0 . Or, x appartiens a ℝ\{0}, donc P̅ est fausse. Ce qui est equivalent a dire que P est vraie<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8180ae0" class="outline-3">
+<h3 id="org8180ae0">Exercice 4 :</h3>
+<div class="outline-text-3" id="text-org8180ae0">
+</div>
+<div id="outline-container-orgfe0b1e2" class="outline-4">
+<h4 id="orgfe0b1e2"><span class="done DONE">DONE</span> Question 1 :</h4>
+<div class="outline-text-4" id="text-orgfe0b1e2">
+<p class="verse">
+∀ n ∈ ℕ* , (n ,k=1)Σ1/k(k+1) = 1 - 1/1+n<br />
+P(n) : (n ,k=1)Σ1/k(k+1) = 1 - 1/1+n<br />
+1. <b>On vérifie P(n) pour n = 1</b><br />
+(1 ,k=1)Σ1/k(k+1) = 1/1(1+1)<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;= 1/2 &#x2014; (1)<br />
+1 - 1/1+1         = 1 - 1/2<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;= 1/2 &#x2014; (2)<br />
+De (1) et (2), P(0) est vraie -&#x2014; (a)<br />
+<br />
+2. <b>On suppose que P(n) est vraie pour n ≥ n1 puis on vérifie pour n+1</b><br />
+(n ,k=1)Σ1/k(k+1) = 1 - 1/1+n<br />
+(n ,k=1)Σ1/k(k+1) + 1/(n+1)(n+2) = 1 - (1/(1+n)) + 1/(n+1)(n+2)<br />
+(n+1 ,k=1)Σ1/k(k+1) = 1 - 1/(n+1) + 1/[(n+1)(n+2)]<br />
+(n+1 ,k=1)Σ1/k(k+1) = 1 + 1/[(n+1)(n+2)] - (n+2)/[(n+1)(n+2)]<br />
+(n+1 ,k=1)Σ1/k(k+1) = 1 + [1-(n+2)]/[(n+1)(n+2)]<br />
+(n+1 ,k=1)Σ1/k(k+1) = 1 + [-n-1]/[(n+1)(n+2)]<br />
+(n+1 ,k=1)Σ1/k(k+1) = 1 - [n+1]/[(n+1)(n+2)]<br />
+(n+1 ,k=1)Σ1/k(k+1) = 1 - 1/(n+1+1) <b>CQFD</b><br />
+<br />
+Donc P(n+1) est vraie. -&#x2014; (b)<br />
+De (a) et (b) on conclus que la proposition de départ est vraie<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org2d6e0ba" class="outline-2">
+<h2 id="org2d6e0ba">Chapter 3 : Applications</h2>
+<div class="outline-text-2" id="text-org2d6e0ba">
+</div>
+<div id="outline-container-orga5be12f" class="outline-3">
+<h3 id="orga5be12f">3.1 Generalities about applications :</h3>
+<div class="outline-text-3" id="text-orga5be12f">
+</div>
+<div id="outline-container-org805d7bc" class="outline-4">
+<h4 id="org805d7bc">Definition :</h4>
+<div class="outline-text-4" id="text-org805d7bc">
+<p>
+Let E and F be two sets.<br />
+</p>
+<ol class="org-ol">
+<li>We call a function of the set E to the set F any relation from E to F such as for any element of E, we can find <span class="underline">at most one</span> element of F that corresponds to it.<br /></li>
+<li>We call an application of the set E to the set F a relation from E to F such as for any element of E, we can find <span class="underline">one and only one</span> element of F that corresponds to it.<br /></li>
+<li><p>
+f: E<sub>1</sub> &#x2014;&gt; F<sub>1</sub> ; g: E<sub>2</sub> &#x2014;&gt; F<sub>2</sub> ; f ≡ g ⇔ [E<sub>1 </sub>= E<sub>2</sub> ; F<sub>1</sub> = F<sub>2</sub> ; f(x) = g(x) ∀x ∈ E<sub>1</sub><br />
+</p>
+
+<p>
+Generally speaking, we schematize a function or an application by this writing :<br />
+</p>
+<p class="verse">
+f : E &#x2014;&gt; F<br />
+&#xa0;&#xa0;&#xa0;&#xa0;x &#x2014;&gt; f(x)=y<br />
+&#xa0;&#xa0;&#xa0;Γ = {(x , f(x))/ x ∈ E ; f(x) ∈ F} is the graph of f<br />
+</p></li>
+</ol>
+</div>
+<ul class="org-ul">
+<li><a id="org2936c19"></a>Some examples :<br />
+<ul class="org-ul">
+<li><a id="orgd77c836"></a>Ex1:<br />
+<div class="outline-text-6" id="text-orgd77c836">
+<p class="verse">
+f : ℝ &#x2014;&gt; ℝ<br />
+&#xa0;&#xa0;&#xa0;&#xa0;x &#x2014;&gt; f(x) = (x-1)/x<br />
+is a function, because 0 does NOT have a corresponding element using that relation.<br />
+</p>
+</div>
+</li>
+<li><a id="orga45fd32"></a>Ex2:<br />
+<div class="outline-text-6" id="text-orga45fd32">
+<p class="verse">
+f : ℝ<sup>*</sup> &#x2014;&gt; ℝ<br />
+&#xa0;&#xa0;&#xa0;&#xa0;x &#x2014;&gt; f(x)= (x-1)/x<br />
+is, however, an application<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-org7947331" class="outline-4">
+<h4 id="org7947331">Restriction and prolongation of an application :</h4>
+<div class="outline-text-4" id="text-org7947331">
+<p>
+Let f : E -&gt; F an application and E<sub>1</sub> ⊂ E therefore :<br />
+</p>
+<p class="verse">
+g : E<sub>1</sub> -&gt; F<br />
+g(x) = f(x) ∀x ∈ E<sub>1</sub><br />
+<br />
+g is called the <b>restriction</b> of f to E<sub>1</sub>. And f is called the <b>prolongation</b> of g to E.<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org7c848c6"></a>Example<br />
+<div class="outline-text-5" id="text-org7c848c6">
+<p class="verse">
+f : ℝ &#x2014;&gt; ℝ<br />
+&#xa0;&#xa0;&#xa0;&#xa0;x &#x2014;&gt; f(x) = x<sup>2</sup><br />
+<br />
+g : [0 , <del>∞[ &#x2014;&gt; ℝ<br />
+&#xa0;&#xa0;&#xa0;&#xa0;x &#x2014;&gt; g(x) = x²<br />
+<br />
+g is called the <b>restriction</b> of f to ℝ^{</del>}. And f is called the <b>prolongation</b> of g to ℝ.<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgd94bc69" class="outline-4">
+<h4 id="orgd94bc69">Composition of applications :</h4>
+<div class="outline-text-4" id="text-orgd94bc69">
+<p>
+Let E,F, and G be three sets, f: E -&gt; F and g: F -&gt; G are two applications. We define their composition, symbolized by g<sub>o</sub>f as follow :<br />
+</p>
+
+
+<p>
+g<sub>o</sub>f : E -&gt; G . ∀x ∈ E (g<sub>o</sub>f)<sub>(x)</sub>= g(f(x))<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org257d05a" class="outline-3">
+<h3 id="org257d05a">3.2 Injection, surjection and bijection :</h3>
+<div class="outline-text-3" id="text-org257d05a">
+<p>
+Let f: E -&gt; F be an application :<br />
+</p>
+<ol class="org-ol">
+<li>We say that f is injective if : ∀x,x&rsquo; ∈ E : f(x) = f(x&rsquo;) ⇒ x = x&rsquo;<br /></li>
+<li>We say that f is surjective if : ∀ y ∈ F , ∃ x ∈ E : y = f(x)<br /></li>
+<li>We say that if is bijective if it&rsquo;s both injective and surjective at the same time.<br /></li>
+</ol>
+</div>
+<div id="outline-container-org1612e09" class="outline-4">
+<h4 id="org1612e09">Proposition :</h4>
+<div class="outline-text-4" id="text-org1612e09">
+<p>
+Let f : E -&gt; F be an application. Therefore:<br />
+</p>
+<ol class="org-ol">
+<li>f is injective ⇔ y = f(x) has at most one solution.<br /></li>
+<li>f is surjective ⇔ y = f(x) has at least one solution.<br /></li>
+<li>f is bijective ⇔ y = f(x) has a single and unique solution.<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgebdf518" class="outline-3">
+<h3 id="orgebdf518">3.3 Reciprocal applications :</h3>
+<div class="outline-text-3" id="text-orgebdf518">
+</div>
+<div id="outline-container-orgf072e42" class="outline-4">
+<h4 id="orgf072e42">Def :</h4>
+<div class="outline-text-4" id="text-orgf072e42">
+<p>
+Let f : E -&gt; F a bijective application. So there exists an application named f<sup>-1</sup> : F -&gt; E such as : y = f(x) ⇔ x = f<sup>-1</sup>(y)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org244b352" class="outline-4">
+<h4 id="org244b352">Theorem :</h4>
+<div class="outline-text-4" id="text-org244b352">
+<p>
+Let f : E -&gt; F be a bijective application. Therefore its reciprocal f<sup>-1</sup> verifies : f<sup>-1</sup><sub>o</sub>f=Id<sub>E </sub>; f<sub>o</sub>f<sup>-1</sup>=Id<sub>F</sub> Or :<br />
+</p>
+
+
+<p>
+Id<sub>E</sub> : E -&gt; E ; x -&gt; Id<sub>E</sub>(x) = x<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1479c0e" class="outline-4">
+<h4 id="org1479c0e">Some proprieties :</h4>
+<div class="outline-text-4" id="text-org1479c0e">
+<ol class="org-ol">
+<li>(f<sup>-1</sup>)<sup>-1</sup> = f<br /></li>
+<li>(g<sub>o</sub>f)⁻¹ = f⁻¹<sub>o</sub>g⁻¹<br /></li>
+<li>The graphs of f and f⁻¹ are symmetrical to each other by the first bis-sectrice of the equation y = x<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaf81bb3" class="outline-3">
+<h3 id="orgaf81bb3">3.4 Direct Image and reciprocal Image :</h3>
+<div class="outline-text-3" id="text-orgaf81bb3">
+</div>
+<div id="outline-container-org87b91e2" class="outline-4">
+<h4 id="org87b91e2">Direct Image :</h4>
+<div class="outline-text-4" id="text-org87b91e2">
+<p>
+Let f: E-&gt; F be an application and A ⊂ E. We call a direct image of A by f, and we symbolize as f(A) the subset of F defined by :<br />
+</p>
+
+
+<p>
+f(A) = {f(x)/ x ∈ A} ; = { y ∈ F ∃ x ∈ A  y=f(x)}<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgb5bc08c"></a>Example :<br />
+<div class="outline-text-5" id="text-orgb5bc08c">
+<p class="verse">
+f: ℝ -&gt; ℝ<br />
+&#xa0;&#xa0;&#xa0;x -&gt; f(x) = x²<br />
+A = {0,4}<br />
+f(A) = {f(0), f(4)} = {0, 16}<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org500bc40" class="outline-4">
+<h4 id="org500bc40">Reciprocal image :</h4>
+<div class="outline-text-4" id="text-org500bc40">
+<p>
+Let f: E -&gt; F be an application and B ⊂ F. We call the reciprocal image of E by F the subset f<sup>-1</sup>(B) :<br />
+</p>
+
+
+<p>
+f<sup>-1</sup>(B) = {x ∈ E/f(x) ∈ B} ; x ∈ f<sup>-1</sup>(B) ⇔ f(x) ∈ B<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org885d21d"></a>Example :<br />
+<div class="outline-text-5" id="text-org885d21d">
+<p class="verse">
+f: ℝ -&gt; ℝ<br />
+&#xa0;&#xa0;&#xa0;x -&gt; f(x) = x²<br />
+B = {1,9,4}<br />
+f<sup>-1</sup>(B) = {1,-1,2,-2,3,-3}<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;= {x ∈ ℝ/x² ∈ {1,4,9}}<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Crystal</p>
+<p class="date">Created: 2023-11-01 Wed 20:17</p>
+</div>
+</body>
+</html>

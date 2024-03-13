@@ -1,0 +1,130 @@
+#+title: x86 Assembly from my understanding
+#+OPTIONS: ^:{}
+#+AUTHOR: Crystal
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../../../blog/asm/1.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../src/css/style.css"/>
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:nil
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="../../../favicon.png">
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+
+
+Soooo this article (or maybe even a series of articles, who knows ?) will be about x86 assembly, or rather, what I understood from it and my road from the bottom-up hopefully reaching a good level of understanding
+
+
+* Memory :
+Memory is a sequence of octets (Aka 8bits) that each have a unique integer assigned to them called *The Effective Address (EA)*, in this particular CPU Architecture (the i8086), the octet is designated by a couple (A segment number, and the offset in the segment)
+
+
+- The Segment is a set of 64 consecutive Koctets (1 Koctet = 1024 octets).
+- And the offset is to specify the particular octet in that segment.
+
+The offset and segment are encoded in 16bits, so they take a value between 0 and 65535
+
+*** Important :
+The relation between the Effective Address and the Segment & Offset is as follow :
+
+**Effective address = 16 x segment + offset** keep in mind that this equation is encoded in decimal, which will change soon as we use Hexadecimal for convention reasons.
+
+**** Example :
+Let the Physical address (Or Effective Address, these two terms are enterchangeable) *12345h* (the h refers to Hexadecimal, which can also be written like this *0x12345*), the register *DS = 1230h* and the register *SI = 0045h*, the CPU calculates the physical address by multiplying the content of the segment register *DS* by 10h (or 16) and adding the content of the register *SI*. so we get : *1230h x 10h + 45h = 12345h*
+
+
+Now if you are a clever one ( I know you are, since you are reading this <3 ) you may say that the physical address *12345h* can be written in more than one way....and you are right, more precisely : *2^{12} = 4096* different ways !!!
+
+** Registers
+
+The 8086 CPU has 14 registers of 16bits of size. From the POV of the user, the 8086 has 3 groups of 4 registers of 16bits. One state register of 9bits and a counting program of 16bits inaccessible to the user (whatever this means).
+
+*** General Registers
+General registers contribute to arithmetic's and logic and addressing too.
+
+
+Each half-register is accessible as a register of 8bits, therefor making the 8086 backwards compatible with the 8080 (which had 8bit registers)
+
+
+Now here are the Registers we can find in this section:
+
+
+*AX*: This is the accumulator. It is of 16 bits and is divided into two 8-bit registers AH and AL to also perform 8-bit instructions. It is generally used for arithmetical and logical instructions but in 8086 microprocessor it is not mandatory to have an accumulator as the destination operand. Example:
+#+BEGIN_SRC asm
+ADD AX, AX ;(AX = AX + AX)
+#+END_SRC
+
+*BX*: This is the base register. It is of 16 bits and is divided into two 8-bit registers BH and BL to also perform 8-bit instructions. It is used to store the value of the offset. Example:
+#+BEGIN_SRC asm
+MOV BL, [500] ;(BL = 500H)
+#+END_SRC
+
+*CX*: This is the counter register. It is of 16 bits and is divided into two 8-bit registers CH and CL to also perform 8-bit instructions. It is used in looping and rotation. Example:
+#+BEGIN_SRC asm
+MOV CX, 0005
+LOOP
+#+END_SRC
+
+*DX*: This is the data register. It is of 16 bits and is divided into two 8-bit registers DH and DL to also perform 8-bit instructions. It is used in the multiplication and input/output port addressing. Example:
+#+BEGIN_SRC asm
+MUL BX (DX, AX = AX * BX)
+#+END_SRC
+** Addressing and registers...again
+*** I realized what I wrote here before was almost gibberish, sooo here we go again I guess ?
+
+Well lets take a step back to the notion of effective addresses VS relative ones.
+*** Effective = 10h x Segment + Offset . Part1
+When trying to access a specific memory space, we use this annotation *[Segment:Offset]*, so for example, and assuming *DS = 0100h*. We want to write the value *0x0005* to the memory space defined by the physical address *1234h*, what do we do ?
+**** Answer :
+#+BEGIN_SRC asm
+MOV [DS:0234h], 0x0005
+#+END_SRC
+
+Why ? Let's break it down :
+
+
+[[../../src/gifs/lain-dance.gif]]
+
+
+We Already know that *Effective = 10h x Segment + Offset*, So here we have : *1234h = 10h x DS + Offset*, we already know that *DS = 0100h*, we end up with this simple equation *1234h = 1000h + Offset*, therefor the Offset is *0234h*
+
+
+Simple, right ?, now for another example
+*** Another example :
+What if we now have this instruction ?
+#+BEGIN_SRC asm
+    MOV [0234h], 0x0005
+#+END_SRC
+What does it do ? You might or might not be surprised that it does the exact same thing as the other snipped of code, why though ? Because apparently and for some odd reason I don't know, the compiler Implicitly assumes that the segment used is the *DS* one. So if you don't specify a register( we will get to this later ), or a segment. Then the offset is considered an offset with a DS segment.
+
+
+
+*** Segment + Register <3
+
+Consider *DS = 0100h* and *BX = BP = 0234h* and this code snippet:
+#+BEGIN_SRC asm
+    MOV [BX], 0x0005 ; NOTE : ITS NOT THE SAME AS MOV BX, 0x0005. Refer to earlier paragraphs
+#+END_SRC
+
+
+Well you guessed it right, it also does the same thing, but now consider this :
+#+BEGIN_SRC asm
+    MOV [BP], 0x0005
+#+END_SRC
+
+If you answered that its the same one, you are wrong. And this is because the segment used changes according to the offset as I said before in an implicit way. Here is the explicit equivalent of the two commands above:
+#+BEGIN_SRC asm
+    MOV [DS:BX], 0x0005
+    MOV [SS:BP], 0x0005
+#+END_SRC
+
+The General rule of thumb is as follows :
+- If the offset is : DI SI or BX, the Segment used is DS.
+- If its BP or SP, then the segment is SS.
+
+
+**** Note
+The values of the registers CS DS and SS are automatically initialized by the OS when launching the program. So these segments are implicit. AKA : If we want to access a specific data in memory, we just need to specify its offset. Also you can't write directly into the DS or CS segment registers, so something like
+#+BEGIN_SRC asm
+MOV DS, 0x0005 ; Is INVALID
+MOV DS, AX ; This one is VALID
+#+END_SRC

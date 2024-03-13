@@ -1,0 +1,36 @@
+#+title: ALSD1
+#+AUTHOR: Crystal
+#+OPTIONS: ^:{}
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../../uni_notes/alsd.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/style.css"/>
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:4
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="https://crystal.tilde.institute/favicon.png">
+#+HTML_LINK_UP: ../../../uni_notes/
+#+OPTIONS: \n:y
+* Contenu de la Matiére
+** Chapitre 1: Elements de Base
+- Algorithmique, procésseur, action.
+- Programme et languages de programmation.
+- Analyse des problémes.
+
+** Chapitre 2: Présentation du formalisme Algorithmique
+** Chapitre 3: Eléments de base du language C
+** Chapitre 4: Modularité( Fonction et Procédure )
+** Chapitre 5: Les structures des données statiques
+
+
+* Premier cours : Algorithmes /Oct 1/ :
+** Définition d'un algorithm :
+Un ensemble d'opérations ecrites dans le language naturel.
+
+*** Example d'un Algo : Résolution d'une équation du second ordre (ax²+bx+c=0)
+1. Si a=0 ET b=0 alors *l'équation n'est pas du 2nd ordre*.
+2. Si a=0 et b≠0 alors *x= -c/5* .
+3. Si a≠0 alors *calculer Δ= b²-4ac* :
+   a. Si Δ=0 alors *x=-b/2a*.
+   b. Si Δ<0 alors *l'équation n'as pas de solution*.
+   c. Si Δ>0 alors *x=[-b±sqrt(Δ)]/2a*

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-03-07 Thu 20:55 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>x86 Assembly from my understanding</title>
+<meta name="author" content="Crystal" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../../src/css/colors.css"/>
+<link rel="stylesheet" type="text/css" href="../../src/css/style.css"/>
+<link rel="icon" type="image/x-icon" href="../../../favicon.png">
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="https://crystal.tilde.institute/"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">x86 Assembly from my understanding</h1>
+<p>
+Soooo this article (or maybe even a series of articles, who knows ?) will be about x86 assembly, or rather, what I understood from it and my road from the bottom-up hopefully reaching a good level of understanding
+</p>
+<div id="outline-container-org924bef5" class="outline-2">
+<h2 id="org924bef5">Memory :</h2>
+<div class="outline-text-2" id="text-org924bef5">
+<p>
+Memory is a sequence of octets (Aka 8bits) that each have a unique integer assigned to them called <b>The Effective Address (EA)</b>, in this particular CPU Architecture (the i8086), the octet is designated by a couple (A segment number, and the offset in the segment)
+</p>
+
+
+<ul class="org-ul">
+<li>The Segment is a set of 64 consecutive Koctets (1 Koctet = 1024 octets).</li>
+<li>And the offset is to specify the particular octet in that segment.</li>
+</ul>
+
+<p>
+The offset and segment are encoded in 16bits, so they take a value between 0 and 65535
+</p>
+</div>
+<div id="outline-container-orgdfa99d1" class="outline-4">
+<h4 id="orgdfa99d1">Important :</h4>
+<div class="outline-text-4" id="text-orgdfa99d1">
+<p>
+The relation between the Effective Address and the Segment &amp; Offset is as follow :
+</p>
+
+<p>
+<b><b>Effective address = 16 x segment + offset</b></b> keep in mind that this equation is encoded in decimal, which will change soon as we use Hexadecimal for convention reasons.
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org8845f88"></a>Example :<br />
+<div class="outline-text-5" id="text-org8845f88">
+<p>
+Let the Physical address (Or Effective Address, these two terms are enterchangeable) <b>12345h</b> (the h refers to Hexadecimal, which can also be written like this <b>0x12345</b>), the register <b>DS = 1230h</b> and the register <b>SI = 0045h</b>, the CPU calculates the physical address by multiplying the content of the segment register <b>DS</b> by 10h (or 16) and adding the content of the register <b>SI</b>. so we get : <b>1230h x 10h + 45h = 12345h</b>
+</p>
+
+
+<p>
+Now if you are a clever one ( I know you are, since you are reading this &lt;3 ) you may say that the physical address <b>12345h</b> can be written in more than one way&#x2026;.and you are right, more precisely : <b>2<sup>12</sup> = 4096</b> different ways !!!
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org16ce372" class="outline-3">
+<h3 id="org16ce372">Registers</h3>
+<div class="outline-text-3" id="text-org16ce372">
+<p>
+The 8086 CPU has 14 registers of 16bits of size. From the POV of the user, the 8086 has 3 groups of 4 registers of 16bits. One state register of 9bits and a counting program of 16bits inaccessible to the user (whatever this means).
+</p>
+</div>
+<div id="outline-container-org8d1541d" class="outline-4">
+<h4 id="org8d1541d">General Registers</h4>
+<div class="outline-text-4" id="text-org8d1541d">
+<p>
+General registers contribute to arithmetic&rsquo;s and logic and addressing too.
+</p>
+
+
+<p>
+Each half-register is accessible as a register of 8bits, therefor making the 8086 backwards compatible with the 8080 (which had 8bit registers)
+</p>
+
+
+<p>
+Now here are the Registers we can find in this section:
+</p>
+
+
+<p>
+<b>AX</b>: This is the accumulator. It is of 16 bits and is divided into two 8-bit registers AH and AL to also perform 8-bit instructions. It is generally used for arithmetical and logical instructions but in 8086 microprocessor it is not mandatory to have an accumulator as the destination operand. Example:
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #89b4fa;">ADD</span> <span style="color: #cba6f7;">AX</span>, AX <span style="color: #6c7086;">;</span><span style="color: #6c7086;">(AX = AX + AX)</span>
+</pre>
+</div>
+
+<p>
+<b>BX</b>: This is the base register. It is of 16 bits and is divided into two 8-bit registers BH and BL to also perform 8-bit instructions. It is used to store the value of the offset. Example:
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #89b4fa;">MOV</span> <span style="color: #cba6f7;">BL</span>, [<span style="color: #fab387;">500</span>] <span style="color: #6c7086;">;</span><span style="color: #6c7086;">(BL = 500H)</span>
+</pre>
+</div>
+
+<p>
+<b>CX</b>: This is the counter register. It is of 16 bits and is divided into two 8-bit registers CH and CL to also perform 8-bit instructions. It is used in looping and rotation. Example:
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #89b4fa;">MOV</span> <span style="color: #cba6f7;">CX</span>, <span style="color: #fab387;">0005</span>
+<span style="color: #89b4fa;">LOOP</span>
+</pre>
+</div>
+
+<p>
+<b>DX</b>: This is the data register. It is of 16 bits and is divided into two 8-bit registers DH and DL to also perform 8-bit instructions. It is used in the multiplication and input/output port addressing. Example:
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #89b4fa;">MUL</span> <span style="color: #cba6f7;">BX</span> (DX, AX = AX * BX)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd61521c" class="outline-3">
+<h3 id="orgd61521c">Addressing and registers&#x2026;again</h3>
+<div class="outline-text-3" id="text-orgd61521c">
+</div>
+<div id="outline-container-orgc573bac" class="outline-4">
+<h4 id="orgc573bac">I realized what I wrote here before was almost gibberish, sooo here we go again I guess ?</h4>
+<div class="outline-text-4" id="text-orgc573bac">
+<p>
+Well lets take a step back to the notion of effective addresses VS relative ones.
+</p>
+</div>
+</div>
+<div id="outline-container-org83b616a" class="outline-4">
+<h4 id="org83b616a">Effective = 10h x Segment + Offset . Part1</h4>
+<div class="outline-text-4" id="text-org83b616a">
+<p>
+When trying to access a specific memory space, we use this annotation <b>[Segment:Offset]</b>, so for example, and assuming <b>DS = 0100h</b>. We want to write the value <b>0x0005</b> to the memory space defined by the physical address <b>1234h</b>, what do we do ?
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orga0fd499"></a>Answer :<br />
+<div class="outline-text-5" id="text-orga0fd499">
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #89b4fa;">MOV</span> [DS:0234h], 0x0005
+</pre>
+</div>
+
+<p>
+Why ? Let&rsquo;s break it down :
+</p>
+
+
+
+<div id="orge5d4a33" class="figure">
+<p><img src="../../src/gifs/lain-dance.gif" alt="lain-dance.gif" />
+</p>
+</div>
+
+
+<p>
+We Already know that <b>Effective = 10h x Segment + Offset</b>, So here we have : <b>1234h = 10h x DS + Offset</b>, we already know that <b>DS = 0100h</b>, we end up with this simple equation <b>1234h = 1000h + Offset</b>, therefor the Offset is <b>0234h</b>
+</p>
+
+
+<p>
+Simple, right ?, now for another example
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org93b46d0" class="outline-4">
+<h4 id="org93b46d0">Another example :</h4>
+<div class="outline-text-4" id="text-org93b46d0">
+<p>
+What if we now have this instruction ?
+</p>
+<div class="org-src-container">
+<pre class="src src-asm">    <span style="color: #cba6f7;">MOV</span> [0234h], 0x0005
+</pre>
+</div>
+<p>
+What does it do ? You might or might not be surprised that it does the exact same thing as the other snipped of code, why though ? Because apparently and for some odd reason I don&rsquo;t know, the compiler Implicitly assumes that the segment used is the <b>DS</b> one. So if you don&rsquo;t specify a register( we will get to this later ), or a segment. Then the offset is considered an offset with a DS segment.
+</p>
+</div>
+</div>
+<div id="outline-container-orgcba10b0" class="outline-4">
+<h4 id="orgcba10b0">Segment + Register &lt;3</h4>
+<div class="outline-text-4" id="text-orgcba10b0">
+<p>
+Consider <b>DS = 0100h</b> and <b>BX = BP = 0234h</b> and this code snippet:
+</p>
+<div class="org-src-container">
+<pre class="src src-asm">    <span style="color: #cba6f7;">MOV</span> [BX], 0x0005 <span style="color: #6c7086;">; </span><span style="color: #a6e3a1; font-weight: bold;">NOTE</span><span style="color: #6c7086;"> : ITS NOT THE SAME AS MOV BX, 0x0005. Refer to earlier paragraphs</span>
+</pre>
+</div>
+
+
+<p>
+Well you guessed it right, it also does the same thing, but now consider this :
+</p>
+<div class="org-src-container">
+<pre class="src src-asm">    <span style="color: #cba6f7;">MOV</span> [BP], 0x0005
+</pre>
+</div>
+
+<p>
+If you answered that its the same one, you are wrong. And this is because the segment used changes according to the offset as I said before in an implicit way. Here is the explicit equivalent of the two commands above:
+</p>
+<div class="org-src-container">
+<pre class="src src-asm">    <span style="color: #cba6f7;">MOV</span> [DS:BX], 0x0005
+    <span style="color: #cba6f7;">MOV</span> [SS:BP], 0x0005
+</pre>
+</div>
+
+<p>
+The General rule of thumb is as follows :
+</p>
+<ul class="org-ul">
+<li>If the offset is : DI SI or BX, the Segment used is DS.</li>
+<li>If its BP or SP, then the segment is SS.</li>
+</ul>
+</div>
+<ul class="org-ul">
+<li><a id="orgf6c5f3b"></a>Note<br />
+<div class="outline-text-5" id="text-orgf6c5f3b">
+<p>
+The values of the registers CS DS and SS are automatically initialized by the OS when launching the program. So these segments are implicit. AKA : If we want to access a specific data in memory, we just need to specify its offset. Also you can&rsquo;t write directly into the DS or CS segment registers, so something like
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #89b4fa;">MOV</span> <span style="color: #cba6f7;">DS</span>, 0x0005 <span style="color: #6c7086;">; </span><span style="color: #6c7086;">Is INVALID</span>
+<span style="color: #89b4fa;">MOV</span> <span style="color: #cba6f7;">DS</span>, AX <span style="color: #6c7086;">; </span><span style="color: #6c7086;">This one is VALID</span>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Crystal</p>
+<p class="date">Created: 2024-03-07 Thu 20:55</p>
+</div>
+</body>
+</html>

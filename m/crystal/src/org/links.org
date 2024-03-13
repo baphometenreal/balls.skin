@@ -1,0 +1,86 @@
+#+TITLE: Close this website, txEn eht nepO.(JavaScript ahead) 💜
+#+AUTHOR: Crystal
+#+OPTIONS: ^:{}
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../links.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="src/css/style.css"/>
+#+OPTIONS: \n:y
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:nil
+#+OPTIONS: title:nil
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+#+HTML_LINK_UP: https://crystal.tilde.institute/
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="favicon.png">
+#+BEGIN_EXPORT html
+<div clas="glitch-container">
+<h1 class="title glitch">
+<span>
+				<b>Close this w<span class="red" style="color: #AD2128">e</span><span class="blue" style="color: #201E82">b</span>site, <div class="mirrored-text">Open the nExt</div>.</b>
+			</span>
+</h1>
+</div>
+            #+END_EXPORT
+* Webrings & Links
+
+*This site is a proud member of the geekring! Check some other geeky websites here!*
+
+[[http://geekring.net/site/302/previous][Previous site]] -- [[http://geekring.net/site/301/random][Random Site]] -- [[http://geekring.net/site/301/next][Next Site]]
+
+*Do you long for a simpler time, when America was Online and the only person you could Ask was Jeeves? Hotline Webring is bringing that time back, with Webrings! /This website is part of the Hotline Webring/*
+
+[[https://hotlinewebring.club/crystal/previous][Previous site]] -- [[https://hotlinewebring.club/crystal/next][Next site]]
+#+BEGIN_EXPORT html
+<iframe id="bucket-webring" style="width: 100%; height: 3rem; border: none;" src="https://webring.bucketfish.me/embed.html?name=crystal"></iframe>
+
+<link rel="stylesheet"
+href="https://teethinvitro.neocities.org/webring/linuxring/script/onionring.css">
+<div id="transring">
+<script type="text/javascript" src="https://transring.neocities.org/onionring-variables.js"></script>
+<script type="text/javascript" src="https://transring.neocities.org/onionring-widget.js"></script>
+</div>
+
+<div id='linuxring'>
+<script type="text/javascript" src="https://teethinvitro.neocities.org/webring/linuxring/script/onionring-variables.js"></script>
+<script type="text/javascript" src="https://teethinvitro.neocities.org/webring/linuxring/script/onionring-widget.js"></script>
+</div>
+
+#+END_EXPORT
+#+BEGIN_EXPORT html
+<table>
+<tr>
+<td><a href="https://webri.ng/webring/ladiesofthelinks/previous?via=https%3A%2F%2Fcrystal.tilde.institute"><img src="src/gifs/links/ladiesofthelinks/ladiesofthelink1.gif"></a></td>
+<td><a href="https://ladiesofthe.link/"><img src="src/gifs/links/ladiesofthelinks/ladiesofthelink.gif"></a></td>
+<td><a href="https://webri.ng/webring/ladiesofthelinks/next?via=https%3A%2F%2Fcrystal.tilde.institute"><img src="/src/gifs/links/ladiesofthelinks/ladiesofthelink2.gif"></a></td>
+</tr>
+</table>
+#+END_EXPORT
+
+** Lainchan Webring
+
+Lainring is a decentralized [[https://indieweb.org/webring][webring]] created by the users of [[https://www.lainchan.org][Lainchan]], an anonymous image board. If you want to be added, go to the [[https://lainchan.org/%CE%A9/res/73638.html][Lainchan thread]] and post your website there, together with a 240x60 button image.
+
+
+#+BEGIN_EXPORT html
+<div id="lainring">... Loading, please wait ...</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+	/* Try to retrieve the json file */
+	fetch('src/json/lainring.json').then(res => res.json()).then((data) => {
+		let out = '';
+		/* For each element in the JSON, build an anchor-image DOM structure */
+		data.items.forEach(element => {
+			/* This string is split in multiple lines for readability */
+			out += '<a title="' + element.title + '" ' +
+				'href="' + element.url + '">' +
+				'<img src="src/gifs/lainchan/' + element.img + '" alt="' + element.title + '" /></a>';
+		});
+		/* Inject the DOM structure into the element with the id 'lainring' */
+		document.getElementById('lainring').innerHTML = out;
+	}).catch(err => {
+		/* throw an error */
+		throw err
+	});
+});
+</script>
+#+END_EXPORT

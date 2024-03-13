@@ -1,0 +1,53 @@
+#+TITLE: Existing as a woman is a rebellion.
+#+AUTHOR: Alex
+#+OPTIONS: ^:{}
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../../articles/feminism1_alex.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../src/css/style.css"/>
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:nil
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="../../favicon.png">
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+#+HTML_LINK_UP: https://crystal.tilde.institute/
+*Original Link (You should def check it out):*
+
+
+[[https://gxrlhood.blogspot.com/2023/11/existing-as-woman-is-rebellion.html][https://crystal.tilde.institute/src/gifs/friend_banners/gay_gemstone.gif]]
+* Original Article :
+#+BEGIN_VERSE
+(Before starter, I want to note that I did make a tiny little mistake in my previous post, and I apologize for that! )
+
+What is a woman without a man? What is a free woman ? And can we affirm that women in our modern world are truly free?
+
+The simple act of existing freely as a woman is seen as a rebellion in this society, and by free I mean not basing her entire existence around men and how to please them.
+
+Women’s rights have been discussed for centuries, and are still an on going discussion excluding women themselves from it. (for instance: in Afghanistan, women don’t have the right for an education anymore, and in the United States, abortion is now illegal in some of the states.) We sexualise her, objectify her, we deprive her of her humanity and treat her like an animal. A woman is never seen as what she is and who is she, a simple human being.
+
+We could clearly see how much women are oppressed nowadays, if the world wasn’t purposefully blind. We shame them for enjoying their time on earth, we dismiss them, we silence them, we ruin them psychologically, We question their opinions, and their choices, we assault them, physically, verbally or both and blame them for it… These are just a few examples on how oppression towards women is still present.
+
+The women of the past fought for the ones of today, for them to have rights as human beings and to be free from oppression, and while the fruit of their efforts have payed, and gave women a better life, we still have a long way to go from finding true freedom. The assault that we face daily are just but one example out of many that men use to remind us of how much the world hates women, that the world we live in is still theirs, and that we are only viewed through their gaze.
+
+When I say men, I do mean all men. Even the ones who  stays silent, especially the ones who stay silent. They maybe are not the ones assaulting but they surely are benefiting from the ones that do, so they certainly don’t condemn them. They are the ones questioning a woman’s sincerity, how many times did we hear statements such as « he would never do that », « he’s still my friend » and « it is none of my business »? This highlights how much a woman’s voice is muffled, and is questioned before being believed, and how little empathy men have towards the victims. They will also use the argument of fake accusation knowing very well that the statistic shows that less than 1% of the claims made by sexual assault victims are fake. Statistics also shows that one in three woman is victim of assault in her life, and that 98% of the assaulters are men. But they do not care about the statistics. In fact they are very well aware of the truth but choose to instead dismiss it.
+
+To respond clearly to the questions asked in the beginning: A woman without a man is simply a woman, a human being with a body and mind, with thoughts and ideas, with opinions and dreams, with urges,… just a simple human being.
+
+A free woman as of today, is a woman who doesn’t center her life around men, and thinks freely, she is provocative, affirm and validates her opinions, she is passionate about her dreams, she does not worry on how the world views her because she already knows, she is feared, because she has freed herself from the patriarchal and sexist ideas that the world has put into our minds.
+
+Unfortunately, women in this society are not free, their souls and bodies are still imprisoned in the very core of the patriarchy. Like I said earlier, men are going out of their ways to make sure the world is still theirs, and moreover, misogynistic behaviors are still present between women, since we have incorporated it so deeply in our lives, and in our way of thinking that it is easier for women to accept misogyny as the way of things than to question why we are so mean and cruel towards our own kind and notice the injustices.
+
+I could go on and on as to why women in this modern society are still oppressed, but I will only say this: to you dear reader, reading this essay (more a stream of consciousness than essay honestly)  with knitted eyebrows and an angry face, open your eyes, and start seeing the world as it really is.
+
+To conclude, I do not think, I do not suppose, I do not express an opinion, I know, and I’m expressing facts, that the world is not ready to acknowledge.
+
+#+END_VERSE
+* Webmaster's response :
+While I do agree with mostly everything written above, I think there is much to add from multiple point of views and experiences, so I'm sharing mine here which, and following the general theme of the website, would be the technological aspect of being a women.
+
+When you first use the internet, you instantaneously assume that everyone is a man...I mean, that is one of the numerous rules of the web : *Rule 24: On the internet men are men, women are also men, and kids are undercover FBI agents*. Which is plain wrong, stupid, and sexist to a larger extent, assuming that women are not "smart enough" to be regular internet users. And this idea of course didn't come from nowhere, i blame it mostly on American movies about "Tech-geeks" and all. But hey, we are not here to blame someone, just to notice! A lot of women are programmers, devs, cybersecurity experts, literal queens of the internet, yet a lot of people assume that women only use the internet to either bait you into buying their OnlyFans, or as a casual user, an easy to scam one too......Reminds you of something ? *smells like patriarchy* my dudes.
+
+
+A lot of women, especially biological ones are seen as inferior programmers compared to biological men (I say biological men here, because it seems like cisgendered men prefer saying that a transfem is a better programmer than them, rather than saying that a WOMAN is better. Again, sexism down to the subatomic level) which, again, is not the case. And I know that from experience, one of the best Hackers I know is actually a girl!!
+
+
+In the end, I think that no matter what we do, we won't be able to change the image of the powerless skill-less woman that social media (and media in general) have created about women. So what should we do ? Should we go full Amish mode ? Or even do it Ted K style and ditch them all ? I will let you decide

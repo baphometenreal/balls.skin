@@ -1,0 +1,13 @@
+#+title: Learn Lisp With me. Episode 1
+#+AUTHOR: Crystal
+#+OPTIONS: ^:{}
+#+OPTIONS: num:nil
+#+EXPORT_FILE_NAME: ../../../../blog/lisp/episode1.html
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../../src/css/colors.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../../src/css/style.css"/>
+#+HTML_LINK_HOME: https://crystal.tilde.institute/
+#+HTML_LINK_UP: ../index.html
+#+OPTIONS: html-style:nil
+#+OPTIONS: toc:4
+#+HTML_HEAD: <link rel="icon" type="image/x-icon" href="https://crystal.tilde.institute/favicon.png"/>
+#+OPTIONS: \n:y

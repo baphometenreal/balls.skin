@@ -1,0 +1,97 @@
+#+title: Class notes
+
+
+* class 1 /sun sep 17 13:04:43 2023/
+** Les Reseaux locaux (LAN)
+Cable 10 mbps ou moins = Ethernet
+Cable 100 mbps = Fast Ethernet
+Cable 1000 mbps ou plus = Giga Ethernet
+
+** MAC Address :
+First three Bytes : vendor
+Last three Bytes : Unique ID
+(In Hexadecimal)
+
+TODO: CSMA/ CA CD
+
+** RJ-45 connecteurs
+**** Straight
+**** Crossover (croisé)
+**** Rollover (console)
+
+** IPV4 classes :
+- Classe A : 0 - 127  /8
+  - 0.0.0.0/0 : route par default
+  - 127.0.0.0/8 : bouclage
+- Classe B : 128 - 191  /16
+  - 169.254.0.0/16 : APIPA
+- Classe C : 192 - 223  /24
+- Classe D : 224 - 239
+  - Multicast
+- Classe E : 240 - 255
+
+** Adresses privées:
+- Classe A : 10.0.0.0 - 10.255.255.255 /8
+- Classe B : 172.16.0.0 - 172.31.255.255 /12
+- Classe C : 192.168.0.0 - 192.168.255.255 /16
+
+
+8   7   6   5   4   3   2   1
+128 64  32  16  8   4   2   1
+256 128 64  32  16  8   4   2
+/24 /25 /26 /27 /28 /29 /30 /31
+
+500
+150
+60
+30
+20
+15
+** 500 hosts :
+
+Addresse: 10.0.0.0 /23
+
+500 - 256 = 244
+
+First IP : 10.0.0.1 /23
+Last IP : 10.0.1.254 /23
+@B IP : 10.0.1.255 /23
+Mask : 255.255.254.0
+
+** 150 hosts :
+
+Addresse: 10.0.2.0 /24
+First IP: 10.0.2.1 /24
+Last IP: 10.0.2.254 /24
+@B IP: 10.0.2.255 /24
+Mask: 255.255.255.0
+
+** 60 hosts :
+Addresse: 10.0.3.0 /26
+First IP: 10.0.3.1 /26
+Last IP: 10.0.3.63 /26
+@B IP: 10.0.3.64 /26
+Mask: 255.255.255.191
+
+** 30 hosts:
+ Addresse: 10.0.3.63/8
+ First IP: 10.0.3.64/8
+ Last IP: 10.0.3.96/8
+ @B IP: 10.0.3.97/8
+ Mask: 255.255.255.158/11
+
+** 20
+Addresse: 10.0.3.97/8
+First IP: 10.0.3.98/8
+Last IP: 10.0.3.128/8
+@B IP: 10.0.3.129/8
+Mask: 255.255.255.126/11
+** 15
+Addresse: 10.0.3.129/8
+First IP: 10.0.3.130/8
+Last IP: 10.0.3.144/8
+@B IP: 10.0.3.145/8
+Mask: 255.255.255.110/12
+
+* Class 2Sun /Sep 24 09:09:28 2023/
+** CCTV (finally)

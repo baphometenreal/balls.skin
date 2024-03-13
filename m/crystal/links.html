@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-11-10 Fri 11:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Close this website, txEn eht nepO.(JavaScript ahead) 💜</title>
+<meta name="author" content="Crystal" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="src/css/colors.css"/>
+<link rel="stylesheet" type="text/css" href="src/css/style.css"/>
+<link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="https://crystal.tilde.institute/"> UP </a>
+ |
+ <a accesskey="H" href="https://crystal.tilde.institute/"> HOME </a>
+</div><div id="content" class="content">
+<div clas="glitch-container">
+<h1 class="title glitch">
+<span>
+				<b>Close this w<span class="red" style="color: #AD2128">e</span><span class="blue" style="color: #201E82">b</span>site, <div class="mirrored-text">Open the nExt</div>.</b>
+			</span>
+</h1>
+</div>
+<div id="outline-container-orgcf6e5e0" class="outline-2">
+<h2 id="orgcf6e5e0">Webrings &amp; Links</h2>
+<div class="outline-text-2" id="text-orgcf6e5e0">
+<p>
+<b>This site is a proud member of the geekring! Check some other geeky websites here!</b><br />
+</p>
+
+<p>
+<a href="http://geekring.net/site/302/previous">Previous site</a> &#x2013; <a href="http://geekring.net/site/301/random">Random Site</a> &#x2013; <a href="http://geekring.net/site/301/next">Next Site</a><br />
+</p>
+
+<p>
+<b>Do you long for a simpler time, when America was Online and the only person you could Ask was Jeeves? Hotline Webring is bringing that time back, with Webrings! <i>This website is part of the Hotline Webring</i></b><br />
+</p>
+
+<p>
+<a href="https://hotlinewebring.club/crystal/previous">Previous site</a> &#x2013; <a href="https://hotlinewebring.club/crystal/next">Next site</a><br />
+</p>
+<iframe id="bucket-webring" style="width: 100%; height: 3rem; border: none;" src="https://webring.bucketfish.me/embed.html?name=crystal"></iframe>
+
+<link rel="stylesheet"
+href="https://teethinvitro.neocities.org/webring/linuxring/script/onionring.css">
+<div id="transring">
+<script type="text/javascript" src="https://transring.neocities.org/onionring-variables.js"></script>
+<script type="text/javascript" src="https://transring.neocities.org/onionring-widget.js"></script>
+</div>
+
+<div id='linuxring'>
+<script type="text/javascript" src="https://teethinvitro.neocities.org/webring/linuxring/script/onionring-variables.js"></script>
+<script type="text/javascript" src="https://teethinvitro.neocities.org/webring/linuxring/script/onionring-widget.js"></script>
+</div>
+<table>
+<tr>
+<td><a href="https://webri.ng/webring/ladiesofthelinks/previous?via=https%3A%2F%2Fcrystal.tilde.institute"><img src="src/gifs/links/ladiesofthelinks/ladiesofthelink1.gif"></a></td>
+<td><a href="https://ladiesofthe.link/"><img src="src/gifs/links/ladiesofthelinks/ladiesofthelink.gif"></a></td>
+<td><a href="https://webri.ng/webring/ladiesofthelinks/next?via=https%3A%2F%2Fcrystal.tilde.institute"><img src="/src/gifs/links/ladiesofthelinks/ladiesofthelink2.gif"></a></td>
+</tr>
+</table>
+</div>
+<div id="outline-container-org8c1234f" class="outline-3">
+<h3 id="org8c1234f">Lainchan Webring</h3>
+<div class="outline-text-3" id="text-org8c1234f">
+<p>
+Lainring is a decentralized <a href="https://indieweb.org/webring">webring</a> created by the users of <a href="https://www.lainchan.org">Lainchan</a>, an anonymous image board. If you want to be added, go to the <a href="https://lainchan.org/%CE%A9/res/73638.html">Lainchan thread</a> and post your website there, together with a 240x60 button image.<br />
+</p>
+
+
+<div id="lainring">... Loading, please wait ...</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+	/* Try to retrieve the json file */
+	fetch('src/json/lainring.json').then(res => res.json()).then((data) => {
+		let out = '';
+		/* For each element in the JSON, build an anchor-image DOM structure */
+		data.items.forEach(element => {
+			/* This string is split in multiple lines for readability */
+			out += '<a title="' + element.title + '" ' +
+				'href="' + element.url + '">' +
+				'<img src="src/gifs/lainchan/' + element.img + '" alt="' + element.title + '" /></a>';
+		});
+		/* Inject the DOM structure into the element with the id 'lainring' */
+		document.getElementById('lainring').innerHTML = out;
+	}).catch(err => {
+		/* throw an error */
+		throw err
+	});
+});
+</script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Crystal</p>
+<p class="date">Created: 2023-11-10 Fri 11:11</p>
+</div>
+</body>
+</html>

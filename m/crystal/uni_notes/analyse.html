@@ -1,0 +1,1624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-11-14 Tue 23:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Analyse 1</title>
+<meta name="author" content="Crystal" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../src/css/colors.css"/>
+<link rel="stylesheet" type="text/css" href="../src/css/style.css"/>
+<link rel="icon" type="image/x-icon" href="https://crystal.tilde.institute/favicon.png">
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../../../uni_notes/"> UP </a>
+ |
+ <a accesskey="H" href="https://crystal.tilde.institute/"> HOME </a>
+</div><div id="content" class="content">
+<h1 class="title">Analyse 1</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org51375f0">Contenu de la Matiére</a>
+<ul>
+<li><a href="#orgd074219">Chapitre 1 : Quelque propriétés de ℝ</a></li>
+<li><a href="#orgb5220df">Chapitre 2 : Les suites numériques réelles</a></li>
+<li><a href="#orge7b80f9">Chapitre 3 : Limites et continuité des fonctions réelles d&rsquo;une variable réelle</a></li>
+<li><a href="#orgcc6964b">Chapitre 4 : La dérivabilité et son interprétation géometrique</a></li>
+<li><a href="#orgea870f0">Chapitre 5 : Les fonctions trigonométriques réciproques, fonctions hypérboliques réciproques</a></li>
+</ul>
+</li>
+<li><a href="#org7dbe2a4">Premier cours : Quelque propriétés de ℝ <i>Sep 26</i> :</a>
+<ul>
+<li><a href="#org4b25f0c">La loi de composition interne dans E :</a>
+<ul>
+<li><a href="#orgc048164"><b>Example : Addition</b></a></li>
+<li><a href="#orgadeeaa1"><b>Example : soustraction</b></a></li>
+</ul>
+</li>
+<li><a href="#orge686f2a">La loi de composition externe dans E :</a></li>
+<li><a href="#org96fc192">Groupes :</a>
+<ul>
+<li><a href="#org9cae959">Il contiens un élement neutre</a></li>
+<li><a href="#orgfc1fc7b">Il contiens un élément symétrique</a></li>
+<li><a href="#orge76674f">@ est cummutative :</a></li>
+</ul>
+</li>
+<li><a href="#orgde40808">Anneaux :</a>
+<ul>
+<li><a href="#org6960733">(E ; @) est un groupe cummutatif</a></li>
+<li><a href="#org3dd13c2">! est une loi associative :</a></li>
+<li><a href="#org96e7790">Distribution de ! par rapport à @ :</a></li>
+<li><a href="#orgaaceb67">L&rsquo;existance d&rsquo;un élèment neutre de ! :</a></li>
+<li><a href="#org07575e5">! est cummutative :</a></li>
+</ul>
+</li>
+<li><a href="#org4dde6a2">Corps :</a>
+<ul>
+<li><a href="#orga3ea966">La symétrie :</a></li>
+</ul>
+</li>
+<li><a href="#org316172f">Exercice : (ℝ, +, x) corps ou pas ?</a>
+<ul>
+<li><a href="#org4ed9aef">Est-ce un Anneau ?</a></li>
+<li><a href="#org248a5ea">Est-ce un corps ?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0b3fce2">2nd cours :L&rsquo;ordre dans ℝ, Majorant, minorant, borne superieure, borne inférieure <i>Oct 3</i> :</a>
+<ul>
+<li><a href="#orga3c4b3c">L&rsquo;ordre dans ℝ</a>
+<ul>
+<li><a href="#org9b04907">Exemples :</a></li>
+</ul>
+</li>
+<li><a href="#org824efff">Majorant, minorant, borne supérieure, borne inférieure</a>
+<ul>
+<li><a href="#org34c228b">Majorant:</a></li>
+<li><a href="#orgc832fb0">Minorant:</a></li>
+<li><a href="#org3cb02e2">Borne supérieure:</a></li>
+<li><a href="#orgef4458e">Borne inférieure:</a></li>
+<li><a href="#org2b2908f">Maximum :</a></li>
+<li><a href="#org1410a06">Minimum :</a></li>
+<li><a href="#orgd1fcd4e">Remarques :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc939931">3rd cours :Les suites numériques <i>Oct 5</i> :</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org8607984">Définition :</a></li>
+<li><a href="#orgcc2100f">Définition N°2 :</a></li>
+</ul>
+</li>
+<li><a href="#org69f8c52">Opérations sur les suites :</a>
+<ul>
+<li><a href="#orgf01d039">La somme :</a></li>
+<li><a href="#org770eaba">Le produit :</a></li>
+<li><a href="#org7a41073">Inverse d&rsquo;une suite :</a></li>
+<li><a href="#orgd245f39">Produit d&rsquo;une suite par un scalaire :</a></li>
+</ul>
+</li>
+<li><a href="#orgd7a311f">Suite bornée :</a></li>
+<li><a href="#org2b180d2">Suite majorée :</a></li>
+<li><a href="#org7b2e23f">Suite minorée :</a></li>
+<li><a href="#orgb167fb6">Suites monotones :</a>
+<ul>
+<li><a href="#org28ff308">Les suites croissantes :</a></li>
+<li><a href="#org89d3d3b">Les suites décroissantes :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org65657c4">Série TD N°1 : <i>Oct 6</i></a>
+<ul>
+<li><a href="#orgac13612">Exo 1 :</a>
+<ul>
+<li><a href="#orgcb1b828">Ensemble A :</a></li>
+<li><a href="#org886db21">Ensemble B :</a></li>
+<li><a href="#org8444304">Ensemble C :</a></li>
+<li><a href="#org655bbdc">Ensemble D :</a></li>
+<li><a href="#orgf122a29">Ensemble E :</a></li>
+</ul>
+</li>
+<li><a href="#org5e26290">Exo 2 :</a>
+<ul>
+<li><a href="#org62a0c2c">Ensemble A :</a></li>
+<li><a href="#orgdde4c67">Ensemble B :</a></li>
+<li><a href="#org2abc744">Ensemble C :</a></li>
+<li><a href="#orga2cb085">Ensemble D :</a></li>
+<li><a href="#orgc6452f9">Ensemble E :</a></li>
+</ul>
+</li>
+<li><a href="#org479db70">Exo 3 :</a>
+<ul>
+<li><a href="#org9f28f97">Question 1 :</a></li>
+<li><a href="#orgb2a312c">Question 2 :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbd1bb1e">4th cours (Suite) : <i>Oct 10</i></a>
+<ul>
+<li><a href="#org9b40096">Les suites convergentes</a>
+<ul>
+<li><a href="#org6a22c62">Remarque :</a></li>
+</ul>
+</li>
+<li><a href="#orga3baa03">Theoreme d&rsquo;encadrement</a></li>
+<li><a href="#orgbbda563">Suites arithmetiques</a>
+<ul>
+<li><a href="#orgb4756c6">Forme general</a></li>
+<li><a href="#orga6494e4">Somme des n premiers termes</a></li>
+</ul>
+</li>
+<li><a href="#org10d88d9">Suites géométriques</a>
+<ul>
+<li><a href="#orgfe286ce">Forme general</a></li>
+<li><a href="#orgaa6b262">Somme des n premiers termes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgeeb4832">5th cours (suite) : <i>Oct 12</i></a>
+<ul>
+<li><a href="#orge9160fd">Suites adjacentes:</a></li>
+<li><a href="#orgaedf3ea">Suites extraites (sous-suites):</a>
+<ul>
+<li><a href="#org586e8c4">Remarques:</a></li>
+</ul>
+</li>
+<li><a href="#org1ce447c">Suites de Cauchy:</a>
+<ul>
+<li><a href="#orgd06f7ae">Remarque :</a></li>
+</ul>
+</li>
+<li><a href="#org392a346">Théorème de Bolzano Weirstrass:</a></li>
+</ul>
+</li>
+<li><a href="#org91a748f">Chapitre 3 : Les limites et la continuité <i>Nov 14</i></a>
+<ul>
+<li><a href="#orgde4196b">Fonction réelle à variable réelle :</a>
+<ul>
+<li><a href="#orgd68331d">L&rsquo;ensemble de départ :</a></li>
+<li><a href="#org3151412">Les Limites :</a></li>
+<li><a href="#org287d826">La continuité :</a></li>
+<li><a href="#orgc77ab14">Prolongement par continuité :</a></li>
+<li><a href="#org8edfe47">Théorème des valeurs intermédiaires :</a></li>
+<li><a href="#orgea41b1c">Fonction croissante :</a></li>
+<li><a href="#orgd45a9b4">Injection = Strictement monotonne :</a></li>
+<li><a href="#org189c903">Surjection = Continuité :</a></li>
+<li><a href="#org07713a2">Bijection :</a></li>
+<li><a href="#org7512d26">Théorème de bijection :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org51375f0" class="outline-2">
+<h2 id="org51375f0">Contenu de la Matiére</h2>
+<div class="outline-text-2" id="text-org51375f0">
+</div>
+<div id="outline-container-orgd074219" class="outline-3">
+<h3 id="orgd074219">Chapitre 1 : Quelque propriétés de ℝ</h3>
+<div class="outline-text-3" id="text-orgd074219">
+<ul class="org-ul">
+<li>Structure algébrique de ℝ<br /></li>
+<li>L&rsquo;ordre dans ℝ<br /></li>
+<li>Majorant, minorant, borne superieure, borne inférieure<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb5220df" class="outline-3">
+<h3 id="orgb5220df">Chapitre 2 : Les suites numériques réelles</h3>
+<div class="outline-text-3" id="text-orgb5220df">
+<ul class="org-ul">
+<li>Définition : convergence, opérations sur les suites convergentes<br /></li>
+<li>Theoréme de convergence, Theoréme de <span class="underline">_</span> suites, sans suites, extension au limites infinies<br /></li>
+<li>Suites de cauchy, suites adjacentes et suites récurentes<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge7b80f9" class="outline-3">
+<h3 id="orge7b80f9">Chapitre 3 : Limites et continuité des fonctions réelles d&rsquo;une variable réelle</h3>
+<div class="outline-text-3" id="text-orge7b80f9">
+<ul class="org-ul">
+<li>Les limites : définition, opérations sur les limites, les formes inditerminées<br /></li>
+<li>La continuité : définition, Theorémes fondamentaux<br /></li>
+<li>La continuité informe les fonctions Lepchitziennes<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcc6964b" class="outline-3">
+<h3 id="orgcc6964b">Chapitre 4 : La dérivabilité et son interprétation géometrique</h3>
+<div class="outline-text-3" id="text-orgcc6964b">
+<ul class="org-ul">
+<li>Opérations sur les fonctions dérivales, Theoréme de Rolle, Theoréme des accroissements finis, régle de L&rsquo;Hopital et formule de Taylor<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgea870f0" class="outline-3">
+<h3 id="orgea870f0">Chapitre 5 : Les fonctions trigonométriques réciproques, fonctions hypérboliques réciproques</h3>
+<div class="outline-text-3" id="text-orgea870f0">
+<ul class="org-ul">
+<li>Comparaison asymptotique<br /></li>
+<li>Symbole de lamdau (lambda ?), et notions des fonctions équivalentes<br /></li>
+<li>Développements limites polynominaux (D.L) et opérations sur les D.L<br /></li>
+<li>Généralisations des D.L<br /></li>
+<li>Application au calcul de limite et l&rsquo;étude des branches infinies<br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org7dbe2a4" class="outline-2">
+<h2 id="org7dbe2a4">Premier cours : Quelque propriétés de ℝ <i>Sep 26</i> :</h2>
+<div class="outline-text-2" id="text-org7dbe2a4">
+</div>
+<div id="outline-container-org4b25f0c" class="outline-3">
+<h3 id="org4b25f0c">La loi de composition interne dans E :</h3>
+<div class="outline-text-3" id="text-org4b25f0c">
+<p>
+@ : E x E &#x2014;&gt; E<br />
+    (x,y) &#x2014;&gt; x @ y<br />
+</p>
+
+<p>
+@ est une lois de composition interne seulement si :<br />
+</p>
+
+<p>
+<b>∀ x,y ε E</b><br />
+</p>
+</div>
+<div id="outline-container-orgc048164" class="outline-4">
+<h4 id="orgc048164"><b>Example : Addition</b></h4>
+<div class="outline-text-4" id="text-orgc048164">
+<p>
+Est ce que l&rsquo;addition (+) est L.C.I dans ℕ  ?<br />
+</p>
+
+<p>
+ℕ x ℕ &#x2014;&gt; ℕ<br />
+</p>
+
+<p>
+(x,y) &#x2014;&gt; x + y ? <i>En gros : Pour que l&rsquo;addition soit une L.C.I dans ℕ, il faut que: quand on additionne <b>n&rsquo;importe quel</b> chiffre x et y de N, il faut que le résultat appertiens aussi a ℕ</i><br />
+</p>
+
+<p>
+∀ x,y ∈ ℕ , x + y ∈ ℕ <i>En gros: Pour TOUTE valeur de x et y appartenant a ℕ, leur somme est toujours dans ℕ</i><br />
+</p>
+
+<p>
+Donc : + est L.C.I dans ℕ<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgadeeaa1" class="outline-4">
+<h4 id="orgadeeaa1"><b>Example : soustraction</b></h4>
+<div class="outline-text-4" id="text-orgadeeaa1">
+<p>
+Est ce que la soustraction (-) est L.C.I dans ℕ?<br />
+</p>
+
+<p>
+ℕ x ℕ &#x2014;&gt; ℕ<br />
+</p>
+
+<p>
+(x,y) &#x2014;&gt; x - y ?<br />
+</p>
+
+
+<p>
+∃ x , y ∈ ℕ , x - y ∉ ℕ <i>En gros: il existe au moins une valeur de x et y dans ℕ tel que leur différence n&rsquo;est <b>PAS</b> dans ℕ . tel que : si x est 5, et y c&rsquo;est 9. Leur différence est -4, qui appartiens pas a ℕ</i><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge686f2a" class="outline-3">
+<h3 id="orge686f2a">La loi de composition externe dans E :</h3>
+<div class="outline-text-3" id="text-orge686f2a">
+<p>
+@ est L.C.E dans E, K est un corps<br />
+</p>
+
+<p>
+K x E &#x2014;&gt; E<br />
+</p>
+
+<p>
+(a,x) &#x2014;&gt; a @ x<br />
+</p>
+
+<p>
+∀ (a , x) ∈ K x E , a @ x ∈ E<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org96fc192" class="outline-3">
+<h3 id="org96fc192">Groupes :</h3>
+<div class="outline-text-3" id="text-org96fc192">
+<p>
+<i>Soit E un ensemble, soit @ une L.C.I dans E</i><br />
+</p>
+
+<p>
+(E, @) est un groupe Si :<br />
+</p>
+</div>
+<div id="outline-container-org9cae959" class="outline-4">
+<h4 id="org9cae959">Il contiens un élement neutre</h4>
+<div class="outline-text-4" id="text-org9cae959">
+<p>
+∀ x ∈ E ; ∃ e ∈ E<br />
+</p>
+
+<p>
+x @ e = e @ x = x<br />
+</p>
+
+<p>
+On appelle <b>e</b> élement neutre<br />
+</p>
+
+<p>
+<i>Ex: (ℕ,+) accepte un élement neutre, qui est 0, parceque x + 0 = 0 + x = x&#x2026;.cependent (ℕ,+) n&rsquo;est pas un groupe. La raison est dans la prochaine condition</i><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgfc1fc7b" class="outline-4">
+<h4 id="orgfc1fc7b">Il contiens un élément symétrique</h4>
+<div class="outline-text-4" id="text-orgfc1fc7b">
+<p>
+∀ x ∈ E ; ∃ x&rsquo; ∈ E ; x @ x&rsquo; = x&rsquo; @ x = e<br />
+</p>
+
+<p>
+On appelle <b>x&rsquo;</b> élèment symétrique<br />
+</p>
+
+<p>
+<i>Dans l&rsquo;example en haut, on remarque qu&rsquo;il n&rsquo;y ya pas de chiffre x&rsquo; pour chaque chiffre x, qui est, l&rsquo;hors de leur addition est egal a e (0), tout simplement car:</i><br />
+</p>
+
+<p>
+<i>x + x&rsquo; = e ; x + x&rsquo; = 0 ; x = -x&rsquo;</i><br />
+</p>
+
+<p>
+<b>Or, Dans ℕ, on a pas de nombres négatifs</b><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orge76674f" class="outline-4">
+<h4 id="orge76674f">@ est cummutative :</h4>
+<div class="outline-text-4" id="text-orge76674f">
+<p>
+∀ (x , x&rsquo;) ∈ E x E ; x @ x&rsquo; = x&rsquo; @ x<br />
+</p>
+
+<p>
+<i>L&rsquo;addition est cummutative, la soustraction ne l&rsquo;es pas. 5 + 3 ou 3 + 5 est pareil, mais 5 - 3 et 3 - 5 sont différents</i><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgde40808" class="outline-3">
+<h3 id="orgde40808">Anneaux :</h3>
+<div class="outline-text-3" id="text-orgde40808">
+<p>
+Soit E un ensemble, (E , @ , !) est un anneau si :<br />
+</p>
+</div>
+<div id="outline-container-org6960733" class="outline-4">
+<h4 id="org6960733">(E ; @) est un groupe cummutatif</h4>
+</div>
+<div id="outline-container-org3dd13c2" class="outline-4">
+<h4 id="org3dd13c2">! est une loi associative :</h4>
+<div class="outline-text-4" id="text-org3dd13c2">
+<p>
+∀ x , y , z ∈ E<br />
+</p>
+
+<p>
+(x ! y) ! z = x ! (y ! z)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org96e7790" class="outline-4">
+<h4 id="org96e7790">Distribution de ! par rapport à @ :</h4>
+<div class="outline-text-4" id="text-org96e7790">
+<p>
+∀ x , y , z ∈ E<br />
+</p>
+
+<p>
+(x @ y) ! z = ( x ! z ) @ ( y ! z )<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgaaceb67" class="outline-4">
+<h4 id="orgaaceb67">L&rsquo;existance d&rsquo;un élèment neutre de ! :</h4>
+<div class="outline-text-4" id="text-orgaaceb67">
+<p>
+∀ x ∈ E , ∃ e ∈ E , x ! e = e ! x = x<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org07575e5" class="outline-4">
+<h4 id="org07575e5">! est cummutative :</h4>
+<div class="outline-text-4" id="text-org07575e5">
+<p>
+∀ x , y ∈ E , x ! y = y ! x<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4dde6a2" class="outline-3">
+<h3 id="org4dde6a2">Corps :</h3>
+<div class="outline-text-3" id="text-org4dde6a2">
+<p>
+(E , @ , !) est un corps si les 5 conditions en haut sont vérifiées + cette condition :<br />
+</p>
+</div>
+<div id="outline-container-orga3ea966" class="outline-4">
+<h4 id="orga3ea966">La symétrie :</h4>
+<div class="outline-text-4" id="text-orga3ea966">
+<p>
+∀ x ∈ E ; ∃ x&rsquo; ∈ E , x ! x&rsquo; = x&rsquo; ! x = e<br />
+</p>
+
+<p>
+x&rsquo; est l&rsquo;élément symétrique de x par rapport à !<br />
+(sauf élément neutre première lois )<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org316172f" class="outline-3">
+<h3 id="org316172f">Exercice : (ℝ, +, x) corps ou pas ?</h3>
+<div class="outline-text-3" id="text-org316172f">
+</div>
+<div id="outline-container-org4ed9aef" class="outline-4">
+<h4 id="org4ed9aef">Est-ce un Anneau ?</h4>
+<div class="outline-text-4" id="text-org4ed9aef">
+<ul class="org-ul">
+<li>(ℝ, +) est un groupe commutatif<br /></li>
+<li>x est une loi associative : (a x b) x c = a x (b x c)<br /></li>
+<li>On peut distribuer x par rapport a + : (a + b) x c = (a x c) + (b x c)<br /></li>
+<li>Il existe un élément neutre de x which is 1 : a x 1 = 1 x a = a<br /></li>
+<li>La multiplication est commutative : a x b = b x a<br /></li>
+</ul>
+
+<p>
+Oui c&rsquo;est un anneau<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org248a5ea" class="outline-4">
+<h4 id="org248a5ea">Est-ce un corps ?</h4>
+<div class="outline-text-4" id="text-org248a5ea">
+<ul class="org-ul">
+<li>Oui : ∀ x ∈ ℝ\{e} ; x * x&rsquo; = 1<br /></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org0b3fce2" class="outline-2">
+<h2 id="org0b3fce2">2nd cours :L&rsquo;ordre dans ℝ, Majorant, minorant, borne superieure, borne inférieure <i>Oct 3</i> :</h2>
+<div class="outline-text-2" id="text-org0b3fce2">
+</div>
+<div id="outline-container-orga3c4b3c" class="outline-3">
+<h3 id="orga3c4b3c">L&rsquo;ordre dans ℝ</h3>
+<div class="outline-text-3" id="text-orga3c4b3c">
+<p>
+(ℝ, +, x) est un corps, Soit R une relation d&rsquo;ordre dans ℝ si :<br />
+</p>
+
+<ol class="org-ol">
+<li><p>
+R est antisymétrique :<br />
+</p>
+
+<p>
+∀ x, y ℝ  ; (x R y et y R x) ⇒ (x = y)<br />
+</p></li>
+
+<li><p>
+R est reflexive :<br />
+</p>
+
+<p>
+∀ x ∈ ℝ ; x R x<br />
+</p></li>
+
+<li>R est transitive :<br />
+∀ x, y, z ∈ ℝ , (x R y and y R z) ⇒ x R z<br /></li>
+</ol>
+</div>
+<div id="outline-container-org9b04907" class="outline-4">
+<h4 id="org9b04907">Exemples :</h4>
+<div class="outline-text-4" id="text-org9b04907">
+</div>
+<ul class="org-ul">
+<li><a id="org10940af"></a>Exemple numéro 1:<br />
+<div class="outline-text-5" id="text-org10940af">
+<p>
+(ℝ , +, x) est un corps. Est ce la relation &lt; est une relation d&rsquo;ordre dans ℝ ?<br />
+</p>
+
+
+<p>
+Non, pourquoi ? parce que elle est pas réflexive : ∀ x ∈ ℝ, x &lt; x <b><b>is obviously false</b></b><br />
+</p>
+</div>
+</li>
+<li><a id="org47b3e4d"></a>Exemple numéro 2:<br />
+<div class="outline-text-5" id="text-org47b3e4d">
+<p>
+(ℝ , +, x) est un corps. Est ce la relation ≥ est une relation d&rsquo;ordre dans ℝ ?<br />
+</p>
+
+<ol class="org-ol">
+<li>(Antisymétrique) ∀ x, y ℝ ; (x ≥ y AND y ≥ x) ⇒ x = y  is true<br /></li>
+<li>(Réflexive) ∀ x, y ℝ ; x ≥ x is true<br /></li>
+<li>(Transitive) ∀ x, y, z ℝ ; (x ≥ y AND y ≥ z) ⇒ x ≥ z is also true<br /></li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org824efff" class="outline-3">
+<h3 id="org824efff">Majorant, minorant, borne supérieure, borne inférieure</h3>
+<div class="outline-text-3" id="text-org824efff">
+</div>
+<div id="outline-container-org34c228b" class="outline-4">
+<h4 id="org34c228b">Majorant:</h4>
+<div class="outline-text-4" id="text-org34c228b">
+<p>
+Soit E un sous-ensemble de ℝ (E ⊆ ℝ)<br />
+</p>
+
+
+<p>
+Soit a ∈ ℝ, a est un majorant de E Si :∀ x ∈ E , x ≤ a<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc832fb0" class="outline-4">
+<h4 id="orgc832fb0">Minorant:</h4>
+<div class="outline-text-4" id="text-orgc832fb0">
+<p>
+Soit E un sous-ensemble de ℝ (E ⊆ ℝ)<br />
+</p>
+
+
+<p>
+Soit b ∈ ℝ, b est un minorant de E Si :∀ x ∈ E , x ≥ b<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org3cb02e2" class="outline-4">
+<h4 id="org3cb02e2">Borne supérieure:</h4>
+<div class="outline-text-4" id="text-org3cb02e2">
+<p>
+La borne supérieure est le plus petit des majorants <i>Sup(E) = Borne supérieure</i><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgef4458e" class="outline-4">
+<h4 id="orgef4458e">Borne inférieure:</h4>
+<div class="outline-text-4" id="text-orgef4458e">
+<p>
+La borne inférieure est le plus grand des minorant <i>Inf (E) = Borne inférieure</i><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org2b2908f" class="outline-4">
+<h4 id="org2b2908f">Maximum :</h4>
+<div class="outline-text-4" id="text-org2b2908f">
+<p>
+E ⊆ ℝ, a est un maximum de E (Max(E)) Si : a ∈ E ; ∀x ∈ E, x ≤ a.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1410a06" class="outline-4">
+<h4 id="org1410a06">Minimum :</h4>
+<div class="outline-text-4" id="text-org1410a06">
+<p>
+E ⊆ ℝ, b est un minimum de E (Min(E)) Si : b ∈ E ; ∀x ∈ E, x ≥ b.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd1fcd4e" class="outline-4">
+<h4 id="orgd1fcd4e">Remarques :</h4>
+<div class="outline-text-4" id="text-orgd1fcd4e">
+<p>
+A et B deux ensembles bornés (Minoré et Majoré) :<br />
+</p>
+<ol class="org-ol">
+<li>A ∪ B est borné<br /></li>
+<li>A ∩ B est borné<br /></li>
+<li>Sup(A ∪ B)= Max(sup A, sup B)<br /></li>
+<li>Inf (A ∩ B)= Min(inf A, inf B)<br /></li>
+<li>Sup(A ∩ B)= Min(sup A, sup B) <i>Le plus petit des Supérieur de A et B</i><br /></li>
+<li>Inf (A ∩ B)= Max(inf A, inf B) <i>Le plus grand des inférieur de A et B</i><br /></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc939931" class="outline-2">
+<h2 id="orgc939931">3rd cours :Les suites numériques <i>Oct 5</i> :</h2>
+<div class="outline-text-2" id="text-orgc939931">
+</div>
+<div id="outline-container-org8607984" class="outline-4">
+<h4 id="org8607984">Définition :</h4>
+<div class="outline-text-4" id="text-org8607984">
+<p>
+Soit (Un)n ∈ ℕ une suite numérique , (Un)n est une application de ℕ dans ℝ:<br />
+</p>
+
+
+<p>
+ℕ -&#x2014;&gt; ℝ<br />
+</p>
+
+
+<p>
+n -&#x2014;&gt; U(n) = Un<br />
+</p>
+
+<ol class="org-ol">
+<li>(Un) ou (Un)n ∈ ℝ : une suite<br /></li>
+<li>Un : terme général<br /></li>
+</ol>
+</div>
+<ul class="org-ul">
+<li><a id="org51d3f5d"></a>Exemple :<br />
+<div class="outline-text-6" id="text-org51d3f5d">
+<p>
+U : ℕ* -&#x2014;&gt; ℝ<br />
+</p>
+
+
+<p>
+n  -&#x2014;&gt; 1/n<br />
+</p>
+
+
+<p>
+(Un) est une suite définit par Un = 1/n<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgcc2100f" class="outline-4">
+<h4 id="orgcc2100f">Définition N°2 :</h4>
+<div class="outline-text-4" id="text-orgcc2100f">
+<p>
+On peut définir une suite â partir d&rsquo;une relation de récurrence entre deux termes successifs et le premier terme.<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org6b68ae0"></a>Exemple :<br />
+<div class="outline-text-6" id="text-org6b68ae0">
+<p>
+U(n+1) = Un /2<br />
+</p>
+
+
+<p>
+U(1)= 1<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org69f8c52" class="outline-3">
+<h3 id="org69f8c52">Opérations sur les suites :</h3>
+<div class="outline-text-3" id="text-org69f8c52">
+</div>
+<div id="outline-container-orgf01d039" class="outline-4">
+<h4 id="orgf01d039">La somme :</h4>
+<div class="outline-text-4" id="text-orgf01d039">
+<p>
+Soient (Un) et (Vn) deux suites, la somme de (Un) et (Vn) est une suite de terme général Un + Vn<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org770eaba" class="outline-4">
+<h4 id="org770eaba">Le produit :</h4>
+<div class="outline-text-4" id="text-org770eaba">
+<p>
+Soient (Un)n et (Vn)n deux suites alors (Un) x (Vn) est une autre suite de terme général Un x Vn<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org7a41073" class="outline-4">
+<h4 id="org7a41073">Inverse d&rsquo;une suite :</h4>
+<div class="outline-text-4" id="text-org7a41073">
+<p>
+Soit Un une suite de terme général Un alors l&rsquo;inverse de (Un) est une autre suite (Vn) = 1/(Un) de terme général de Vn = 1/Un<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd245f39" class="outline-4">
+<h4 id="orgd245f39">Produit d&rsquo;une suite par un scalaire :</h4>
+<div class="outline-text-4" id="text-orgd245f39">
+<p>
+Soit (Un) une suite de T.G Un<br />
+</p>
+
+
+<p>
+∀ λ ∈ ℝ , λ(Un) n ∈ ℕ est une suite de T.G Vn= λUn<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd7a311f" class="outline-3">
+<h3 id="orgd7a311f">Suite bornée :</h3>
+<div class="outline-text-3" id="text-orgd7a311f">
+<p>
+Une suite (Un) est bornée si (Un) majorée et minorée<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org2b180d2" class="outline-3">
+<h3 id="org2b180d2">Suite majorée :</h3>
+<div class="outline-text-3" id="text-org2b180d2">
+<p>
+Soit (Un) une suite<br />
+</p>
+
+
+<p>
+U : (Un) est majorée par M ∈ ℝ ; ∀ n ∈ ℕ ; ∃ M ∈ ℝ , Un ≤ M<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org7b2e23f" class="outline-3">
+<h3 id="org7b2e23f">Suite minorée :</h3>
+<div class="outline-text-3" id="text-org7b2e23f">
+<p>
+Soit (Un) une suite<br />
+</p>
+
+
+<p>
+U : (Un) est minorée par M ∈ ℝ ; ∀ n ∈ ℕ ; ∃ M ∈ ℝ , Un ≥ M<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb167fb6" class="outline-3">
+<h3 id="orgb167fb6">Suites monotones :</h3>
+<div class="outline-text-3" id="text-orgb167fb6">
+</div>
+<div id="outline-container-org28ff308" class="outline-4">
+<h4 id="org28ff308">Les suites croissantes :</h4>
+<div class="outline-text-4" id="text-org28ff308">
+<p>
+Soit (Un)n est une suite<br />
+</p>
+
+
+<p>
+(Un) est croissante si : ∀ n ∈ ℕ ;  U(n+1) - Un ≥ 0  ⇔ Un+1 ≥ Un<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org89d3d3b" class="outline-4">
+<h4 id="org89d3d3b">Les suites décroissantes :</h4>
+<div class="outline-text-4" id="text-org89d3d3b">
+<p>
+Soit (Un)n est une suite<br />
+</p>
+
+
+<p>
+(Un) est décroissante si : ∀ n ∈ ℕ ;  U(n+1) - Un ≤ 0  ⇔ Un+1 ≤ Un<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org65657c4" class="outline-2">
+<h2 id="org65657c4">Série TD N°1 : <i>Oct 6</i></h2>
+<div class="outline-text-2" id="text-org65657c4">
+</div>
+<div id="outline-container-orgac13612" class="outline-3">
+<h3 id="orgac13612">Exo 1 :</h3>
+<div class="outline-text-3" id="text-orgac13612">
+</div>
+<div id="outline-container-orgcb1b828" class="outline-4">
+<h4 id="orgcb1b828">Ensemble A :</h4>
+<div class="outline-text-4" id="text-orgcb1b828">
+<p>
+A = {-1/n , n ∈ ℕ *}<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org47ef9df"></a>Borne inférieure<br />
+<div class="outline-text-5" id="text-org47ef9df">
+<p>
+∀ n ∈  ℕ*  , -1/n ≥ -1 . -1 est la borne inférieure de l&rsquo;ensemble A<br />
+</p>
+</div>
+</li>
+<li><a id="orgd07d16e"></a>Minimum :<br />
+<div class="outline-text-5" id="text-orgd07d16e">
+<p>
+∀ n ∈  ℕ*  , -1/n ≥ -1 . -1 est le Minimum de l&rsquo;ensemble A<br />
+</p>
+</div>
+</li>
+<li><a id="org04fdb17"></a>Borne supérieure :<br />
+<div class="outline-text-5" id="text-org04fdb17">
+<p>
+∀ n ∈  ℕ*  , -1/n ≤ 0 . 0 est la borne supérieure de l&rsquo;ensemble A<br />
+</p>
+</div>
+</li>
+<li><a id="org8029216"></a>Maximum :<br />
+<div class="outline-text-5" id="text-org8029216">
+<p>
+L&rsquo;ensemble A n&rsquo;as pas de maximum<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org886db21" class="outline-4">
+<h4 id="org886db21">Ensemble B :</h4>
+<div class="outline-text-4" id="text-org886db21">
+<p>
+B = [-1 , 3[ ∩ ℚ<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgcde09bc"></a>Borne inférieure :<br />
+<div class="outline-text-5" id="text-orgcde09bc">
+<p>
+Inf (B) = Max(inf ([-1 , 3[) , inf (ℚ))<br />
+</p>
+
+
+<p>
+Puisse que ℚ n&rsquo;as pas de Borne inférieure, donc par convention c&rsquo;est  <b>-∞</b>,<br />
+</p>
+
+
+<p>
+<b>Inf (B) = -1</b><br />
+</p>
+</div>
+</li>
+<li><a id="orgd0b46a7"></a>Borne supérieure :<br />
+<div class="outline-text-5" id="text-orgd0b46a7">
+<p>
+Sup(B) = Min(sup([-1 ,3[) , sup(ℚ))<br />
+</p>
+
+
+<p>
+Puisse que ℚ n&rsquo;as pas de Borne supérieure, donc par convention c&rsquo;est  <b>+∞</b>,<br />
+</p>
+
+
+<p>
+<b>Sup(B) = 3</b><br />
+</p>
+</div>
+</li>
+<li><a id="orgdd05682"></a>Minimum :<br />
+<div class="outline-text-5" id="text-orgdd05682">
+<p>
+<b>Min(B) = -1</b><br />
+</p>
+</div>
+</li>
+<li><a id="org2f56d5c"></a>Maximum :<br />
+<div class="outline-text-5" id="text-org2f56d5c">
+<p>
+L&rsquo;ensemble B n&rsquo;as pas de Maximum<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org8444304" class="outline-4">
+<h4 id="org8444304">Ensemble C :</h4>
+<div class="outline-text-4" id="text-org8444304">
+<p>
+C = {3n ,n ∈ ℕ}<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org71172ed"></a>Borne inférieure :<br />
+<div class="outline-text-5" id="text-org71172ed">
+<p>
+Inf (C) = 0<br />
+</p>
+</div>
+</li>
+<li><a id="orgd7dc786"></a>Borne supérieure :<br />
+<div class="outline-text-5" id="text-orgd7dc786">
+<p>
+Sup(C) = +∞<br />
+</p>
+</div>
+</li>
+<li><a id="org48d58aa"></a>Minimum :<br />
+<div class="outline-text-5" id="text-org48d58aa">
+<p>
+Min(C) = 0<br />
+</p>
+</div>
+</li>
+<li><a id="org2f05d94"></a>Maximum :<br />
+<div class="outline-text-5" id="text-org2f05d94">
+<p>
+L&rsquo;ensemble C n&rsquo;as pas de Maximum<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org655bbdc" class="outline-4">
+<h4 id="org655bbdc">Ensemble D :</h4>
+<div class="outline-text-4" id="text-org655bbdc">
+<p>
+D = {1 - 1/n , n ∈ ℕ*}<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgcb1e6fa"></a>Borne inférieure :<br />
+<div class="outline-text-5" id="text-orgcb1e6fa">
+<p>
+Inf (D)= 0<br />
+</p>
+</div>
+</li>
+<li><a id="org865b9b0"></a>Borne supérieure :<br />
+<div class="outline-text-5" id="text-org865b9b0">
+<p>
+Sup(D)= 1<br />
+</p>
+</div>
+</li>
+<li><a id="org9a1de73"></a>Minimum :<br />
+<div class="outline-text-5" id="text-org9a1de73">
+<p>
+Min(D)= 0<br />
+</p>
+</div>
+</li>
+<li><a id="org1987362"></a>Maximum :<br />
+<div class="outline-text-5" id="text-org1987362">
+<p>
+L&rsquo;ensemble D n&rsquo;as pas de Maximum<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgf122a29" class="outline-4">
+<h4 id="orgf122a29">Ensemble E :</h4>
+<div class="outline-text-4" id="text-orgf122a29">
+<p>
+E = { [2n + (-1)^n]/ n + 1 , n ∈ ℕ }<br />
+</p>
+
+
+<p>
+<b>Les valeurs que E peut prendre sont : &ldquo;(2n + 1)/(n+1)&rdquo; Si n est pair, et &ldquo;(2n - 1)/(n+1)&rdquo; si n est impair</b><br />
+</p>
+
+
+<p>
+<b>On définit un ensemble F et G : F = { (2n + 1)/ (n+1) , n ∈ 2k},  G = { (2n - 1)/(n+1), n ∈ 2k+1}</b><br />
+</p>
+
+
+<p>
+<b>Donc E = F ∪ G</b><br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org45d0ef4"></a>Borne inférieure :<br />
+<div class="outline-text-5" id="text-org45d0ef4">
+<p>
+Inf (E) = Min(inf (F), inf (G))<br />
+</p>
+
+
+<p>
+Inf (F) = 1 ; Inf (G) = -1<br />
+</p>
+
+
+<p>
+<b>Inf (E)= -1</b><br />
+</p>
+</div>
+</li>
+<li><a id="org5ef627a"></a>Borne supérieure :<br />
+<div class="outline-text-5" id="text-org5ef627a">
+<p>
+Sup(E) = Max(sup(F), sup(G))<br />
+</p>
+
+
+<p>
+sup(F) = +∞ ; sup(G) = +∞<br />
+</p>
+
+
+<p>
+<b>Sup(E)= +∞</b><br />
+</p>
+</div>
+</li>
+<li><a id="orgef4c9c4"></a>Minimum :<br />
+<div class="outline-text-5" id="text-orgef4c9c4">
+<p>
+Min(E)= -1<br />
+</p>
+</div>
+</li>
+<li><a id="org49b27f7"></a>Maximum :<br />
+<div class="outline-text-5" id="text-org49b27f7">
+<p>
+E n&rsquo;as pas de maximum<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5e26290" class="outline-3">
+<h3 id="org5e26290">Exo 2 :</h3>
+<div class="outline-text-3" id="text-org5e26290">
+</div>
+<div id="outline-container-org62a0c2c" class="outline-4">
+<h4 id="org62a0c2c">Ensemble A :</h4>
+<div class="outline-text-4" id="text-org62a0c2c">
+<p>
+A = {x ∈ ℝ , 0 &lt; x &lt;√3}<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org89ac7fa"></a>Borné<br />
+<div class="outline-text-5" id="text-org89ac7fa">
+<p>
+<b>Oui</b>, Inf (A)= 0 ; Sup(A)=√3<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgdde4c67" class="outline-4">
+<h4 id="orgdde4c67">Ensemble B :</h4>
+<div class="outline-text-4" id="text-orgdde4c67">
+<p>
+B = { x ∈ ℝ , 1/2 &lt; sin x &lt;√3/2} ;<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org2a13712"></a>Borné<br />
+<div class="outline-text-5" id="text-org2a13712">
+<p>
+<b>∀ x ∈ B, sin x &gt; 1/2 ∴ Inf (B)= 1/2</b><br />
+</p>
+
+
+<p>
+<b>∀ x ∈ B, sin x &lt; √3/2 ∴ Sup(B)= √3/2</b><br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org2abc744" class="outline-4">
+<h4 id="org2abc744">Ensemble C :</h4>
+<div class="outline-text-4" id="text-org2abc744">
+<p>
+C = {x ∈  ℝ , x³ &gt; 3}<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org6a12e74"></a>Minoré<br />
+<div class="outline-text-5" id="text-org6a12e74">
+<p>
+<b>∀ x ∈ C, x³ &gt; 3 ∴ Inf (C)= 3</b><br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orga2cb085" class="outline-4">
+<h4 id="orga2cb085">Ensemble D :</h4>
+<div class="outline-text-4" id="text-orga2cb085">
+<p>
+D = {x ∈ ℝ , e^x &lt; 1/2}<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org42d90c1"></a>Borné<br />
+<div class="outline-text-5" id="text-org42d90c1">
+<p>
+<b>∀ x ∈ C, e^x &gt; 0 ∴ Inf (C)= 0</b><br />
+</p>
+
+
+<p>
+<b>∀ x ∈ C, e^x &lt; 1/2 ∴ Sup(C)= 1/2</b><br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgc6452f9" class="outline-4">
+<h4 id="orgc6452f9">Ensemble E :</h4>
+<div class="outline-text-4" id="text-orgc6452f9">
+<p>
+E = {x ∈ ℝ , ∃ p ∈ ℕ* : x = √2/p}<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org8696739"></a>Majoré<br />
+<div class="outline-text-5" id="text-org8696739">
+<p>
+p = √2/x . Donc : <b>Sup(E)=1</b><br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org479db70" class="outline-3">
+<h3 id="org479db70">Exo 3 :</h3>
+<div class="outline-text-3" id="text-org479db70">
+<p>
+U0 = 3/2 ; U(n+1) = (Un - 1)² + 1<br />
+</p>
+</div>
+<div id="outline-container-org9f28f97" class="outline-4">
+<h4 id="org9f28f97">Question 1 :</h4>
+<div class="outline-text-4" id="text-org9f28f97">
+<p>
+Montrer que : ∀ n ∈ ℕ , 1 &lt; Un &lt; 2 .<br />
+</p>
+
+
+<p>
+<b>(Un - 1)² ≥ 0 <i>Parce que c&rsquo;est un carré</i></b><br />
+</p>
+
+
+<p>
+<b>(Un - 1)² + 1 &gt; 1</b> ; <b>U(n+1) ≥ 1</b><br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orgf620b41"></a>Raisonnement par récurrence :<br />
+<div class="outline-text-5" id="text-orgf620b41">
+<p>
+P(n) : ∀ n ∈ ℕ ; 1 &lt; Un &lt; 2<br />
+</p>
+
+
+<p>
+P(0) est vraie : 1 &lt; 3/2 &lt; 2<br />
+</p>
+
+
+<p>
+On suppose que P(n) est vraie et on vérifie P(n+1) pour une contradiction<br />
+</p>
+
+
+<p>
+1&lt; Un &lt; 2 ; 0 &lt; Un - 1 &lt; 1 ; 0 &lt; (Un - 1)² &lt; 1 ; 1 &lt; (Un - 1)² + 1&lt; 2 ; <b>1 &lt; U(n+1) &lt; 2</b> Donc elle est correcte<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgb2a312c" class="outline-4">
+<h4 id="orgb2a312c">Question 2 :</h4>
+<div class="outline-text-4" id="text-orgb2a312c">
+<p>
+Montrer que (Un)n est strictement monotone :<br />
+</p>
+
+
+<p>
+<b>U(n+1) - Un = (Un - 1)² + 1 - Un</b> ; <b>U(n+1) - Un = Un² + 1 - 2Un + 1 - Un</b> ; <b>U(n+1) - Un = Un² - 3Un + 2</b><br />
+</p>
+
+
+<p>
+On étudie <b>Un² - 3Un + 2</b> sur l&rsquo;intervalle ]1, 2[ : Un² - 3Un + 2 = 0 est une équation du 2nd ordre, <b>Δ = 1</b> , elle accepte deux solutions : Un = 1 et Un = 2<br />
+</p>
+
+
+<p>
+On déduit que <b>Un² - 3Un + 2</b> est négatif sur [1 , 2] et positif en dehors, donc <b>∀ 1 &lt; Un &lt; 2 , Un² - 3Un + 2 &lt; 0</b> ; <b>∀ 1 &lt; Un &lt; 2 , U(n+1) - Un &lt; 0</b> ; <b>∀ 1 &lt; Un &lt; 2 , U(n+1) &lt; Un</b> Donc (Un)n est une suite strictement monotonne décroissante<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbd1bb1e" class="outline-2">
+<h2 id="orgbd1bb1e">4th cours (Suite) : <i>Oct 10</i></h2>
+<div class="outline-text-2" id="text-orgbd1bb1e">
+</div>
+<div id="outline-container-org9b40096" class="outline-3">
+<h3 id="org9b40096">Les suites convergentes</h3>
+<div class="outline-text-3" id="text-org9b40096">
+<p>
+Soit (Un)n est une suite convergente si lim Un n&#x2013;&gt; +∞ = l<br />
+</p>
+</div>
+<div id="outline-container-org6a22c62" class="outline-4">
+<h4 id="org6a22c62">Remarque :</h4>
+<div class="outline-text-4" id="text-org6a22c62">
+<ol class="org-ol">
+<li>Un est une suite convergente alors Un est bornee<br /></li>
+<li>Un est une suite convergente  lim Un n&#x2014;&gt; +∞ = l ⇔ lim |Un| n&#x2014;&gt; +∞ = |l|<br /></li>
+<li>Un est une suite majoree et croissante ⇒ Un converge<br /></li>
+<li>Un est une suite minoree et decroissante ⇒ Un converge<br /></li>
+<li>Soient (Un) et (Vn) deux suites convergentes, alors<br />
+<ol class="org-ol">
+<li>Un + Vn est convergente<br /></li>
+<li>Un * Vn est convergente<br /></li>
+<li>∀λ ∈ ℝ , (λUn) converge<br /></li>
+</ol></li>
+<li>Soit Un est une suite bornee et soit Vn une suite. lim Vn n-&gt;+∞ = 0 Alors lim Vn * Un n-&gt; +∞ = 0<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orga3baa03" class="outline-3">
+<h3 id="orga3baa03">Theoreme d&rsquo;encadrement</h3>
+<div class="outline-text-3" id="text-orga3baa03">
+<p>
+Soient Un Vn et Wn trois suites ∀n ∈ ℕ, Un ≤ Vn ≤ Wn . et lim Un n-&gt;∞ = lim Wn n-&gt; +∞  = l ⇒ lim Vn n-&gt; +∞ = l<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgbbda563" class="outline-3">
+<h3 id="orgbbda563">Suites arithmetiques</h3>
+<div class="outline-text-3" id="text-orgbbda563">
+<p>
+Un est une suite arithmetique si : U(n+1) = Un + r ; r etant la raison de la suite<br />
+</p>
+</div>
+<div id="outline-container-orgb4756c6" class="outline-4">
+<h4 id="orgb4756c6">Forme general</h4>
+<div class="outline-text-4" id="text-orgb4756c6">
+<p>
+<b>Un = U0 + nr</b> ; <b>Un = Up + (n - p)r</b><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orga6494e4" class="outline-4">
+<h4 id="orga6494e4">Somme des n premiers termes</h4>
+<div class="outline-text-4" id="text-orga6494e4">
+<p>
+Un est une suite arithmetique, Sn = [(U0 + Un)(n + 1)]/2<br />
+</p>
+
+
+<p>
+Sn = (n, k = 0)ΣUk est une somme partielle et lim Sn n-&gt;+∞ = k≥0ΣUk est une serie<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org10d88d9" class="outline-3">
+<h3 id="org10d88d9">Suites géométriques</h3>
+<div class="outline-text-3" id="text-org10d88d9">
+</div>
+<div id="outline-container-orgfe286ce" class="outline-4">
+<h4 id="orgfe286ce">Forme general</h4>
+<div class="outline-text-4" id="text-orgfe286ce">
+<p>
+<b>Un = U0 x r^n</b><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgaa6b262" class="outline-4">
+<h4 id="orgaa6b262">Somme des n premiers termes</h4>
+<div class="outline-text-4" id="text-orgaa6b262">
+<p>
+n ∈ ℕ\{1} Sn = U0 (1 - r^(n+1))/1-r<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeeb4832" class="outline-2">
+<h2 id="orgeeb4832">5th cours (suite) : <i>Oct 12</i></h2>
+<div class="outline-text-2" id="text-orgeeb4832">
+</div>
+<div id="outline-container-orge9160fd" class="outline-3">
+<h3 id="orge9160fd">Suites adjacentes:</h3>
+<div class="outline-text-3" id="text-orge9160fd">
+<p>
+Soient (Un) et (Vn) deux suites, elles sont adjacentes si:<br />
+</p>
+<ol class="org-ol">
+<li>(Un) est croissante et (Vn) est décroissante<br /></li>
+<li>Un ≤ Vn<br /></li>
+<li>lim (Un - Vn) n-&gt;+∞ = 0<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgaedf3ea" class="outline-3">
+<h3 id="orgaedf3ea">Suites extraites (sous-suites):</h3>
+<div class="outline-text-3" id="text-orgaedf3ea">
+<p>
+Soit (Un) une suite: ;U: ℕ -&#x2014;&gt; ℝ ;   n -&#x2014;&gt; Un ;ϕ: ℕ -&#x2014;&gt; ℕ ;   n -&#x2014;&gt; ϕn ;(U(ϕ(n))) est appelée une sous suite de (Un) ou bien une suite extraite.<br />
+</p>
+</div>
+<div id="outline-container-org586e8c4" class="outline-4">
+<h4 id="org586e8c4">Remarques:</h4>
+<div class="outline-text-4" id="text-org586e8c4">
+<ol class="org-ol">
+<li>Si (Un) converge ⇒ ∀ n ∈ ℕ , U(ϕ(n)) converge aussi.<br /></li>
+<li>Mais le contraire n&rsquo;es pas toujours vrais.<br /></li>
+<li>U(2n) et U(2n+1) convergent vers la même limite (l), alors Un aussi converge vers l<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org1ce447c" class="outline-3">
+<h3 id="org1ce447c">Suites de Cauchy:</h3>
+<div class="outline-text-3" id="text-org1ce447c">
+<p>
+(Un) n ∈ ℕ est une suite de Cauchy Si ; ;∀ ε &gt; 0 , ∃ N ∈ ℕ ; ∀ n &gt; m &gt; N ; |Un - Um| &lt; ε<br />
+</p>
+</div>
+<div id="outline-container-orgd06f7ae" class="outline-4">
+<h4 id="orgd06f7ae">Remarque :</h4>
+<div class="outline-text-4" id="text-orgd06f7ae">
+<ol class="org-ol">
+<li>Toute suite convergente est une suite de Cauchy et toute suite Cauchy est une suite convergente<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org392a346" class="outline-3">
+<h3 id="org392a346">Théorème de Bolzano Weirstrass:</h3>
+<div class="outline-text-3" id="text-org392a346">
+<p>
+On peut extraire une sous suite convergente de toute suite bornée<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org91a748f" class="outline-2">
+<h2 id="org91a748f">Chapitre 3 : Les limites et la continuité <i>Nov 14</i></h2>
+<div class="outline-text-2" id="text-org91a748f">
+</div>
+<div id="outline-container-orgde4196b" class="outline-3">
+<h3 id="orgde4196b">Fonction réelle à variable réelle :</h3>
+<div class="outline-text-3" id="text-orgde4196b">
+<p>
+Soit  f : I &#x2013;&gt; ℝ , I ⊂= ℝ<br />
+         x &#x2013;&gt; f (x)<br />
+</p>
+</div>
+<div id="outline-container-orgd68331d" class="outline-4">
+<h4 id="orgd68331d">L&rsquo;ensemble de départ :</h4>
+<div class="outline-text-4" id="text-orgd68331d">
+<p>
+L&rsquo;ensemble de définition (Df)<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org5899912"></a>Propriétés:<br />
+<div class="outline-text-5" id="text-org5899912">
+<p>
+Soit f et g deux fonctions :<br />
+f : I &#x2013;&gt; ℝ<br />
+    x &#x2013;&gt; f (x)<br />
+</p>
+
+<p>
+g : I &#x2013;&gt; ℝ<br />
+    x &#x2013;&gt; g(x)<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orge1e9b5a"></a>1) f+g<br />
+<div class="outline-text-6" id="text-orge1e9b5a">
+<p>
+(g+f): I &#x2013;&gt; ℝ<br />
+       x &#x2013;&gt; (f+g)(x) = f (x) + g(x)<br />
+</p>
+</div>
+</li>
+<li><a id="org9580e4d"></a>2) λf<br />
+<div class="outline-text-6" id="text-org9580e4d">
+<p>
+∀λ ∈ ℝ : λf : I &#x2013;&gt; ℝ<br />
+              x &#x2013;&gt; (λf)(x) = λf (x)<br />
+</p>
+</div>
+</li>
+<li><a id="orgc657e9e"></a>3) f*g<br />
+<div class="outline-text-6" id="text-orgc657e9e">
+<p>
+(f*g): I &#x2013;&gt; ℝ<br />
+       x &#x2013;&gt; (f*g)(x) = f (x) x g(x)<br />
+</p>
+</div>
+</li>
+<li><a id="org8718fe3"></a>4) f/g<br />
+<div class="outline-text-6" id="text-org8718fe3">
+<p>
+f/g :  I &#x2013;&gt; ℝ<br />
+       x &#x2013;&gt; f (x)/g(x) , g(x) ≠ 0<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-org3151412" class="outline-4">
+<h4 id="org3151412">Les Limites :</h4>
+<div class="outline-text-4" id="text-org3151412">
+<p>
+f : I &#x2013;&gt; ℝ<br />
+   x &#x2013;&gt; f (x)<br />
+   x<sub>0</sub> ∈ I ; x<sub>0</sub> extrémité de l&rsquo;intervalle.<br />
+</p>
+
+<p>
+Lim<sub>x &#x2013;&gt; x<sub>0</sub></sub> f (x) est a Limite de f (x) quand x tend vers x<sub>0</sub><br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org378d0db"></a>Lim<sub>x &#x2013;&gt; x<sub>0</sub></sub> f (x) = l<br />
+<div class="outline-text-5" id="text-org378d0db">
+<p>
+=&gt; |x - x<sub>0</sub>| &lt; ẟ , |f (x) - l| &lt; ε<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org287d826" class="outline-4">
+<h4 id="org287d826">La continuité :</h4>
+<div class="outline-text-4" id="text-org287d826">
+<p>
+Soit f : I &#x2013;&gt; ℝ         I = Df<br />
+        x &#x2013;&gt; f (x)      x<sub>0</sub> ∈ I<br />
+f est continue en x<sub>0</sub> ⇔ Lim<sub>x &#x2013;&gt; x<sub>0</sub></sub> f (x) = f (x<sub>0</sub>)<br />
+∀ε &gt; 0 , ∃ẟ &gt; 0 , |x - x<sub>0</sub>| &lt; ẟ ⇒ |f (x) - f (x<sub>0</sub>)| &lt; ε<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc77ab14" class="outline-4">
+<h4 id="orgc77ab14">Prolongement par continuité :</h4>
+<div class="outline-text-4" id="text-orgc77ab14">
+<p>
+Soit f : I/ {x<sub>0</sub>} &#x2013;&gt; ℝ<br />
+        x &#x2013;&gt; f (x)<br />
+</p>
+
+<p>
+Si lim<sub>x &#x2013;&gt; x<sub>0</sub></sub> f (x) = l Alors f est prolongéable par continuité en x<sub>0</sub><br />
+</p>
+
+<p>
+On défini :<br />
+f~ = f (x) si x ≠ x<sub>0</sub><br />
+ET<br />
+l si x = x<sub>0</sub><br />
+           f~ : I &#x2013;&gt; ℝ<br />
+                x &#x2013;&gt; f (x)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org8edfe47" class="outline-4">
+<h4 id="org8edfe47">Théorème des valeurs intermédiaires :</h4>
+<div class="outline-text-4" id="text-org8edfe47">
+<p>
+f : [a,b] &#x2013;&gt; ℝ<br />
+Si f est continue sur [a,b]<br />
+Alors ∀y ∈ f ([a,b]) ⇒ ∃x ∈ [a,b] ; y = f (x)<br />
+</p>
+
+<ol class="org-ol">
+<li>Si f est continue sur [a,b]<br /></li>
+<li>Si f (a) * f (b) &lt; 0<br /></li>
+</ol>
+<p>
+Donc ∃ c ∈ ]a,b[ , f (c) = 0<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgea41b1c" class="outline-4">
+<h4 id="orgea41b1c">Fonction croissante :</h4>
+<div class="outline-text-4" id="text-orgea41b1c">
+<p>
+f : I &#x2013;&gt; J<br />
+    f est croissante si ∀ x<sub>1</sub>,x<sub>2</sub> ∈ I<br />
+        x<sub>1</sub> &lt; x<sub>2</sub> ⇒ f (x<sub>1</sub>) ≤ f (x<sub>2</sub>)<br />
+</p>
+
+<p>
+f est strictement croissante si ∀ x<sub>1</sub>,x<sub>2</sub> ∈ I<br />
+    x<sub>1</sub> &lt; x<sub>2</sub> ⇒ f (x<sub>1</sub>) &lt; f (x<sub>2</sub>)<br />
+</p>
+
+<p>
+Si f est croissante ou décroissante, alors elle est bornée.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd45a9b4" class="outline-4">
+<h4 id="orgd45a9b4">Injection = Strictement monotonne :</h4>
+<div class="outline-text-4" id="text-orgd45a9b4">
+<p>
+f : I &#x2013;&gt; J<br />
+f est injective si ∀ x<sub>1</sub>,x<sub>2</sub> ∈ I , f (x<sub>1</sub>) = f (x<sub>2</sub>) ⇒ x<sub>1</sub> = x<sub>2</sub><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org189c903" class="outline-4">
+<h4 id="org189c903">Surjection = Continuité :</h4>
+<div class="outline-text-4" id="text-org189c903">
+<p>
+f est surjective si ∀ y ∈ J, ∃ x ∈ I , y = f (x)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org07713a2" class="outline-4">
+<h4 id="org07713a2">Bijection :</h4>
+<div class="outline-text-4" id="text-org07713a2">
+<p>
+Si f est injective et surjective, alors f est bijective<br />
+f est bijective donc elle admet une bijection réciproque<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org7512d26" class="outline-4">
+<h4 id="org7512d26">Théorème de bijection :</h4>
+<div class="outline-text-4" id="text-org7512d26">
+<p>
+Si f est continue et strictement monotone alors elle est bijective.<br />
+f admet une bijection réciproque f{-1}.<br />
+f{-1} a le même sens de variation que f.<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Crystal</p>
+<p class="date">Created: 2023-11-14 Tue 23:06</p>
+</div>
+</body>
+</html>
