@@ -1,8 +1,10 @@
 {
   "undermaintenence": "유지 관리 중",
+
   "title": "balls.skin에 오신 것을 환영합니다!",
   "titleb1": "balls.skin이란 무엇인가요?",
   "titlea1": "회원",
+  "test": "test",
 
   "test": "테스트",
   "mbaph": "바포메트",
@@ -21,6 +23,7 @@
   "mfeefiest":"빕잇트",
   "mkaz":"카지미르",
   "mlucas":"루카스",
+  "mcrystal":"크리스탈"
 
   "config": "구성",
   "theme": "테마",

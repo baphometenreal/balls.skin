@@ -4,6 +4,7 @@
   "titleb1": "balls.skinとは何か?",
   "titlea1": "メンバー",
   "test": "テスト",
+
   "mbaph": "バフォメット",
   "mbenzene": "ベンゼン",
   "mcarlos": "カルロス",
@@ -18,14 +19,20 @@
   "mvan": "バン",
   "mxad": "シャドレーゾ",
   "mfeefiest":"フェーフィスト",
+  "mkaz":"Kazimir",
+  "mlucas":"Lucas",
+  "mcrystal":"Crystal"
+
   "config": "設定",
   "theme": "テーマ",
   "lightmode": "光",
   "darkmode": "暗",
   "bloodmode": "血",
   "pweemode": "しょんべん",
+  "hollymode": "クリスマス"
   "languageconf": "翻訳",
   "unfinishedtranslations": "未完成の翻訳",
+
   "howq": "balls.skinのページを取得するには?",
   "howa": "聞いてみて！ノエルのディスコードはnoelle6666(またはnoer6090)です.",
   "whatq1": "balls.skinとは何ですか？",
@@ -35,6 +42,7 @@
   "whata2.1": "そして名前は笑笑",
   "whatq3": "balls.skinの使い方は？",
   "whata3": "<a href='/how'>ここ</a>に行く",
+
   "noelletitle": "アラーの快適な就寝装置",
   "noellesubq": "わちきは誰なのか",
   "noellesuba": "バフォメットだ。\"吾\"を使うおっちょこちょいな性別不詳の異人です。変だと思うなら(☠️)、\"わちき\"を使ってください。",
@@ -73,6 +81,7 @@
   "noellefansmt": "女神転生",
   "noellefaneva": "シン・エヴァンゲリオン",
   "noellefan1":"吾はいろんなファンダムに入っているけど、今、一番好きなのはこれだけだ。",
+
   "vantitle": "バン",
   "vanpronouns": "彼",
   "van1": "west by god",
@@ -83,18 +92,21 @@
   "van6": "天使の悪魔だから :3",
   "van7": "ディスコード: vandalia12",
   "van8": "スチーム: <a href='https://steamcommunity.com/id/vandalia12'>vandalia12</a>",
+
   "moisst": "僕のページにようこそ！僕の名前はmoist（aj/val）!!>:3 特に何もしていません",
   "moisscooltext1": "<img src='https://balls.skin/m/eternaldamnationmints/eternaldamnationmints/translations/jp/coollogo_com-67462051.gif'>",
   "moisscooltext2": "<img src='https://balls.skin/m/eternaldamnationmints/eternaldamnationmints/translations/jp/coollogo_com-88453152.gif'>",
   "moissgracinoeje": "ありがとうノエル!",
   "moissshidamatemple": "シダーマ寺院",
   "moissgoback": "戻る:",
+
   "emmasupertitle": "ようこそ",
   "emmatitle": "エンマ ボールページ リアル",
   "emma1": "こんにちは、エマです。 (she/they)",
   "emma2": "たまにネコかサメになるかもしれない。",
   "emma3": "これはウェブサイトだと思う",
   "emmalink": "エマウェブページ 本物かどうか",
+
   "xadtitle": "<b>地球食品</b>主催",
   "xadheader1": "<img class='head' src='https://balls.skin/m/xadrezo/translations/jp/hanebrug.png'>",
   "xadheader2": "<img class='head' src='https://balls.skin/m/xadrezo/translations/jp/boryaworld.png'>",
@@ -105,6 +117,7 @@
   "xadlink5": "民主主義指数",
   "xadlink6": "コンバット・リゾルバ",
   "xadlink7": "現金コンバーター",
+
   "titlepsa": "公共サービス広告",
   "psatonetags": "トネータグ",
   "ttwarn": "これは網羅的なリストではない。より重要なタグにはアストリスク (*) を使用する。<b>以下は翻訳されていない。</b>",
@@ -120,5 +133,5 @@
   "ttpos":"Positive. /pos is used in situations where you want to convey that what you are saying is meant to be positive. Example: 'Grilled cheese is my favourite food /pos'. /pos may be confusing, so use one of the other alternatives, it's just that /pos is more used.",
   "ttneu":"Neutral. /neu is used in situations where you want to convey that what you are saying is meant to be neautral, neither positive or negative. Example: 'Grilled cheese is my favourite food /neu'.",
   "ttneg":"Negative. /neg is used in situations where you want to convey that what you are saying is meant to be negative. Example: 'Grilled cheese is my favourite food /neg'.",
-  "hollymode": "クリスマス"
+  
 }
