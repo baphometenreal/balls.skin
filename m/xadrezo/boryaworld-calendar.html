@@ -99,7 +99,7 @@
 	<img src="flags/ihoshar.png" title="Ihoshari calendar" alt=":flag_iho:"><font style="font-size: 26px;"><!--Ihoshari:--> </font><font id="errorIHO" name="errorIHO" style="font-size: 26px; color: red"></font><font id="convIHO" name="convIHO" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"> </font><font id="convIHO1" name="convIHO1" style="font-size: 26px;"></font><br>
 	<img src="flags/mallia.png" title="Mallian calendar" alt=":flag_mal:"><font style="font-size: 26px;"> </font><font id="errorMAL" name="errorMAL" style="font-size: 26px; color: red"></font><font id="convMAL" name="convMAL" style="font-size: 26px; font-weight: bold;"></font><br>
-	<img src="flags/rangei.png" title="Rangeian calendar" alt=":flag_ran:"><font style="font-size: 26px;"> </font><font id="errorRAN" name="errorRAN" style="font-size: 26px; color: red"></font><font id="convRAN" name="convRAN" style="font-size: 26px; font-weight: bold;"></font><br>
+	<!--<img src="flags/rangei.png" title="Rangeian calendar" alt=":flag_ran:"><font style="font-size: 26px;"> </font><font id="errorRAN" name="errorRAN" style="font-size: 26px; color: red"></font><font id="convRAN" name="convRAN" style="font-size: 26px; font-weight: bold;"></font><br>-->
 	<img src="flags/cring.png" title="Cring calendar" alt=":flag_crg:" style="border: 1px solid"><font style="font-size: 26px;"> </font><font id="errorCRG" name="errorCRG" style="font-size: 26px; color: red"></font><font id="convCRG" name="convCRG" style="font-size: 26px; font-weight: bold;"></font>
 	
 	<script src="cal.js"></script>
@@ -113,7 +113,7 @@
 			document.getElementById('errorALL').innerHTML = ""
 			document.getElementById('errorSUN').innerHTML = ""
 			document.getElementById('errorIHO').innerHTML = ""
-			document.getElementById('errorRAN').innerHTML = ""
+			//document.getElementById('errorRAN').innerHTML = ""
 			document.getElementById('errorMAL').innerHTML = ""
 			document.getElementById('errorCRG').innerHTML = ""
 			
@@ -124,7 +124,7 @@
 			document.getElementById('convALL').innerHTML = ""
 			document.getElementById('convSUN').innerHTML = ""
 			document.getElementById('convIHO').innerHTML = ""
-			document.getElementById('convRAN').innerHTML = ""
+			//document.getElementById('convRAN').innerHTML = ""
 			document.getElementById('convMAL').innerHTML = ""
 			document.getElementById('convCRG').innerHTML = ""
 			
@@ -207,12 +207,12 @@
 				document.getElementById('convSUN1').innerHTML = " <oika>" + (numberSUN(convDateSUN[0]) + monthNamesSUN1[convDateSUN[1]] + numberSUN(convDateSUN[2]) + String(convDateSUN[3]).replace(" IPT", "")) + "</oika>"
 			}
 			
-			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+			/*if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
 				document.getElementById('errorRAN').innerHTML = "Year must be between -9999 and 9999"
 			} else {
 				var convDateRAN = calcDateRAN(date)
 				document.getElementById('convRAN').innerHTML = convDateRAN[0] + " " + convDateRAN[1] + " " + convDateRAN[2] + convDateRAN[3]
-			}
+			}*/
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
 				document.getElementById('errorMAL').innerHTML = "Year must be between -9999 and 9999"
