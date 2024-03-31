@@ -220,7 +220,8 @@ function fromJDtoUTC( JD ){
 // --------
 
 function getFirstDayLRM(year) {
-	var equinoxDate = new Date(Date.UTC(year, 2, calcEquiSol(1, year)))
+	// var equinoxDate = new Date(Date.UTC(year, 2, calcEquiSol(1, year)))
+	var equinoxDate = new Date(Date.UTC(year, 2, 20))
 	equinoxDate.setFullYear(year)
 	
 	return new Date(equinoxDate - getWeekdayLRM(equinoxDate) * 86400000)
