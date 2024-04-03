@@ -488,7 +488,7 @@ function getYearLengthSUN(year) {
 }
 
 function calcDateSUN(date) {
-	var epoch = new Date(Date.UTC(-1126, 5, 9))
+	var epoch = new Date(Date.UTC(-1126, 11, 9))
 	// var epoch = new Date(Date.UTC(-1127, 6, 1))
 	var dayNumber = Math.floor((date - epoch) / 86400000) + 1
 	
