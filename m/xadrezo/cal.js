@@ -220,7 +220,8 @@ function fromJDtoUTC( JD ){
 // --------
 
 function getFirstDayLRM(year) {
-	var equinoxDate = new Date(Date.UTC(year, 2, calcEquiSol(1, year)))
+	// var equinoxDate = new Date(Date.UTC(year, 2, calcEquiSol(1, year)))
+	var equinoxDate = new Date(Date.UTC(year, 2, 20))
 	equinoxDate.setFullYear(year)
 	
 	return new Date(equinoxDate - getWeekdayLRM(equinoxDate) * 86400000)
@@ -487,7 +488,7 @@ function getYearLengthSUN(year) {
 }
 
 function calcDateSUN(date) {
-	var epoch = new Date(Date.UTC(-1126, 5, 9))
+	var epoch = new Date(Date.UTC(-1126, 11, 9))
 	// var epoch = new Date(Date.UTC(-1127, 6, 1))
 	var dayNumber = Math.floor((date - epoch) / 86400000) + 1
 	
