@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kzmr Dictionary</title>
+    <link href="/css.css" rel="stylesheet" type="text/css" media="screen" id="theme-link">
+	<style>
+	.entry:after {
+		content: " 📖";
+	}
+	
+	.entry {
+		color: black;
+		text-decoration: none
+	}
+	</style>
+  </head>
+  <body>
+    <div class="main2" style="text-align: left;"> 
+		<h1>Kzmr Dictionary</h1>
+		<div name="dictionary" id="dictionary">
+		</div>
+	</div>
+	
+    <br><br><br>
+	<p id="footer"></p>
+	<script src="papaparse.min.js"></script>
+	<script>
+		//PAPA Parser (https://www.papaparse.com/) used to convert TEXT to CSV
+		function readFile() {  
+		  var reader = new FileReader();
+
+		  fetch("words.csv")
+		  .then(res => res.blob())
+		  .then(blob => {
+			var content = reader.readAsText(blob);
+		});
+
+		// all of this loads the words from the file and renders them nicely. do not touch any of this (except the clickable types below)
+		  reader.onload = function () {
+			var data = Papa.parse(reader.result, { header: false });
+
+			if (data.errors.length) {
+			  console.error(data.errors)
+			} else {
+			  console.log("Loaded dictionary")
+			  dictData = Object.entries(data)[0][1]
+
+			  var totalEntries = ""
+			  
+			  for (var i = 0; i < dictData.length; i++) { 
+				var english = dictData[i][0]
+				var kzmr = dictData[i][1]
+				var type = dictData[i][2]
+				var extra = dictData[i][3]
+				var notes = dictData[i][4]
+				
+				var indEntry = ""
+				
+				if ((type == "") && (notes == "")) {
+					indEntry = "<p>" + english + ": <b>" + kzmr.replaceAll("\'", "'") + "</b>"
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					indEntry += "</p>"
+				} else if  ((type == "") && (notes != "")) {
+					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + kzmr + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + kzmr + "</a></b>"
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					indEntry += "</p>"
+				} else { //all the clickable type are here
+					var prettyArt = type
+					
+					switch (type) {
+						case "nv":
+							prettyArt = "noun"
+							break;
+						case "v":
+							prettyArt = "verb"
+							break;
+						case "prn":
+						  prettyArt = "pronoun"
+					}
+					
+					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + kzmr + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + kzmr + "</a></b> <i>(" + prettyArt
+					if (extra) { indEntry +=  ", " + extra + ""}
+					indEntry += ")</i></p>"
+				}
+			  
+				totalEntries += indEntry
+			  }
+			  document.getElementById("dictionary").innerHTML = totalEntries
+			}
+		  };
+		}
+		
+		function grammar(english, kzmr, type, notes) {
+		if (type == "") {openNewPage(kzmr + " \"" + english + "\"", "", notes); return}
+		
+		var wortstamm = ""
+		var bes = "" // unused
+		var extra = "" // unused
+		var ending = "" // unused as of yet
+		
+		switch (type) { // inflection types go here
+			// NOUN INFLECTION GOES HERE
+			
+          }
+          break;
+				
+			// IF THIS SHOWS UP, YOU FORGOT TO DEFINE SOME DECLENSIONS
+			default:
+				var tabelle = "undefined word type: " + type
+				break;
+			}
+			
+			// paste inflections into new tab
+			openNewPage(kzmr + " \"" + english + "\"", tabelle, notes)
+		}
+	
+		function openNewPage(title, content, notes) {
+		  console.log(notes)
+		
+		  var opened = window.open("");
+		  opened.document.write("<html><head><title>" + title + "</title><link href=\"/css.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><style>table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;}</style></head><div class=\"main2\" style=\"text-align: left;\"><h2>" + title + "</h2><body><p>" + content + "</p>" + ((notes != "") && !(typeof notes == "undefined") ? "<h3>Notes</h3><p>" + notes + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
+		}
+		
+		readFile()
+	</script>
+	<script src="/js.js"></script>
+  </body>
+</html>
