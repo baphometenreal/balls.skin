@@ -66,11 +66,11 @@
 				var indEntry = ""
 				
 				if ((type == "") && (notes == "")) {
-					indEntry = "<p>" + english + ":" + baphian.replaceAll("\'", "'") + ""
+					indEntry = "<p>" + english + ": <style='font-size:2em'>" + baphian.replaceAll("\'", "'") + "</style>"
 					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
 					indEntry += "</p>"
 				} else if  ((type == "") && (notes != "")) {
-					indEntry = "<p>" + english + ": <a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a>"
+					indEntry = "<p>" + english + ": <style='font-size:2em'<a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></style>"
 					if (extra) { indEntry +=  " <i>(" + extra + ", see notes)</i>" } else {indEntry +=  " <i>(see notes)</i>" }
 					indEntry += "</p>"
 				} else {
@@ -78,7 +78,7 @@
 					
 	
 					
-					indEntry = "<p>" + english + ": <a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a> <i>(" + prettyArt
+					indEntry = "<p>" + english + ": <style='font-size:2em'<a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></style> <i>(" + prettyArt
 					if (extra) { indEntry +=  ", " + extra + ""}
 					if (notes) { indEntry +=  ", see notes"}
 					indEntry += ")</i></p>"
