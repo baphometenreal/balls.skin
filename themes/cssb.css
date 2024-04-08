@@ -2,7 +2,10 @@
   font-family: "timesh";
   src: url("/font/TimesNewRomanPS-BaoldMT.woff2");
 }
-
+@font-face {
+	 font-family: "ukilen";
+	 src: url("/font/UkilenLg.ttf");
+	}
 @font-face {
   font-family: "Evajp";
   src: url("/font/NotoSerifJP-Black.otf");
@@ -35,7 +38,7 @@
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
- font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr";
+ font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr", "ukilen";
 }
 body {
   margin-left:10%;
@@ -44,7 +47,7 @@ body {
   color:white;
 }
 p {
-  font-family: times, serif;
+  font-family: times, serif, "ukilen";
   font-size: 15px;
 }
 a, button, a:visited {
