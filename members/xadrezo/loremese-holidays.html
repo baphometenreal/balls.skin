@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            window.location.href = (window.location).toString().replaceAll("/members/", "/m/")
+        </script>
+        <title>Redirect</title>
+    </head>
+    <body>
+        If you are not redirected automatically, follow this <a id="redirectLink" href='#'>link</a>.
+    </body>
+	<script>
+		document.getElementById("redirectLink").href = (window.location).toString().replaceAll("/members/", "/m/")
+	</script>
+</html>
