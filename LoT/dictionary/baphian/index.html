@@ -66,11 +66,11 @@
 				var indEntry = ""
 				
 				if ((type == "") && (notes == "")) {
-					indEntry = "<p>" + english + ": <font  font-family: ukilen; style='font-size:32px'>" + baphian.replaceAll("\'", "'") + "</font>"
+					indEntry = "<p>" + english + ": <font style='font-family: 'ukilen'; font-size:32px'>" + baphian.replaceAll("\'", "'") + "</font>"
 					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
 					indEntry += "</p>"
 				} else if  ((type == "") && (notes != "")) {
-					indEntry = "<p>" + english + ": <font style=' font-family: ukilen; font-size:32px'<a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font>"
+					indEntry = "<p>" + english + ": <font style='font-family: 'ukilen'; font-size:32px'<a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font>"
 					if (extra) { indEntry +=  " <i>(" + extra + ", see notes)</i>" } else {indEntry +=  " <i>(see notes)</i>" }
 					indEntry += "</p>"
 				} else {
@@ -78,7 +78,7 @@
 					
 	
 					
-					indEntry = "<p>" + english + ": <font style=' font-family: ukilen; font-size:32px'<a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font> <i>(" + prettyArt
+					indEntry = "<p>" + english + ": <font style=' font-family: 'ukilen'; font-size:32px'<a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font> <i>(" + prettyArt
 					if (extra) { indEntry +=  ", " + extra + ""}
 					if (notes) { indEntry +=  ", see notes"}
 					indEntry += ")</i></p>"
