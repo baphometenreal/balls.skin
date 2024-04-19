@@ -1,0 +1,85 @@
+@font-face {
+  font-family: yorha;
+  src: url(./files/ingrammono.woff2);
+}
+body {
+   font-family: yorha; 
+   text-align: center;
+   background: #A10301;
+   color: #f0e1e1;
+  }
+h1, h2, h3, h4, h5, h6, p {
+    font-family: yorha, sans-serif;
+    text-wrap:none;
+  }
+.main{
+    background: #FD0100;
+}
+.flag {
+  max-height: 20px;
+  max-width: 64px;
+}
+.emoji {
+  max-width:20px;
+  max-height:20px;
+}
+.button {
+ padding:7px;
+ display: block;
+ width: 90%;
+ height: auto;
+ background:#A10301;
+ border-radius:5px;
+ color: #f0e1e1;
+ margin-bottom:5px;
+ margin-left:10px;
+}
+@media screen and (min-width:376px) {
+  .main {
+    margin-left:2%;
+    margin-right:2%;
+    margin-top:5px;
+    border-radius: 5px;
+    padding-top:5px;
+    padding-bottom:5px;
+  }
+  h1{
+   font-size:25px; 
+  }
+  h2{
+   font-size:22px; 
+  }
+  p{
+   font-size:13px; 
+  }
+
+  img {
+    border-radius: 5px;
+    max-width: 256px;
+    max-height: 256px;
+  }
+}
+@media screen and (max-width:375px) {
+  .main {
+    margin-left:2%;
+    margin-right:2%;
+    margin-top:4px;
+    border-radius: 5px;
+    padding-top:4px;
+    padding-bottom:4px;
+  }
+  h1{
+   font-size:23px; 
+  }
+  h2{
+   font-size:20px; 
+  }
+  p{
+   font-size:10px; 
+  }
+  img {
+    border-radius: 5px;
+    max-width: 256px;
+    max-height: 256px;
+  }
+}
