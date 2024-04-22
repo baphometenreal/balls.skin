@@ -8,9 +8,8 @@
 
 .main {background:var(--bg-main);text-align:center;border-radius:10px;}
 .pfp {width:275px;height:auto;margin-bottom:-2%;margin-top:-2%;border-radius:100%}
-h1,h2,h3,p,text {color:var(--text);}
+h1,h2,h3,p,text {color:var(--text);font-family: "Dark and black";}
 body {background:var(--bg);margin-left:15%;margin-right:15%;}
-h1,h2,h3 {font-family: "Dark and black"}
 td {vertical-align: top}
 table {width: 100%;table-layout: fixed;vertical-align: top;}
 .flag {width: 75%; height: auto; max-height:150px;} 
