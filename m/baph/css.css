@@ -6,7 +6,7 @@
   --text: #ffeded;
 }
 
-a {background-color:var(--bg);border-radius:10px;}
+a {background-color:var(--bg);border-radius:10px;padding:5px;}
 .main {background:var(--bg-main);text-align:center;border-radius:10px;}
 .pfp {width:275px;height:auto;margin-bottom:-2%;margin-top:-2%;border-radius:100%}
 h1,h2,h3 {color:var(--text);font-family: "Dark and black";}
