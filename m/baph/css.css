@@ -6,6 +6,7 @@
   --text: #ffeded;
 }
 
+p, text {color:var(--text)}
 a {background-color:var(--bg);border-radius:10px;padding:7px;}
 .main {background:var(--bg-main);text-align:center;border-radius:10px;margin-bottom:10px;padding-bottom:10px;}
 .pfp {width:275px;height:auto;margin-bottom:-2%;margin-top:-2%;border-radius:100%}
