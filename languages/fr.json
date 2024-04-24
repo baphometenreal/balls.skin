@@ -32,7 +32,14 @@
   "pweemode": "Pisse",
   "hollymode": "Noël",
   "grapemode": "Jus de raisin",
-  "tearmode":"Larmes",
+  "tearmode":"Larmes",  
+  "pinkmode":"Mauvaise Garce",
+  "chcolamode":"Cerise Cola",
+  "studiousmode":"Studieux",
+  "yomimode":"Démon",
+  "mintmode":"Menthe",
+  "lclmode":"LCL",
+  
   "languageconf": "Langue",
   "unfinishedtranslations": "Traductions inachevées",
   
@@ -148,8 +155,9 @@
   "charh7":"profils",
   "char7":"<a class='box' href='https://steamcommunity.com/id/cjraredeted/'>steam</a> | <a class='box' href='https://www.pinterest.com/cjraredeted/'>pinterest</a> | <a class='box' href='https://open.spotify.com/user/ul1nmawn04eip4b0wg4om1c6a?si=8b8a3777c61041a9'>spotify</a> | <a class='box' href='https://www.last.fm/user/CarlvonCarl'>last.fm</a>",
   
-  "baphh1":"welcome to hell~",
-  "baphh2":"pick a door!",
+  
+  "baphh1":"cutest goat around!~",
+  "baphh2":"pick a door!~",
   "baphprngenh":"Pronoun Generator",
   "baphprngenb":"Generate",
   "baphxh1":"my xenogenders!~",
@@ -157,5 +165,24 @@
   "baphxp1":"Gender is a construct anyway so why not have fun with it? I do genuinelly identify with these, these aren't a joke/shitpost to me. If you think this is cringe I do not care. If you have questions ask.",
   "baphxe1":"General/Miscellaneous",
   "baphxe2":"Related to caprini (Goats and sheep)",
-  "baphxe3":"Related to angels and demons"
+  "baphxe3":"Related to angels and demons",
+  "baphbt1":"Abt me! ^^",
+  "baphbt2":"Xenogenders~",
+
+  "kazcompositions1":"Les compositions",
+  "kazcompositions2":"Veuillez noter que cette liste n'est pas exhaustive.",
+  "kazcompositionssolopiano":"Piano solo:",
+  "kazcompositionsquadrille":"Quadrille, Op. 1 (2023)",
+  "kazcompositionselectronic":"Électronique:",
+  "kazcompositionsysrti":"Vous ressemblez légèrement au nourrisson (2021)",
+  "kazperformances1":"Performances",
+  "kazperformancestanaka":"Karen Tanaka: Notre planète Terre</b> - No. 5: Magma",
+  "kazhome1":"Kazimir A.L. Solan",
+  "kazhome2":"Étudiante au Gustavus Adolphus College",
+  "kazhome3":"A propos de moi",
+  "kazhome4":"Je suis Kazimir Solan, un compositeur-pianiste en herbe du Minnesota. Mes hobbies sont la construction de la langue, la construction du monde, la composition, la collection de musique, et occasionnellement le dessin de choses bêtes.",
+  "kazhome5":"Intérêts de la recherche",
+  "kazhome6":"Je suis en train de <s>travailler avec mon collègue <a href=\"/m/kazimir/index\">Henry Durand</a> sur une traduction de l'un des manuscrits de la Cache Hovland</s> en écrivant une œuvre métafictionnelle se déroulant dans l'un de mes différents paracosmes.",
+  "kazhome7":"Contact:<br/>pontisconlangs [at] gmail.com",
+  "kaztpdisclaimer":""
 }

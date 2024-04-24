@@ -1,8 +1,18 @@
+:root {
+  --bg-main:#ba68c8;
+  --bg:#4a148c;
+  --text:#FCEAFF;
+  --button-bg:#7b1fa2;
+}
+
 @font-face {
   font-family: "timesh";
   src: url("/font/TimesNewRomanPS-BaoldMT.woff2");
 }
-
+@font-face {
+	 font-family: "ukilen";
+	 src: url("/font/UkilenLg.ttf");
+	}	
 @font-face {
   font-family: "Evajp";
   src: url("/font/NotoSerifJP-Black.otf");
@@ -28,7 +38,7 @@
 .main {
   max-width: 100%;
   text-align: center;
-  background: #BA68C8;
+  background: var(--bg-main);
   border-radius: 5px;
   padding-bottom:5px;
 }
@@ -39,23 +49,23 @@
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
- font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr";
+ font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr", "ukilen";
 }
 body {
   margin-left:10%;
   margin-right:10%;
-  background: #4A148C;
-  color:white;
+  background: var(--bg);
+  color:var(--text);
 }
 p {
-  font-family: times, serif;
+  font-family: times, serif, "ukilen";
   font-size: 15px;
 }
 a, button, a:visited {
   text-decoration: none;
   font-family: times, serif;
-  background-color: #7B1FA2;
-  color: white;
+  background-color: var(--button-bg);
+  color: var(--text);
   border-radius: 5px;
   padding-top:5px;
   padding-bottom:5px;
@@ -68,7 +78,7 @@ a, button, a:visited {
 a.entry, a.entry:visited {
   text-decoration: none;
   font-family: times;
-  color: white;
+  color: var(--text);
   font-size: 15px;
 }
 .tt {
