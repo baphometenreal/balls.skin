@@ -2,7 +2,10 @@
   font-family: "timesh";
   src: url("/font/TimesNewRomanPS-BaoldMT.woff2");
 }
-
+@font-face {
+	 font-family: "ukilen";
+	 src: url("/font/UkilenLg.ttf");
+	}	
 @font-face {
   font-family: "Evajp";
   src: url("/font/NotoSerifJP-Black.otf");
@@ -28,7 +31,7 @@
 .main {
   max-width: 100%;
   text-align: center;
-  background: #42A5F5;
+  background: #FF99FF;
   border-radius: 5px;
   padding-bottom:5px;
 }
@@ -39,22 +42,22 @@
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
- font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr";
+ font-family: "timesh", "Evajp", "Evatc", "Evasc", "Evakr", "ukilen";
 }
 body {
   margin-left:10%;
   margin-right:10%;
-  background: #0D47A1;
-  color:white;
+  background: #FF00FF;
+  color:#FFF0FF;
 }
 p {
-  font-family: times, serif;
+  font-family: times, serif, "ukilen";
   font-size: 15px;
 }
 a, button, a:visited {
   text-decoration: none;
   font-family: times, serif;
-  background-color: #1976D2;
+  background-color: #FF00FF;
   color: white;
   border-radius: 5px;
   padding-top:5px;

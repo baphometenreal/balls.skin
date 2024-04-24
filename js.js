@@ -1,19 +1,21 @@
 function loadLightMode() {
         const theme = document.querySelector("#theme-link");
         if (localStorage.theme == "light") {
-          theme.href = "/themes/cssl.css"
+          theme.href = "/themes/css_light.css"
         } else if (localStorage.theme == "dark") {
           theme.href = "/themes/css.css"
         } else if (localStorage.theme == "blood") {
-          theme.href = "/themes/cssb.css"
+          theme.href = "/themes/css_blood.css"
         } else if (localStorage.theme == "piss") {
-          theme.href = "/themes/cssp.css"
+          theme.href = "/themes/css_pwee.css"
         } else if (localStorage.theme == "holly") {
-          theme.href = "/themes/cssh.css"
+          theme.href = "/themes/css_christmas.css"
         } else if (localStorage.theme == "grape") {
-          theme.href = "/themes/cssg.css"
+          theme.href = "/themes/css_grape.css"
         } else if (localStorage.theme == "tears") {
-          theme.href = "/themes/csst.css"
+          theme.href = "/themes/css_tears.css"
+        } else if (localStorage.theme == "cunty") {
+          theme.href = "/themes/css_cunty.css"
         } else {
           theme.href = "/themes/css.css" 
         }
