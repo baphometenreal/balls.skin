@@ -1,7 +1,7 @@
 function loadLightMode() {
         const theme = document.querySelector("#theme-link");
 		
-		if (navigator.oscpu.indexOf("Windows NT 5.0") != -1 || navigator.oscpu.indexOf("Windows 2000") != -1) {
+		if (window.navigator.userAgent.includes("Windows NT 5.0") || window.navigator.userAgent.includes("Windows 2000")) {
           theme.href = "/themes/win2000.css"
 		  return
         }
