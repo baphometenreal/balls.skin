@@ -5,7 +5,7 @@
   "titlea1": "Liman",
   
   "test": "bluf",
-  "mbaph": "Diab (Krovanäm)",
+  "mbaph": "Diab (Kaparanäm)",
   "mbenzene": "Bänsin",
   "mcarlos": "Karlos",
   "mchar": "Jar",
@@ -32,6 +32,9 @@
   "bloodmode": "Maget bludik",
   "pweemode": "Maget yurinik",
   "hollymode": "Maget kritidik",
+  "grapemode": "Maget vitidavaetik",
+  "tearmode": "Maget drinenik",
+
   "languageconf": "Pük",
   "unfinishedtranslations": "Tradutods Nefinik",
   "trnsltwarn":" ",
