@@ -1,3 +1,10 @@
+:root {
+  --bg-main:#ff99ff;
+  --bg:#ff00ff;
+  --text:#f2e4f2;
+  --button-bg:#ff00ff;
+}
+
 @font-face {
   font-family: "timesh";
   src: url("/font/TimesNewRomanPS-BaoldMT.woff2");
@@ -31,7 +38,7 @@
 .main {
   max-width: 100%;
   text-align: center;
-  background: #FF99FF;
+  background: var(--bg-main);
   border-radius: 5px;
   padding-bottom:5px;
 }
@@ -47,8 +54,8 @@ h1,h2,h3,h4,h5,h6,h7 {
 body {
   margin-left:10%;
   margin-right:10%;
-  background: #FF00FF;
-  color:#FFF0FF;
+  background: var(--bg);
+  color:var(--text);
 }
 p {
   font-family: times, serif, "ukilen";
@@ -57,8 +64,8 @@ p {
 a, button, a:visited {
   text-decoration: none;
   font-family: times, serif;
-  background-color: #FF00FF;
-  color: white;
+  background-color: var(--button-bg);
+  color: var(--text);
   border-radius: 5px;
   padding-top:5px;
   padding-bottom:5px;
@@ -71,7 +78,7 @@ a, button, a:visited {
 a.entry, a.entry:visited {
   text-decoration: none;
   font-family: times;
-  color: white;
+  color: var(--text);
   font-size: 15px;
 }
 .tt {
