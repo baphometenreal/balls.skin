@@ -11,48 +11,60 @@
     <div class="main">
     <h1 id="config" class="lang">Config</h1>
     <h2 id="theme" class="lang">Theme</h2>
-    <a class="lang" id="darkmode" onclick="settheme('dark')" href="#">Dark mode</a>
-    <a class="lang" id="lightmode" onclick="settheme('light')" href="#">Light Mode</a>
-	<a class="lang" id="pinkmode" onclick="settheme('cunty')" href="#">Cunty Mode</a>
-    <a class="lang" id="bloodmode" onclick="settheme('blood')" href="#">Blood Mode</a>
-    <a class="lang" id="pweemode" onclick="settheme('piss')" href="#">Piss Mode</a>
-	<a class="lang" id="tearmode" onclick="settheme('tears')" href="#">Tears Mode</a>
-	<a class="lang" id="grapemode" onclick="settheme('grape')" href="#">Grape Juice Mode</a>
-	<a class="lang" id="hollymode" onclick="settheme('holly')" href="#">Holly Mode</a>
+	<select id="drop1" onchange="settheme(this.value)">
+    <option value="dark" class="lang" id="darkmode">Dark mode</option>
+    <option value="light" class="lang" id="lightmode">Light Mode</option>
+	<option value="cunty" class="lang" id="pinkmode">Cunty Mode</option>
+    <option value="blood" class="lang" id="bloodmode">Blood Mode</option>
+    <option value="piss" class="lang" id="pweemode">Piss Mode</option>
+	<option value="tears" class="lang" id="tearmode">Tears Mode</option>
+	<option value="grape" class="lang" id="grapemode">Grape Juice Mode</option>
+	<option value="holly" class="lang" id="hollymode">Holly Mode</option>
+	</select>
     <h2 id="languageconf" class="lang">Language</h2>
-    <a onclick="setlang('en')" href="#">English</a>
-    <a onclick="setlang('de')" href="#">Deutsch</a>
-    <a onclick="setlang('fr')" href="#">Français</a>
-    <a onclick="setlang('kr')" href="#">한국어</a>
-    <a onclick="setlang('nd')" href="#">Nederlands</a>
-    <a onclick="setlang('cz')" href="#">Čeština</a>
-    <h3 id="unfinishedtranslations" class="lang">Unfinished Translations</h3>
-    <a onclick="setlang('jp')" href="#">日本語</a>
-    <a onclick="setlang('sp')" href="#">Español</a>
-    <!--<a onclick="setlang('lj')" href="#">la .lojban.</a>-->
-    <a onclick="setlang('su')" href="#">Suomi</a>
-    <a onclick="setlang('yue')" href="#">粵語</a>
-    <a onclick="setlang('sux')" href="#">𒅴𒂠</a>
-    <a onclick="setlang('tp')" href="#">toki pona</a>
-    <a onclick="setlang('schp-L')" href="#">Schizopona (Standard)</a>
-    <a onclick="setlang('schp-B')" href="#">Schizopona (Baph)</a>
-    <a onclick="setlang('schp-K')" href="#">Schizopona (Kaz)</a>
-    <a onclick="setlang('schp-C')" href="#">Schizopona (Char)</a>
-    <!--<a onclick="setlang('ithkuil')" href="#">ithkuil</a>-->
-    <a onclick="setlang('vo')" href="#">Volapük</a>
+	<select id="drop2" onchange="setlang(this.value)">
+    <option value="en">English</a>
+    <option value="de">Deutsch</a>
+    <option value="fr">Français</a>
+    <option value="kr">한국어</a>
+    <option value="nd">Nederlands</a>
+    <option value="cz">Čeština</a>
+	
+	<optgroup id="unfinishedtranslations" label="Unfinished Translations">
+        <option value="jp">日本語</option>
+		<option value="sp">Español</option>
+		<!--<option value="lj">la .lojban.</option>-->
+		<option value="su">Suomi</option>
+		<option value="yue" href="#">粵語</option>
+		<option value="sux" href="#">𒅴𒂠</option>
+		<option value="tp" href="#">toki pona</option>
+		<option value="schp-L" href="#">Schizopona (Standard)</option>
+		<option value="schp-B" href="#">Schizopona (Baph)</option>
+		<option value="schp-K" href="#">Schizopona (Kaz)</option>
+		<!--<option value="schp-C" href="#">Schizopona (Char)</option>-->
+		<!--<option value="ithkuil">ithkuil</a>-->
+		<option value="vo">Volapük</option>
+    </optgroup>
+	</select>
     <br>
     <br>
     <a href="../">⌂</a>
     <script src="/js.js"></script>
     <script>
+	document.getElementById("drop1").value = localStorage.theme
+	document.getElementById("drop2").value = localStorage.lang
+	
     function setlang(lang){
       localStorage.lang = lang
       loadLanguage()
     }
+	
     loadLanguage()
+	
     function settheme(theme) {
       localStorage.theme = theme
       loadLightMode()
+	  
       }
         loadLightMode() 
         console.log(localStorage.theme)

@@ -36,6 +36,10 @@ async function loadLanguage(){
   //document.getElementById(tags[i]).innerHTML = window.lang[tags[i]]
   }
   
+  if (Object.keys(window.lang).includes("unfinishedtranslations")) {
+	document.getElementById("unfinishedtranslations").label = window.lang["unfinishedtranslations"]
+  }
+  
   /*
   return fetch("/languages/" + localStorage.lang + ".json")
     .then(response => response.json())
