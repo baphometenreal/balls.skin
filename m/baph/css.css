@@ -1,18 +1,4 @@
-@font-face {font-family: "Dark and Black";src: url("./font/dab.otf");}
-
-:root {
-  --bg-main: #f00;
-  --bg: #9C0004;
-  --text: #ffeded;
-}
-
-img.colon3 {width:50%;height:auto;}
-p, text, body {color:var(--text)}
-a, a:visited {color:var(--text);background-color:var(--bg);border-radius:10px;padding:7px;}
-.main {background:var(--bg-main);text-align:center;border-radius:10px;margin-bottom:10px;padding-bottom:10px;}
-.pfp {width:275px;height:auto;margin-bottom:-2%;margin-top:-2%;border-radius:100%}
-h1,h2,h3 {color:var(--text);font-family: "Dark and black";}
-body {background:var(--bg);margin-left:15%;margin-right:15%;}
-td {vertical-align: top}
-table {width: 100%;table-layout: fixed;vertical-align: top;}
+.colon3 {width:50%;height:auto;}
+.main {text-align:center;border-radius:10px;margin-bottom:10px;padding-bottom:10px;}
+.pfp {width:275px;height:auto;margin-bottom:-1%;margin-top:-1%;border-radius:100%}
 .flag {width: 75%; height: auto; max-height:150px;} 

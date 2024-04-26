@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balls.skin</title>
+	<link href="" rel="stylesheet" type="text/css" media="screen" id="font-link">
     <link href="" rel="stylesheet" type="text/css" media="screen" id="theme-link">
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
   </head>
@@ -12,24 +13,53 @@
     <h1 id="config" class="lang">Config</h1>
     <h2 id="theme" class="lang">Theme</h2>
 	<select id="drop1" onchange="settheme(this.value)">
+	<optgroup id="themebasic" label="Basic/Accsesibility">
     <option value="dark" class="lang" id="darkmode">Dark mode</option>
     <option value="light" class="lang" id="lightmode">Light Mode</option>
+	<option value="darkc" class="lang" id="darkcmode">High Contrast Dark</option>
+    <option value="lightc" class="lang" id="lightcmode">High Contrast Light</option>
+	</optgroup> <optgroup id="themeaesthetic" label="Aesthetic">
 	<option value="cunty" class="lang" id="pinkmode">Cunty Mode</option>
     <option value="blood" class="lang" id="bloodmode">Blood Mode</option>
     <option value="piss" class="lang" id="pweemode">Piss Mode</option>
 	<option value="tears" class="lang" id="tearmode">Tears Mode</option>
 	<option value="grape" class="lang" id="grapemode">Grape Juice Mode</option>
-	<option value="holly" class="lang" id="hollymode">Holly Mode</option>
+	<option value="chcola" class="lang" id="chcolamode">Cherry Cola Mode</option>
+    <option value="studious" class="lang" id="studiousmode">Studious Mode</option>
+	<option value="mint" class="lang" id="mintmode">Mint Mode</option>
+	<option value="lcl" class="lang" id="lclmode">LCL Mode</option>
+    <option value="croc" class="lang" id="crocmode">Crocodile Mode</option>
+	<option value="dream" class="lang" id="dreammode">Dream Mode</option>
+	<option value="emma" class="lang" id="emmamode">Emma Mode</option>
+    <option value="lake" class="lang" id="lakemode">Lake Mode</option>
+	<option value="mintch" class="lang" id="mintcmode">Mint Chip Mode</option>
+	<option value="purple100" class="lang" id="purple100mode">Purple 100 Mode</option>
+    <option value="royal" class="lang" id="royalmode">Royal Mode</option>
+	<option value="sea" class="lang" id="seamode">Sea Mode</option>
+	<option value="swamp" class="lang" id="swampmode">Swamp Mode</option>
+	<option value="USA" class="lang" id="usamode">USA Mode</option>
+	<option value="wine" class="lang" id="winemode">Wine Mode</option>
+	</optgroup> <optgroup id="themenovelty" label="'Novelty' (Eyestrain warning)">
+	<option value="holly" class="lang" id="hollymode">Christmas Mode</option>
+	<option value="yomi" class="lang" id="yomimode">Yomi Mode</option>
+	</optgroup>
+	</select>
+	<h2 class="lang" id="font">Font</h2>
+	<select id="drop2" onchange="setfont(this.value)">
+	<option value="default" class="lang" id="fontdefault">Default</option>
+	<option value="dyslexic" class="lang" id="fontdyslexic">OpenDyslexic</option>
+	<option value="comic" class="lang" id="fontcomic">Comic Sans</option>
 	</select>
     <h2 id="languageconf" class="lang">Language</h2>
-	<select id="drop2" onchange="setlang(this.value)">
-    <option value="en">English</a>
-    <option value="de">Deutsch</a>
-    <option value="fr">Français</a>
-    <option value="kr">한국어</a>
-    <option value="nd">Nederlands</a>
-    <option value="cz">Čeština</a>
-	
+	<select id="drop3" onchange="setlang(this.value)">
+	<optgroup id="finishedtranslations" label="Finished Translations">
+		<option value="en">English</a>
+		<option value="de">Deutsch</a>
+		<option value="fr">Français</a>
+		<option value="kr">한국어</a>
+		<option value="nd">Nederlands</a>
+		<option value="cz">Čeština</a>
+	</optgroup>
 	<optgroup id="unfinishedtranslations" label="Unfinished Translations">
         <option value="jp">日本語</option>
 		<option value="sp">Español</option>
@@ -48,18 +78,31 @@
 	</select>
     <br>
     <br>
+	<p>balls.skin 2.5
+	<br>
+	<br>
+	<a href="./credits.html" id="credits" class="lang">Credits</a>
+	<br>
+	<br>
     <a href="../">⌂</a>
     <script src="/js.js"></script>
     <script>
 	document.getElementById("drop1").value = localStorage.theme
-	document.getElementById("drop2").value = localStorage.lang
+	document.getElementById("drop2").value = localStorage.font
+	document.getElementById("drop3").value = localStorage.lang
 	
     function setlang(lang){
       localStorage.lang = lang
-      loadLanguage()
+	  loadLanguage()
     }
 	
+	function setfont(font){
+	  localStorage.font = font
+	  loadFont()
+	}
+	
     loadLanguage()
+	
 	
     function settheme(theme) {
       localStorage.theme = theme

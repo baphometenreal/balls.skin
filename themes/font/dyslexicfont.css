@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "dyslexicheader";
+  src: url("/font/dyslexic/dyslexicbold.woff2");
+}
+@font-face {
+  font-family: "dyslexic";
+  src: url("/font/dyslexic/dyslexic.woff2");
+}
+@font-face {
+  font-family: "Evajp";
+  src: url("/font/default/NotoSerifJP-Black.otf");
+}
+@font-face {
+  font-family: "Evatc";
+  src: url("/font/default/NotoSerifTC-Black.otf");
+}
+@font-face {
+  font-family: "Evasc";
+  src: url("/font/default/NotoSerifSC-Black.otf");
+}
+@font-face {
+  font-family: "Evakr";
+  src: url("/font/default/NotoSerifKR-Black.otf");
+}
+.noto-serif jp-regular {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1,h2,h3,h4,h5,h6,h7 {
+ font-family: "dyslexicheader", "Evajp", "Evatc", "Evasc", "Evakr";
+}
+p, td {
+  font-family: "dyslexic", serif;
+  font-size: 13px;
+}
+a, a:visited, button {
+  font-family: "dyslexic", serif;
+  font-size: 13px;
+}
+a.entry, a.entry:visited {
+  font-family: "dyslexic";
+  font-size: 13px;
+}
+body {
+  font-family: "dyslexic";
+}

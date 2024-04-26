@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "comicbold";
+  src: url("/font/comic/comicbold.woff2");
+}
+@font-face {
+  font-family: "comic";
+  src: url("/font/comic/comic.woff2");
+}
+@font-face {
+  font-family: "Evajp";
+  src: url("/font/NotoSerifJP-Black.otf");
+}
+@font-face {
+  font-family: "Evatc";
+  src: url("/font/NotoSerifTC-Black.otf");
+}
+@font-face {
+  font-family: "Evasc";
+  src: url("/font/NotoSerifSC-Black.otf");
+}
+@font-face {
+  font-family: "Evakr";
+  src: url("/font/NotoSerifKR-Black.otf");
+}
+.noto-serif jp-regular {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1,h2,h3,h4,h5,h6,h7 {
+ font-family: "comicbold", "Evajp", "Evatc", "Evasc", "Evakr", "ukilen";
+}
+p, td {
+  font-family: "comic", serif;
+  font-size: 15px;
+}
+a, a:visited, button {
+  font-family: "comic", serif;
+  font-size: 15px;
+}
+a.entry, a.entry:visited {
+  font-family: "comic";
+  font-size: 15px;
+}
