@@ -24,7 +24,7 @@
   "mcrystal":"Crystal",
   "mbruce":"Booce",
   "msapero":"Sapero",
-  "maiko":"Aiko"
+  "maiko":"Aiko",
   "mkate":"Kate",
   
   "config": "Config",
@@ -32,6 +32,7 @@
   "themebasic": "Basic/Accsesibility",
   "themeaesthetic": "Aesthetic",
   "themenovelty":"'Novelty' (Possible eyestrain warning)",
+
   "lightmode": "Light mode",
   "darkmode": "Dark mode",
   "bloodmode": "Blood mode",
@@ -56,13 +57,13 @@
   "swampmode":"Swamp mode",
   "usamode":"USA mode",
   "winemode":"Wine mode",
-  
   "darkc":"High Contrast Dark",
   "lightc":"High Contrast Light",
   
   "fontdefault":"Default",
   "fontdyslexic":"OpenDyslexic",
   "fontcomic":"Comic Sans",
+  "fontnoto":"Noto Sans",
   
   "languageconf": "Language",
   "finishedtranslations":"Finished Translations",
@@ -74,7 +75,7 @@
   "credits2": "<b>Programmers</b>",
   "credits3": "<b>Translators</b>",
   "creditsger": "German",
-  "creditsfre":"French",
+  "creditsfre": "French",
   "creditskor": "Korean",
   "creditsdut": "Dutch",
   "creditscze": "Czech",
@@ -95,11 +96,11 @@
   "noellesubq": "Who am I",
   "noellesuba": "I'm noelle, a goofy aah genderfluid otherkin who uses neopronouns, or if you think thats weird (☠️) use it/its",
   "noellenavi": "navi",
+
   "noellegs": "<img class='emoji' src='/members/noelle/img/emoji/te.gif'>identity<img class='emoji' src='/members/noelle/img/emoji/te.gif'>",
   "noelleabout": "<img class='emoji' src='/members/noelle/img/emoji/te.gif'>about<img class='emoji' src='/members/noelle/img/emoji/te.gif'>",
   "noellewarn": "The vast majority of the following text will be in English, due to how xenopronouns work and how hard they would be to translate in all languages. Apologies.",
-  "noelleat": "attraction",
-  "noellesx": "sexuality",
+
   "noellexeno": "xenogenders",
   "noellexenog": "general",
   "noellexenob": "related to the body",
@@ -109,6 +110,7 @@
   "noellexenoc": "related to cats",
   "noellexenow": "related to wolves",
   "noellexenoh": "related to angels and devils [may be complicated to translate into languages, can translate as christian mythology if it makes it easier]",
+
   "noellekins": "kins",
   "noellekincore": "Core [i have no fucking clue how to translate kin terms]",
   "noellekincaps": "Capsaicin Cookie (CRK)",

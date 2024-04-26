@@ -29,10 +29,10 @@
 
   "config": "Config",
   "theme": "Theme",
-  
   "themebasic": "Basic/Accsesibility",
   "themeaesthetic": "Aesthetic",
   "themenovelty":"'Novelty' (Possible eyestrain warning)",
+
   "lightmode": "Light mode",
   "darkmode": "Dark mode",
   "bloodmode": "Blood mode",
@@ -63,6 +63,7 @@
   "fontdefault":"Default",
   "fontdyslexic":"OpenDyslexic",
   "fontcomic":"Comic Sans",
+  "fontnoto":"Noto Sans",
   
   "languageconf": "Language",
   "finishedtranslations":"Finished Translations",
