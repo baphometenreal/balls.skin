@@ -103,6 +103,18 @@ async function loadLanguage(){
 	}
   //document.getElementById(tags[i]).innerHTML = window.lang[tags[i]]
   }
+    if (Object.keys(window.lang).includes("themebasic")) {
+	document.getElementById("themebasic").label = window.lang["themebasic"]
+  }
+    if (Object.keys(window.lang).includes("themeaesthetic")) {
+	document.getElementById("themeaesthetic").label = window.lang["themeaesthetic"]
+  }
+    if (Object.keys(window.lang).includes("themenovelty")) {
+	document.getElementById("themenovelty").label = window.lang["themenovelty"]
+  }
+    if (Object.keys(window.lang).includes("finishedtranslations")) {
+	document.getElementById("finishedtranslations").label = window.lang["finishedtranslations"]
+  }
     if (Object.keys(window.lang).includes("unfinishedtranslations")) {
 	document.getElementById("unfinishedtranslations").label = window.lang["unfinishedtranslations"]
   }
