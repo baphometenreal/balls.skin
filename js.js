@@ -80,6 +80,9 @@ function loadFont() {
 	} else if (localStorage.font == "comic") {
 		font.href = "/themes/font/comicfont.css"
 		console.log("comic") 
+	} else if (localStorage.font == "noto") {
+		font.href = "/themes/font/noto.css"
+		console.log("noto") 
 	} else {
 		font.href = "/themes/font/defaultfont.css"
 		console.log("default") 
