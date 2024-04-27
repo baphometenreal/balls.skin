@@ -51,15 +51,6 @@ Shinies
     icon:icons[0,6]
     movement:onLeft pulse bounce moveRight
     req:trex
-    
-    req:trex
-  *moneystealer
-    name:Money stealer
-    movement:onThing:jarvisButton pulse
-    icon:icons[1,6]
-    frequency:(random(60,120))
-    on tick:yield -1%jarvis
-    req:100 jarvises:earned
 
 Buildings
   *remora|remoras
