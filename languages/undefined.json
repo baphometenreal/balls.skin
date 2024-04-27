@@ -29,7 +29,7 @@
   
   "config": "Config",
   "theme": "Theme",
-  "themebasic": "Basic/Accsesibility",
+  "themebasic": "Basic/Accessibility",
   "themeaesthetic": "Aesthetic",
   "themenovelty":"'Novelty' (Possible eyestrain warning)",
 
@@ -97,8 +97,8 @@
   "noellesuba": "I'm noelle, a goofy aah genderfluid otherkin who uses neopronouns, or if you think thats weird (☠️) use it/its",
   "noellenavi": "navi",
 
-  "noellegs": "<img class='emoji' src='/members/noelle/img/emoji/te.gif'>identity<img class='emoji' src='/members/noelle/img/emoji/te.gif'>",
-  "noelleabout": "<img class='emoji' src='/members/noelle/img/emoji/te.gif'>about<img class='emoji' src='/members/noelle/img/emoji/te.gif'>",
+  "noellegs": "<img class='emoji' src='/m/noelle/img/emoji/te.gif'>identity<img class='emoji' src='/m/noelle/img/emoji/te.gif'>",
+  "noelleabout": "<img class='emoji' src='/m/noelle/img/emoji/te.gif'>about<img class='emoji' src='/m/noelle/img/emoji/te.gif'>",
   "noellewarn": "The vast majority of the following text will be in English, due to how xenopronouns work and how hard they would be to translate in all languages. Apologies.",
 
   "noellexeno": "xenogenders",
