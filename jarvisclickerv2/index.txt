@@ -79,8 +79,7 @@ Upgrades
 		desc:A nice little supplement to your bunnies' diet.
 		icon:icons[1,1]
 		cost:100 jarvises
-		passive:
-		req:200 bunnies:earned
+		req:200 jarvis:earned
 		
 	*spinach
 		name:Spinach
