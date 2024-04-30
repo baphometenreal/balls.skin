@@ -21,8 +21,7 @@ Buttons
 		name:Make a bunny
 		desc:Click this little bunny to get more bunnies!
 		on click:anim icon wobble
-		on click:yield 1 bunny
-		on click:if (have goldenTouch and chance(1%)) yield 1 goldenCarrot
+		on click:yield 1 jarvis
 		icon:stuff/bunny.png
 		no text
 		class:bigButton hasFlares
@@ -98,9 +97,9 @@ Achievements
 		req:1 jarvis
 		icon:icons[2,4] icons[0,6]
 	*jarvisCount2
-		name:10 whole sharks
-		desc:Have <b>10</b> jarvises.
-		req:10 bunnies
+		name:100 whole sharks
+		desc:Have <b>100</b> jarvises.
+		req:10 jarvis
 		icon:icons[2,4] icons[0,6]
 	*jarvisCount3
 		name:We're gonna need a bigger boat
@@ -110,5 +109,5 @@ Achievements
 	*jarvisCount4
 		name:It's over 9 thousand!
 		desc:Have <b>10000</b> jarvises.
-		req:10000 bunnies
+		req:10000 jarvis
 		icon:icons[2,4] icons[0,6]
