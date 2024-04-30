@@ -77,15 +77,26 @@ Upgrades
 		name:Parsley
 		desc:A nice little supplement to your bunnies' diet.
 		icon:icons[1,1]
-		cost:100 jarvises
+		cost:100 bunnies
+		passive:multiply yield of remora by 2
 		req:200 jarvis:earned
 		
 	*spinach
 		name:Spinach
 		desc:Big tasty leaves, perfect for hungry bunnies.
 		icon:icons[1,2]
-		cost:200 jarvises
+		cost:200 bunnies
+		passive:multiply yield of isopod by 2
 		req:500 jarvises:earned
+		
+	*spinachtest
+		name:Spinach test
+		desc:Big tasty leaves, perfect for hungry bunnies.
+		icon:icons[1,2]
+		cost:200 bunnies
+		passive:multiply yield of isopod by 2
+		passive:multiply yield of remora by 2
+		req:parsley and spinach
 
 Achievements
 	*TEMPLATE
