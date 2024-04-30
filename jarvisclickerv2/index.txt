@@ -86,7 +86,6 @@ Upgrades
 		desc:Big tasty leaves, perfect for hungry bunnies.
 		icon:icons[1,2]
 		cost:200 jarvises
-		passive:
 		req:500 jarvises:earned
 
 Achievements
