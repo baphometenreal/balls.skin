@@ -60,7 +60,7 @@
 	"darkc": "Hoog Contrast Donker",
 	"lightc": "Hoog Contrast Licht",
 
-    "font":"Lettertype"
+    "font":"Lettertype",
 	"fontdefault": "Standaard",
 	"fontdyslexic": "OpenDyslexic",
 	"fontcomic": "Comic Sans",
