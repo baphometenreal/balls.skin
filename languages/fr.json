@@ -59,6 +59,12 @@
   "darkc":"Foncé à fort contraste",
   "lightc":"Lumière à fort contraste",
   
+  "font":"Fonte",
+  "fontdefault":"défaut",
+  "fontdyslexic":"OpenDyslexic",
+  "fontcomic":"Comic Sans",
+  "fontnoto":"Noto Sans",
+  
   "languageconf": "Langue",
   "finishedtranslations":"Traductions terminées",
   "unfinishedtranslations": "Traductions inachevées",

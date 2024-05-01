@@ -2,9 +2,9 @@ Let's make a game!
 	name:Bunny Clicker
 	by:Orteil
 	desc:This is a simple idle game to showcase some of the basic functionalities of Idle Game Maker.<//>Make bunnies and shoot for the stars!
-	created:25/7/2017
-	updated:24/10/2017
-	version:1
+	created:30/4/2024
+	updated:30/4/2024
+	version:alpha 1
 
 Settings
 	background:stuff/meadow.jpg
@@ -17,7 +17,7 @@ Layout
 	use default
 		
 Buttons
-	*bunnyButton
+	*jarvisButton
 		name:Make a bunny
 		desc:Click this little bunny to get more bunnies!
 		on click:anim icon wobble
@@ -62,6 +62,14 @@ Buildings
 		name:Isopod|Isopods
 		desc:Oddly enough not named jim.
 		icon:icons[3,1]
+		cost:100 bunnies
+		on tick:yield 0.5 jarvises
+		req:250 jarvises:earned and 10 remoras
+	
+	*isopod|isopods
+		name:Isopod|Isopods
+		desc:Oddly enough not named jim.
+		icon:icons[3,2]
 		cost:100 bunnies
 		on tick:yield 0.5 jarvises
 		req:250 jarvises:earned and 10 remoras
