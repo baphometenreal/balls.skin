@@ -60,6 +60,8 @@
   "darkc":"Hoher Kontrast Dunkel",
   "lightc":"Hoher Kontrast Hell",
   
+  "font":"Schriftart",
+  
   "fontdefault":"Standard",
   "fontdyslexic":"OpenDyslexic",
   "fontcomic":"Comic Sans",
