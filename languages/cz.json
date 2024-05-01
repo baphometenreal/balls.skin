@@ -60,6 +60,7 @@
 	"darkc":"Tmavý motiv (vysoký kontrast)",
 	"lightc":"Světlý motiv (vysoký kontrast)",
 	
+	"font":"Font"
 	"fontdefault":"Automatický",
 	"fontdyslexic":"OpenDyslexic",
 	"fontcomic":"Comic",
