@@ -69,7 +69,7 @@
 					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
 					indEntry += "</p>"
 				} else if  ((type == "") && (notes != "")) {
-					indEntry = "<p>" + english + ": <font style='style='font-size:32px; font-family:ukilen; '><a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font>"
+					indEntry = "<p>" + english + ": <font style='font-size:32px; font-family:ukilen; '><a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font>"
 					if (extra) { indEntry +=  " <i>(" + extra + ", see notes)</i>" } else {indEntry +=  " <i>(see notes)</i>" }
 					indEntry += "</p>"
 				} else {
@@ -88,10 +88,6 @@
 			  document.getElementById("dictionary").innerHTML = totalEntries
 			}
 		  };
-		}
-		
-		function alveolarise(x) {
-			return x.replaceAll("bt", "pt").replaceAll("dt", "t").replaceAll("tt", "t").replaceAll("gt", "ct").replaceAll("mt", "nt").replaceAll("zt", "Ã§t")
 		}
 		
 		function grammar(english, baphian, type, notes) {
