@@ -7,6 +7,11 @@
     <link href="flags/css.css" rel="stylesheet" type="text/css" media="all">
 	<style>
 	@font-face {
+		font-family: 'ukilen';
+		src: url('/font/UkilenLg.ttf') format('truetype');
+	}
+	
+	@font-face {
 		font-family: 'noe';
 		src: url('noellastani-sans.ttf') format('truetype');
 	}
@@ -40,6 +45,11 @@
 	.glyph {
 		height: 31px;
 		width: auto;
+	}
+	
+	uki {
+	  font-family: ukilen;
+	  font-weight: 800;
 	}
 	
 	noelle {
@@ -92,6 +102,7 @@
 	<img><font style="font-size: 26px;"><!--Noellastani:--> </font><font id="convNOE1" name="convNOE1" style="font-size: 26px; "></font><br>
 	<img><font style="font-size: 26px;"><!--West Noellastani:--> </font><font id="errorWNL" name="errorWNL" style="font-size: 26px; color: red"></font><font id="convWNL" name="convWNL" style="font-size: 26px; font-weight: bold;"></font><br>
 	<!--<img><font style="font-size: 26px;"> </font><font id="convWNL1" name="convWNL1" style="font-size: 26px;"></font><br>-->
+	<img src="flags/kzmr.png" title="Kzmr calendar" alt=":flag_kzm:" style="height: 22.2px; width: auto; padding: 0px 6.4px 0px"><font style="font-size: 26px;"><!--Kzmr:--> </font><font id="errorKZM" name="errorKZM" style="font-size: 26px; color: red"></font><font id="convKZM" name="convKZM" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img src="flags/alloti.png" title="Allotian calendar" alt=":flag_all:"><font style="font-size: 26px;"><!--Allotian:--> </font><font id="errorALL" name="errorALL" style="font-size: 26px; color: red"></font><font id="convALL" name="convALL" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"><!--Alloti:--> </font><font id="convALL1" name="convALL1" style="font-size: 26px;"></font><br>
 	<img src="flags/sunteria.png" title="Sunterian calendar" alt=":flag_sun:"><font style="font-size: 26px;"><!--Sunterian:--> </font><font id="errorSUN" name="errorSUN" style="font-size: 26px; color: red"></font><font id="convSUN" name="convSUN" style="font-size: 26px; font-weight: bold;"></font><br>
@@ -103,6 +114,7 @@
 	<img src="flags/cring.png" title="Cring calendar" alt=":flag_crg:" style="border: 1px solid"><font style="font-size: 26px;"> </font><font id="errorCRG" name="errorCRG" style="font-size: 26px; color: red"></font><font id="convCRG" name="convCRG" style="font-size: 26px; font-weight: bold;"></font>
 	
 	<script src="cal.js"></script>
+	<script src="ukilen-conv.js"></script>
 	<script>
 		// --- DISPLAY
 		
@@ -116,6 +128,7 @@
 			//document.getElementById('errorRAN').innerHTML = ""
 			document.getElementById('errorMAL').innerHTML = ""
 			document.getElementById('errorCRG').innerHTML = ""
+			document.getElementById('errorKZM').innerHTML = ""
 			
 			document.getElementById('convGRE').innerHTML = ""
 			document.getElementById('convLRM').innerHTML = ""
@@ -127,6 +140,7 @@
 			//document.getElementById('convRAN').innerHTML = ""
 			document.getElementById('convMAL').innerHTML = ""
 			document.getElementById('convCRG').innerHTML = ""
+			document.getElementById('convKZM').innerHTML = ""
 			
 			document.getElementById('convLRM1').innerHTML = ""
 			document.getElementById('convNOE1').innerHTML = ""
@@ -163,7 +177,7 @@
 				var convDateNOE = calcDateNOE(date)
 				var convDateNOEnat = calcDateNOE(date, true)
 				document.getElementById('convNOE').innerHTML = convDateNOE[0] + " " + convDateNOE[1] + " " + convDateNOE[2] + " " + convDateNOE[3]
-				document.getElementById('convNOE1').innerHTML = "<noelle>" + convDateNOEnat[0] + " " + convDateNOEnat[1] + " " + convDateNOEnat[2] + " " + convDateNOEnat[3] + "</noelle>"
+				document.getElementById('convNOE1').innerHTML = "<uki>" + convertText(convDateNOEnat[0] + "  " + convDateNOEnat[1] + "  " + convDateNOEnat[2] + "  " + convDateNOEnat[3], "noe") + "</uki>"
 			}
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
@@ -201,10 +215,12 @@
 				var convDateSUN = calcDateSUN(date)
 				
 				var monthNamesSUN = ["Neuia", "Solmia", "Hmetmenia", "Uoihnia", "Loubia", "Moreitia", "Duskia", "Snoiguia", "Gelia", "Huersmenia", "Blehmia", "Bloidia", "Terdia"]
-				var monthNamesSUN1 = ["", "", "", "", "", "", "", "", "", "", "", "", ""]
+				var monthNamesSUN1 = ["Neu-\\ia", "Solm-\\ia", "u+e11e-\\menia", "\\Uoihnia", "u+e115-\\ia", "Guen2-\\ia", "u+e124-\\ia", "u+e126-\\ia", "u+e127-\\ia", "Huers-\\menia", "u+e12a-\\ia", "u+e125-\\ia", "\\Terdia"]
+				//var monthNamesSUN1 = ["", "", "", "", "", "", "", "", "", "", "", "", ""]
 				
 				document.getElementById('convSUN').innerHTML = convDateSUN[0] + " " + monthNamesSUN[convDateSUN[1]] + " " + convDateSUN[2] + convDateSUN[3]
-				document.getElementById('convSUN1').innerHTML = " <oika>" + (numberSUN(convDateSUN[0]) + monthNamesSUN1[convDateSUN[1]] + numberSUN(convDateSUN[2]) + String(convDateSUN[3]).replace(" IPT", "")) + "</oika>"
+				//document.getElementById('convSUN1').innerHTML = " <oika>" + (numberSUN(convDateSUN[0]) + monthNamesSUN1[convDateSUN[1]] + numberSUN(convDateSUN[2]) + String(convDateSUN[3]).replace(" IPT", "")) + "</oika>"
+				document.getElementById('convSUN1').innerHTML = " <uki>" + convertText(convDateSUN[0] + " " + monthNamesSUN1[convDateSUN[1]] + " " + convDateSUN[2] + String(convDateSUN[3]).replace(" IPT", " \\IPT"), "sun") + "</uki>"
 			}
 			
 			/*if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
@@ -226,6 +242,13 @@
 			} else {
 				var convDateCRG = calcDateCRG(date)
 				document.getElementById('convCRG').innerHTML = convDateCRG[0] + " " + convDateCRG[1] + " " + convDateCRG[2]
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorCRG').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateKZM = calcDateKZM(date)
+				document.getElementById('convKZM').innerHTML = convDateKZM[0] + ", " +convDateKZM[1] + " " + convDateKZM[2] + " " + convDateKZM[3]
 			}
 		}
 		
