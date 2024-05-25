@@ -311,9 +311,7 @@ function calcDateNOE(date, natscr = false) {
 		} else {
 			year = (Math.abs(year)+ 1)+ " BNC"
 		}
-	} else if (natscr) {
-		year = bijectiveString(year, 6)
-	}
+	} 
 	
 	return [dayN[day], weekNames[week], monthNames[month], year]
 }
