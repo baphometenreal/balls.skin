@@ -296,10 +296,10 @@ function calcDateNOE(date, natscr = false) {
 	var monthNames = ["Nèlè", "Britani", "Phrankani", "Doidse", "Yalaji", "Suomi"]
 	
 	if (natscr) {
-		var dayNames = ["Mi;rtai", "Sekre;tai;", "Ventitë;", "Warahai;", "Desimatai", "Rhahatai"]
-		var dayNamesW6 = ["Mirdsu;ne", "Sekrune", "Awa; Dsune", "Ape; Dsune", "Repo", "Phesti"]
-		var weekNames = ["Miraha", "Sekra", "Drhuraha;", "Deux;ha", "Menya", "Dsune"]
-		var monthNames = ["Nëlë", "Britani", "Phrankani", "Doidse", "Yalaji", "Suomi"]
+		var dayNames = ["\\Mi'rtai", "\\Sekre'tai'", "\\Ventitë'", "\\Warahai'", "\\Desimatai", "\\Rhahatai"]
+		var dayNamesW6 = ["\\Mirdsu'ne", "\\Sekrune", "\\Awa'  \\Dsune", "\\Ape'  \\Dsune", "\\Repo", "\\Phesti"]
+		var weekNames = ["\\Miraha", "\\Sekra", "\\Drhuraha'", "\\Deux'ha", "\\Menya", "\\Dsune"]
+		var monthNames = ["\\Nëlë", "\\Britani", "\\Phrankani", "\\Doidse", "\\Yalaji", "\\Suomi"]
 	}
 	
 	var dayN = dayNames;
@@ -307,7 +307,7 @@ function calcDateNOE(date, natscr = false) {
 	
 	if (year < 1) {
 		if (natscr) {
-			year = bijectiveString(Math.abs(year)+ 1, 6) + " ANC"
+			year = (Math.abs(year)+ 1) + "  \\ANC" //bijectiveString(Math.abs(year)+ 1, 6) + " ANC"
 		} else {
 			year = (Math.abs(year)+ 1)+ " BNC"
 		}

@@ -1,0 +1,699 @@
+function bijectiveString(m, k) {
+		  if (m == 0) {
+			  return "0";
+		  }
+		  let string = [];
+		  function f(x) {
+			return Math.ceil(x) - 1;
+		  }
+		  let qn = f(m / k); // q0
+		  string.push(m - qn * k); // a0
+		  while (qn != 0) {
+			let qnInc = f(qn / k);
+			let anInc = qn - qnInc*k;
+			string.push(anInc);
+			qn = qnInc;
+		  }
+		  return string.reverse().join('');
+		}
+		
+		function numberSUN(x, iter = 0) {
+			var number = x
+			var numberString = ""
+			
+			if (iter == 0 && x == 0) {return "0"}
+			if (iter > 0 && x == 0) {return 0}
+			
+			var parseNum = [numberSUN(Math.floor(x / 1000), iter + 1), Math.floor(x / 100) % 10, Math.floor(x / 10) % 10, x % 10]
+			
+			var digits = [0, "_a", "_e", "_o", "_i", "_u", "_p", "_b", "_m", "_t"]
+			
+			numberString = (parseNum[0] != 0 ? parseNum[0] + "_r" : "") + (parseNum[1] != 0 ? digits[parseNum[1]] + "_s" : "") + (parseNum[2] != 0 ? digits[parseNum[2]] + "_d" : "") + (parseNum[3] != 0 ? digits[parseNum[3]] : "")
+			if (iter > 0) {return numberString}
+			
+			if (numberString.slice(0, 2) == "_a" && numberString.length > 2) {numberString = numberString.slice(2)}
+			
+			return numberString
+		}
+		
+		function translateSyllable(syl, mode, getDict = false) {
+			var translate
+			
+			switch (mode) {
+				case "bap":
+					translate = {
+						"pahtam": "",
+						"baltyeu": "",
+						"galeu": "",
+						"dahgohs": "",
+						"beuleu": "",
+						"paltak": "",
+						"beugwëyë": "",
+						"seoltyeu": "",
+						"eukwë": "",
+						"euleunë": "",
+						"beuyiit": "",
+						"teudeuzë": "",
+						"zuojyeu": "",
+						"sëme": "",
+						"ahvakeu": "",
+						"uoyasë": "",
+						"luonliing": "",
+						"muobeuveu": "",
+						"duodeu": "",
+						"iigas": "",
+						"ahlyeudeu": "",
+						"zeubo": "",
+						"zazvë": "",
+						"lah": "",
+						"kheu": "",
+						"seu": "",
+						"kyuo": "",
+						"zhëmii": "",
+						"kheuyavan": "",
+						"neupwëdeu": "",
+						"kheondohn": "",
+						
+						":": ":",
+						"\"": "\"",
+						"(": "(",
+						")": ")",
+						"'": "'",
+						",": ",",
+						".": ".",
+						"!": "!",
+						"?": "?",
+						"": "",
+					}
+					
+					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
+						syl = syl.replaceAll("ng", "Ñ");
+						syl = syl.replaceAll("sh", "Ś");
+						syl = syl.replaceAll("zh", "ZH");
+						syl = syl.replaceAll("j", "JH");
+						syl = syl.replaceAll("ph", "F");
+						syl = syl.replaceAll("kh", "X");
+						syl = syl.replaceAll("l", "R");
+						syl = syl.replaceAll("ii", "I");
+						syl = syl.replaceAll("ee", "E");
+						syl = syl.replaceAll("uo", "Ü");
+						syl = syl.replaceAll("oh", "Ó");
+						syl = syl.replaceAll("ah", "Á");
+						syl = syl.replaceAll("eo", "É");
+						syl = syl.replaceAll("eu", "È");
+						syl = syl.replaceAll("y", "j");
+						
+						syl = syl.replaceAll(";", "");
+						syl = syl.replaceAll("'", ";");
+						syl = syl.toUpperCase()
+						
+						syl = syl.replaceAll("\\", "");
+						return syl
+					}
+					
+					if (/^\d+$/ig.test(syl)) {return bijectiveString(parseInt(syl), 6)}
+					break;
+				case "noe":
+					translate = {
+						"ape": "",
+						"hax": "",
+						"ave": "",
+						"oseu": "",
+						"fil": "",
+						"falas": "",
+						"kontur": "",
+						"oil": "",
+						"kol": "",
+						"flus": "",
+						"devlem": "",
+						"krois": "",
+						"mansi": "",
+						"loker": "",
+						"pid": "",
+						"jabe": "",
+						"boxe": "",
+						"kre": "",
+						"phors": "",
+						"puver": "",
+						"toit": "",
+						"rein": "",
+						"au": "",
+						"ver": "",
+						"bre": "",
+						"rut": "",
+						"mon": "",
+						"rous": "",
+						"heb": "",
+						"pat": "",
+						"fu": "",
+						"mache": "",
+						"salet": "",
+						"ter": "",
+						"kim": "",
+						"vet": "",
+						"kour": "",
+						"servu": "",
+						"kor": "",
+						"epri": "",
+						"dese": "",
+						"bute": "",
+						"klak": "",
+						"aret": "",
+						"lun": "",
+						"sul": "",
+						"rol": "",
+						"par": "",
+						"je": "",
+						"nu": "",
+						"na": "",
+						"phutur": "",
+						"shura": "",
+						"mi": "",
+						"douk": "",
+						"nekor": "",
+						"rodo": "",
+						"tavier": "",
+						"hurits": "",
+						"jirodo": "",
+						"jirodots": "",
+						"poi": "",
+						"tsuru": "",
+						"angru": "",
+						"privis": "",
+						"saki": "",
+						"rang": "",
+						"bul": "",
+						"ene": "",
+						"gunu": "",
+						"meso": "",
+						"dide": "",
+						"muryo": "",
+						"bangbob": "",
+						"nai": "",
+						"toud": "",
+						"suka": "",
+						"sel": "",
+						"chos": "",
+						"kes": "",
+						"pu": "",
+						"aut": "",
+						"glos": "",
+						"lon": "",
+						"lud": "",
+						"pite": "",
+						"min": "",
+						"yunko": "",
+						"teni": "",
+						"jwoda": "",
+						"sala": "",
+						"sala2": "",
+						"kanit": "",
+						"kanit2": "",
+						"kali": "",
+						"kali2": "",
+						"kali3": "",
+						"hawi": "",
+						"ma": "",
+						
+						":": ":",
+						"\"": "\"",
+						"(": "(",
+						")": ")",
+						"'": "'",
+						",": ",",
+						".": ".",
+						"!": "!",
+						"?": "?",
+						"": "",
+					}
+					
+					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
+						syl = syl.replaceAll("y", "j");
+						syl = syl.replaceAll("è", "ë");
+						syl = syl.replaceAll("'", ";");
+						syl = syl.toUpperCase()
+						
+						syl = syl.replaceAll("\\", "");
+						return syl
+					}
+					
+					if (/^\d+$/ig.test(syl)) {return bijectiveString(parseInt(syl), 6)}
+					break;
+				case "kzm":
+					translate = {
+						"bul": "",
+						"em": "",
+						"gum": "",
+						"mez": "",
+						"did": "",
+						"mulyo": "",
+						"babo": "",
+						"be": "",
+						"sara": "",
+						"saradre": "",
+						"kanid": "",
+						"kanidwe": "",
+						"kali": "",
+						"kalidre": "",
+						"kalidre2": "",
+						"xawi": "",
+						
+						":": ":",
+						"\"": "\"",
+						"(": "(",
+						")": ")",
+						"'": "'",
+						",": ",",
+						".": ".",
+						"!": "!",
+						"?": "?",
+						"": "",
+					}
+					
+					/*
+					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
+						syl = syl.replaceAll("y", "j");
+						syl = syl.replaceAll("è", "ë");
+						syl = syl.replaceAll("'", ";");
+						syl = syl.toUpperCase()
+						
+						syl = syl.replaceAll("\\", "");
+						return syl
+					}
+					*/
+					
+					// if (/^\d+$/ig.test(syl)) {return bijectiveString(parseInt(syl), 6)}
+					break;
+				case "azk":
+					translate = {
+						"eren": "",
+						"kurra": "",
+						"go": "",
+						"kalichei": "",
+						"tawiri": "",
+						"etaneu": "",
+						"kiron": "",
+						"etazku": "",
+						"kizku": "",
+						"haneztet": "",
+						"ekoiten": "",
+						"sukuro": "",
+						"amuko": "",
+						"kralowo": "",
+						"herensumatu": "",
+						"shame": "",
+						"shamekut": "",
+						"kanite": "",
+						"kali": "",
+						"kali2": "",
+						"kali3": "",
+						"kawi": "",
+						"herri": "",
+						"mori": "",
+						"amazzi": "",
+						"aztei": "",
+						"perru": "",
+						"hetuin": "",
+						"morak": "",
+						"eser": "",
+						"rese": "",
+						
+						":": ":",
+						"\"": "\"",
+						"(": "(",
+						")": ")",
+						"'": "'",
+						",": ",",
+						".": ".",
+						"!": "!",
+						"?": "?",
+						"": "",
+					}
+					
+					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
+						syl = syl.replaceAll("gn", "њ");
+						syl = syl.replaceAll("ng", "ң");
+						syl = syl.replaceAll("ch", "ч");
+						syl = syl.replaceAll("sh", "ш");
+						syl = syl.replaceAll("tz", "щ");
+						syl = syl.replaceAll("ts", "ц");
+						syl = syl.replaceAll("dl", "љљ");
+						syl = syl.replaceAll("th", "ҫ");
+						syl = syl.replaceAll("dh", "ҙ");
+						syl = syl.replaceAll("rr", "Р");
+						syl = syl.replaceAll("lr", "Л");
+						
+						syl = syl.replaceAll("m", "м");
+						syl = syl.replaceAll("n", "н");
+						syl = syl.replaceAll("p", "п");
+						syl = syl.replaceAll("t", "т");
+						syl = syl.replaceAll("k", "к");
+						syl = syl.replaceAll("g", "г");
+						syl = syl.replaceAll("f", "ф");
+						syl = syl.replaceAll("z", "з");
+						syl = syl.replaceAll("s", "с");
+						syl = syl.replaceAll("þ", "ҫ");
+						syl = syl.replaceAll("h", "х");
+						syl = syl.replaceAll("v", "в");
+						syl = syl.replaceAll("ð", "ҙ");
+						syl = syl.replaceAll("d", "д");
+						syl = syl.replaceAll("w", "ў");
+						syl = syl.replaceAll("l", "л");
+						syl = syl.replaceAll("j", "й");
+						syl = syl.replaceAll("r", "р");
+						
+						syl = syl.replaceAll("i", "и");
+						syl = syl.replaceAll("u", "у");
+						syl = syl.replaceAll("e", "е");
+						syl = syl.replaceAll("o", "о");
+						syl = syl.replaceAll("é", "э");
+						syl = syl.replaceAll("ó", "ъ");
+						syl = syl.replaceAll("a", "а");
+						
+						syl = syl.replaceAll("0", "А");
+						syl = syl.replaceAll("1", "Б");
+						syl = syl.replaceAll("2", "В");
+						syl = syl.replaceAll("3", "Г");
+						syl = syl.replaceAll("4", "Д");
+						syl = syl.replaceAll("5", "Е");
+						syl = syl.replaceAll("6", "Ж");
+						syl = syl.replaceAll("7", "З");
+						syl = syl.replaceAll("8", "И");
+						syl = syl.replaceAll("9", "Й");
+						
+						syl = syl.replaceAll("\\", "");
+						return syl
+					}
+					
+					if (/^\d+$/ig.test(syl)) {
+						syl = syl.replaceAll("0", "А");
+						syl = syl.replaceAll("1", "Б");
+						syl = syl.replaceAll("2", "В");
+						syl = syl.replaceAll("3", "Г");
+						syl = syl.replaceAll("4", "Д");
+						syl = syl.replaceAll("5", "Е");
+						syl = syl.replaceAll("6", "Ж");
+						syl = syl.replaceAll("7", "З");
+						syl = syl.replaceAll("8", "И");
+						syl = syl.replaceAll("9", "Й");
+						return syl
+					}
+					break;
+				case "sun":
+					translate = {
+						"po": "",
+						"ter": "",
+						"tr": "",
+						"dok": "",
+						"pra": "",
+						"heu": "",
+						"bern": "",
+						"žon": "",
+						"džol": "",
+						"kist": "",
+						"san": "",
+						"hoku": "",
+						"sreu": "",
+						"greh": "",
+						"grea": "",
+						"dzom": "",
+						"kemp": "",
+						"hoh": "",
+						"hoa": "",
+						"gueih": "",
+						"kret": "",
+						"ham": "",
+						"teg": "",
+						"hrež": "",
+						"u": "",
+						"uoder": "",
+						"uerm": "",
+						"grabel": "",
+						"grabl": "",
+						"pont": "",
+						"mont": "",
+						"koin": "",
+						"žezor": "",
+						"pior": "",
+						"gred": "",
+						"hert": "",
+						"ues": "",
+						"šer": "",
+						"mregen": "",
+						"mregn": "",
+						"kerp": "",
+						"ion": "",
+						"mer": "",
+						"deus": "",
+						"šern": "",
+						"host": "",
+						"moin": "",
+						"solm": "",
+						"kail": "",
+						"kaput": "",
+						"pil": "",
+						"terh": "",
+						"tera": "",
+						"peisš": "",
+						"hou": "",
+						"dem": "",
+						"heig": "",
+						"kelter": "",
+						"keltr": "",
+						"mermen": "",
+						"hnes": "",
+						"skreib": "",
+						"edont": "",
+						"hešem": "",
+						"hešm": "",
+						"hesher": "",
+						"deiguder": "",
+						"deigudr": "",
+						"mem": "",
+						"denžu": "",
+						"goru": "",
+						"port": "",
+						"ež": "",
+						"ž": "",
+						"hme": "",
+						"uei": "",
+						"u2": "",
+						"ens": "",
+						"tu": "",
+						"t": "",
+						"tsu": "",
+						"i": "",
+						"iu": "",
+						"ius": "",
+						"h": "",
+						"as": "",
+						"ponut": "",
+						"bu": "",
+						"deug": "",
+						"proti": "",
+						"greb": "",
+						"badsu": "",
+						"noktakreš": "",
+						"noktaues": "",
+						"hep": "",
+						"heržmen": "",
+						"hieu": "",
+						"bernehept": "",
+						"bernehepheržmen": "",
+						"aieheks": "",
+						"anru": "",
+						"sank": "",
+						"a": "",
+						"ei": "",
+						"id": "",
+						"hes": "",
+						"še": "",
+						"s": "",
+						"tor": "",
+						"ku": "",
+						"i2": "",
+						"ku2": "",
+						"i3": "",
+						"kuei": "",
+						"iei": "",
+						"kuoda": "",
+						"kuebi": "",
+						"iebi": "",
+						"ne": "",
+						"heln": "",
+						"somh": "",
+						"soma": "",
+						"reh": "",
+						"rea": "",
+						"eis": "",
+						"kail2": "",
+						"anter": "",
+						"mež": "",
+						"maž": "",
+						"delg": "",
+						"stelh": "",
+						"stela": "",
+						"benž": "",
+						"greh2": "",
+						"grea2": "",
+						"mei": "",
+						"mrež": "",
+						"skert": "",
+						"henž": "",
+						"tenh": "",
+						"tena": "",
+						"hlengu": "",
+						"sež": "",
+						"guen": "",
+						"uir": "",
+						"gostp": "",
+						"dempot": "",
+						"selergi": "",
+						"guent": "",
+						"uirt": "",
+						"noltert": "",
+						"hantersešst": "",
+						"pot": "",
+						"leubet": "",
+						"prei": "",
+						"ženader": "",
+						"ženadr": "",
+						"deus2": "",
+						"grabli": "",
+						"hengu": "",
+						"uisg": "",
+						"žam": "",
+						"saler": "",
+						"salr": "",
+						"kanen": "",
+						"kali": "",
+						"kalri": "",
+						"kalriel": "",
+						"kaui": "",
+						"lond": "",
+						"hreud": "",
+						"dai": "",
+						"želu": "",
+						"grohen": "",
+						"grohn": "",
+						"moder": "",
+						"modr": "",
+						"hrežen": "",
+						"hrežn": "",
+						"kersen": "",
+						"kersn": "",
+						"alb": "",
+						"sleb": "",
+						"bidž": "",
+						"neu": "",
+						"ioher": "",
+						"neuioher": "",
+						"ženh": "",
+						"žena": "",
+						"huers": "",
+						"heku": "",
+						"kansu": "",
+						"hleuder": "",
+						"horb": "",
+						"somh2": "",
+						"soma2": "",
+						"somh3": "",
+						"soma3": "",
+						"semter": "",
+						"semter2": "",
+						"deš": "",
+						"hrož": "",
+						"guen2": "",
+						"želti": "",
+						"teng": "",
+						"šuei": "",
+						"mautsor": "",
+						"mauter": "",
+						"mautr": "",
+						"mauder": "",
+						"maudr": "",
+						"šu": "",
+						"ešu": "",
+						"muh": "",
+						"mua": "",
+						"tetšsen": "",
+						"tetšsn": "",
+						
+						":": ":",
+						"\"": "\"",
+						"(": "(",
+						")": ")",
+						"'": "'",
+						",": ",",
+						".": ".",
+						"!": "!",
+						"?": "?",
+						"": "",
+					}
+					
+					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
+						syl = syl.replaceAll("j", "i");
+						syl = syl.replaceAll("w", "u");
+						syl = syl.replaceAll("š", "c");
+						syl = syl.replaceAll("ž", "j");
+						
+						syl = syl.replaceAll("\\", "");
+						return syl
+					}
+					syl = syl.replaceAll("c", "š");
+					syl = syl.replaceAll("j", "ž");
+					
+					//if (/^\d+$/ig.test(syl)) {return numberSUN(parseInt(syl))}
+					if (/^\d+$/ig.test(syl)) {
+						syl = syl.replaceAll("0", "У");
+						syl = syl.replaceAll("1", "Ф");
+						syl = syl.replaceAll("2", "Х");
+						syl = syl.replaceAll("3", "Ц");
+						syl = syl.replaceAll("4", "Ч");
+						syl = syl.replaceAll("5", "Ш");
+						syl = syl.replaceAll("6", "Щ");
+						syl = syl.replaceAll("7", "Ъ");
+						syl = syl.replaceAll("8", "Ы");
+						syl = syl.replaceAll("9", "Ь");
+						return syl
+					}
+					break;
+				default:
+					translate = {
+						":": ":",
+						"\"": "\"",
+						"(": "(",
+						")": ")",
+						"'": "'",
+						",": ",",
+						".": ".",
+						"!": "!",
+						"?": "?",
+						"": "",
+					}
+			}
+			
+			if (getDict) {
+				return translate
+			}
+			
+			// console.log(syl)
+			if (syl.slice(0,3) == "u+e" && (parseInt(syl.slice(2), 16) >= 57344) && (parseInt(syl.slice(2), 16) < 61439)) {
+				return String.fromCodePoint(parseInt(syl.slice(2), 16))
+			}
+			if (syl == "") {return " "}
+			// if (/\b\d+\b/ig.test(syl)) {return syl}
+			if (syl in translate) {return translate[syl]}
+			return "<font style=\"color: red;\">�</font>"
+		}
+	
+		function convertText(inputText, mode) {
+			inputText = inputText.toLowerCase()
+			inputText = inputText.replaceAll("-", " ");
+			inputText = inputText.split(" ");
+			
+			for (var i = 0; i < inputText.length; i++) {inputText[i] = translateSyllable(inputText[i], mode)}
+			inputText = inputText.join("");
+			
+			return inputText
+		}

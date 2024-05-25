@@ -7,6 +7,11 @@
     <link href="flags/css.css" rel="stylesheet" type="text/css" media="all">
 	<style>
 	@font-face {
+		font-family: 'ukilen';
+		src: url('/font/UkilenLg.ttf') format('truetype');
+	}
+	
+	@font-face {
 		font-family: 'noe';
 		src: url('noellastani-sans.ttf') format('truetype');
 	}
@@ -40,6 +45,11 @@
 	.glyph {
 		height: 31px;
 		width: auto;
+	}
+	
+	uki {
+	  font-family: ukilen;
+	  font-weight: 800;
 	}
 	
 	noelle {
@@ -104,6 +114,7 @@
 	<img src="flags/cring.png" title="Cring calendar" alt=":flag_crg:" style="border: 1px solid"><font style="font-size: 26px;"> </font><font id="errorCRG" name="errorCRG" style="font-size: 26px; color: red"></font><font id="convCRG" name="convCRG" style="font-size: 26px; font-weight: bold;"></font>
 	
 	<script src="cal.js"></script>
+	<script src="ukilen-conv.js"></script>
 	<script>
 		// --- DISPLAY
 		
@@ -166,7 +177,7 @@
 				var convDateNOE = calcDateNOE(date)
 				var convDateNOEnat = calcDateNOE(date, true)
 				document.getElementById('convNOE').innerHTML = convDateNOE[0] + " " + convDateNOE[1] + " " + convDateNOE[2] + " " + convDateNOE[3]
-				document.getElementById('convNOE1').innerHTML = "<noelle>" + convDateNOEnat[0] + " " + convDateNOEnat[1] + " " + convDateNOEnat[2] + " " + convDateNOEnat[3] + "</noelle>"
+				document.getElementById('convNOE1').innerHTML = "<uki>" + convertText(convDateNOEnat[0] + "  " + convDateNOEnat[1] + "  " + convDateNOEnat[2] + "  " + convDateNOEnat[3], "noe") + "</uki>"
 			}
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
@@ -204,10 +215,12 @@
 				var convDateSUN = calcDateSUN(date)
 				
 				var monthNamesSUN = ["Neuia", "Solmia", "Hmetmenia", "Uoihnia", "Loubia", "Moreitia", "Duskia", "Snoiguia", "Gelia", "Huersmenia", "Blehmia", "Bloidia", "Terdia"]
-				var monthNamesSUN1 = ["", "", "", "", "", "", "", "", "", "", "", "", ""]
+				var monthNamesSUN1 = ["Neu-\\ia", "Solm-\\ia", "u+e11e-\menia", "\\Uoihnia", "u+e115-\\ia", "Guen2-\\ia", "u+e124-\\ia", "u+e126-\\ia", "u+e127-\\ia", "Huers-\\menia", "u+e12a-\\ia", "u+e125-\\ia", "\\Terdia"]
+				//var monthNamesSUN1 = ["", "", "", "", "", "", "", "", "", "", "", "", ""]
 				
 				document.getElementById('convSUN').innerHTML = convDateSUN[0] + " " + monthNamesSUN[convDateSUN[1]] + " " + convDateSUN[2] + convDateSUN[3]
-				document.getElementById('convSUN1').innerHTML = " <oika>" + (numberSUN(convDateSUN[0]) + monthNamesSUN1[convDateSUN[1]] + numberSUN(convDateSUN[2]) + String(convDateSUN[3]).replace(" IPT", "")) + "</oika>"
+				//document.getElementById('convSUN1').innerHTML = " <oika>" + (numberSUN(convDateSUN[0]) + monthNamesSUN1[convDateSUN[1]] + numberSUN(convDateSUN[2]) + String(convDateSUN[3]).replace(" IPT", "")) + "</oika>"
+				document.getElementById('convSUN1').innerHTML = " <uki>" + convertText(convDateSUN[0] + " " + monthNamesSUN1[convDateSUN[1]] + " " + convDateSUN[2] + String(convDateSUN[3]).replace(" IPT", " \\IPT"), "sun") + "</uki>"
 			}
 			
 			/*if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
