@@ -750,13 +750,13 @@ function getYearLengthKZM(year) {
 
 function calcDateKZM(date) {
 	var d = date;
-	var dayNumber = Math.floor(d.getTime() / 86400000) - 12908
+	var dayNumber = Math.floor(d.getTime() / 86400000) - 12907
 	
 	//var dayYear = mod(dayNumber, 365)
 	//var year = Math.floor(dayNumber / 365) + 1892
 	
 	if (dayNumber > 0) {
-		var yearNum = 1;
+		var yearNum = 1892;
 		var totalDays = 0;
 		while (true) {
 			if (totalDays + getYearLengthKZM(yearNum) > dayNumber) break;
@@ -764,7 +764,7 @@ function calcDateKZM(date) {
 			yearNum = yearNum + 1;
 		}
 	} else {
-		var yearNum = 1;
+		var yearNum = 1892;
 		var totalDays = 0;
 		while (true) {
 			yearNum = yearNum - 1;
@@ -784,9 +784,9 @@ function calcDateKZM(date) {
 	
 	var dayYear = dayNumber - totalDays - 1;
 	
-	var lunarDoy = mod(dayNumber, 148)
+	var lunarDoy = mod(dayNumber - 1, 148)
 	
-	var weekday = mod(dayNumber + 3, 9)
+	var weekday = mod(dayNumber + 2, 9)
 	
 	var monthDays = [0, 46, 47, 92, 137, 138, 183, 228, 229, 274, 319, 320, 999]
 	var monthNames = ["Hškath", "Prsith", "Kpgath", "Hška'sþbhi", "Prsi'sþbhi", "Kpga'sþbhi", "Hškasv", "Prsisv", "Kpgasv", "Hškanrh", "Prsinrh", "Kpganrh", "Ptnaprsithd"]
