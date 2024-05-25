@@ -749,7 +749,7 @@ function calcDateKZM(date) {
 	
 	var lunarDoy = mod(dayNumber, 148)
 	
-	var weekday = mod(dayNumber + 2, 9)
+	var weekday = mod(dayNumber + 3, 9)
 	
 	var monthDays = [0, 46, 47, 92, 137, 138, 183, 228, 229, 274, 319, 320, 999]
 	var monthNames = ["Hškath", "Prsith", "Kpgath", "Hška'sþbhi", "Prsi'sþbhi", "Kpga'sþbhi", "Hškasv", "Prsisv", "Kpgasv", "Hškanrh", "Prsinrh", "Kpganrh"]
