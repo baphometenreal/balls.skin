@@ -92,6 +92,7 @@
 	<img><font style="font-size: 26px;"><!--Noellastani:--> </font><font id="convNOE1" name="convNOE1" style="font-size: 26px; "></font><br>
 	<img><font style="font-size: 26px;"><!--West Noellastani:--> </font><font id="errorWNL" name="errorWNL" style="font-size: 26px; color: red"></font><font id="convWNL" name="convWNL" style="font-size: 26px; font-weight: bold;"></font><br>
 	<!--<img><font style="font-size: 26px;"> </font><font id="convWNL1" name="convWNL1" style="font-size: 26px;"></font><br>-->
+	<img src="flags/kzmr.png" title="Kzmr calendar" alt=":flag_kzm:" style="height: 22.2px; width: auto; padding: 0px 6.4px 0px"><font style="font-size: 26px;"><!--Kzmr:--> </font><font id="errorKZM" name="errorKZM" style="font-size: 26px; color: red"></font><font id="convKZM" name="convKZM" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img src="flags/alloti.png" title="Allotian calendar" alt=":flag_all:"><font style="font-size: 26px;"><!--Allotian:--> </font><font id="errorALL" name="errorALL" style="font-size: 26px; color: red"></font><font id="convALL" name="convALL" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"><!--Alloti:--> </font><font id="convALL1" name="convALL1" style="font-size: 26px;"></font><br>
 	<img src="flags/sunteria.png" title="Sunterian calendar" alt=":flag_sun:"><font style="font-size: 26px;"><!--Sunterian:--> </font><font id="errorSUN" name="errorSUN" style="font-size: 26px; color: red"></font><font id="convSUN" name="convSUN" style="font-size: 26px; font-weight: bold;"></font><br>
@@ -116,6 +117,7 @@
 			//document.getElementById('errorRAN').innerHTML = ""
 			document.getElementById('errorMAL').innerHTML = ""
 			document.getElementById('errorCRG').innerHTML = ""
+			document.getElementById('errorKZM').innerHTML = ""
 			
 			document.getElementById('convGRE').innerHTML = ""
 			document.getElementById('convLRM').innerHTML = ""
@@ -127,6 +129,7 @@
 			//document.getElementById('convRAN').innerHTML = ""
 			document.getElementById('convMAL').innerHTML = ""
 			document.getElementById('convCRG').innerHTML = ""
+			document.getElementById('convKZM').innerHTML = ""
 			
 			document.getElementById('convLRM1').innerHTML = ""
 			document.getElementById('convNOE1').innerHTML = ""
@@ -226,6 +229,13 @@
 			} else {
 				var convDateCRG = calcDateCRG(date)
 				document.getElementById('convCRG').innerHTML = convDateCRG[0] + " " + convDateCRG[1] + " " + convDateCRG[2]
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorCRG').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateKZM = calcDateKZM(date)
+				document.getElementById('convKZM').innerHTML = convDateKZM[0] + ", " +convDateKZM[1] + " " + convDateKZM[2] + " " + convDateKZM[3]
 			}
 		}
 		

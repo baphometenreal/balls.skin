@@ -739,3 +739,52 @@ function calcDateCRG(date) {
 	
 	return [(relWeek == 5 ? romanNumCRG(day) : day), monthNamesCRG[month], complementCRG(yearNum)]
 }
+
+function calcDateKZM(date) {
+	var d = date;
+	var dayNumber = Math.floor(d.getTime() / 86400000) - 12908
+	
+	var dayYear = mod(dayNumber, 365)
+	var year = Math.floor(dayNumber / 365) + 1892
+	
+	var lunarDoy = mod(dayNumber, 148)
+	
+	var weekday = mod(dayNumber + 2, 9)
+	
+	var monthDays = [0, 46, 47, 92, 137, 138, 183, 228, 229, 274, 319, 320, 999]
+	var monthNames = ["Hškath", "Prsith", "Kpgath", "Hška'sþbhi", "Prsi'sþbhi", "Kpga'sþbhi", "Hškasv", "Prsisv", "Kpgasv", "Hškanrh", "Prsinrh", "Kpganrh"]
+
+	var month = 0
+	if (dayYear >= 0) {
+		while (true) {
+			if (dayYear >= monthDays[month] && dayYear < monthDays[month+1]) break;
+			month = month + 1;
+		}
+	}
+	
+	var day = dayYear - monthDays[month] + 1
+	
+	if (mod(month, 3) == 1) {
+		day = ""
+	} else if (mod(month, 3) == 0) {
+		day = (46 + (month == 0 ? 1 : 0)) - day
+	}
+	
+	var lunarMonthDays = [0, 30, 60, 89, 118, 999]
+	var lunarMonthNames = ["Ng Kžri", "Ng Žrxci", "Ng Tšrn", "Ng Hšri", "Ng Hrni"]
+
+	var lunarMonth = 0
+	if (lunarDoy >= 0) {
+		while (true) {
+			if (lunarDoy >= lunarMonthDays[lunarMonth] && lunarDoy < lunarMonthDays[lunarMonth+1]) break;
+			lunarMonth = lunarMonth + 1;
+		}
+	}
+	
+	var lunarDay = lunarDoy - lunarMonthDays[lunarMonth] + 1
+	
+	var weekdayNames = ["Ngkahvm", "Bdkuhvm", "Sgrkuhvm", "Spnkahvm", "'Hngrgkahvm", "Tptkahvm", "Brxskahvm", "'Snšrkahvm", "'Tnrhkihvm"]
+	
+	//return [-1, day, monthNames[month], year + 1214]
+	return [weekdayNames[weekday], day + " " + monthNames[month], lunarDay + " " + lunarMonthNames[lunarMonth], year]
+}
