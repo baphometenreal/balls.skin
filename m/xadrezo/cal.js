@@ -786,8 +786,6 @@ function calcDateKZM(date) {
 	
 	var dayYear = dayNumber - totalDays;
 	
-	console.log(dayYear)
-	
 	var lunarDoy = mod(dayNumber - 1, 148)
 	
 	var weekday = mod(dayNumber + 2, 9)
