@@ -757,7 +757,7 @@ function calcDateKZM(date) {
 	
 	if (dayNumber > 0) {
 		var yearNum = 1892;
-		var totalDays = 0;
+		var totalDays = 1;
 		while (true) {
 			if (totalDays + getYearLengthKZM(yearNum) > dayNumber) break;
 			totalDays = totalDays + getYearLengthKZM(yearNum);
@@ -765,7 +765,7 @@ function calcDateKZM(date) {
 		}
 	} else {
 		var yearNum = 1892;
-		var totalDays = 0;
+		var totalDays = 1;
 		while (true) {
 			yearNum = yearNum - 1;
 			totalDays = totalDays - getYearLengthKZM(yearNum);
@@ -773,16 +773,17 @@ function calcDateKZM(date) {
 		}
 	}
 	
-	
+	/*
 	if ((dayNumber - totalDays) == 0) {
 		if (dayNumber > 0) {
 			yearNum = yearNum - 1;
 		}
 	}
+	*/
 	
 	var year = yearNum
 	
-	var dayYear = dayNumber - totalDays - 1;
+	var dayYear = dayNumber - totalDays;
 	
 	var lunarDoy = mod(dayNumber - 1, 148)
 	
