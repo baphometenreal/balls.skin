@@ -765,12 +765,13 @@ function calcDateKZM(date) {
 		}
 	} else {
 		var yearNum = 1892;
-		var totalDays = 1;
+		var totalDays = 0;
 		while (true) {
 			yearNum = yearNum - 1;
 			totalDays = totalDays - getYearLengthKZM(yearNum);
 			if (totalDays < dayNumber) break;
 		}
+		totalDays += 1
 	}
 	
 	/*
@@ -784,6 +785,8 @@ function calcDateKZM(date) {
 	var year = yearNum
 	
 	var dayYear = dayNumber - totalDays;
+	
+	console.log(dayYear)
 	
 	var lunarDoy = mod(dayNumber - 1, 148)
 	
