@@ -645,7 +645,7 @@ function calcDateMAL(date) {
 	var day = dayNumber - monthDays[month] + 1
 	
 	var weekdayNames = ["Oneday", "Twoday", "Threeday", "Fourday", "Fiveday", "Sixday"]
-	var monthNames = ["Dry I", "Dry II", "Dry III", "Rain I", "Rain II", "Rain III", "Harvest I", "Harvest II", "Harvest III"]
+	var monthNames = ["Riecsmaant", "Vâstmaant", "Laumaant", "Tilmaant", "Zaanmaant", "Zorgmaant", "Herbmaant", "Windmaant", "Cèstmaant"]
 	
 	if (year < 1) {year = (Math.abs(year)+1) + " BE"}
 	
