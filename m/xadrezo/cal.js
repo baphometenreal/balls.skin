@@ -311,9 +311,7 @@ function calcDateNOE(date, natscr = false) {
 		} else {
 			year = (Math.abs(year)+ 1)+ " BNC"
 		}
-	} else if (natscr) {
-		year = bijectiveString(year, 6)
-	}
+	} 
 	
 	return [dayN[day], weekNames[week], monthNames[month], year]
 }
@@ -647,7 +645,7 @@ function calcDateMAL(date) {
 	var day = dayNumber - monthDays[month] + 1
 	
 	var weekdayNames = ["Oneday", "Twoday", "Threeday", "Fourday", "Fiveday", "Sixday"]
-	var monthNames = ["Dry I", "Dry II", "Dry III", "Rain I", "Rain II", "Rain III", "Harvest I", "Harvest II", "Harvest III"]
+	var monthNames = ["Riecsmaant", "Vâstmaant", "Laumaant", "Tilmaant", "Zaanmaant", "Zorgmaant", "Herbmaant", "Windmaant", "Cèstmaant"]
 	
 	if (year < 1) {year = (Math.abs(year)+1) + " BE"}
 	
@@ -740,19 +738,64 @@ function calcDateCRG(date) {
 	return [(relWeek == 5 ? romanNumCRG(day) : day), monthNamesCRG[month], complementCRG(yearNum)]
 }
 
+// KZMR
+
+function isLeapKZM(year) {
+	return (mod(year, 17) == 0 || mod(year, 17) == 4 || mod(year, 17) == 8 || mod(year, 17) == 13)
+}
+
+function getYearLengthKZM(year) {
+	return 365 + isLeapKZM(year)
+}
+
 function calcDateKZM(date) {
 	var d = date;
-	var dayNumber = Math.floor(d.getTime() / 86400000) - 12908
+	var dayNumber = Math.floor(d.getTime() / 86400000) - 12907
 	
-	var dayYear = mod(dayNumber, 365)
-	var year = Math.floor(dayNumber / 365) + 1892
+	//var dayYear = mod(dayNumber, 365)
+	//var year = Math.floor(dayNumber / 365) + 1892
 	
-	var lunarDoy = mod(dayNumber, 148)
+	if (dayNumber > 0) {
+		var yearNum = 1892;
+		var totalDays = 1;
+		while (true) {
+			if (totalDays + getYearLengthKZM(yearNum) > dayNumber) break;
+			totalDays = totalDays + getYearLengthKZM(yearNum);
+			yearNum = yearNum + 1;
+		}
+	} else {
+		var yearNum = 1892;
+		var totalDays = 0;
+		while (true) {
+			yearNum = yearNum - 1;
+			totalDays = totalDays - getYearLengthKZM(yearNum);
+			if (totalDays < dayNumber) break;
+		}
+		totalDays += 1
+	}
 	
-	var weekday = mod(dayNumber + 3, 9)
+	/*
+	if ((dayNumber - totalDays) == 0) {
+		if (dayNumber > 0) {
+			yearNum = yearNum - 1;
+		}
+	}
+	*/
+	
+	var year = yearNum
+	
+	var dayYear = dayNumber - totalDays;
+	
+	var lunarDoy = mod(dayNumber - 1, 148)
+	
+	var weekday = mod(dayNumber + 2, 9)
 	
 	var monthDays = [0, 46, 47, 92, 137, 138, 183, 228, 229, 274, 319, 320, 999]
-	var monthNames = ["Hškath", "Prsith", "Kpgath", "Hška'sþbhi", "Prsi'sþbhi", "Kpga'sþbhi", "Hškasv", "Prsisv", "Kpgasv", "Hškanrh", "Prsinrh", "Kpganrh"]
+	var monthNames = ["Hškath", "Prsith", "Kpgath", "Hška'sþbhi", "Prsi'sþbhi", "Kpga'sþbhi", "Hškasv", "Prsisv", "Kpgasv", "Hškanrh", "Prsinrh", "Kpganrh", "Ptnaprsithd"]
+	
+	if (isLeapKZM(year)) {
+		monthDays = [0, 46, 48, 93, 138, 139, 184, 229, 230, 275, 320, 321, 999]
+	}
 
 	var month = 0
 	if (dayYear >= 0) {
@@ -765,6 +808,9 @@ function calcDateKZM(date) {
 	var day = dayYear - monthDays[month] + 1
 	
 	if (mod(month, 3) == 1) {
+		if (day == 2) {
+			month = 12
+		}
 		day = ""
 	} else if (mod(month, 3) == 0) {
 		day = (46 + (month == 0 ? 1 : 0)) - day
