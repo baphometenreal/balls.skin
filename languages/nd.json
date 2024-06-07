@@ -33,7 +33,7 @@
 	"themeaesthetic": "Esthetiek",
 	"themenovelty": "'Souvenir' (Mogelijke waarschuwing voor oogbelasting)",
 
-	"lightmode": "Licht",
+	"lightmode": "Helder",
 	"darkmode": "Donker",
 	"bloodmode": "Bloed",
 	"pweemode": "Pis",
@@ -58,7 +58,7 @@
 	"usamode": "VSA",
 	"winemode": "Wijn",
 	"darkc": "Hoog Contrast Donker",
-	"lightc": "Hoog Contrast Licht",
+	"lightc": "Hoog Contrast Helder",
 
     "font":"Lettertype",
 	"fontdefault": "Standaard",
@@ -233,5 +233,6 @@
 	"kazhome5": "Onderzoeksinteresses",
 	"kazhome6": "Ik ben in het proces van <s>samen te werken met mijn collega <a href=\"/m/kazimir/index\">Henry Durand</a> aan een vertaling van één van de manuscripten in de Hovland Cache</s> een metafictioneel werk gezet in één van mijn verschillende parakosmoi te schrijven",
 	"kazhome7": "Contact:<br/>pontisconlangs [at] gmail.com",
+	"kazhome8":"In additie, Ik ben vrij dol op de Oostenrijkse componist Josef Matthias Hauer. Voor verdere informatie, zie mijn pagina <a href=\"/m/kazimir/haueriana.html\">Haueriana</a>.",
 	"kaztpdisclaimer": ""
 }
