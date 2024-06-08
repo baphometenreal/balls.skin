@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css.css">
+    <link href="" rel="stylesheet" type="text/css" media="screen" id="theme-link">
     <title>sap of the knowledge tree</title>
   </head>
 
@@ -16,9 +17,9 @@
 
     <hr>
 
-    <h4>Linguistic Resources</h4>
+    <h4 id="saplingrec" class="lang">Linguistic Resources</h4>
     <ul>
-      <li>Ẹ̀dó-English Dictionares</li>
+      <li id="sapedo" class="lang">Ẹ̀dó-English Dictionares</li>
       <ul>
         <li><a href="dict/edo/agheyisi.pdf">Rebecca N. Agheyisi (PDF)</a></li>
         <li><a href="dict/edo/melzian.pdf">Hans Melzian (PDF)</a></li>
@@ -27,11 +28,14 @@
         <li><a href="dict/edo/melzian.html">Melzian (Digitized) (HTML)</a></li>
         <li><a href="dict/edo/names.html">Names And Meanings(HTML)</a></li>
       </ul>
-      <li>Belgium</li>
+      <li id="sapbelgium" class="lang">Belgium</li>
       <ul>
         <li><a href="dict/dvgvwb.pdf">Flemish Municipality Names Explaining Dictionary (PDF)</a></li>
       </ul>
     </ul>
-
+    <script src="/js.js"></script>
+      <script>
+      loadLanguage()
+    </script>
   </body>
 </html>
