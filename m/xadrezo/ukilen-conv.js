@@ -47,36 +47,7 @@ function bijectiveString(m, k) {
 				case "bap":
 					translate = {
 						"pahtam": "",
-						"baltyeu": "",
-						"galeu": "",
-						"dahgohs": "",
-						"beuleu": "",
-						"paltak": "",
-						"beugwëyë": "",
-						"gohz": "",
-						"eukwë": "",
-						"euleunë": "",
-						"beuyiit": "",
-						"teudeuzë": "",
-						"zuojyeu": "",
-						"sëme": "",
-						"ahvakeu": "",
-						"uoyasë": "",
-						"luonliing": "",
-						"muobeuveu": "",
-						"duodeu": "",
-						"iigas": "",
-						"ahlyeudeu": "",
-						"zeubo": "",
-						"zazvë": "",
-						"lah": "",
-						"kheu": "",
-						"seu": "",
-						"kyuo": "",
-						"zhëmii": "",
-						"kheuyavan": "",
-						"neupwëdeu": "",
-						"kheondohn": "",
+						"baltye": "",
 						
 						":": ":",
 						"\"": "\"",
@@ -98,13 +69,8 @@ function bijectiveString(m, k) {
 						syl = syl.replaceAll("ph", "F");
 						syl = syl.replaceAll("kh", "X");
 						syl = syl.replaceAll("l", "R");
-						syl = syl.replaceAll("ii", "I");
-						syl = syl.replaceAll("ee", "E");
-						syl = syl.replaceAll("uo", "Ü");
-						syl = syl.replaceAll("oh", "Ó");
 						syl = syl.replaceAll("ah", "Á");
-						syl = syl.replaceAll("eo", "É");
-						syl = syl.replaceAll("eu", "È");
+						syl = syl.replaceAll("è", "Ë");
 						syl = syl.replaceAll("y", "j");
 						
 						syl = syl.replaceAll(";", "");
