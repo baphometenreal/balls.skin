@@ -6,11 +6,12 @@
 <title>emma ball</title>
 </head>
 
-<style>
+<style id="s">
 #emmasupertitle { margin-bottom: 0px; }
 #emmatitle{ margin-top: 0px; }
-body {text-align: center; background-color: thistle;}
+body { text-align: center; background: thistle; color: #000;} 
 </style>
+	
 
 <body>
 <header>
@@ -18,7 +19,7 @@ body {text-align: center; background-color: thistle;}
 <h1 class="lang" id="emmatitle">emma ballspage real</h1>
 </header>
 
-<main>
+<main id="m">
 <p class="lang" id="emma1">hi hello i am emma (she/they)</p>
 <p class="lang" id="emma2">i may be cat or shark occasionally idk this might be wrong let's see</p>
 <p class="lang" id="emma3">this is a website i think</p>
@@ -27,6 +28,13 @@ body {text-align: center; background-color: thistle;}
 
 <script src="/js.js"></script>
 <script>loadLanguage()</script>
+<script>
+	if (localStorage.theme == "emma") {
+		console.log("meow! :3")
+		document.getElementById("m").insertAdjacentHTML("beforeend", "<p><b>!!! thank you for using emma mode! &lt;3</b></p>")
+		document.getElementById("s").insertAdjacentHTML("afterend", "<style> body {background: linear-gradient(225deg, #312, #000); background-attachment: fixed; color: #fff;} main { margin: auto 10%; padding: 10px; border-radius: 5px; background: linear-gradient(135deg, #c9b, #967); }</style>")
+	}
+</script>
 </body>
 
 </html>
