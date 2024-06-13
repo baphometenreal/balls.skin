@@ -50,7 +50,7 @@ function bijectiveString(m, k) {
 						"baltye": "",
 						
 						":": ":",
-						"\"": "\"",
+						"\"": "«",
 						"(": "(",
 						")": ")",
 						"'": "'",
@@ -58,6 +58,8 @@ function bijectiveString(m, k) {
 						".": ".",
 						"!": "!",
 						"?": "?",
+						"“": "«",
+						"”": "»",
 						"": "",
 					}
 					
@@ -75,6 +77,8 @@ function bijectiveString(m, k) {
 						
 						syl = syl.replaceAll(";", "");
 						syl = syl.replaceAll("'", ";");
+						syl = syl.replaceAll("“", "«");
+						syl = syl.replaceAll("”", "»");
 						syl = syl.toUpperCase()
 						
 						syl = syl.replaceAll("\\", "");
@@ -186,7 +190,7 @@ function bijectiveString(m, k) {
 						"ma": "",
 						
 						":": ":",
-						"\"": "\"",
+						"\"": "«",
 						"(": "(",
 						")": ")",
 						"'": "'",
@@ -194,6 +198,8 @@ function bijectiveString(m, k) {
 						".": ".",
 						"!": "!",
 						"?": "?",
+						"“": "«",
+						"”": "»",
 						"": "",
 					}
 					
@@ -201,6 +207,8 @@ function bijectiveString(m, k) {
 						syl = syl.replaceAll("y", "j");
 						syl = syl.replaceAll("è", "ë");
 						syl = syl.replaceAll("'", ";");
+						syl = syl.replaceAll("“", "«");
+						syl = syl.replaceAll("”", "»");
 						syl = syl.toUpperCase()
 						
 						syl = syl.replaceAll("\\", "");
@@ -213,7 +221,7 @@ function bijectiveString(m, k) {
 					translate = {
 						
 						":": ":",
-						"\"": "\"",
+						"\"": "“",
 						"(": "(",
 						")": ")",
 						"'": "'",
@@ -221,6 +229,8 @@ function bijectiveString(m, k) {
 						".": ".",
 						"!": "!",
 						"?": "?",
+						"“": "“",
+						"”": "”",
 						"": "",
 					}
 					
@@ -292,14 +302,16 @@ function bijectiveString(m, k) {
 						"jauko": "",
 						
 						":": ":",
-						"\"": "\"",
-						"(": "(",
-						")": ")",
+						"\"": "“",
+						"(": "{",
+						")": "}",
 						"'": "'",
-						",": ",",
-						".": ".",
-						"!": "!",
-						"?": "?",
+						",": "ʻ",
+						".": "·",
+						"!": "¡",
+						"?": "¿",
+						"“": "“",
+						"”": "”",
 						"": "",
 					}
 					
@@ -353,6 +365,13 @@ function bijectiveString(m, k) {
 						syl = syl.replaceAll("7", "З");
 						syl = syl.replaceAll("8", "И");
 						syl = syl.replaceAll("9", "Й");
+						
+						syl = syl.replaceAll("!", "¡");
+						syl = syl.replaceAll("?", "¿");
+						syl = syl.replaceAll("(", "{");
+						syl = syl.replaceAll(")", "}");
+						syl = syl.replaceAll(",", "ʻ");
+						syl = syl.replaceAll(".", "·");
 						
 						syl = syl.replaceAll("\\", "");
 						return syl
@@ -673,7 +692,7 @@ function bijectiveString(m, k) {
 						"blehm": "",
 						
 						":": ":",
-						"\"": "\"",
+						"\"": "«",
 						"(": "(",
 						")": ")",
 						"'": "'",
@@ -681,6 +700,8 @@ function bijectiveString(m, k) {
 						".": ".",
 						"!": "!",
 						"?": "?",
+						"“": "«",
+						"”": "»",
 						"": "",
 					}
 					
@@ -689,6 +710,8 @@ function bijectiveString(m, k) {
 						syl = syl.replaceAll("w", "u");
 						syl = syl.replaceAll("š", "c");
 						syl = syl.replaceAll("ž", "j");
+						syl = syl.replaceAll("“", "«");
+						syl = syl.replaceAll("”", "»");
 						
 						syl = syl.replaceAll("\\", "");
 						return syl
@@ -714,7 +737,7 @@ function bijectiveString(m, k) {
 				default:
 					translate = {
 						":": ":",
-						"\"": "\"",
+						"\"": "«",
 						"(": "(",
 						")": ")",
 						"'": "'",
@@ -722,6 +745,8 @@ function bijectiveString(m, k) {
 						".": ".",
 						"!": "!",
 						"?": "?",
+						"“": "«",
+						"”": "»",
 						"": "",
 					}
 			}
@@ -740,6 +765,8 @@ function bijectiveString(m, k) {
 		function convertText(inputText, mode) {
 			inputText = inputText.toLowerCase()
 			inputText = inputText.replaceAll("-", " ");
+			inputText = inputText.replace(/"([^"]*)"/g, "“$1”");
+			inputText = inputText.replace("\"", "“");
 			inputText = inputText.split(" ");
 			
 			for (var i = 0; i < inputText.length; i++) {inputText[i] = translateSyllable(inputText[i], mode)}
