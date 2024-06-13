@@ -15,5 +15,17 @@ body { font-family: 'Fira Mono', monospace}
     font-weight: 400;
     font-display: swap;
     src: url("/font/fira mono/FiraMono-Regular.ttf") format('ttf');
-  }
-  
+}
+
+.main {
+    padding: 1em;
+    text-align: left;
+}
+
+li {
+    margin: 0.5em;
+}
+
+hr {
+    color: var(--button-bg);
+}
