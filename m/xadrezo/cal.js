@@ -603,11 +603,37 @@ function calcDateRAN(date) {
 // -- MALLIA
 
 function getWeekdayMAL(date) {
-	return mod((Math.floor(date.getTime()/86400000) + 2440591), 6)
+	return mod((Math.floor(date.getTime()/86400000) + 2440591), 4)
 }
 
 function isLeapMAL(year) {
 	return isLeapALL(year)
+}
+
+function numberMAL(number) {
+  let mal = '';
+  
+  if (number == 0) {return "«ə»"}
+  
+  mal += 'm'.repeat(number / 2000);  number %= 2000; 
+  mal += 'w'.repeat(number / 1000);  number %= 1000; 
+  mal += 'l'.repeat(number / 500);   number %= 500;  
+  mal += 'p'.repeat(number / 400);   number %= 400;
+  mal += 'f'.repeat(number / 300);   number %= 300;
+  mal += 's'.repeat(number / 200);   number %= 200;
+  mal += 't'.repeat(number / 100);   number %= 100;
+  mal += 'k'.repeat(number / 50);    number %= 50;
+  mal += 'h'.repeat(number / 40);    number %= 40;
+  mal += 'r'.repeat(number / 30);    number %= 30;
+  mal += 'j'.repeat(number / 20);    number %= 20;
+  mal += 'g'.repeat(number / 10);    number %= 10;
+  mal += 'd'.repeat(number / 5);     number %= 5;
+  mal += 'z'.repeat(number / 4);     number %= 4;
+  mal += 'n'.repeat(number / 3);     number %= 3;
+  mal += 'v'.repeat(number / 2);     number %= 2;
+  mal += 'b'.repeat(number);
+
+  return "«" + mal + "»";
 }
 
 function calcDateMAL(date) {
@@ -644,12 +670,11 @@ function calcDateMAL(date) {
 	
 	var day = dayNumber - monthDays[month] + 1
 	
-	var weekdayNames = ["Oneday", "Twoday", "Threeday", "Fourday", "Fiveday", "Sixday"]
-	var monthNames = ["Riecsmaant", "Vâstmaant", "Laumaant", "Tilmaant", "Zaanmaant", "Zorgmaant", "Herbmaant", "Windmaant", "Cèstmaant"]
+	var suffix = ""
+	if (year < 1) {year = (Math.abs(year)+1); suffix = " BE"}
 	
-	if (year < 1) {year = (Math.abs(year)+1) + " BE"}
-	
-	return [weekdayNames[weekday], day, monthNames[month], year]
+	return [weekday, day, month, year, suffix]
+	//return [weekdayNames[weekday], day, monthNames[month], year]
 }
 
 // --- CRING ---
