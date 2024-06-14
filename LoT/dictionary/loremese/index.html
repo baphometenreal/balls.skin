@@ -247,6 +247,7 @@
 		
 			// VERB INFLECTION GOES HERE
 			case "v":
+			case "vit":
 				wortstamm = loremese.slice(0, -1) //loremese.split(" ").splice(-1).toString().slice(0, -1)
 				
 				// var prefix = loremese.split(" ").slice(0, -1).join(" ")
@@ -259,10 +260,10 @@
 				var augment = (["a", "e", "o", "u"].includes(wortstamm.charAt(0)) ? "i" : "e")
 				
 				var actInf = alveolarise(wortstamm + "ti")
-				var pasInf = wortstamm + bufferE + "sdi"
+				var pasInf = (type == "vit") ?  "" : (wortstamm + bufferE + "sdi")
 				
 				var actPar = wortstamm + bufferE + "nti"
-				var pasPar = alveolarise(wortstamm + "to")
+				var pasPar = (type == "vit") ?  "" : (alveolarise(wortstamm + "to"))
 				
 				var x1sgAPre = firstPersonStem + "o"
 				var x2sgAPre = wortstamm + bufferE + "s"
@@ -278,19 +279,19 @@
 				var x2plAPas = augment + wortstamm + bufferE + "ste"
 				var x3plAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "er"
 				
-				var x1sgPPre = firstPersonStem + "or"
-				var x2sgPPre = wortstamm + bufferE + "ta"
-				var x3sgPPre = wortstamm + bufferE + "tor"
-				var x1plPPre = wortstamm + bufferE + "mosda"
-				var x2plPPre = wortstamm + bufferE + "dave"
-				var x3plPPre = wortstamm + bufferE + "ntor"
+				var x1sgPPre = (type == "vit") ?  "" : (firstPersonStem + "or")
+				var x2sgPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "ta")
+				var x3sgPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "tor")
+				var x1plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "mosda")
+				var x2plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "dave")
+				var x3plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "ntor")
 				
-				var x1sgPPas = augment + wortstamm + bufferE + "ma"
-				var x2sgPPas = augment + wortstamm + bufferE + "sto"
-				var x3sgPPas = augment + wortstamm + bufferE + "to"
-				var x1plPPas = augment + x1plPPre
-				var x2plPPas = augment + x2plPPre
-				var x3plPPas = augment + wortstamm + bufferE + "nto"
+				var x1sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "ma")
+				var x2sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "sto")
+				var x3sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "to")
+				var x1plPPas = (type == "vit") ?  "" : (augment + x1plPPre)
+				var x2plPPas = (type == "vit") ?  "" : (augment + x2plPPre)
+				var x3plPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "nto")
 				
 				// handle irregular verbs
 				switch (wortstamm) {
