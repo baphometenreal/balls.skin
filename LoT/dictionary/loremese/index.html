@@ -271,12 +271,12 @@
 				var x2plAPre = wortstamm + bufferE + "te"
 				var x3plAPre = wortstamm + bufferE + "nti"
 				
-				var x1sgAPas = augment + x1sgAPre
-				var x2sgAPas = augment + x2sgAPre
-				var x3sgAPas = augment + x3sgAPre
-				var x1plAPas = augment + x1plAPre
-				var x2plAPas = augment + x2plAPre
-				var x3plAPas = augment + x3plAPre
+				var x1sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "?") + (["s", "?", "z"].includes(wortstamm.slice(-1)) ? "" : "s") + "a"
+				var x2sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "?") + (["s", "?", "z"].includes(wortstamm.slice(-1)) ? "" : "s")
+				var x3sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "?") + (["s", "?", "z"].includes(wortstamm.slice(-1)) ? "" : "s") + "t"
+				var x1plAPas = augment + wortstamm + bufferE + "me"
+				var x2plAPas = augment + wortstamm + bufferE + "ste"
+				var x3plAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "?") + (["s", "?", "z"].includes(wortstamm.slice(-1)) ? "" : "s") + "er"
 				
 				var x1sgPPre = firstPersonStem + "or"
 				var x2sgPPre = wortstamm + bufferE + "ta"
@@ -285,12 +285,12 @@
 				var x2plPPre = wortstamm + bufferE + "dave"
 				var x3plPPre = wortstamm + bufferE + "ntor"
 				
-				var x1sgPPas = augment + x1sgPPre
-				var x2sgPPas = augment + x2sgPPre
-				var x3sgPPas = augment + x3sgPPre
+				var x1sgPPas = augment + wortstamm + bufferE + "ma"
+				var x2sgPPas = augment + wortstamm + bufferE + "sto"
+				var x3sgPPas = augment + wortstamm + bufferE + "to"
 				var x1plPPas = augment + x1plPPre
 				var x2plPPas = augment + x2plPPre
-				var x3plPPas = augment + x3plPPre
+				var x3plPPas = augment + wortstamm + bufferE + "nto"
 				
 				// handle irregular verbs
 				switch (wortstamm) {
