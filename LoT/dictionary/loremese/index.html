@@ -249,10 +249,11 @@
 			// VERB INFLECTION GOES HERE
 			case "v":
 			case "vit":
-				wortstamm = loremese.slice(0, -1) //loremese.split(" ").splice(-1).toString().slice(0, -1)
-				
+				wortstamm = loremese.split(" ")[0].slice(0, -1)
+				// wortstamm = loremese.slice(0, -1) //loremese.split(" ").splice(-1).toString().slice(0, -1)
 				// var prefix = loremese.split(" ").slice(0, -1).join(" ")
 				// prefix += (prefix ? " " : " ")
+				var rest = " " + loremese.split(" ").slice(1).join(" ") 
 				
 				var firstPersonStem = wortstamm
 				wortstamm = (firstPersonStem.slice(-1) == "v" ? firstPersonStem.slice(0, -1) + "u" : firstPersonStem).toString()
@@ -260,56 +261,56 @@
 				var bufferE = (["a", "e", "i", "o", "u"].includes(wortstamm.slice(-1)) ? "" : "e")
 				var augment = (["a", "e", "o", "u"].includes(wortstamm.charAt(0)) ? "i" : "e")
 				
-				var actInf = alveolarise(wortstamm + "ti")
-				var pasInf = (type == "vit") ?  "" : (wortstamm + bufferE + "sdi")
+				var actInf = alveolarise(wortstamm + "ti") + rest
+				var pasInf = (type == "vit") ?  "" : (wortstamm + bufferE + "sdi" + rest)
 				
 				var actPar = wortstamm + bufferE + "nti"
-				var pasPar = (type == "vit") ?  "" : (alveolarise(wortstamm + "to"))
+				var pasPar = (type == "vit") ?  "" : (alveolarise(wortstamm + "to") + rest)
 				
-				var x1sgAPre = firstPersonStem + "o"
-				var x2sgAPre = wortstamm + bufferE + "s"
-				var x3sgAPre = wortstamm + bufferE
-				var x1plAPre = wortstamm + bufferE + "mo"
-				var x2plAPre = wortstamm + bufferE + "te"
-				var x3plAPre = wortstamm + bufferE + "nti"
+				var x1sgAPre = firstPersonStem + "o" + rest
+				var x2sgAPre = wortstamm + bufferE + "s" + rest
+				var x3sgAPre = wortstamm + bufferE + rest
+				var x1plAPre = wortstamm + bufferE + "mo" + rest
+				var x2plAPre = wortstamm + bufferE + "te" + rest
+				var x3plAPre = wortstamm + bufferE + "nti" + rest
 				
-				var x1sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "a"
-				var x2sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s")
-				var x3sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "t"
-				var x1plAPas = augment + wortstamm + bufferE + "me"
-				var x2plAPas = augment + wortstamm + bufferE + "ste"
-				var x3plAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "er"
+				var x1sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "a" + rest
+				var x2sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + rest
+				var x3sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "t" + rest
+				var x1plAPas = augment + wortstamm + bufferE + "me" + rest
+				var x2plAPas = augment + wortstamm + bufferE + "ste" + rest
+				var x3plAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "er" + rest
 				
-				var x1sgPPre = (type == "vit") ?  "" : (firstPersonStem + "or")
-				var x2sgPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "ta")
-				var x3sgPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "tor")
-				var x1plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "mosda")
-				var x2plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "dave")
-				var x3plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "ntor")
+				var x1sgPPre = (type == "vit") ?  "" : (firstPersonStem + "or" + rest)
+				var x2sgPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "ta" + rest)
+				var x3sgPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "tor" + rest)
+				var x1plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "mosda" + rest)
+				var x2plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "dave" + rest)
+				var x3plPPre = (type == "vit") ?  "" : (wortstamm + bufferE + "ntor" + rest)
 				
-				var x1sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "ma")
-				var x2sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "sto")
-				var x3sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "to")
-				var x1plPPas = (type == "vit") ?  "" : (augment + x1plPPre)
-				var x2plPPas = (type == "vit") ?  "" : (augment + x2plPPre)
-				var x3plPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "nto")
+				var x1sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "ma" + rest)
+				var x2sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "sto" + rest)
+				var x3sgPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "to" + rest)
+				var x1plPPas = (type == "vit") ?  "" : (augment + x1plPPre + rest)
+				var x2plPPas = (type == "vit") ?  "" : (augment + x2plPPre + rest)
+				var x3plPPas = (type == "vit") ?  "" : (augment + wortstamm + bufferE + "nto" + rest)
 				
 				// handle irregular verbs
 				switch (wortstamm) {
 					case "es":
-						x3sgAPre = "es"
-						x1plAPre = "semo"
-						x2plAPre = "sete"
-						x3plAPre = "senti"
+						x3sgAPre = "es" + rest
+						x1plAPre = "semo" + rest
+						x2plAPre = "sete" + rest
+						x3plAPre = "senti" + rest
 					
-						x1sgAPas = "buvo"
-						x2sgAPas = "bus"
-						x3sgAPas = "bu"
-						x1plAPas = "bumo"
-						x2plAPas = "bute"
-						x3plAPas = "bunti"
+						x1sgAPas = "buvo" + rest
+						x2sgAPas = "bus" + rest
+						x3sgAPas = "bu" + rest
+						x1plAPas = "bumo" + rest
+						x2plAPas = "bute" + rest
+						x3plAPas = "bunti" + rest
 						
-						actPar = "senti"
+						actPar = "senti" + rest
 						pasInf = ""
 						pasPar = ""
 						
