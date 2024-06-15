@@ -18,6 +18,10 @@
   font-family: "Evakr";
   src: url("/font/default/NotoSerifKR-Black.otf");
 }
+@font-face {
+  font-family: "ukilen";
+  src: url("/font/UkilenLg.otf");
+}
 .noto-serif jp-regular {
   font-family: "Noto Serif JP", serif;
   font-weight: 400;
@@ -37,4 +41,7 @@ a, a:visited, button {
 a.entry, a.entry:visited {
   font-family: times;
   font-size: 15px;
+}
+.lg {
+  font-family: ukilen;
 }
