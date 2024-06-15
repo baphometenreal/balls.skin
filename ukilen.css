@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "ukilen";
+  src: url("/font/ukilen.otf");
+}
+
 .lg {
   font-family: ukilen;
 }
