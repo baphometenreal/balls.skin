@@ -75,7 +75,23 @@
 				} else {
 					var prettyArt = type
 					
-	
+					switch (type) {
+						case "an":
+							prettyArt = "animate noun"
+							break;
+						case "inan":
+							prettyArt = "inanimate noun"
+							break;
+						case "adj":
+							prettyArt = "adjective"
+							break;
+						case "verb":
+							prettyArt = "verb"
+							break;
+						case "prn":
+							prettyArt = "pronoun"
+							break;
+					}
 					
 					indEntry = "<p>" + english + ": <font style='font-size:32px; font-family:ukilen;'><a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font> <i>(" + prettyArt
 					if (extra) { indEntry +=  ", " + extra + ""}
@@ -91,8 +107,134 @@
 		}
 		
 		function grammar(english, baphian, type, notes) {
-		if (type == "") {openNewPage( "<span class='ukilen'>" + baphian + "</span> \"" + english + "\"", "", notes); return}
-		
+			if (type == "") {openNewPage( "<span class='ukilen'>" + baphian + "</span> \"" + english + "\"", "", notes); return}
+			
+			var tabelle = ""
+			
+			switch (type) { // inflection types go here
+				// NOUN INFLECTION GOES HERE
+				case "an":
+				case "adj":
+					var nomSg = baphian;
+					var accSg = baphian + "GË"
+					var datSg = baphian + "VË"
+					var genSg = baphian + ""
+					var ablSg = baphian + "JHË"
+					var vocSg = baphian + ""
+					var locSg = baphian + "JHAN"
+					
+					var nomDu = nomSg + ""
+					var accDu = accSg + ""
+					var datDu = datSg + ""
+					var genDu = genSg + ""
+					var ablDu = ablSg + ""
+					var vocDu = vocSg + ""
+					var locDu = baphian + "JHA"
+					
+					var nomPl = nomSg + ""
+					var accPl = accSg + ""
+					var datPl = datSg + ""
+					var genPl = genSg + ""
+					var ablPl = ablSg + ""
+					var vocPl = vocSg + ""
+					var locPl = baphian + "JHA"
+					
+					tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
+					tabelle += "<tr><th>Nominative</th><td class=\"ukilen\">" + nomSg + "</td><td class=\"ukilen\">" + nomDu + "</td><td class=\"ukilen\">" + nomPl + "</td></tr>"
+					tabelle += "<tr><th>Accusative</th><td class=\"ukilen\">" + accSg + "</td><td class=\"ukilen\">" + accDu + "</td><td class=\"ukilen\">" + accPl + "</td></tr>"
+					tabelle += "<tr><th>Dative</th><td class=\"ukilen\">" + datSg + "</td><td class=\"ukilen\">" + datDu + "</td><td class=\"ukilen\">" + datPl + "</td></tr>"
+					tabelle += "<tr><th>Genitive</th><td class=\"ukilen\">" + genSg + "</td><td class=\"ukilen\">" + genDu + "</td><td class=\"ukilen\">" + genPl + "</td></tr>"
+					tabelle += "<tr><th>Ablative</th><td class=\"ukilen\">" + ablSg + "</td><td class=\"ukilen\">" + ablDu + "</td><td class=\"ukilen\">" + ablPl + "</td></tr>"
+					tabelle += "<tr><th>Vocative</th><td class=\"ukilen\">" + vocSg + "</td><td class=\"ukilen\">" + vocDu + "</td><td class=\"ukilen\">" + vocPl + "</td></tr>"
+					tabelle += "<tr><th>Locative</th><td class=\"ukilen\">" + locSg + "</td><td class=\"ukilen\">" + locDu + "</td><td class=\"ukilen\">" + locPl + "</td></tr>"
+					tabelle += "</table>"
+					break;
+				case "inan":
+					var nomSg = baphian;
+					var accSg = baphian + "ZË"
+					var datSg = baphian + "ŚË"
+					var genSg = baphian + ""
+					var ablSg = baphian + "CË"
+					var vocSg = baphian + ""
+					var locSg = baphian + "XAN"
+					
+					var nomDu = nomSg + ""
+					var accDu = accSg + ""
+					var datDu = datSg + ""
+					var genDu = genSg + ""
+					var ablDu = ablSg + ""
+					var vocDu = vocSg + ""
+					var locDu = baphian + "XA"
+					
+					var nomPl = nomSg + ""
+					var accPl = accSg + ""
+					var datPl = datSg + ""
+					var genPl = genSg + ""
+					var ablPl = ablSg + ""
+					var vocPl = vocSg + ""
+					var locPl = baphian + "XA"
+					
+					tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
+					tabelle += "<tr><th>Nominative</th><td class=\"ukilen\">" + nomSg + "</td><td class=\"ukilen\">" + nomDu + "</td><td class=\"ukilen\">" + nomPl + "</td></tr>"
+					tabelle += "<tr><th>Accusative</th><td class=\"ukilen\">" + accSg + "</td><td class=\"ukilen\">" + accDu + "</td><td class=\"ukilen\">" + accPl + "</td></tr>"
+					tabelle += "<tr><th>Dative</th><td class=\"ukilen\">" + datSg + "</td><td class=\"ukilen\">" + datDu + "</td><td class=\"ukilen\">" + datPl + "</td></tr>"
+					tabelle += "<tr><th>Genitive</th><td class=\"ukilen\">" + genSg + "</td><td class=\"ukilen\">" + genDu + "</td><td class=\"ukilen\">" + genPl + "</td></tr>"
+					tabelle += "<tr><th>Ablative</th><td class=\"ukilen\">" + ablSg + "</td><td class=\"ukilen\">" + ablDu + "</td><td class=\"ukilen\">" + ablPl + "</td></tr>"
+					tabelle += "<tr><th>Vocative</th><td class=\"ukilen\">" + vocSg + "</td><td class=\"ukilen\">" + vocDu + "</td><td class=\"ukilen\">" + vocPl + "</td></tr>"
+					tabelle += "<tr><th>Locative</th><td class=\"ukilen\">" + locSg + "</td><td class=\"ukilen\">" + locDu + "</td><td class=\"ukilen\">" + locPl + "</td></tr>"
+					tabelle += "</table>"
+					break;
+				case "verb":
+					var FrpPrfPos = baphian + ""
+					var PasPrfPos = baphian + ""
+					var PrePrfPos = baphian
+					var FutPrfPos = baphian + ""
+					var FrpPrfNeg = baphian + ""
+					var PasPrfNeg = baphian + ""
+					var PrePrfNeg = baphian + ""
+					var FutPrfNeg = baphian + ""
+					
+					var FrpImpPos = baphian + ""
+					var PasImpPos = baphian + ""
+					var PreImpPos = baphian + ""
+					var FutImpPos = baphian + ""
+					var FrpImpNeg = baphian + ""
+					var PasImpNeg = baphian + ""
+					var PreImpNeg = baphian + ""
+					var FutImpNeg = baphian + ""
+					
+					var FrpConPos = baphian + ""
+					var PasConPos = baphian + ""
+					var PreConPos = baphian + ""
+					var FutConPos = baphian + ""
+					var FrpConNeg = baphian + ""
+					var PasConNeg = baphian + ""
+					var PreConNeg = baphian + ""
+					var FutConNeg = baphian + ""
+					
+					var FrpHabPos = baphian + ""
+					var PasHabPos = baphian + ""
+					var PreHabPos = baphian + ""
+					var FutHabPos = baphian + ""
+					var FrpHabNeg = baphian + ""
+					var PasHabNeg = baphian + ""
+					var PreHabNeg = baphian + ""
+					var FutHabNeg = baphian + ""
+					
+					tabelle = "<table><tbody><tr><th rowspan=\"2\"></th><th colspan=\"2\">Perfect</th><th colspan=\"2\">Imperfect</th><th colspan=\"2\">Conditional</th><th colspan=\"2\">Habitual</th></tr><tr><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th></tr>"
+					tabelle += "<tr><th>Far past / Non-temporal</th><td class=\"ukilen\">" + FrpPrfPos + "</td><td class=\"ukilen\">" + FrpPrfNeg + "</td><td class=\"ukilen\">" + FrpImpPos + "</td><td class=\"ukilen\">" + FrpImpNeg + "</td><td class=\"ukilen\">" + FrpConPos + "</td><td class=\"ukilen\">" + FrpConNeg + "</td><td class=\"ukilen\">" + FrpHabPos + "</td><td class=\"ukilen\">" + FrpHabPos + "</td></tr>"
+					tabelle += "<tr><th>Past</th><td class=\"ukilen\">" + PasPrfPos + "</td><td class=\"ukilen\">" + PasPrfNeg + "</td><td class=\"ukilen\">" + PasImpPos + "</td><td class=\"ukilen\">" + PasImpNeg + "</td><td class=\"ukilen\">" + PasConPos + "</td><td class=\"ukilen\">" + PasConNeg + "</td><td class=\"ukilen\">" + PasHabPos + "</td><td class=\"ukilen\">" + PasHabPos + "</td></tr>"
+					tabelle += "<tr><th>Present</th><td class=\"ukilen\">" + PrePrfPos + "</td><td class=\"ukilen\">" + PrePrfNeg + "</td><td class=\"ukilen\">" + PreImpPos + "</td><td class=\"ukilen\">" + PreImpNeg + "</td><td class=\"ukilen\">" + PreConPos + "</td><td class=\"ukilen\">" + PreConNeg + "</td><td class=\"ukilen\">" + PreHabPos + "</td><td class=\"ukilen\">" + PreHabPos + "</td></tr>"
+					tabelle += "<tr><th>Future</th><td class=\"ukilen\">" + FutPrfPos + "</td><td class=\"ukilen\">" + FutPrfNeg + "</td><td class=\"ukilen\">" + FutImpPos + "</td><td class=\"ukilen\">" + FutImpNeg + "</td><td class=\"ukilen\">" + FutConPos + "</td><td class=\"ukilen\">" + FutConNeg + "</td><td class=\"ukilen\">" + FutHabPos + "</td><td class=\"ukilen\">" + FutHabPos + "</td></tr>"
+					tabelle += "</table>"
+					break;
+				case "prn":
+					tabelle = "Inflection table WIP"
+				default:
+					break;
+			}
+			
+			openNewPage("<span class='ukilen'>" + baphian + "</span> \"" + english + "\"", tabelle, notes)
 		}
 	
 		function openNewPage(title, content, notes) {
