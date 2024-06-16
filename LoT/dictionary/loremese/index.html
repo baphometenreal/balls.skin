@@ -127,21 +127,26 @@
 		}
 		
 		function stressLast(x) {
-			if (x.length == 1) {return}
-			
 			var stressmarked = {
-				"a": "à",
-				"e": "è",
-				"i": "ì",
-				"o": "ò",
-				"u": "ù",
+				"ais`": "àis",
+				"eis`": "èis",
+				"ois`": "òis",
+				"uis`": "ùis",
+				"aus`": "àus",
+				"ous`": "òus",
+				"as`": "às",
+				"es`": "ès",
+				"is`": "ìs",
+				"os`": "òs",
+				"us`": "ùs",
+				"`": ""
 			}
 			
-			if (["i", "u"].includes(x.slice(-1))) {
-				if (["a", "e", "o", "u"].includes(x.slice(-2, -1))) {return x.slice(0, -2) + stressmarked[x.slice(-2, -1)] + x.slice(-1)}
+			for (let i = 0; i < Object.keys(stressmarked).length; i++) {
+				x = x.replaceAll(Object.keys(stressmarked)[i], stressmarked[Object.keys(stressmarked)[i]])
 			}
 			
-			return x.slice(0, -1) + stressmarked[x.slice(-1)]
+			return x
 		}
 		
 		function grammar(english, loremese, type, notes) {
@@ -293,7 +298,7 @@
 				var x3plAPre = wortstamm + bufferE + "nti" + rest
 				
 				var x1sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "a" + rest
-				var x2sgAPas = augment + (wortstamm.slice(-1) == "s" ? stressLast(wortstamm.slice(0, -1)) : wortstamm.slice(0, -1)) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + rest
+				var x2sgAPas = augment + stressLast(wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "`" : "s`")) + rest
 				var x3sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "t" + rest
 				var x1plAPas = augment + wortstamm + bufferE + "me" + rest
 				var x2plAPas = augment + wortstamm + bufferE + "ste" + rest
