@@ -633,7 +633,7 @@ function numberMAL(number) {
   mal += 'v'.repeat(number / 2);     number %= 2;
   mal += 'b'.repeat(number);
 
-  return "«" + mal + "»";
+  return "“" + mal + "”";
 }
 
 function calcDateMAL(date) {

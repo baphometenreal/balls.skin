@@ -253,7 +253,7 @@
 				var monthNamesMAL1 = ["rîksmánt", "vâstmánt", "laumánt", "tilmánt", "zánmánt", "zorgmánt", "herbmánt", "windmánt", "kêstmánt"]
 				
 				document.getElementById('convMAL').innerHTML = weekdayNamesMAL[convDateMAL[0]] + ", " + convDateMAL[1] + " " + monthNamesMAL[convDateMAL[2]] + " " + convDateMAL[3] + convDateMAL[4]
-				document.getElementById('convMAL1').innerHTML = "<mal>" + (weekdayNamesMAL1[convDateMAL[0]] + ", " + numberMAL(convDateMAL[1]) + " " + monthNamesMAL1[convDateMAL[2]] + " " + numberMAL(convDateMAL[3]) + convDateMAL[4].replaceAll("BE", "vt")) + "</mal>"
+				document.getElementById('convMAL1').innerHTML = "<mal>" + (weekdayNamesMAL1[convDateMAL[0]] + "; " + numberMAL(convDateMAL[1]) + " " + monthNamesMAL1[convDateMAL[2]] + " " + numberMAL(convDateMAL[3]) + convDateMAL[4].replaceAll("BE", "vt")).toUpperCase() + "</mal>"
 			}
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
