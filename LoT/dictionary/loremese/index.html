@@ -126,6 +126,24 @@
 			return x.replaceAll("bt", "pt").replaceAll("dt", "t").replaceAll("tt", "t").replaceAll("gt", "ct").replaceAll("mt", "nt").replaceAll("zt", "çt")
 		}
 		
+		function stressLast(x) {
+			if (x.length == 1) {return}
+			
+			var stressmarked = {
+				"a": "à",
+				"e": "è",
+				"i": "ì",
+				"o": "ò",
+				"u": "ù",
+			}
+			
+			if ([i, u].includes(x.slice(-1))) {
+				if (["a", "e", "o", "u"].includes(x.slice(-2, -1))) {return x.slice(0, -2) + stressmarked[x.slice(-2, -1)] + x.slice(-1)}
+			}
+			
+			return x.slice(0, -1) + stressmarked[x.slice(-1)]
+		}
+		
 		function grammar(english, loremese, type, notes) {
 		if (type == "") {openNewPage(loremese + " \"" + english + "\"", "", notes); return}
 		
@@ -275,7 +293,7 @@
 				var x3plAPre = wortstamm + bufferE + "nti" + rest
 				
 				var x1sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "a" + rest
-				var x2sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + rest
+				var x2sgAPas = augment + (wortstamm.slice(-1) == "s" ? stressLast(wortstamm.slice(0, -1)) : wortstamm.slice(0, -1)) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + rest
 				var x3sgAPas = augment + wortstamm.slice(0, -1) + wortstamm.slice(-1).replaceAll("z", "ç").replaceAll("b", "p").replaceAll("g", "c").replaceAll("d", "ç").replaceAll("t", "ç") + (["s", "ç", "z", "t", "d"].includes(wortstamm.slice(-1)) ? "" : "s") + "t" + rest
 				var x1plAPas = augment + wortstamm + bufferE + "me" + rest
 				var x2plAPas = augment + wortstamm + bufferE + "ste" + rest
@@ -414,7 +432,7 @@
 	
 		function openNewPage(title, content, notes) {
 		  var opened = window.open("");
-		  opened.document.write("<html><head><title>" + title + "</title><link href=\"/css.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><style>table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + content + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + (notes).replaceAll("�", "\"").replaceAll("�", "\"") + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
+		  opened.document.write("<html><head><title>" + title + "</title><link href=\"/css.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><style>table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + content + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + (notes).replaceAll("“", "\"").replaceAll("”", "\"") + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
 		}
 		
 		readFile()
