@@ -137,7 +137,7 @@
 				"u": "ù",
 			}
 			
-			if ([i, u].includes(x.slice(-1))) {
+			if (["i", "u"].includes(x.slice(-1))) {
 				if (["a", "e", "o", "u"].includes(x.slice(-2, -1))) {return x.slice(0, -2) + stressmarked[x.slice(-2, -1)] + x.slice(-1)}
 			}
 			
