@@ -70,7 +70,6 @@ function bijectiveString(m, k) {
 						syl = syl.replaceAll("j", "JH");
 						syl = syl.replaceAll("ph", "F");
 						syl = syl.replaceAll("kh", "X");
-						syl = syl.replaceAll("l", "R");
 						syl = syl.replaceAll("ah", "Á");
 						syl = syl.replaceAll("è", "Ë");
 						syl = syl.replaceAll("y", "j");
