@@ -121,6 +121,9 @@ async function loadLanguage(){
     if (Object.keys(window.lang).includes("unfinishedtranslations")) {
 	document.getElementById("unfinishedtranslations").label = window.lang["unfinishedtranslations"]
   }
+    if (Object.keys(window.lang).includes("boryaworldlang")) {
+	document.getElementById("boryaworldlang").label = window.lang["boryaworldlang"]
+  }
   /*
   return fetch("/languages/" + localStorage.lang + ".json")
     .then(response => response.json())
