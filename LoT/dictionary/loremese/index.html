@@ -215,19 +215,23 @@
 						tabelle += "<tr><th>Dative</th><td>" + loremese + "i" + "</td></tr></table>"
 						break;
 					case "a":
-						if (loremese == "Gatiantudrica Reipoplica") {
-							var tabelle = "<table><tr><th>Nominative</th><td>" + "Gatiantudrica Reipoplica" + "</td></tr><tr><th>Genitive</th><td>" + "Gatiantudricas Reipoplicas" + "</td></tr>";
-							tabelle += "<tr><th>Dative</th><td>" + "Gatiantudricai Reipoplicai" + "</td></tr></table>"
-						} else {
-							wortstamm = loremese.slice(0, -1);
-							var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + loremese + "s" + "</td></tr>";
-							tabelle += "<tr><th>Dative</th><td>" + loremese + "i" + "</td></tr></table>"
-						}
+						wortstamm = loremese.slice(0, -1);
+						var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + loremese + "s" + "</td></tr>";
+						tabelle += "<tr><th>Dative</th><td>" + loremese + "i" + "</td></tr></table>"
 						break;
 					case "i":
 						wortstamm = loremese.slice(0, -1);
 						var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + wortstamm + (fullvowels.includes(wortstamm.slice(-1)) ? "is" : "eis") + "</td></tr>";
 						tabelle += "<tr><th>Dative</th><td>" + loremese + "ei" + "</td></tr></table>"
+						
+						switch (loremese) {
+							case "Belico Mori":
+								tabelle = "<table><tr><th>Nominative</th><td>" + "Belico Mori" + "</td></tr><tr><th>Genitive</th><td>" + "Belicos Moreis" + "</td></tr>";
+								tabelle += "<tr><th>Dative</th><td>" + "Belicoi Moriei" + "</td></tr></table>"
+								break;
+							default:
+								break;
+						}
 						break;
 					case "u":
 						wortstamm = loremese.slice(0, -1);
