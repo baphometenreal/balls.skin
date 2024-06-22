@@ -28,7 +28,8 @@
   "config": "Config",
   "theme": "Theme",
   "themebasic": "Basic/Accessibility",
-  "themeaesthetic": "Aesthetic",
+  "themeflat": "Flat Colour",
+  "themegradient": "Aesthetic",
   "themenovelty": "'Novelty' (Possible eyestrain warning)",
   "subdomain": "Subdomain",
   "lightmode": "Light mode",
@@ -265,5 +266,6 @@
   "creditslrm":"Loremese",
   "creditsbph":"Baphian",
   "creditsazk":"Azkali",
-  "mmish":"mish"
+  "mmish":"mish",
+  "oughmode":"Ough mode"
 }
