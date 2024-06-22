@@ -1,0 +1,51 @@
+:root {
+  --bg-main: linear-gradient(135deg, #ff99ff, #eb6ceb);
+  --bg: linear-gradient(225deg, #ff00ff, #ac22ac);
+  --text: #f2e4f2;
+  --button-bg: #ce1cce;
+}
+
+.main {
+  max-width: 100%;
+  text-align: center;
+  background: var(--bg-main);
+  border-radius: 5px;
+  padding-bottom:5px;
+}
+
+.main2 {
+  max-width: 100%;
+  border-radius: 5px;
+  padding-bottom:5px;
+}
+
+body {
+  margin-left:10%;
+  margin-right:10%;
+  background: var(--bg);
+  color:var(--text);
+  background-attachment: fixed;
+}
+
+a, button, a:visited {
+  text-decoration: none;
+  background-color: var(--button-bg);
+  color: var(--text);
+  border-radius: 5px;
+  padding-top:5px;
+  padding-bottom:5px;
+  margin-bottom:15px;
+  padding-left:7px;
+  padding-right:7px;
+}
+
+a.entry, a.entry:visited {
+  text-decoration: none;
+  color: var(--text);
+}
+td {vertical-align: top;}
+table {
+  width: 100%;
+  table-layout: fixed;
+  vertical-align: top;
+  }

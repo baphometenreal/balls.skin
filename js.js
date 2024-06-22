@@ -7,59 +7,75 @@ function loadLightMode() {
         }
 		
         if (localStorage.theme == "light") {
-          theme.href = "/themes/css_light.css"
+          theme.href = "/themes/flat/css_light.css"
         } else if (localStorage.theme == "dark") {
-          theme.href = "/themes/css.css"
+          theme.href = "/themes/flat/css.css"
         } else if (localStorage.theme == "blood") {
-          theme.href = "/themes/css_blood.css"
+          theme.href = "/themes/flat/css_blood.css"
         } else if (localStorage.theme == "piss") {
-          theme.href = "/themes/css_pwee.css"
+          theme.href = "/themes/flat/css_pwee.css"
         } else if (localStorage.theme == "holly") {
-          theme.href = "/themes/css_christmas.css"
+          theme.href = "/themes/flat/css_christmas.css"
         } else if (localStorage.theme == "grape") {
-          theme.href = "/themes/css_grape.css"
+          theme.href = "/themes/flat/css_grape.css"
         } else if (localStorage.theme == "tears") {
-          theme.href = "/themes/css_tears.css"
+          theme.href = "/themes/flat/css_tears.css"
         } else if (localStorage.theme == "cunty") {
-          theme.href = "/themes/css_cunty.css"
+          theme.href = "/themes/flat/css_cunty.css"
         } else if (localStorage.theme == "darkc") {
           theme.href = "/themes/high contrast/css_dark.css"
         } else if (localStorage.theme == "lightc") {
           theme.href = "/themes/high contrast/css_light.css"
         } else if (localStorage.theme == "chcola") {
-          theme.href = "/themes/css_cherrycola.css"
+          theme.href = "/themes/flat/css_cherrycola.css"
         } else if (localStorage.theme == "studious") {
-          theme.href = "/themes/css_studious.css"
+          theme.href = "/themes/flat/css_studious.css"
         } else if (localStorage.theme == "yomi") {
-          theme.href = "/themes/css_yomi.css"
+          theme.href = "/themes/flat/css_yomi.css"
         } else if (localStorage.theme == "mint") {
-          theme.href = "/themes/css_mint.css"
+          theme.href = "/themes/flat/css_mint.css"
         } else if (localStorage.theme == "lcl") {
-          theme.href = "/themes/css_lcl.css"
+          theme.href = "/themes/flat/css_lcl.css"
         } else if (localStorage.theme == "croc") {
-          theme.href = "/themes/css_croc.css"
+          theme.href = "/themes/flat/css_croc.css"
         } else if (localStorage.theme == "swamp") {
-          theme.href = "/themes/css_swamp.css"
+          theme.href = "/themes/flat/css_swamp.css"
         } else if (localStorage.theme == "dream") {
-          theme.href = "/themes/css_dream.css"
+          theme.href = "/themes/flat/css_dream.css"
         } else if (localStorage.theme == "emma") {
-          theme.href = "/themes/css_emma.css"
+          theme.href = "/themes/gradient/css_emma.css"
         } else if (localStorage.theme == "lake") {
-          theme.href = "/themes/css_lake.css"
+          theme.href = "/themes/flat/css_lake.css"
         } else if (localStorage.theme == "mintc") {
-          theme.href = "/themes/css_mintchip.css"
+          theme.href = "/themes/flat/css_mintchip.css"
         } else if (localStorage.theme == "purple100") {
-          theme.href = "/themes/css_purple100.css"
+          theme.href = "/themes/flat/css_purple100.css"
         } else if (localStorage.theme == "royal") {
-          theme.href = "/themes/css_royal.css"
+          theme.href = "/themes/flat/css_royal.css"
         } else if (localStorage.theme == "sea") {
-          theme.href = "/themes/css_sea.css"
+          theme.href = "/themes/flat/css_sea.css"
         } else if (localStorage.theme == "USA") {
-          theme.href = "/themes/css_usa.css"
+          theme.href = "/themes/flat/css_usa.css"
         } else if (localStorage.theme == "wine") {
-          theme.href = "/themes/css_wine.css"
+          theme.href = "/themes/flat/css_wine.css"
+        } else if (localStorage.theme == "ough") {
+          theme.href = "/themes/flat/css_ough.css"
+        } else if (localStorage.theme == "gdark") {
+          theme.href = "/themes/gradient/css.css"
+        } else if (localStorage.theme == "gblood") {
+          theme.href = "/themes/gradient/css_blood.css"
+        } else if (localStorage.theme == "glight") {
+          theme.href = "/themes/gradient/css_light.css"
+        } else if (localStorage.theme == "gcunty") {
+          theme.href = "/themes/gradient/css_cunty.css"
+        } else if (localStorage.theme == "gpiss") {
+          theme.href = "/themes/gradient/css_pwee.css"
+        } else if (localStorage.theme == "gtears") {
+          theme.href = "/themes/gradient/css_tears.css"
+        } else if (localStorage.theme == "glcl") {
+          theme.href = "/themes/gradient/css_lcl.css"
         } else {
-          theme.href = "/themes/css.css" 
+          theme.href = "/themes/flat/css.css" 
         }
 }
 
@@ -120,9 +136,6 @@ async function loadLanguage(){
   }
     if (Object.keys(window.lang).includes("unfinishedtranslations")) {
 	document.getElementById("unfinishedtranslations").label = window.lang["unfinishedtranslations"]
-  }
-    if (Object.keys(window.lang).includes("boryaworldlang")) {
-	document.getElementById("boryaworldlang").label = window.lang["boryaworldlang"]
   }
   /*
   return fetch("/languages/" + localStorage.lang + ".json")

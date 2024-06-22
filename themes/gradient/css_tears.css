@@ -1,8 +1,8 @@
 :root {
-  --bg-main: linear-gradient(135deg, #c9b, #967);
-  --bg: linear-gradient(225deg, #312, #000);
-  --text: #fff;
-  --button-bg: #745;
+  --bg-main: linear-gradient(135deg, #64b5f6, #3a91d8);
+  --bg: linear-gradient(225deg, #0d47a1, #183a6e);
+  --text:#e3f2fd;
+  --button-bg:#0d47a1;
 }
 
 .main {
@@ -24,7 +24,7 @@ body {
   margin-right:10%;
   background: var(--bg);
   color:var(--text);
-  background-attachment: fixed
+  background-attachment: fixed;
 }
 
 a, button, a:visited {
