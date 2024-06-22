@@ -125,8 +125,8 @@ async function loadLanguage(){
     if (Object.keys(window.lang).includes("themebasic")) {
 	document.getElementById("themebasic").label = window.lang["themebasic"]
   }
-    if (Object.keys(window.lang).includes("themeaesthetic")) {
-	document.getElementById("themeaesthetic").label = window.lang["themeaesthetic"]
+    if (Object.keys(window.lang).includes("themegradient")) {
+	document.getElementById("themegradient").label = window.lang["themegradient"]
   }
     if (Object.keys(window.lang).includes("themenovelty")) {
 	document.getElementById("themenovelty").label = window.lang["themenovelty"]
@@ -136,6 +136,12 @@ async function loadLanguage(){
   }
     if (Object.keys(window.lang).includes("unfinishedtranslations")) {
 	document.getElementById("unfinishedtranslations").label = window.lang["unfinishedtranslations"]
+  } 
+  if (Object.keys(window.lang).includes("boryaworldlang")) {
+	document.getElementById("boryaworldlang").label = window.lang["boryaworldlang"]
+  }
+  if (Object.keys(window.lang).includes("themeflat")) {
+	document.getElementById("themeflat").label = window.lang["themeflat"]
   }
   /*
   return fetch("/languages/" + localStorage.lang + ".json")
