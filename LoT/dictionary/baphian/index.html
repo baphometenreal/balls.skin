@@ -114,49 +114,16 @@
 			switch (type) { // inflection types go here
 				// NOUN INFLECTION GOES HERE
 				case "an":
-				case "adj":
-					var nomSg = baphian;
-					var accSg = baphian + "GË"
-					var datSg = baphian + "VË"
-					var genSg = baphian + ""
-					var ablSg = baphian + "JHË"
-					var vocSg = baphian + ""
-					var locSg = baphian + "JHAN"
-					
-					var nomDu = nomSg + ""
-					var accDu = accSg + ""
-					var datDu = datSg + ""
-					var genDu = genSg + ""
-					var ablDu = ablSg + ""
-					var vocDu = vocSg + ""
-					var locDu = baphian + "JHA"
-					
-					var nomPl = nomSg + ""
-					var accPl = accSg + ""
-					var datPl = datSg + ""
-					var genPl = genSg + ""
-					var ablPl = ablSg + ""
-					var vocPl = vocSg + ""
-					var locPl = baphian + "JHA"
-					
-					tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
-					tabelle += "<tr><th>Nominative</th><td class=\"ukilen\">" + nomSg + "</td><td class=\"ukilen\">" + nomDu + "</td><td class=\"ukilen\">" + nomPl + "</td></tr>"
-					tabelle += "<tr><th>Accusative</th><td class=\"ukilen\">" + accSg + "</td><td class=\"ukilen\">" + accDu + "</td><td class=\"ukilen\">" + accPl + "</td></tr>"
-					tabelle += "<tr><th>Dative</th><td class=\"ukilen\">" + datSg + "</td><td class=\"ukilen\">" + datDu + "</td><td class=\"ukilen\">" + datPl + "</td></tr>"
-					tabelle += "<tr><th>Genitive</th><td class=\"ukilen\">" + genSg + "</td><td class=\"ukilen\">" + genDu + "</td><td class=\"ukilen\">" + genPl + "</td></tr>"
-					tabelle += "<tr><th>Ablative</th><td class=\"ukilen\">" + ablSg + "</td><td class=\"ukilen\">" + ablDu + "</td><td class=\"ukilen\">" + ablPl + "</td></tr>"
-					tabelle += "<tr><th>Vocative</th><td class=\"ukilen\">" + vocSg + "</td><td class=\"ukilen\">" + vocDu + "</td><td class=\"ukilen\">" + vocPl + "</td></tr>"
-					tabelle += "<tr><th>Locative</th><td class=\"ukilen\">" + locSg + "</td><td class=\"ukilen\">" + locDu + "</td><td class=\"ukilen\">" + locPl + "</td></tr>"
-					tabelle += "</table>"
-					break;
 				case "inan":
+				case "adj":
+				case "prn":
 					var nomSg = baphian;
-					var accSg = baphian + "ZË"
-					var datSg = baphian + "ŚË"
+					var accSg = baphian + ""
+					var datSg = baphian + ""
 					var genSg = baphian + ""
-					var ablSg = baphian + "CË"
+					var ablSg = baphian + ""
 					var vocSg = baphian + ""
-					var locSg = baphian + "XAN"
+					var locSg = baphian + ""
 					
 					var nomDu = nomSg + ""
 					var accDu = accSg + ""
@@ -164,7 +131,7 @@
 					var genDu = genSg + ""
 					var ablDu = ablSg + ""
 					var vocDu = vocSg + ""
-					var locDu = baphian + "XA"
+					var locDu = locSg + ""
 					
 					var nomPl = nomSg + ""
 					var accPl = accSg + ""
@@ -172,17 +139,28 @@
 					var genPl = genSg + ""
 					var ablPl = ablSg + ""
 					var vocPl = vocSg + ""
-					var locPl = baphian + "XA"
+					var locPl = locSg + ""
 					
-					tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
-					tabelle += "<tr><th>Nominative</th><td class=\"ukilen\">" + nomSg + "</td><td class=\"ukilen\">" + nomDu + "</td><td class=\"ukilen\">" + nomPl + "</td></tr>"
-					tabelle += "<tr><th>Accusative</th><td class=\"ukilen\">" + accSg + "</td><td class=\"ukilen\">" + accDu + "</td><td class=\"ukilen\">" + accPl + "</td></tr>"
-					tabelle += "<tr><th>Dative</th><td class=\"ukilen\">" + datSg + "</td><td class=\"ukilen\">" + datDu + "</td><td class=\"ukilen\">" + datPl + "</td></tr>"
-					tabelle += "<tr><th>Genitive</th><td class=\"ukilen\">" + genSg + "</td><td class=\"ukilen\">" + genDu + "</td><td class=\"ukilen\">" + genPl + "</td></tr>"
-					tabelle += "<tr><th>Ablative</th><td class=\"ukilen\">" + ablSg + "</td><td class=\"ukilen\">" + ablDu + "</td><td class=\"ukilen\">" + ablPl + "</td></tr>"
-					tabelle += "<tr><th>Vocative</th><td class=\"ukilen\">" + vocSg + "</td><td class=\"ukilen\">" + vocDu + "</td><td class=\"ukilen\">" + vocPl + "</td></tr>"
-					tabelle += "<tr><th>Locative</th><td class=\"ukilen\">" + locSg + "</td><td class=\"ukilen\">" + locDu + "</td><td class=\"ukilen\">" + locPl + "</td></tr>"
-					tabelle += "</table>"
+					if (baphian == "" || baphian == "") {
+						tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
+						tabelle += "<tr><th>Nominative</th><td class=\"ukilen\">" + nomSg + "</td><td class=\"ukilen\">" + nomPl + "</td></tr>"
+						tabelle += "<tr><th>Accusative</th><td class=\"ukilen\">" + accSg + "</td><td class=\"ukilen\">" + accPl + "</td></tr>"
+						tabelle += "<tr><th>Dative</th><td class=\"ukilen\">" + datSg + "</td><td class=\"ukilen\">" + datPl + "</td></tr>"
+						tabelle += "<tr><th>Genitive</th><td class=\"ukilen\">" + genSg + "</td><td class=\"ukilen\">" + genPl + "</td></tr>"
+						tabelle += "<tr><th>Ablative</th><td class=\"ukilen\">" + ablSg + "</td><td class=\"ukilen\">" + ablPl + "</td></tr>"
+						tabelle += "<tr><th>Vocative</th><td class=\"ukilen\">" + vocSg + "</td><td class=\"ukilen\">" + vocPl + "</td></tr>"
+						tabelle += "<tr><th>Locative</th><td class=\"ukilen\">" + locSg + "</td><td class=\"ukilen\">" + locPl + "</td></tr>"
+					} else {
+						tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
+						tabelle += "<tr><th>Nominative</th><td class=\"ukilen\">" + nomSg + "</td><td class=\"ukilen\">" + nomDu + "</td><td class=\"ukilen\">" + nomPl + "</td></tr>"
+						tabelle += "<tr><th>Accusative</th><td class=\"ukilen\">" + accSg + "</td><td class=\"ukilen\">" + accDu + "</td><td class=\"ukilen\">" + accPl + "</td></tr>"
+						tabelle += "<tr><th>Dative</th><td class=\"ukilen\">" + datSg + "</td><td class=\"ukilen\">" + datDu + "</td><td class=\"ukilen\">" + datPl + "</td></tr>"
+						tabelle += "<tr><th>Genitive</th><td class=\"ukilen\">" + genSg + "</td><td class=\"ukilen\">" + genDu + "</td><td class=\"ukilen\">" + genPl + "</td></tr>"
+						tabelle += "<tr><th>Ablative</th><td class=\"ukilen\">" + ablSg + "</td><td class=\"ukilen\">" + ablDu + "</td><td class=\"ukilen\">" + ablPl + "</td></tr>"
+						tabelle += "<tr><th>Vocative</th><td class=\"ukilen\">" + vocSg + "</td><td class=\"ukilen\">" + vocDu + "</td><td class=\"ukilen\">" + vocPl + "</td></tr>"
+						tabelle += "<tr><th>Locative</th><td class=\"ukilen\">" + locSg + "</td><td class=\"ukilen\">" + locDu + "</td><td class=\"ukilen\">" + locPl + "</td></tr>"
+					}
+						tabelle += "</table>"
 					break;
 				case "verb":
 					var FrpPrfPos = baphian + ""
@@ -229,12 +207,12 @@
 					tabelle += "</table>"
 					
 					var nomSgNom = baphian + "";
-					var accSgNom = baphian + "ZË"
-					var datSgNom = baphian + "ŚË"
+					var accSgNom = baphian + ""
+					var datSgNom = baphian + ""
 					var genSgNom = baphian + ""
-					var ablSgNom = baphian + "CË"
+					var ablSgNom = baphian + ""
 					var vocSgNom = baphian + ""
-					var locSgNom = baphian + "XAN"
+					var locSgNom = baphian + ""
 					
 					var nomDuNom = nomSgNom + ""
 					var accDuNom = accSgNom + ""
@@ -242,7 +220,7 @@
 					var genDuNom = genSgNom + ""
 					var ablDuNom = ablSgNom + ""
 					var vocDuNom = vocSgNom + ""
-					var locDuNom = baphian + "XA"
+					var locDuNom = locSgNom + ""
 					
 					var nomPlNom = nomSgNom + ""
 					var accPlNom = accSgNom + ""
@@ -250,7 +228,7 @@
 					var genPlNom = genSgNom + ""
 					var ablPlNom = ablSgNom + ""
 					var vocPlNom = vocSgNom + ""
-					var locPlNom = baphian + "XA"
+					var locPlNom = locSgNom + ""
 					
 					tabelle += "<p>Nominalisation:</p><table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
 					tabelle += "<tr><th>Nominative</th><td class=\"ukilen\">" + nomSgNom + "</td><td class=\"ukilen\">" + nomDuNom + "</td><td class=\"ukilen\">" + nomPlNom + "</td></tr>"
@@ -263,12 +241,12 @@
 					tabelle += "</table>"
 					
 					var nomSgAgn = baphian + "";
-					var accSgAgn = baphian + "GË"
-					var datSgAgn = baphian + "VË"
+					var accSgAgn = baphian + ""
+					var datSgAgn = baphian + ""
 					var genSgAgn = baphian + ""
-					var ablSgAgn = baphian + "JHË"
+					var ablSgAgn = baphian + ""
 					var vocSgAgn = baphian + ""
-					var locSgAgn = baphian + "JHAN"
+					var locSgAgn = baphian + ""
 					
 					var nomDuAgn = nomSgAgn + ""
 					var accDuAgn = accSgAgn + ""
@@ -276,7 +254,7 @@
 					var genDuAgn = genSgAgn + ""
 					var ablDuAgn = ablSgAgn + ""
 					var vocDuAgn = vocSgAgn + ""
-					var locDuAgn = baphian + "JHA"
+					var locDuAgn = locSgAgn + ""
 					
 					var nomPlAgn = nomSgAgn + ""
 					var accPlAgn = accSgAgn + ""
@@ -284,7 +262,7 @@
 					var genPlAgn = genSgAgn + ""
 					var ablPlAgn = ablSgAgn + ""
 					var vocPlAgn = vocSgAgn + ""
-					var locPlAgn = baphian + "JHA"
+					var locPlAgn = locSgAgn + ""
 					
 					tabelle += "<p>Agentive:</p><table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
 					tabelle += "<tr><th>Nominative</th><td class=\"ukilen\">" + nomSgAgn + "</td><td class=\"ukilen\">" + nomDuAgn + "</td><td class=\"ukilen\">" + nomPlAgn + "</td></tr>"
