@@ -66,7 +66,7 @@
 					indEntry += "</p>"
 				} else if  ((type == "") && (notes != "")) {
 					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + alhi + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + alhi + "</a></b>"
-					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					if (extra) { indEntry +=  " <i>(" + extra + ", see notes)</i>" } else {indEntry +=  " <i>(see notes)</i>" }
 					indEntry += "</p>"
 				} else {
 					var prettyArt = type
@@ -103,6 +103,7 @@
 					
 					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + alhi + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + alhi + "</a></b> <i>(" + prettyArt
 					if (extra) { indEntry +=  ", " + extra + ""}
+					if (notes) { indEntry +=  ", see notes"}
 					indEntry += ")</i></p>"
 				}
 			  
