@@ -1,9 +1,7 @@
 1st person;;prn;ɺɑ ; romanization: rah
 2nd person;;prn;xe ; romanization: khe
 3rd person;;prn;se ; romanization: se
-Able;;verb;e.ˈdje.ɕə ; romanization: edyeshë
-Action;;verb;xin.ˈdon ; romanization: khindon
-After;;;pɑ.ˈtam | POSTPOSITION: Used to mark past tense in literary contexts<br> ADVERB: After ; romanization: pahtam
+After;;;POSTPOSITION: Used to mark past tense in literary contexts<br> ADVERB: Afterpɑ.ˈtam ; romanization: pahtam
 All;;;kju ; romanization: kyu
 And;BE;;be ; romanization: be
 Animal;;an;xe.ˈja.van ; romanization: kheyavan
@@ -12,6 +10,9 @@ Axe;;inan;baɭ.ˈtje ; romanization: baltye
 Back;;inan;aɭ.ˈke ; romanization: alke
 Bad;;adj;ne.ˈpɑ.de ; romanization: nepahde
 Bark (tree);;an;zu.ˈdje ; romanization: zudye
+Bark (tree);;an;zu.ˈdje ; romanization: zudye
+Be;;verb;de ; romanization: de
+Be able;;verb;e.ˈdje.ɕə ; romanization: edyeshë
 Because;;;be.ˈdeŋ ; romanization: bedeng
 Before;;;ga.ˈɺe ; romanization: gare
 Being (Anthro);;an;ɕis ; romanization: shis
@@ -28,7 +29,7 @@ Change;;verb;te.ˈge.jə ; romanization: tegeyë
 Child;;an;be.ˈɺe ; romanization: bere
 Child labour laws;;inan;be.ˈɺe.e.ˈsə.pə.ˈja.vɑ  ; romanization: bereesëpëyavah
 Child labour laws;;inan;be.ˈɺe.e.ˈsə.pə.ˈja.vɑ  ; romanization: bereesëpëyavah
-Cholto;COLTO;;tɕoɭ.to | Cholto is a filler word, like “well”, it can also be used as a diminutive ; romanization: colto
+Cholto;COLTO;;Cholto is a filler word, like “well”, it can also be used as a diminutivetɕoɭ.to ; romanization: colto
 Cliff;;inan;paɭ.ˈtak ; romanization: paltak
 Clothes;;inan;u.ˈva.ji ; romanization: uvayi
 Cold;;adj;soŋ.ˈguk ; romanization: songuk
@@ -53,7 +54,7 @@ Flower;;an;ve ; romanization: ve
 Front;;inan;se.ˈdje.je ; romanization: sedyeye
 Future marker;;; ; romanization: 
 Gate;;inan;be.ˈvat ; romanization: bevat 
-Genetive marker;;;Used as the genetive marker ; romanization: 
+Genetive marker;;;Used as the genetive markerUsed as the genetive marker ; romanization: 
 Glasses;;inan;nə.ˈze.jit  ; romanization: nëzeyit
 Grow;;verb;e.ˈɺe.nə ; romanization: erenë
 Growth;;an;e.ˈɺe.nə.ðe.ˈnu ; romanization: erenëdhenu
@@ -77,12 +78,12 @@ Law;;inan;pə.ˈja.vɑ  ; romanization: pëyavah
 Leg;;an;te.ˈde.zə ; romanization: tedezë
 Long, big;;adj;tev.ˈju ; romanization: tevyu
 Makeup;;inan;bu.ˈgo ; romanization: bugo
-Mean;;verb;mɑ.ˈzɜ ; romanization: mahzeu
+Mean;;verb;mɑ.ˈzɜ ; romanization: mahzeu
 Meat;;inan;nin.ˈdep ; romanization: nindep
 Moon, Stellar body;;an;ə.ˈgje ; romanization: ëgye
 Mountain;;inan;ze.ˈbo ; romanization: zebo
 Mouth;;an;zu.ˈdʑje ; romanization: zujye
-No, not;;;tə.ˈgu | Used as a general negation ; romanization: tëgu
+No, not;;;Used as a general negationtə.ˈgu ; romanization: tëgu
 Nothing;;adj;tə.ˈnə.in ; romanization: tënëin
 Onesie, babies clothes;;inan;be.ˈɺe.u.ˈva.ji ; romanization: bereuvayi
 Other;;adj;te.ˈjun ; romanization: teyun
@@ -112,6 +113,7 @@ Stone;;inan;vo.ˈzaŋ ; romanization: vozang
 Summer;;inan;dʑu.ˈjuk.u.ˈɺe ; romanization: juyukure
 Sun, Stellar body;;inan;ze.ˈpaŋ ; romanization: zepang
 Thing;;inan;nə.ˈin ; romanization: nëin
+To do an action;;verb;xin.ˈdon ; romanization: khindon
 Tongue;;an;xe.ˈdes ; romanization: khedes
 Tooth;;an;pun.ˈɺoŋ ; romanization: punrong
 Translate;;verb;e.ˈjə.te.ˈge ; romanization: eyëtege
