@@ -66,8 +66,10 @@ function bijectiveString(m, k) {
 					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
 						syl = syl.replaceAll("ng", "Ñ");
 						syl = syl.replaceAll("sh", "Ś");
-						syl = syl.replaceAll("zh", "ZH");
-						syl = syl.replaceAll("j", "JH");
+						syl = syl.replaceAll("zh", "Ž");
+						syl = syl.replaceAll("dh", "Ð");
+						syl = syl.replaceAll("jh", "Ź");
+						syl = syl.replaceAll("j", "Ź");
 						syl = syl.replaceAll("ph", "F");
 						syl = syl.replaceAll("kh", "X");
 						syl = syl.replaceAll("ah", "Á");
