@@ -38,9 +38,11 @@ a, a:visited, button {
   font-family: "dyslexic", serif;
   font-size: 13px;
 }
+/* 
 a.entry, a.entry:visited {
   font-size: 13px;
 }
+ */
 body {
   font-family: "dyslexic";
 }
