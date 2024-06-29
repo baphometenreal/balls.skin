@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loremese Dictionary</title>
-    <link href="/css.css" rel="stylesheet" type="text/css" media="screen" id="theme-link">
+	<link href="" rel="stylesheet" type="text/css" media="screen" id="font-link">
+    <link href="" rel="stylesheet" type="text/css" media="screen" id="theme-link">
 	<style>
 	.entry:after {
 		content: " 📖";
@@ -443,7 +444,7 @@
 	
 		function openNewPage(title, content, notes) {
 		  var opened = window.open("");
-		  opened.document.write("<html><head><title>" + title + "</title><link href=\"/css.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><style>table {width: auto;} table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + content + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + (notes).replaceAll("“", "\"").replaceAll("”", "\"") + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
+		  opened.document.write("<html><head><title>" + title + "</title><link href=\"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"font-link\"><link href=\"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><style>table {width: auto;} table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + content + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + (notes).replaceAll("“", "\"").replaceAll("”", "\"") + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
 		}
 		
 		readFile()
