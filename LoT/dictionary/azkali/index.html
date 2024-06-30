@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azkali Dictionary</title>
+    <link href="" rel="stylesheet" type="text/css" media="screen" id="font-link">
+    <link href="" rel="stylesheet" type="text/css" media="screen" id="theme-link">
+	<style>
+	.entry:after {
+		content: " 📖";
+	}
+	
+	.entry {
+		color: black;
+		text-decoration: none
+	}
+	</style>
+  </head>
+  <body>
+    <div class="main2" style="text-align: left;"> 
+		<h1>Azkali Dictionary</h1>
+		<div name="dictionary" id="dictionary">
+		</div>
+	</div>
+	
+    <br><br><br>
+	<p id="footer"></p>
+	<script src="papaparse.min.js"></script>
+	<script>
+		//PAPA Parser (https://www.papaparse.com/) used to convert TEXT to CSV
+		function readFile() {  
+		  var reader = new FileReader();
+
+		  fetch("words.csv")
+		  .then(res => res.blob())
+		  .then(blob => {
+			var content = reader.readAsText(blob);
+		});
+
+		// all of this loads the words from the file and renders them nicely. do not touch any of this (except the clickable types below)
+		  reader.onload = function () {
+			var data = Papa.parse(reader.result, { header: false });
+
+			if (data.errors.length) {
+			  console.error(data.errors)
+			} else {
+			  console.log("Loaded dictionary")
+			  dictData = Object.entries(data)[0][1]
+
+			  var totalEntries = ""
+			  
+			  for (var i = 0; i < dictData.length; i++) { 
+				var english = dictData[i][0]
+				var azkali = dictData[i][1]
+				var type = dictData[i][2]
+				var extra = dictData[i][3]
+				var notes = dictData[i][4]
+				
+				var indEntry = ""
+				
+				if ((type == "") && (notes == "")) {
+					indEntry = "<p>" + english + ": <b>" + azkali.replaceAll("\'", "'") + "</b>"
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					indEntry += "</p>"
+				} else if  ((type == "") && (notes != "")) {
+					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + azkali + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + azkali + "</a></b>"
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					indEntry += "</p>"
+				} else { //all the clickable type are here
+					var prettyArt = type
+					
+					switch (type) {
+						case "n":
+							prettyArt = "noun"
+							break;
+						case "v":
+							prettyArt = "verb"
+							break;
+						case "prn":
+						  prettyArt = "pronoun"
+					}
+					
+					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + azkali + "', '" + type + "', '" + notes + "');\" class=\"entry\">" + azkali + "</a></b> <i>(" + prettyArt
+					if (extra) { indEntry +=  ", " + extra + ""}
+					indEntry += ")</i></p>"
+				}
+			  
+				totalEntries += indEntry
+			  }
+			  document.getElementById("dictionary").innerHTML = totalEntries
+			}
+		  };
+		}
+		
+		function grammar(english, azkali, type, notes) {
+		if (type == "") {openNewPage(azkali + " \"" + english + "\"", "", notes); return}
+		
+		var wordstem = ""
+		
+		switch (type) { // inflection types go here
+			// NOUN INFLECTION GOES HERE
+			case "n":
+				var content = "Declension table missing"
+				break;
+			// VERB INFLECTION GOES HERE
+			case "v":
+				var content = "Conjugation table missing"
+				break;
+			// PRONOUN INFLECTION GOES HERE
+			case "prn":
+				var content = "Pronoun table missing"
+				break;
+				
+			// IF THIS SHOWS UP, YOU FORGOT TO DEFINE SOME DECLENSIONS
+			default:
+				var content = "undefined word type: " + type
+				break;
+			}
+			
+			// paste inflections into new tab
+			openNewPage(azkali + " \"" + english + "\"", content, notes)
+		}
+	
+		function openNewPage(title, pagecontent, notes) {
+		  console.log(notes)
+		
+		  var opened = window.open("");
+		  opened.document.write("<html><head><title>" + title + "</title><link href=\"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"font-link\"><link href=\"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><style>table {width: auto;} table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + pagecontent + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + (notes).replaceAll("“", "\"").replaceAll("”", "\"") + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
+		}
+		
+		readFile()
+	</script>
+	<script src="/js.js"></script>
+  </body>
+</html>
