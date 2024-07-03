@@ -1,6 +1,6 @@
-const latinField = getElementById("latin");
+const latinField = document.getElementById("latin");
 var latinText = latinField.value;
-const output = getElementById("output");
+const output = document.getElementById("output");
 
 var englishPro = latinText;
 
