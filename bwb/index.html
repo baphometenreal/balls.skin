@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Miau Miau</title>
+    <link href="css.css" rel="stylesheet" type="text/css" media="all">
+	<style>
+		.card {
+			all: unset;
+			border: 1px solid black;
+			padding:1px;
+			border-radius: 5px;
+		}
+		
+		img {
+			height: 40px
+		}
+		
+		a.card {
+			cursor: pointer;
+		}
+	</style>
+  </head>
+  <body>
+	<h2>Miau Miau</h2>
+	<!--
+	<button onclick="initScores(); startGame(); document.querySelector('#gameshow').style.visibility = 'visible'; this.remove()">Start game</button>
+	-->
+	
+	<button id="hostbutton" onclick="hostGame(); document.querySelector('#joinbutton').remove(); document.querySelector('#roomIDfield').remove(); this.remove()">Host game</button><br>
+	<button id="joinbutton" onclick="joinGame(); document.querySelector('#hostbutton').remove(); document.querySelector('#roomIDfield').remove(); this.remove()">Join game</button> <input id="roomIDfield"></input>
+	
+	<div id="lobby"></div><text id='playerNum' style='visibility: collapse'></text><text id='settings'></text>
+	<div id="gameshow" style="visibility: collapse; user-select: none;">
+		<b>Deck: </b><font id="deckOutput"></font>
+		<br><b>Discard: </b><font id="discardOutput"></font>
+		<br>
+		<br><font id="activePlayer"></font><br>
+		<text id="gameHands">
+		</text>
+	</div>
+	<script type="module">
+		import {joinRoom} from './trystero-mqtt.min.js'
+		window.joinRoom = joinRoom
+	</script>
+	<script>
+		joinRoom = window.joinRoom
+		
+		document.querySelector("#roomIDfield").value = ""
+		
+		var room
+		var sendID
+		var getID
+		var sendGameState
+		var getGameState
+		var sendLobbyInfo
+		var getLobbyInfo
+		
+		var cardDeck = []
+		var discardDeck = []
+		var hands = []
+		var scores = []
+		var status = ""
+		
+		var numberPlayers = 2
+		var maxPoints = 300
+		
+		var selfPlayer = -1
+		var activePlayer = -1
+		var direction = 1 // 1 = anticlockwise
+		var forcedsuit = -1 // -1 = no forced suit
+		var extraCard = 0 // extra cards due to queens; 0 is default
+		var miau = false // whether player said "miau"
+		
+		function mod(n, m) {
+			return ((n % m) + m) % m;
+		}
+		
+		function broadcastGamestate() {
+			sendGameState({
+				cardDeck: cardDeck,
+				discardDeck: discardDeck,
+				hands: hands,
+				scores: scores,
+				status: status,
+				activePlayer: activePlayer,
+				direction: direction,
+				forcedsuit: forcedsuit,
+				extraCard: extraCard
+			})
+		}
+		
+		function updateLobby() {
+			try {
+				numberPlayers = clamp(document.querySelector("#nPi").value, 2, 6);
+				maxPoints = clamp(document.querySelector("#mPi").value, 1, 500);
+			}  catch (error) {
+			
+			}
+			
+			sendLobbyInfo({
+				numberPlayers: numberPlayers,
+				maxPoints: maxPoints
+			})
+		}
+		
+		function clamp(value, mini, maxi) {
+			return Math.min(Math.max(mini, value), maxi)
+		}
+		
+		function updateLobbyText() {
+			document.querySelector("#playerNum").innerHTML = (Object.keys(room.getPeers()).length == 0 ? "It's just <b>you</b>." : "<b>" + (Object.keys(room.getPeers()).length+1) + "</b> users are connected.") + "<br>"
+			if (selfPlayer != 0 && activePlayer == -1) {
+				document.querySelector("#playerNum").innerHTML += "<br>Maximum player number is <b>" + numberPlayers + "</b>."
+				document.querySelector("#playerNum").innerHTML += "<br>Maximum score is <b>" + maxPoints + "</b>."
+			}
+			return
+		}
+		
+		function initGame() {
+			if (selfPlayer != 0) {return}
+			if (Object.keys(room.getPeers()).length+1 < numberPlayers) {return}
+			
+			activePlayer = 0
+			initScores();
+			startGame();
+			document.querySelector('#gameshow').style.visibility = 'visible';
+			document.querySelector('#playerNum').style.visibility = 'collapse';
+			document.querySelector("#settings").remove();
+			
+			broadcastGamestate()
+			
+			room.onPeerJoin(peerID => {
+				updateLobby();
+				sendID( {id: Object.keys(room.getPeers()).length, maxPlayers: numberPlayers}, peerID );
+				sendGameState()
+			})
+		}
+		
+		function hostGame() {
+			var roomID = (Math.random() + 1).toString(36).slice(2,7).toUpperCase()
+			
+			const config = {appId: 'balls.skin/bwb/miaumiau'}
+			room = joinRoom(config, roomID)
+			
+			selfPlayer = 0;
+			
+			document.querySelector("#lobby").innerHTML = "Room ID is <b>" + roomID + "</b> · You are <b>Player " + (selfPlayer+1) + "</b><hr>";
+			updateLobbyText();
+			document.querySelector("#playerNum").style.visibility = "visible";
+			
+			document.querySelector("#settings").innerHTML += "<br>Maximum player number is <input type='number' id='nPi' min='2' max='6' oninput='updateLobby()' value='2'>.";
+			document.querySelector("#settings").innerHTML += "<br>Maximum score is <input type='number' id='mPi'  min='1' max='500' oninput='updateLobby()' value='300'>.";
+			document.querySelector("#settings").innerHTML += "<br><br><button onclick='initGame()'>Start game</button>";
+			
+			[sendID, getID] = room.makeAction('id');
+			[sendGameState, getGameState] = room.makeAction('gamestate');
+			[sendLobbyInfo, getLobbyInfo] = room.makeAction('lobbyinfo');
+			
+			room.onPeerJoin(peerID => {
+				updateLobby();
+				sendID( {id: Object.keys(room.getPeers()).length, maxPlayers: numberPlayers}, peerID );
+				updateLobbyText()
+			})
+			
+			room.onPeerLeave(peerID => {
+				updateLobbyText()
+			})
+			
+			getGameState((data, peerID) => {
+				cardDeck = data["cardDeck"];
+				discardDeck = data["discardDeck"];
+				hands = data["hands"];
+				scores = data["scores"];
+				status = data["status"];
+				activePlayer = data["activePlayer"];
+				direction = data["direction"];
+				forcedsuit = data["forcedsuit"];
+				extraCard = data["extraCard"];
+				displayAll();
+			})
+		}
+		
+		function joinGame() {
+			const sleep = ms => new Promise(r => setTimeout(r, ms));
+			var roomID = document.querySelector("#roomIDfield").value.replaceAll(/\s/g,'')
+			
+			if (roomID == "") {
+				location.reload()
+				return
+			}
+			
+			const config = {appId: 'balls.skin/bwb/miaumiau'}
+			room = joinRoom(config, roomID);
+			
+			[sendID, getID] = room.makeAction('id');
+			[sendGameState, getGameState] = room.makeAction('gamestate');
+			[sendLobbyInfo, getLobbyInfo] = room.makeAction('lobbyinfo');
+			
+			document.querySelector("#lobby").innerHTML = "Please wait...<br>";
+			document.querySelector("#settings").remove();
+			
+			getID((data, peerID) => {selfPlayer = data["id"]; /*console.log(`got ${data["id"]} from ${peerID}`);*/ document.querySelector("#lobby").innerHTML = "Room ID is <b>" + roomID + "</b> · You are <b>" + (selfPlayer > data["maxPlayers"] - 1 ? "a spectator" : "Player " +  (selfPlayer+1)) + "</b><hr>"; updateLobbyText(); document.querySelector('#playerNum').style.visibility = 'visible'; if (selfPlayer == 0) { console.log("what"); room.leave(); location.reload() }})
+			
+			room.onPeerJoin(peerID => {
+				updateLobbyText()
+			})
+			
+			room.onPeerLeave(peerID => {
+				updateLobbyText()
+			})
+			
+			getGameState((data, peerID) => {
+				cardDeck = data["cardDeck"];
+				discardDeck = data["discardDeck"];
+				hands = data["hands"];
+				scores = data["scores"];
+				status = data["status"];
+				activePlayer = data["activePlayer"];
+				direction = data["direction"];
+				forcedsuit = data["forcedsuit"];
+				extraCard = data["extraCard"];
+				displayAll();
+				document.querySelector('#gameshow').style.visibility = 'visible';
+				updateLobbyText();
+				document.querySelector('#playerNum').style.visibility = 'collapse';
+			})
+			
+			getLobbyInfo((data, peerID) => {
+				numberPlayers = data["numberPlayers"];
+				maxPoints = data["maxPoints"];
+				document.querySelector("#lobby").innerHTML = "Room ID is <b>" + roomID + "</b> · You are <b>" + (selfPlayer > numberPlayers - 1 ? "a spectator" : "Player " +  (selfPlayer+1)) + "</b><hr>";
+				updateLobbyText();
+			})
+		}
+		
+		function shuffleArray(array) {
+			for (let i = array.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]];
+			}
+		}
+		
+		function displayCard(deck, target, active = false) {
+			document.querySelector("#" + target).innerHTML = ""
+			
+			var suitSymbols = ["☀", "☽", "★", "☄"]
+			
+			for (let i = 0; i < deck.length; i++) {
+				let card = deck[i]
+				let replace = {
+					/*
+					"0": "B",
+					"8": "P",
+					"9": "Q",
+					"10": "K"
+					*/
+				}
+				
+				document.querySelector("#" + target).innerHTML += (active ? "<a class='card' id=" + i + " onclick='playCard(this.id)'>" : "<font class='card'>") + (card[0] % 2 == 1 ? "<font style='color: red;'>" : "") + suitSymbols[card[0]] + (Object.keys(replace).includes(card[1].toString()) ? replace[card[1].toString()] : card[1]) + (card[0] % 2 == 1 ? "</font>" : "") + (active ? "</a>" : "</font>") + " "
+			} 
+		}
+		
+		function makeDeck() {
+			cardDeck = []
+			discardDeck = []
+			hands = []
+			
+			for (let suit = 0; suit < 4; suit++) {
+				for (let rank = 0; rank < 11; rank++) {
+					cardDeck.push([suit, rank])
+				}
+			}
+			
+			if (numberPlayers > 6) {
+				for (let suit = 0; suit < 4; suit++) {
+					for (let rank = 0; rank < 11; rank++) {
+						cardDeck.push([suit, rank])
+					}
+				}
+			}
+			
+			shuffleArray(cardDeck)
+		}
+		
+		function displayDeck() {
+			document.querySelector("#deckOutput").innerHTML = "(" + cardDeck.length + " card" + (cardDeck.length != 1 ? "s" : "") + ")"
+		}
+		
+		function removePass() {
+			try {
+			  document.querySelector("#passButton").remove()
+			} catch (error) {
+			
+			}
+		}
+		
+		function displayAll() {
+			document.querySelector("#deckOutput").innerHTML = "(" + cardDeck.length + " card" + (cardDeck.length != 1 ? "s" : "") + ")"
+			
+			if (selfPlayer == activePlayer) {
+				document.querySelector("#deckOutput").innerHTML += " <button id='drawbutton' onclick='drawCard()'>Draw " + (extraCard > 0 ? extraCard + " cards" : "card") + "</button>"
+			}
+			
+			displayCard(discardDeck.slice(-1), 'discardOutput')
+			//document.querySelector("#discardOutput").innerHTML += "(+" + (discardDeck.length - 1) + " cards)"
+			
+			//displayCard(hands[0], 'hand1Output')
+			//displayCard(hands[1], 'hand2Output')
+			
+			document.querySelector("#gameHands").innerHTML = ""
+			for (let player = 0; player < numberPlayers; player++) {
+				document.querySelector("#gameHands").innerHTML += "<br><b>Player " + (player+1) + ": </b><font id='hand" + (player+1) + "Output'></font>"
+				
+				if (selfPlayer >= numberPlayers) {
+					displayCard(hands[player], "hand" + (player+1) + "Output", false)
+					document.querySelector("#hand" + (player+1) + "Output").innerHTML += ((hands[player].length == 1) ? " <b>MIAU</b>" : "")
+				} else {
+					document.querySelector("#hand" + (player+1) + "Output").innerHTML = "(" +  (hands[player].length != 1 ? hands[player].length + " cards" : "<b>MIAU</b>") + ")"
+				}
+			}
+			
+			if (selfPlayer < numberPlayers) {
+				displayCard(hands[selfPlayer], "hand" + (selfPlayer+1) + "Output", selfPlayer == activePlayer)
+				document.querySelector("#hand" + (selfPlayer+1) + "Output").innerHTML += (hands[selfPlayer].length == 2 && canPlay() && selfPlayer == activePlayer ? " <button id='miaubutton' onclick='miau = true; displayDeck(); removePass(); this.outerHTML = \" <b>MIAU</b>\"'><b>MIAU</b></button>" : "") + (miau == true ? " <b>MIAU</b>" : "") + ((hands[selfPlayer].length == 1) ? " <b>MIAU</b>" : "")
+				
+			}
+			
+			var suitSymbols = ["<text class='card'>☀</text>", "<text class='card' style='color: red;'>☽</text>", "<text class='card'>★</text>", "<text class='card' style='color: red;'>☄</text>"]
+			document.querySelector("#activePlayer").innerHTML = status + (activePlayer == selfPlayer ? "It's your turn." : "Waiting for Player " + (activePlayer + 1) + "...") + (forcedsuit != -1 ? " Requested suit is " + suitSymbols[forcedsuit] + "." : "")
+			
+			
+			if (hands[activePlayer].length == 0) {
+				displayCard(discardDeck.slice(-1), 'discardOutput')
+				
+				document.querySelector("#deckOutput").innerHTML = "(" + cardDeck.length + " card" + (cardDeck.length != 1 ? "s" : "") + ")"
+				document.querySelector("#activePlayer").innerHTML = "Player " + (activePlayer+1) + " wins by " + getScore() + " points (" + scores[activePlayer] + " points total)."
+				
+				for (let player = 0; player < numberPlayers; player++) {
+					displayCard(hands[player], "hand" + (player+1) + "Output", false)
+					document.querySelector("#hand" + (player+1) + "Output").innerHTML += (hands[player].length == 0 ? " <b>MIAU MIAU</b>" : "")
+					document.querySelector("#hand" + (player+1) + "Output").innerHTML += " (" + scores[player] + " points total)"
+				}
+				
+				if (scores[activePlayer] >= maxPoints) {
+					document.querySelector("#activePlayer").innerHTML += " <button onclick='room.leave(); location.reload();'>Leave game</button>"
+				} else if (selfPlayer == 0) {
+					document.querySelector("#activePlayer").innerHTML += " <button onclick='startGame()'>Next round</button>"
+				}
+				
+				return
+			}
+		}
+		
+		function nextPlayer() {
+			activePlayer = mod(activePlayer + direction, numberPlayers)
+			// selfPlayer = activePlayer
+			
+			displayAll()
+			broadcastGamestate()
+			status = ""
+		}
+		
+		function drawCard() {
+			// console.log("extra card: ", extraCard)
+			if (cardDeck.length == 0) {
+				cardDeck = discardDeck.splice(0, discardDeck.length-1)
+				shuffleArray(discardDeck)
+				discardDeck = discardDeck.splice(discardDeck.length-1)
+			}
+			
+			hands[selfPlayer].push(cardDeck[0])
+			cardDeck = cardDeck.slice(1)
+			
+			hands[selfPlayer] = hands[selfPlayer].sort((([a, b], [c, d]) => a - c || b - d))
+			
+			if (extraCard > 1) {
+				extraCard -= 1
+				drawCard()
+				return
+			}
+			
+			extraCard = 0
+			
+			status = ""
+			
+			broadcastGamestate()
+			displayAll()
+			document.querySelector("#drawbutton").remove()
+			
+			if (canPlay()) {
+				document.querySelector("#hand" + (selfPlayer+1) + "Output").innerHTML += " <button id='passButton' onclick='status = \"\"; nextPlayer()'>Pass</button>"
+			} else {
+				nextPlayer()
+			}
+			//displayCard(hands[selfPlayer], "hand" + (selfPlayer+1) + "Output", selfPlayer == activePlayer)
+		}
+		
+		function chooseColour(suit) {
+			forcedsuit = suit
+			nextPlayer()
+		}
+		
+		function getScore(add = false) {
+			var score = 0
+			
+			for (let player = 0; player < numberPlayers; player++) {
+				for (const card of hands[player]) {
+					// console.log(card[1])
+					score += (card[1] == 0 ? 20 : card[1])
+				}
+			}
+			
+			if (add == true) {scores[activePlayer] += score}
+			return score
+		}
+		
+		function playCard(cardID) {
+			var clickedCard = hands[selfPlayer][cardID]
+			var topCard = discardDeck.slice(-1)[0]
+			
+			// console.log(clickedCard)
+			// console.log(topCard)
+			// console.log((clickedCard[0] == topCard[0]), (clickedCard[1] == topCard[1]))
+			
+			status = ""
+			
+			if ((extraCard != 0 && clickedCard[1] == 9) || extraCard == 0 && ((forcedsuit != -1 && clickedCard[0] == forcedsuit) || (forcedsuit == -1 && ((clickedCard[0] == topCard[0]) || (clickedCard[1] == topCard[1]))) || clickedCard[1] == 0)) {
+				discardDeck.push(clickedCard)
+				hands[selfPlayer].splice(cardID, 1)
+				
+				forcedsuit = -1
+				
+				checkMiau()
+				
+				broadcastGamestate()
+				displayAll()
+				
+				if (hands[activePlayer].length == 0) {
+					getScore(true);
+					broadcastGamestate();
+					displayAll()
+					return
+				}
+				
+				switch (discardDeck.slice(-1)[0][1]) {
+					case 0:
+						displayCard(hands[selfPlayer], "hand" + (selfPlayer+1) + "Output", false)
+						// document.querySelector("#hand" + (selfPlayer+1) + "Output").innerHTML += (miau == true ? " <b>MIAU</b>" : "")
+						displayCard(discardDeck.slice(-1), 'discardOutput')
+						document.querySelector("#deckOutput").innerHTML = "(" + cardDeck.length + " card" + (cardDeck.length != 1 ? "s" : "") + ")"
+						document.querySelector("#activePlayer").innerHTML = "<b>Select a suit:</b> <a class='card' onclick='chooseColour(0)'>☀</a> <a class='card' style='color: red' onclick='chooseColour(1)'>☽</a> <a class='card' onclick='chooseColour(2)'>★</a> <a class='card' style='color: red' onclick='chooseColour(3)'>☄</a>"
+						break;
+					case 8:
+						direction = direction * -1
+						status += "Play direction is now " + (direction == 1 ? "anti" : "") + "clockwise. " 
+						nextPlayer()
+						break;
+					case 9:
+						extraCard += 2
+						status += "Player " + (mod(activePlayer + direction, numberPlayers) + 1) + " must draw " + extraCard + " cards. " 
+						nextPlayer()
+						break;
+					case 10:
+						activePlayer = mod(activePlayer + direction, numberPlayers)
+						status += "Player " + (activePlayer + 1) + "'s turn is skipped. " 
+						nextPlayer()
+						break;
+					default:
+						nextPlayer()
+				}
+			} else {
+				var suitSymbols = ["<text class='card'>☀</text>", "<text class='card' style='color: red;'>☽</text>", "<text class='card'>★</text>", "<text class='card' style='color: red;'>☄</text>"]
+				document.querySelector("#activePlayer").innerHTML = "You can't play this card right now." + (forcedsuit != -1 ? " Requested suit is " + suitSymbols[forcedsuit] + "." : "")
+			}
+		}
+		
+		function canPlay() {
+			var topCard = discardDeck.slice(-1)[0]
+			
+			for (const card of hands[selfPlayer]) {
+				if ((extraCard != 0 && card[1] == 9) || extraCard == 0 && ((forcedsuit != -1 && card[0] == forcedsuit) || (forcedsuit == -1 && ((card[0] == topCard[0]) || (card[1] == topCard[1]))) || (card[1] == 0))) {
+					return true
+				}
+			}
+			
+			return false
+		}
+		
+		function checkMiau() {
+			if (miau == false && hands[selfPlayer].length == 1) {
+				extraCard = 2
+				drawCard()
+				status += "Player " + (activePlayer + 1) + " didn't say <i>Miau</i> and must draw 2 cards. " 
+			} else if (miau == true) {
+				status += "Player " + (activePlayer + 1) + " said <i>Miau</i>. " 
+			}
+			
+			miau = false
+		}
+		
+		function initScores() {
+			for (let player = 0; player < numberPlayers; player++) {
+				scores.push(0)
+			}
+			activePlayer = 0
+		}
+		
+		function startGame() {
+			makeDeck()
+			direction = 1
+			extraCard = 0
+			status = ""
+			document.querySelector("#gameHands").innerHTML = ""
+			
+			for (let player = 0; player < numberPlayers; player++) {
+				hands.push(cardDeck.slice(0, 5).sort((([a, b], [c, d]) => a - c || b - d)))
+				cardDeck = cardDeck.slice(5)
+				
+			}
+			
+			discardDeck.push(cardDeck[0])
+			cardDeck = cardDeck.slice(1)
+			
+			displayAll()
+		}
+	</script>
+  </body>
+</html>
