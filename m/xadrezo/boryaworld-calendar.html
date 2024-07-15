@@ -232,7 +232,7 @@
 				
 				document.getElementById('convSUN').innerHTML = convDateSUN[0] + " " + monthNamesSUN[convDateSUN[1]] + " " + convDateSUN[2] + convDateSUN[3]
 				//document.getElementById('convSUN1').innerHTML = " <oika>" + (numberSUN(convDateSUN[0]) + monthNamesSUN1[convDateSUN[1]] + numberSUN(convDateSUN[2]) + String(convDateSUN[3]).replace(" IPT", "")) + "</oika>"
-				document.getElementById('convSUN1').innerHTML = " <uki>" + convertText(convDateSUN[0] + " " + monthNamesSUN1[convDateSUN[1]] + " " + convDateSUN[2] + String(convDateSUN[3]).replace(" IPT", " \\IPT"), "sun") + "</uki>"
+				document.getElementById('convSUN1').innerHTML = " <uki>" + convertText(convDateSUN[0] + "  " + monthNamesSUN1[convDateSUN[1]] + "  " + convDateSUN[2] + String(convDateSUN[3]).replace(" IPT", "  \\IPT"), "sun") + "</uki>"
 			}
 			
 			/*if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
