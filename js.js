@@ -129,6 +129,9 @@ async function loadLanguage(){
 	case "su":
 		langCode = "fi"
 		break;
+	case "tp":
+		langCode = "tok"
+		break;
 	case "yue":
 		langCode = "zh"
 		break;
