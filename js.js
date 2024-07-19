@@ -129,6 +129,9 @@ async function loadLanguage(){
 	case "su":
 		langCode = "fi"
 		break;
+	case "yue":
+		langCode = "zh"
+		break;
 	default:
 		langCode = localStorage.lang
 		break;
