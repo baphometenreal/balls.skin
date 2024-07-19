@@ -6,7 +6,7 @@ on:
 
 jobs:
   synchronize-with-crowdin:
-    runs-on: Baphomet's laptop
+    runs-on: self-hosted
 
     steps:
       - name: Checkout
