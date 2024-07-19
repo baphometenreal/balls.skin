@@ -108,7 +108,33 @@ function loadFont() {
 
 if (localStorage.lang == null) {localStorage.lang = "en"}
 async function loadLanguage(){
-  const response = await fetch("/languages/" + localStorage.lang + ".json")
+  var langCode
+  
+  switch (localStorage.lang) {
+	case "cz":
+		langCode = "cs"
+		break;
+	case "jp":
+		langCode = "ja"
+		break;
+	case "kr":
+		langCode = "ko"
+		break;
+	case "nd":
+		langCode = "nl"
+		break;
+	case "sp":
+		langCode = "es"
+		break;
+	case "su":
+		langCode = "fi"
+		break;
+	default:
+		langCode = localStorage.lang
+		break;
+  }
+  
+  const response = await fetch("/languages/" + langCode + ".json")
   window.lang = await response.json()
   
 
