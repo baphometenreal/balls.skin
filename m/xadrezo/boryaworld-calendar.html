@@ -259,10 +259,10 @@
 			} else {
 				var convDateMAL = calcDateMAL(date)
 				var weekdayNamesMAL = ["Rĳpienə", "Lindienə", "Campienə", "Rêstienə"]
-				var monthNamesMAL = ["Riecsmaant", "Vâstmaant", "Laumaant", "Tilmaant", "Zaanmaant", "Zorgmaant", "Herbmaant", "Windmaant", "Cèstmaant"]
+				var monthNamesMAL = ["Riecsmaant", "Vâstmaant", "Laumaant", "Tilmaant", "Zaanmaant", "Zorgmaant", "Hârbmaant", "Windmaant", "Cèstmaant"]
 				
 				var weekdayNamesMAL1 = ["rĳpînè", "lindînè", "kampînè", "rêstînè"]
-				var monthNamesMAL1 = ["rîksmánt", "vâstmánt", "laumánt", "tilmánt", "zánmánt", "zorgmánt", "herbmánt", "windmánt", "kêstmánt"]
+				var monthNamesMAL1 = ["rîksmánt", "vâstmánt", "laumánt", "tilmánt", "zánmánt", "zorgmánt", "hârbmánt", "windmánt", "kêstmánt"]
 				
 				document.getElementById('convMAL').innerHTML = weekdayNamesMAL[convDateMAL[0]] + ", " + convDateMAL[1] + " " + monthNamesMAL[convDateMAL[2]] + " " + convDateMAL[3] + convDateMAL[4]
 				document.getElementById('convMAL1').innerHTML = "<mal>" + (weekdayNamesMAL1[convDateMAL[0]] + "; " + numberMAL(convDateMAL[1]) + " " + monthNamesMAL1[convDateMAL[2]] + " " + numberMAL(convDateMAL[3]) + convDateMAL[4].replaceAll("BE", "vt")).toUpperCase() + "</mal>"
