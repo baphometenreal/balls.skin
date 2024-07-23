@@ -22,6 +22,11 @@
 	}
 	
 	@font-face {
+		font-family: 'kzmr';
+		src: url('Kzmr.otf') format('opentype');
+	}
+	
+	@font-face {
 		font-family: 'alhi';
 		src: url('EmmAlhi.woff2') format('woff2');
 	}
@@ -83,6 +88,10 @@
 	  font-family: mallia;
 	}
 	
+	kzm {
+	  font-family: kzmr;
+	}
+	
 	</style>
   </head>
   <body>
@@ -113,6 +122,7 @@
 	<img><font style="font-size: 26px;"><!--West Noellastani:--> </font><font id="errorWNL" name="errorWNL" style="font-size: 26px; color: red"></font><font id="convWNL" name="convWNL" style="font-size: 26px; font-weight: bold;"></font><br>
 	<!--<img><font style="font-size: 26px;"> </font><font id="convWNL1" name="convWNL1" style="font-size: 26px;"></font><br>-->
 	<img src="flags/kzmr.png" title="Kzmr calendar" alt=":flag_kzm:" style="height: 22.2px; width: auto; padding: 0px 6.4px 0px"><font style="font-size: 26px;"><!--Kzmr:--> </font><font id="errorKZM" name="errorKZM" style="font-size: 26px; color: red"></font><font id="convKZM" name="convKZM" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"> </font><font id="convKZM1" name="convKZM1" style="font-size: 30px;"></font><br>
 	<img src="flags/alloti.png" title="Allotian calendar" alt=":flag_all:"><font style="font-size: 26px;"><!--Allotian:--> </font><font id="errorALL" name="errorALL" style="font-size: 26px; color: red"></font><font id="convALL" name="convALL" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"><!--Alloti:--> </font><font id="convALL1" name="convALL1" style="font-size: 26px;"></font><br>
 	<img src="flags/sunteria.png" title="Sunterian calendar" alt=":flag_sun:"><font style="font-size: 26px;"><!--Sunterian:--> </font><font id="errorSUN" name="errorSUN" style="font-size: 26px; color: red"></font><font id="convSUN" name="convSUN" style="font-size: 26px; font-weight: bold;"></font><br>
@@ -126,6 +136,7 @@
 	
 	<script src="cal.js"></script>
 	<script src="ukilen-conv.js"></script>
+	<script src="kzmr-numbers.js"></script>
 	<script>
 		// --- DISPLAY
 		
@@ -160,6 +171,7 @@
 			document.getElementById('convSUN1').innerHTML = ""
 			document.getElementById('convMAL1').innerHTML = ""
 			document.getElementById('convIHO1').innerHTML = ""
+			document.getElementById('convKZM1').innerHTML = ""
 		
 			document.getElementById('convGRE').innerHTML = date.getUTCDate() + " " + date.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + Math.abs(date.getUTCFullYear() - 1*(date.getUTCFullYear() < 1)) + " BCE".repeat(date.getUTCFullYear() < 1)
 		
@@ -266,8 +278,17 @@
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
 				document.getElementById('errorCRG').innerHTML = "Year must be between -9999 and 9999"
 			} else {
+				var weekdayNamesKZM = ["Ngkahvm", "Bdkuhvm", "Sgrkuhvm", "Spnkahvm", "'Hngrgkahvm", "Tptkahvm", "Brxskahvm", "'Snšrkahvm", "'Tnrhkihvm"]
+				var monthNamesKZM = ["Hškath", "Prsith", "Kpgath", "Hška'sþbhi", "Prsi'sþbhi", "Kpga'sþbhi", "Hškasv", "Prsisv", "Kpgasv", "Hškanrh", "Prsinrh", "Kpganrh", "Ptnaprsithd"]
+				var lunarMonthNamesKZM = ["Ng Kžri", "Ng Žrxci", "Ng Tšrn", "Ng Hšri", "Ng Hrni"]
+				
+				var weekdayNamesKZM1 = ["`", "🜐`", "🜠`", "`", "🜜`", "🜫`", "🜩`", "🜪`", "🝍`"]
+				var monthNamesKZM1 = ["'", "", "KPGA", "''", "'", "KPGA'", "'", "", "KPGA", "''", "'", "KPGA'", "PTNA"]
+				var lunarMonthNamesKZM1 = ["", "JRXCI", "", "", ""]
+				
 				var convDateKZM = calcDateKZM(date)
-				document.getElementById('convKZM').innerHTML = convDateKZM[0] + ", " +convDateKZM[1] + " " + convDateKZM[2] + " " + convDateKZM[3]
+				document.getElementById('convKZM').innerHTML = weekdayNamesKZM[convDateKZM[0]] + ", " + (convDateKZM[1] == 0 ? "" : convDateKZM[1]) + " " + monthNamesKZM[convDateKZM[2]] + " " + convDateKZM[3] + " " + lunarMonthNamesKZM[convDateKZM[4]] + " " + convDateKZM[5]
+				document.getElementById('convKZM1').innerHTML = "<kzm>" + weekdayNamesKZM1[convDateKZM[0]] + "·" + (convDateKZM[1] == 0 ? "" : numeralKZM(convDateKZM[1])) + monthNamesKZM1[convDateKZM[2]] + "·" + numeralKZM(convDateKZM[3]) + lunarMonthNamesKZM1[convDateKZM[4]] + "·" + (convDateKZM[5] == 0 ? "L" : (convDateKZM[5] < 0 ? numeralKZM(-1 * convDateKZM[5]) + "L" : numeralKZM(convDateKZM[5]))) +"</kzm>"
 			}
 		}
 		

@@ -836,7 +836,7 @@ function calcDateKZM(date) {
 		if (day == 2) {
 			month = 12
 		}
-		day = ""
+		day = 0
 	} else if (mod(month, 3) == 0) {
 		day = (46 + (month == 0 ? 1 : 0)) - day
 	}
@@ -857,5 +857,5 @@ function calcDateKZM(date) {
 	var weekdayNames = ["Ngkahvm", "Bdkuhvm", "Sgrkuhvm", "Spnkahvm", "'Hngrgkahvm", "Tptkahvm", "Brxskahvm", "'Snšrkahvm", "'Tnrhkihvm"]
 	
 	//return [-1, day, monthNames[month], year + 1214]
-	return [weekdayNames[weekday], day + " " + monthNames[month], lunarDay + " " + lunarMonthNames[lunarMonth], year]
+	return [weekday, day, month, lunarDay, lunarMonth, year]
 }
