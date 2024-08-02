@@ -133,7 +133,9 @@
 	<img src="flags/mallia.png" title="Mallian calendar" alt=":flag_mal:"><font style="font-size: 26px;"> </font><font id="errorMAL" name="errorMAL" style="font-size: 26px; color: red"></font><font id="convMAL" name="convMAL" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"> </font><font id="convMAL1" name="convMAL1" style="font-size: 26px;"></font><br>
 	<!--<img src="flags/rangei.png" title="Rangeian calendar" alt=":flag_ran:"><font style="font-size: 26px;"> </font><font id="errorRAN" name="errorRAN" style="font-size: 26px; color: red"></font><font id="convRAN" name="convRAN" style="font-size: 26px; font-weight: bold;"></font><br>-->
-	<img src="flags/cring.png" title="Cring calendar" alt=":flag_crg:" style="border: 1px solid"><font style="font-size: 26px;"> </font><font id="errorCRG" name="errorCRG" style="font-size: 26px; color: red"></font><font id="convCRG" name="convCRG" style="font-size: 26px; font-weight: bold;"></font>
+	<img src="flags/cring.png" title="Cring calendar" alt=":flag_crg:" style="border: 1px solid"><font style="font-size: 26px;"> </font><font id="errorCRG" name="errorCRG" style="font-size: 26px; color: red"></font><font id="convCRG" name="convCRG" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img src="flags/azkali.png" title="Azkali calendar" alt=":flag_azk:"><font style="font-size: 26px;"> </font><font id="errorAZK" name="errorAZK" style="font-size: 26px; color: red"></font><font id="convAZK" name="convAZK" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"> </font><font id="convAZK1" name="convAZK1" style="font-size: 26px;"></font><br>
 	
 	<script src="cal.js"></script>
 	<script src="ukilen-conv.js"></script>
@@ -152,6 +154,7 @@
 			document.getElementById('errorMAL').innerHTML = ""
 			document.getElementById('errorCRG').innerHTML = ""
 			document.getElementById('errorKZM').innerHTML = ""
+			document.getElementById('errorAZK').innerHTML = ""
 			
 			document.getElementById('convGRE').innerHTML = ""
 			document.getElementById('convLRM').innerHTML = ""
@@ -164,6 +167,7 @@
 			document.getElementById('convMAL').innerHTML = ""
 			document.getElementById('convCRG').innerHTML = ""
 			document.getElementById('convKZM').innerHTML = ""
+			document.getElementById('convAZK').innerHTML = ""
 			
 			document.getElementById('convLRM1').innerHTML = ""
 			document.getElementById('convNOE1').innerHTML = ""
@@ -173,6 +177,7 @@
 			document.getElementById('convMAL1').innerHTML = ""
 			document.getElementById('convIHO1').innerHTML = ""
 			document.getElementById('convKZM1').innerHTML = ""
+			document.getElementById('convAZK1').innerHTML = ""
 		
 			document.getElementById('convGRE').innerHTML = date.getUTCDate() + " " + date.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + Math.abs(date.getUTCFullYear() - 1*(date.getUTCFullYear() < 1)) + " BCE".repeat(date.getUTCFullYear() < 1)
 		
@@ -290,6 +295,15 @@
 				var convDateKZM = calcDateKZM(date)
 				document.getElementById('convKZM').innerHTML = weekdayNamesKZM[convDateKZM[0]] + ", " + (convDateKZM[1] == 0 ? "" : convDateKZM[1]) + " " + monthNamesKZM[convDateKZM[2]] + " " + convDateKZM[3] + " " + lunarMonthNamesKZM[convDateKZM[4]] + " " + convDateKZM[5]
 				document.getElementById('convKZM1').innerHTML = "<kzm>" + weekdayNamesKZM1[convDateKZM[0]] + "·" + (convDateKZM[1] == 0 ? "" : numeralKZM(convDateKZM[1])) + monthNamesKZM1[convDateKZM[2]] + "·" + numeralKZM(convDateKZM[3]) + lunarMonthNamesKZM1[convDateKZM[4]] + "·" + (convDateKZM[5] == 0 ? "L" : (convDateKZM[5] < 0 ? numeralKZM(-1 * convDateKZM[5]) + "L" : numeralKZM(convDateKZM[5]))) +"</kzm>"
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorAZK').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var monthNamesAZK = ["Enero", "Epurerro", "Martzo", "Arril", "Maia", "Uni", "Uraia", "Agotzo", "Tzetemer", "Okotzemer", "Notzemer", "Dhetzemer"]
+				
+				document.getElementById('convAZK').innerHTML = date.getUTCDate() + " " + monthNamesAZK[date.getUTCMonth()] + " " + date.getUTCFullYear()
+				document.getElementById('convAZK1').innerHTML = "<uki>" + convertText(date.getUTCDate() + "  \\" + monthNamesAZK[date.getUTCMonth()] + "  " + String(date.getUTCFullYear()).replaceAll("-", ". . "), "azk") + "</uki>"
 			}
 		}
 		
