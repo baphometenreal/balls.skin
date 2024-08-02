@@ -18,7 +18,7 @@
 				var output = document.getElementById("xender")
 				output.innerHTML = ""
 				
-				var Names = ["Baphomet", "Noelle", "Jarvis", "Sock", "Moose", "Gutz", "Rammie", "Agi", "Sushishi"]
+				var Names = ["Baphomet", "Noelle", "Gutz", "Rammie", "Agi", "Sushishi"]
 				
 				var step0 = Math.floor(Math.random() * Names.length)
 				output.innerHTML = Names[step0]+"<br>"
@@ -27,7 +27,7 @@
 				
 				if (step1 == 0) {output.innerHTML += "it/its"; return}
 				
-				var otherPronouns = ["horn/horns", "ang/angels", "pup/pups", "kit/kits", "fang/fangs", "gut/guts", "blood/bloods"]
+				var otherPronouns = ["horn/horns", "ang/angels", "pup/pups", "kit/kits", "fang/fangs", "gut/guts", "blood/bloods", "plush/plushed","stuffie/stuffies","vamp/vamps"]
 				
 				var step2 = Math.floor(Math.random() * otherPronouns.length)
 				output.innerHTML += otherPronouns[step2]
