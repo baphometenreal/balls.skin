@@ -243,6 +243,15 @@
 					default:
 						var tabelle = "<table><tr><th>Nominative</th><td>" + loremese + "</td></tr><tr><th>Genitive</th><td>" + loremese + "os" + "</td></tr>";
 						tabelle += "<tr><th>Dative</th><td>" + loremese + "ei" + "</td></tr></table>"
+						
+							switch (loremese) {
+							case "Elaudertos Gordos":
+								tabelle = "<table><tr><th>Nominative</th><td>" + "Elaudertos Gordos" + "</td></tr><tr><th>Genitive</th><td>" + "Elaudertom Gordom" + "</td></tr>";
+								tabelle += "<tr><th>Dative</th><td>" + "Elaudertom Gordom" + "</td></tr></table>"
+								break;
+							default:
+								break;
+							}
 						break;
 				}
 				break;
