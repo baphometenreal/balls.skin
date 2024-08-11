@@ -133,7 +133,7 @@ function nextBiggest82n(x) {
 		if (numero == "NaN") {return "Error";}
 		
 		
-		rawString = getNegative(numero).replaceAll("one", "1").replaceAll("zero", "0") //parseNumber(numero)
+		rawString = getNegative(numero).replaceAll("one", "1").replaceAll("zero", "") //parseNumber(numero)
 
 		return (rawString).replaceAll("-", " ")
 	}

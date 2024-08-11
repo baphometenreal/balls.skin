@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ukilen Logography Converter</title>
+    <link href="css.css" rel="stylesheet" type="text/css" media="all">
+	<style>
+	@font-face {
+        font-family: "UkilenLg";
+        src: url('/font/UkilenLg.otf') format('truetype');
+    }
+	
+	@font-face {
+        font-family: "KzmrFont";
+        src: url('Kzmr.otf');
+    }
+	
+	.kzm {
+		font-family: "KzmrFont" !important;
+	}
+	
+	.big {
+		font-size: 6em;
+		max-height: 80%;
+		font-family: "UkilenLg";
+		word-wrap: break-word;
+	}
+	
+	uki {
+	  line-height: 1;
+	  font-family: "UkilenLg";
+	}
+	
+	</style>
+  </head>
+  <body>
+	<label for="rom">Insert romanisation here: </label><select id="camel" name="camel" onchange="clickButton()">
+		<option value="bap">Baphian</option>
+		<option value="noe">Noellastani</option>
+		<option value="kzm">Kzmr</option>
+		<option value="azk">Azkali</option>
+		<option value="sun">Sunterian</option>
+	</select><label for="camel"> Reading style</label><br>
+	<input type="text" id="rom" name="rom" style="width: 99%" onkeyup="clickButton()"></input>
+	<!-- <button type="button" onclick="clickButton()">Convert</button> -->
+	<br>
+	<p id="ime" name="ime"></font>
+	<hr>
+	<font id="conv" name="conv" class="big"></font>
+	<p id="footer"></p>
+	<script src="/footer.js"></script>
+	<script src="./ukilen-conv.js"></script>
+	<script src="./kzmr-numbers.js"></script>
+	<script>
+		function showAlts() {
+			var selection = document.getElementById("rom").value
+			selection = selection.replaceAll("�", "");
+			selection = selection.slice(0, loc) + "�" + selection.slice(loc)
+			
+			var loc = document.getElementById("rom").selectionStart
+			var selection = document.getElementById("rom").value.slice(0, loc) + "�" + document.getElementById("rom").value.slice(loc)
+			var dict = translateSyllable("", document.getElementById("camel").value, getDict = true)
+			var res = []
+			
+			selection = selection.toLowerCase()
+			selection = selection.replaceAll("-", " ");
+			if (document.getElementById("camel").value == "sun") {
+				selection = selection.replaceAll("c", "š");
+				selection = selection.replaceAll("j", "ž");
+			}
+			
+			selection = selection.split(" ");
+			
+			for (var i = 0; i < selection.length; i++) {
+				if (selection[i].includes("�")) {
+					selection[i] = selection[i].replaceAll("�", "");
+					selection = selection[i]
+					break
+				}
+			}
+			
+			if (selection == "") {
+				return "<br>"
+			} else if (selection.slice(0, 1) == "\\") {
+				return "<i>alphabetic mode</i>"
+			} else if (/^\d+$/ig.test(selection)) {
+				return "<i>numerical mode</i>"
+			} else if (selection.slice(0,2) == "u+") {
+				return "<i>Unicode mode</i>"
+			}
+			
+			for (var i = 0; i < Object.keys(dict).length; i++) {
+				
+				if (Object.keys(dict)[i].slice(0, selection.length) == selection) {
+					if (Object.keys(dict)[i] == selection) {
+						res.push("<b>" + Object.keys(dict)[i] + "</b> <uki " + (document.getElementById("camel").value == "kzm" ? "class='kzm'" : "") + ">" + dict[Object.keys(dict)[i]] + "</uki>")
+					} else {
+						res.push("<font>" + Object.keys(dict)[i] + "  </font> <uki " + (document.getElementById("camel").value == "kzm" ? "class='kzm'" : "") + ">" + dict[Object.keys(dict)[i]] + "</uki>")
+					}
+				}
+			}
+			
+			if (res.length == 0) {
+				return "<i>none found</i>"
+			}
+			
+			console.log(res.sort())
+			return res.sort().join(", ")
+		}
+		
+		function clickButton() {
+			if (document.getElementById("camel").value == "kzm") {
+				document.getElementById("conv").classList.add("kzm");
+			} else {
+				document.getElementById("conv").classList.remove("kzm");
+			}
+			
+			document.getElementById("conv").innerHTML = convertText(document.getElementById("rom").value, document.getElementById("camel").value);
+			
+			document.getElementById("ime").innerHTML = showAlts()
+		}
+		
+		document.getElementById("rom").addEventListener('click', e => {
+		  document.getElementById("ime").innerHTML = showAlts()
+		})
+		
+		clickButton()
+		document.getElementById("ime").innerHTML = "<i>IME ready</i>"
+	</script>
+  </body>
+</html>

@@ -221,6 +221,22 @@ function bijectiveString(m, k) {
 				case "kzm":
 					translate = {
 						
+						":": "'",
+						"::": "\"",
+						":::": "`",
+						
+						"he1": "🜚",
+						"he2": "🜛",
+						"he3": "🜠",
+						"he4": "🜩",
+						"he5": "🜜",
+						"he6": "🜐",
+						"he7": "🜪",
+						"he8": "🝍",
+						"he9": "🜫",
+						"he10": "🜀",
+						
+						/*
 						":": ":",
 						"\"": "“",
 						"(": "(",
@@ -233,21 +249,26 @@ function bijectiveString(m, k) {
 						"“": "“",
 						"”": "”",
 						"": "",
+						*/
 					}
 					
-					/*
 					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
-						syl = syl.replaceAll("y", "j");
-						syl = syl.replaceAll("è", "ë");
-						syl = syl.replaceAll("'", ";");
+						syl = syl.replaceAll("e", "i");
+						syl = syl.replaceAll("'", "q");
+						syl = syl.replaceAll("š", "e");
+						syl = syl.replaceAll("ž", "j");
+						syl = syl.replaceAll("þ", "l");
+						
+						syl = syl.replaceAll(":::", "`");
+						syl = syl.replaceAll("::", "\"");
+						syl = syl.replaceAll(":", "'");
 						syl = syl.toUpperCase()
 						
 						syl = syl.replaceAll("\\", "");
 						return syl
 					}
-					*/
 					
-					// if (/^\d+$/ig.test(syl)) {return bijectiveString(parseInt(syl), 6)}
+					if (/^\d+$/ig.test(syl)) {return numeralKZM(parseInt(syl))}
 					break;
 				case "azk":
 					translate = {
