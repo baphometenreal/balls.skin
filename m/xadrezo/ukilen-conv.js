@@ -800,7 +800,7 @@ function bijectiveString(m, k) {
 			if (syl == "") {return " "}
 			// if (/\b\d+\b/ig.test(syl)) {return syl}
 			if (syl in translate) {return translate[syl]}
-			return "<font style=\"color: red;\"> </font>"
+			return "<font style=\"color: red;\">�</font>"
 		}
 	
 		function convertText(inputText, mode) {
