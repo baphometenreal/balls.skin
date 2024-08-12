@@ -55,7 +55,7 @@ function bijectiveString(m, k) {
 						"ahve":"",
 						"ahyunah":"",
 						"alke":"",
-						"alke":"",
+						"alke2":"",
 						"ame":"",
 						"ata":"",
 						"azye":"",
