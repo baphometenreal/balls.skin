@@ -105,6 +105,8 @@ function bijectiveString(m, k) {
 						return syl
 					}
 					
+					syl = syl.replaceAll("è", "ë");
+					
 					if (/^\d+$/ig.test(syl)) {return bijectiveString(parseInt(syl), 6)}
 					break;
 				case "noe":
