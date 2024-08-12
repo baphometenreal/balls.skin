@@ -46,8 +46,27 @@ function bijectiveString(m, k) {
 			switch (mode) {
 				case "bap":
 					translate = {
-						"pahtam": "",
-						"baltye": "",
+						"ahdyevyu": "",
+						"ahdi": "",
+						"ahkam":"",
+						"ahlyede":"",
+						"ahlyi":"",
+						"ahvake":"",
+						"ahve":"",
+						"ahyunah":"",
+						"alke":"",
+						"alke":"",
+						"ame":"",
+						"ata":"",
+						"azye":"",
+						"bahruk":"",
+						"bah":"",
+						"baltye":"",
+						"bal":"",
+						"bastah":"",
+						"bë":"",
+						"bedeng":"",
+						
 						
 						":": ":",
 						"\"": "«",
@@ -781,7 +800,7 @@ function bijectiveString(m, k) {
 			if (syl == "") {return " "}
 			// if (/\b\d+\b/ig.test(syl)) {return syl}
 			if (syl in translate) {return translate[syl]}
-			return "<font style=\"color: red;\">�</font>"
+			return "<font style=\"color: red;\"> </font>"
 		}
 	
 		function convertText(inputText, mode) {
