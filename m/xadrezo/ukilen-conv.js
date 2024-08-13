@@ -83,14 +83,14 @@ function bijectiveString(m, k) {
 					}
 					
 					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
-						syl = syl.replaceAll("nga", "ngga");
-						syl = syl.replaceAll("nge", "ngge");
-						syl = syl.replaceAll("ngë", "nggë");
-						syl = syl.replaceAll("ngi", "nggi");
-						syl = syl.replaceAll("ngo", "nggo");
-						syl = syl.replaceAll("ngu", "nggu");
-						syl = syl.replaceAll("ngy", "nggy");
-						syl = syl.replaceAll("nh", "ngh");
+						// syl = syl.replaceAll("nga", "ngga");
+						// syl = syl.replaceAll("nge", "ngge");
+						// syl = syl.replaceAll("ngë", "nggë");
+						// syl = syl.replaceAll("ngi", "nggi");
+						// syl = syl.replaceAll("ngo", "nggo");
+						// syl = syl.replaceAll("ngu", "nggu");
+						// syl = syl.replaceAll("ngy", "nggy");
+						// syl = syl.replaceAll("nh", "ngh");
 						syl = syl.replaceAll("ng", "Ñ");
 						syl = syl.replaceAll("sh", "Ś");
 						syl = syl.replaceAll("zh", "Ž");
