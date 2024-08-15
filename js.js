@@ -87,7 +87,7 @@ function loadFont() {
 		  return
         }
 	
-	if (localStorage.lang == "bph" || localStorange.lang == "azk") {
+	if (localStorage.lang == "bph" || localStorage.lang == "azk") {
 		font.href = "/themes/font/ukilenfont.css"
 		console.log("ukilen") 
 	} else {
