@@ -87,21 +87,26 @@ function loadFont() {
 		  return
         }
 	
-	if (localStorage.font == "default") {
-		font.href = "/themes/font/defaultfont.css"
-		console.log("default") 
-	} else if (localStorage.font == "dyslexic") {
-		font.href = "/themes/font/dyslexicfont.css"
-		console.log("dyslexic") 
-	} else if (localStorage.font == "comic") {
-		font.href = "/themes/font/comicfont.css"
-		console.log("comic") 
-	} else if (localStorage.font == "noto") {
-		font.href = "/themes/font/noto.css"
-		console.log("noto") 
+	if (localStorage.lang == "bph" || localStorange.lang == "azk") {
+		font.href = "/themes/font/ukilenfont.css"
+		console.log("ukilen") 
 	} else {
-		font.href = "/themes/font/defaultfont.css"
-		console.log("default") 
+		if (localStorage.font == "default") {
+			font.href = "/themes/font/defaultfont.css"
+			console.log("default") 
+		} else if (localStorage.font == "dyslexic") {
+			font.href = "/themes/font/dyslexicfont.css"
+			console.log("dyslexic") 
+		} else if (localStorage.font == "comic") {
+			font.href = "/themes/font/comicfont.css"
+			console.log("comic") 
+		} else if (localStorage.font == "noto") {
+			font.href = "/themes/font/noto.css"
+			console.log("noto") 
+		} else {
+			font.href = "/themes/font/defaultfont.css"
+			console.log("default") 
+		}
 	}
 	
 }

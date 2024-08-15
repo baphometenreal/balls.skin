@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "ukilen";
+  src: url("/font/ukilen.otf");
+}
+h1,h2,h3,h4,h5,h6,h7 {
+ font-family: "ukilen";
+}
+p {
+  font-family: "ukilen";
+  font-size: 15px;
+}
+a, a:visited, button {
+  font-family: "ukilen";
+  font-size: 15px;
+}
+/*
+a.entry, a.entry:visited {
+  font-size: 15px;
+}
+*/
