@@ -87,7 +87,7 @@ function loadFont() {
 		  return
         }
 	
-	if (localStorage.lang == "bph" || localStorage.lang == "azk") {
+	if ((localStorage.lang == "bph" || localStorage.lang == "azk") && (window.location.href.slice(0, 33) != "https://balls.skin/LoT/dictionary" )) {
 		font.href = "/themes/font/ukilenfont.css"
 		console.log("ukilen") 
 	} else {
