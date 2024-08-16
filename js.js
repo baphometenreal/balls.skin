@@ -191,6 +191,8 @@ async function loadLanguage(){
       //document.getElementById(tags[i]).innerHTML = window.lang[tags[i]]
       }})
   */
+  
+  loadFont()
 }
 window.addEventListener("storage", function(e) {
   if (e.key === "theme") {try {loadLightMode()} catch(error){}}
