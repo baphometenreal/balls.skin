@@ -859,3 +859,81 @@ function calcDateKZM(date) {
 	//return [-1, day, monthNames[month], year + 1214]
 	return [weekday, day, month, lunarDay, lunarMonth, year]
 }
+
+// FOI
+
+function setDate(year, month, day, offset = 0) {
+	var date = new Date(Date.UTC(year, month-1, day, 12, 0, 0) + offset)
+	date.setUTCFullYear(year)
+	
+	return date
+}
+
+function getEpact(year) {
+	var goldenNumber = mod(year, 19) + 1
+	
+	var epactShift = (year - 1582) * 11
+	var saltusLunae = Math.floor((year - 1596)/19)+1
+	var solarEq = -1 * (Math.floor(year / 100) - 15) + (Math.floor(year / 400) - 3)
+	var lunarEq = Math.floor((year - 1800)/2500) + 1 + Math.floor((year - 2100)/2500) + 1 + Math.floor((year - 2400)/2500) + 1 + Math.floor((year - 2700)/2500) + 1 + Math.floor((year - 3000)/2500) + 1 + Math.floor((year - 3300)/2500) + 1 + Math.floor((year - 3600)/2500) + 1 + Math.floor((year - 3900)/2500) + 1 
+	
+	var epact = mod(26 + epactShift + saltusLunae + solarEq + lunarEq, 30)
+	var special = (epact == 25 && goldenNumber > 11) ? 1 : 0
+	
+	return [epact, special]
+}
+
+function getFirstDayFOI(year){
+	var epact = getEpact(year)
+	var epactN = getEpact(year+1)
+	var offset = 86400000 * (mod(31-epact[0], 30) + (mod(31-epact[0], 30) == 0 ? 30 : 0) - 1)
+	var hollow = 86400000 * (((epact[0] != 0) && (epact[0] < (25 - epact[1])) ? -1 : 0) - epact[1])
+	
+	var moons = [setDate(year, 5, 29, offset + hollow),	// june
+					setDate(year, 6, 27, offset), 		// july
+				]
+	
+	for (let i = 0; i < moons.length; i++) {
+			if (setDate(year, 6, getFirstDayLRM(year).getUTCDate() - 1) > moons[i]) {
+				delete moons[i];
+			} else {
+				var bdm = new Date(moons[i].getTime() + (mod(7 - (mod((moons[i].getUTCDay())-1, 7) + 7), 7)) * 86400000)
+				
+				return new Date(bdm.getTime())
+			}
+		}
+}
+
+function calcDateFOI(date) {
+	var year = date.getUTCFullYear()
+	
+	var today = Math.floor(date/86400000)
+	
+	var newYear = getFirstDayFOI(year)
+	var dayYear = Math.floor((date - newYear) / 86400000)
+	
+	if (dayYear < 0) {
+		year -= 1
+		newYear = getFirstDayFOI(year)
+		dayYear = dayYear = Math.floor((date - newYear) / 86400000)
+	}
+	
+	var month = 0
+	var leap = (mod(Math.floor((getFirstDayFOI(year + 1) - getFirstDayFOI(year)) / 86400000) / 7, 2) == 1) * 7
+	
+	var monthDays = [0, 35, 63, 91, 119, 147, 175, 210, 238, 266, 294 + leap, 322 + leap, 350 + leap, 999]
+	// var monthNames = ["Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Leap"]
+	var monthNames = ["Ne-Îv̀n", "<i>Two</i>", "<i>Three</i>", "<i>Four</i>", "<i>Five</i>", "<i>Six</i>", "<i>Seven</i>", "<i>Eight</i>", "<i>Nine</i>", "<i>Ten</i>", "<i>Eleven</i>", "<i>Twelve</i>", "<i>Leap</i>"]
+	
+	
+	if (dayYear >= 0) {
+		while (true) {
+			if (dayYear >= monthDays[month] && dayYear < monthDays[month+1]) break;
+			month = month + 1;
+		}
+	}
+	
+	var day = dayYear - monthDays[month] + 1
+	
+	return [day, monthNames[month], year + 1213] //1213 //1438]
+}
