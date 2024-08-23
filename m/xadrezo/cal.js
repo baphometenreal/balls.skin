@@ -326,19 +326,6 @@ function getYearLengthWNL(year) {
 	return 360 + 24 * isLeapWNL(year)
 }
 
-function getNumberWNL(x) {
-	number = bijectiveString(x, 6)
-	convstring = "";
-	
-	var digitsWNL = ["", "<img class='glyph' src='./nag/1.svg'/>", "<img class='glyph' src='./nag/2.svg'/>", "<img class='glyph' src='./nag/3.svg'/>", "<img class='glyph' src='./nag/4.svg'/>", "<img class='glyph' src='./nag/5.svg'/>", "<img class='glyph' src='./nag/6.svg'/>"]
-	
-	for (var i = 0; i < number.length; i++) {
-		convstring += digitsWNL[number[i]]
-	}
-	
-	return convstring
-}
-
 function calcDateWNL(date, natscr = false) {
 	var epoch = new Date(Date.UTC(2005, 0, 1))
 	var dayNumber = Math.floor((date - epoch) / 86400000) + 1
