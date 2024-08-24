@@ -71,10 +71,10 @@ function nextBiggest82n(x) {
 			var dict = {
 				6: "",
 				12: "",
-				24: "KG",
-				48: "LHVI",
-				96: "KRN",
-				192: "KHH",
+				24: "",
+				48: "",
+				96: "'",
+				192: "",
 			};
 			
 			var split1 = x.slice(0, x.length / 2)
