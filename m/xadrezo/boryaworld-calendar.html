@@ -235,7 +235,8 @@
 				var monthNamesWNL1 = ["u+E086", "u+E126", "u+E089", "\\", "u+E12A", "u+E133", "u+E002-u+E058-u+E122", "u+E058-u+E122", "u+E000-u+E058-u+E122", "u+E01C", "u+E002-u+E11E", "u+E11E", "u+E1D2", "u+E1D3", "u+E002-u+E086", "\\-u+E086"]
 				//var monthNamesWNL1 = ["u+E086", "u+E126", "u+E089", "\\", "u+E12A", "u+E133", "u+E002-u+E058-u+E122", "u+E058-u+E122", "u+E000-u+E058-u+E122", "u+E01C", "u+E002-u+E11E", "u+E11E", "u+E1D2", "u+E1D3", "u+E002-u+E086", "\\Enye-u+E086"]
 				var suffixNamesWNL1 = ["", " BNC"]
-				var eraNamesWNL1 = ["u+E002-u+E04C", "u+E04C", "u+E009", "u+E082", "u+E002-\\Nahmyu", "\\Nahmyu", "u+E1D1-\\na"]
+				// var eraNamesWNL1 = ["u+E002-u+E04C", "u+E04C", "u+E009", "u+E082", "u+E002-\\Nahmyu", "\\Nahmyu", "u+E1D1-\\na"]
+				var eraNamesWNL1 = ["u+E002-u+E04C", "u+E04C", "u+E009", "u+E082", "u+E002-\\Nopu", "\\Nopu", "u+E1D1-\\na"]
 				
 				document.getElementById('convWNL').innerHTML = dayNamesWNL[convDateWNL[0]] + " " + weekNamesWNL[convDateWNL[1]] + " " + monthNamesWNL[convDateWNL[2]] + " " + convDateWNL[3] + suffixNamesWNL[convDateWNL[4]] + eraNamesWNL[convDateWNL[5]]
 				document.getElementById('convWNL1').innerHTML = "<uki>" + convertText(dayNamesWNL1[convDateWNL[0]] + "  " + weekNamesWNL1[convDateWNL[1]] + "  " + monthNamesWNL1[convDateWNL[2]] + "  " + convDateWNL[3] + "  " + suffixNamesWNL1[convDateWNL[4]] + "  " + eraNamesWNL1[convDateWNL[5]], "bap") + "</uki>"
