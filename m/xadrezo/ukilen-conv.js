@@ -757,8 +757,8 @@ function bijectiveString(m, k) {
 					}
 					
 					if (syl.slice(0, 1) == "\\" && syl.length > 1) {
-						syl = syl.replaceAll("j", "i");
-						syl = syl.replaceAll("w", "u");
+						//syl = syl.replaceAll("j", "i");
+						//syl = syl.replaceAll("w", "u");
 						syl = syl.replaceAll("š", "c");
 						syl = syl.replaceAll("ž", "j");
 						syl = syl.replaceAll("“", "«");
