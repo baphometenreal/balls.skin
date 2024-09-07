@@ -1,3 +1,7 @@
+img.px {
+    image-rendering: pixelated;
+}
+
 @font-face {
     font-family: 'Mallian';
     font-style: normal;
@@ -29,3 +33,55 @@ li {
 hr {
     color: var(--button-bg);
 }
+
+section.track {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+}
+
+section.track img.big {
+    width: 200px;
+    height: 200px;
+}
+
+section.track div.desc {
+    flex-grow: 1;
+    background-color: var(--button-bg);
+    padding: 1em;
+    padding-top: 0;
+    border-radius: 1em;
+}
+
+section.track div.desc * {
+    margin: 0;
+}
+
+section.track div.desc audio {
+    width: 80%;
+}
+
+section.track div.desc div.gallery img {
+    width: 75px;
+}
+
+@media only screen and (max-width: 500px) {
+
+    section.track {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    section.track img.big {
+        width: 80%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+}
+
