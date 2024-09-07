@@ -124,7 +124,7 @@
 		}
 		
 		function grammar(english, baphian, type, extra, notes) {
-			if (type == "") {openNewPage( "<span class='ukilen'>" + baphian + "</span> \"" + english + "\"", "", notes); return}
+			if (type == "") {openNewPage( "<span class='ukilen'>" + baphian + "</span> <i>" + extra.split("</i>")[0].trim() + "</i> \"" + english + "\"", "", notes); return} 
 			
 			var tabelle = ""
 			var stem = extra.split("</i>")[0].trim().split(", ")
