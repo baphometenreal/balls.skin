@@ -239,27 +239,28 @@
 						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i><ht>le</ht></i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i><ht>lewe</ht></i>" + "</td></tr>"
 					} else if (baphian == "" || baphian == "" || baphian == "" || baphian == "" || baphian == "") { //3rd
 						tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
-						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>sho</i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>sho<ht>we</ht></i>" + "</td></tr>"
-						tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + "<br><i>shu</i>" + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + "<br><i>shu<ht>we</ht></i>" + "</td></tr>"
-						tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + "<br><i>she</i>" + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + "<br><i>she<ht>we</ht></i>" + "</td></tr>"
-						tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + "<br><i><ht>sha</ht></i>" + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + "<br><i><ht>shawe</ht></i>" + "</td></tr>"
-						tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + "<br><i>shi</i>" + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + "<br><i>shi<ht>we</ht></i>" + "</td></tr>"
-						tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + "<br><i>sha</i>" + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + "<br><i>sha<ht>we</ht></i>" + "</td></tr>"
-						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i><ht>she</ht></i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i><ht>shewe</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>so</i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>so<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + "<br><i>su</i>" + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + "<br><i>su<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + "<br><i>se</i>" + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + "<br><i>se<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + "<br><i><ht>sa</ht></i>" + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + "<br><i><ht>sawe</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + "<br><i>si</i>" + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + "<br><i>si<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + "<br><i>sa</i>" + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + "<br><i>sa<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i><ht>se</ht></i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i><ht>sewe</ht></i>" + "</td></tr>"
 						
 						switch (stem[0]) {
 							case "zo":
-								tabelle.replaceAll("s", "z")
+								tabelle = tabelle.replaceAll("s", "z")
 								break;
 							case "sho":
-								tabelle.replaceAll("s", "sh")
+								tabelle = tabelle.replaceAll("s", "sh")
 								break;
 							case "zho":
-								tabelle.replaceAll("s", "zh")
+								tabelle = tabelle.replaceAll("s", "zh")
 								break;
 							default:
 								break;
 						}
+						
 					} else { //2nd
 						tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
 						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>e</i>" + "</td><td><font class=\"ukilen\">" + nomDu + "</font>" + "<br><i>e<ht>yo</ht></i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>e<ht>we</ht></i>" + "</td></tr>"
