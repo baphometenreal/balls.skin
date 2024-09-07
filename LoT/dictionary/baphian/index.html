@@ -21,6 +21,9 @@
 		text-decoration: none;
 		font-size:32px
 	}
+	ht {
+		text-decoration-line: overline;
+	}
 	</style>
   </head>
   <body>
@@ -63,7 +66,7 @@
 				var english = dictData[i][0]
 				var baphian = dictData[i][1]
 				var type = dictData[i][2]
-				var extra = dictData[i][3]
+				var extra = dictData[i][3].replaceAll("{", "<ht>").replaceAll("}", "</ht>")
 				var notes = dictData[i][4]
 			  
 				var indEntry = ""
@@ -155,13 +158,13 @@
 					var locPl = locSg + ""
 					
 					tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
-					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + fC(stem, "") + "</td><td><font class=\"ukilen\">" + nomDu + "</font>" + fC(stem, "yo") + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + fC(stem, "vë") + "</td></tr>"
-					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + fC(stem, "gë") + "</td><td><font class=\"ukilen\">" + accDu + "</font>" + fC(stem, "gëyo") + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + fC(stem, "gëvë") + "</td></tr>"
-					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + fC(stem, "vë") + "</td><td><font class=\"ukilen\">" + datDu + "</font>" + fC(stem, "vëyo") + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + fC(stem, "vëvë") + "</td></tr>"
-					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + fC(stem, "ke") + "</td><td><font class=\"ukilen\">" + genDu + "</font>" + fC(stem, "keyo") + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + fC(stem, "kevë") + "</td></tr>"
-					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + fC(stem, "jë") + "</td><td><font class=\"ukilen\">" + ablDu + "</font>" + fC(stem, "jëyo") + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + fC(stem, "jëvë") + "</td></tr>"
-					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + fC(stem, "mu") + "</td><td><font class=\"ukilen\">" + vocDu + "</font>" + fC(stem, "muyo") + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + fC(stem, "muvë") + "</td></tr>"
-					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + fC(stem, "jan") + "</td><td><font class=\"ukilen\">" + locDu + "</font>" + fC(stem, "jayo") + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + fC(stem, "javë") + "</td></tr>"
+					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + fC(stem, "") + "</td><td><font class=\"ukilen\">" + nomDu + "</font>" + fC(stem, "<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + fC(stem, "<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + fC(stem, "ge") + "</td><td><font class=\"ukilen\">" + accDu + "</font>" + fC(stem, "ge<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + fC(stem, "ge<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + fC(stem, "we") + "</td><td><font class=\"ukilen\">" + datDu + "</font>" + fC(stem, "we<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + fC(stem, "we<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + fC(stem, "ke") + "</td><td><font class=\"ukilen\">" + genDu + "</font>" + fC(stem, "ke<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + fC(stem, "ke<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + fC(stem, "je") + "</td><td><font class=\"ukilen\">" + ablDu + "</font>" + fC(stem, "je<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + fC(stem, "je<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + fC(stem, "mu") + "</td><td><font class=\"ukilen\">" + vocDu + "</font>" + fC(stem, "mu<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + fC(stem, "mu<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + fC(stem, "jan") + "</td><td><font class=\"ukilen\">" + locDu + "</font>" + fC(stem, "jan<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + fC(stem, "jan<ht>we</ht>") + "</td></tr>"
 					
 					tabelle += "</table>"
 					break;
@@ -191,13 +194,13 @@
 					var locPl = locSg + ""
 					
 					tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
-					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + fC(stem, "") + "</td><td><font class=\"ukilen\">" + nomDu + "</font>" + fC(stem, "yo") + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + fC(stem, "vë") + "</td></tr>"
-					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + fC(stem, "zë") + "</td><td><font class=\"ukilen\">" + accDu + "</font>" + fC(stem, "zëyo") + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + fC(stem, "zëvë") + "</td></tr>"
-					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + fC(stem, "shë") + "</td><td><font class=\"ukilen\">" + datDu + "</font>" + fC(stem, "shëyo") + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + fC(stem, "shëvë") + "</td></tr>"
-					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + fC(stem, "ge") + "</td><td><font class=\"ukilen\">" + genDu + "</font>" + fC(stem, "geyo") + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + fC(stem, "gevë") + "</td></tr>"
-					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + fC(stem, "cë") + "</td><td><font class=\"ukilen\">" + ablDu + "</font>" + fC(stem, "cëyo") + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + fC(stem, "cëvë") + "</td></tr>"
-					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + fC(stem, "nu") + "</td><td><font class=\"ukilen\">" + vocDu + "</font>" + fC(stem, "nuyo") + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + fC(stem, "nuvë") + "</td></tr>"
-					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + fC(stem, "khan") + "</td><td><font class=\"ukilen\">" + locDu + "</font>" + fC(stem, "khayo") + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + fC(stem, "khavë") + "</td></tr>"
+					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + fC(stem, "") + "</td><td><font class=\"ukilen\">" + nomDu + "</font>" + fC(stem, "yo") + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + fC(stem, "we") + "</td></tr>"
+					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + fC(stem, "ze") + "</td><td><font class=\"ukilen\">" + accDu + "</font>" + fC(stem, "ze<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + fC(stem, "ze<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + fC(stem, "she") + "</td><td><font class=\"ukilen\">" + datDu + "</font>" + fC(stem, "she<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + fC(stem, "she<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + fC(stem, "ke") + "</td><td><font class=\"ukilen\">" + genDu + "</font>" + fC(stem, "ke<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + fC(stem, "ke<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + fC(stem, "ce") + "</td><td><font class=\"ukilen\">" + ablDu + "</font>" + fC(stem, "ce<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + fC(stem, "ce<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + fC(stem, "nu") + "</td><td><font class=\"ukilen\">" + vocDu + "</font>" + fC(stem, "nu<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + fC(stem, "nu<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + fC(stem, "an") + "</td><td><font class=\"ukilen\">" + locDu + "</font>" + fC(stem, "an<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + fC(stem, "an<ht>we</ht>") + "</td></tr>"
 					tabelle += "</table>"
 					break;
 				case "prn":
@@ -227,31 +230,45 @@
 					
 					if (baphian == "") { //1st
 						tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
-						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>rah</i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>rahve</i>" + "</td></tr>"
-						tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + "<br><i>ru</i>" + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + "<br><i>ruve</i>" + "</td></tr>"
-						tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + "<br><i>re</i>" + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + "<br><i>revë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + "<br><i>raz</i>" + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + "<br><i>revez</i>" + "</td></tr>"
-						tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + "<br><i>ri</i>" + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + "<br><i>riyo</i>" + "</td></tr>"
-						tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + "<br><i>rë</i>" + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + "<br><i>rëvë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i>rë</i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i>riyi</i>" + "</td></tr>"
-					} else if (baphian == "") { //3rd
+						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>lo</i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>lo<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + "<br><i>lu</i>" + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + "<br><i>lu<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + "<br><i>le</i>" + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + "<br><i>le<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + "<br><i><ht>la</ht></i>" + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + "<br><i><ht>lawe</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + "<br><i>li</i>" + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + "<br><i>li<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + "<br><i>la</i>" + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + "<br><i>la<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i><ht>le</ht></i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i><ht>lewe</ht></i>" + "</td></tr>"
+					} else if (baphian == "" || baphian == "" || baphian == "" || baphian == "" || baphian == "") { //3rd
 						tabelle = "<table><tr><th></th><th>Singular</th><th>Plural</th></tr>"
-						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>se</i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>sevë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + "<br><i>su</i>" + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + "<br><i>suvo</i>" + "</td></tr>"
-						tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + "<br><i>ze</i>" + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + "<br><i>zevë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + "<br><i>saz</i>" + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + "<br><i>seoz</i>" + "</td></tr>"
-						tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + "<br><i>së</i>" + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + "<br><i>suvë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + "<br><i>zë</i>" + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + "<br><i>juvë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i>zu</i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i>zuvo</i>" + "</td></tr>"
+						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>sho</i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>sho<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + "<br><i>shu</i>" + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + "<br><i>shu<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + "<br><i>she</i>" + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + "<br><i>she<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + "<br><i><ht>sha</ht></i>" + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + "<br><i><ht>shawe</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + "<br><i>shi</i>" + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + "<br><i>shi<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + "<br><i>sha</i>" + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + "<br><i>sha<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i><ht>she</ht></i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i><ht>shewe</ht></i>" + "</td></tr>"
+						
+						switch (stem[0]) {
+							case "zo":
+								tabelle.replaceAll("s", "z")
+								break;
+							case "sho":
+								tabelle.replaceAll("s", "sh")
+								break;
+							case "zho":
+								tabelle.replaceAll("s", "zh")
+								break;
+							default:
+								break;
+						}
 					} else { //2nd
 						tabelle = "<table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
-						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>khe</i>" + "</td><td><font class=\"ukilen\">" + nomDu + "</font>" + "<br><i>kheyo</i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>khevë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + "<br><i>khu</i>" + "</td><td><font class=\"ukilen\">" + accDu + "</font>" + "<br><i>khuyo</i>" + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + "<br><i>khuve</i>" + "</td></tr>"
-						tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + "<br><i>khu</i>" + "</td><td><font class=\"ukilen\">" + datDu + "</font>" + "<br><i>khuyo</i>" + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + "<br><i>khuve</i>" + "</td></tr>"
-						tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + "<br><i>khaz</i>" + "</td><td><font class=\"ukilen\">" + genDu + "</font>" + "<br><i>kheyoz</i>" + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + "<br><i>kheoz</i>" + "</td></tr>"
-						tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + "<br><i>khë</i>" + "</td><td><font class=\"ukilen\">" + ablDu + "</font>" + "<br><i>khë</i>" + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + "<br><i>khë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + "<br><i>khe</i>" + "</td><td><font class=\"ukilen\">" + vocDu + "</font>" + "<br><i>kheiyo</i>" + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + "<br><i>khevë</i>" + "</td></tr>"
-						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i>khëi</i>" + "</td><td><font class=\"ukilen\">" + locDu + "</font>" + "<br><i>khëiyo</i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i>khëvë</i>" + "</td></tr>"
+						tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSg + "</font>" + "<br><i>e</i>" + "</td><td><font class=\"ukilen\">" + nomDu + "</font>" + "<br><i>e<ht>yo</ht></i>" + "</td><td><font class=\"ukilen\">" + nomPl + "</font>" + "<br><i>e<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSg + "</font>" + "<br><i>hu</i>" + "</td><td><font class=\"ukilen\">" + accDu + "</font>" + "<br><i>hu<ht>yo</ht></i>" + "</td><td><font class=\"ukilen\">" + accPl + "</font>" + "<br><i>hu<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSg + "</font>" + "<br><i>he</i>" + "</td><td><font class=\"ukilen\">" + datDu + "</font>" + "<br><i>he<ht>yo</ht></i>" + "</td><td><font class=\"ukilen\">" + datPl + "</font>" + "<br><i>he<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSg + "</font>" + "<br><i><ht>ha</ht></i>" + "</td><td><font class=\"ukilen\">" + genDu + "</font>" + "<br><i><ht>hayo</ht></i>" + "</td><td><font class=\"ukilen\">" + genPl + "</font>" + "<br><i><ht>hawe</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSg + "</font>" + "<br><i>hi</i>" + "</td><td><font class=\"ukilen\">" + ablDu + "</font>" + "<br><i>hi<ht>yo</ht></i>" + "</td><td><font class=\"ukilen\">" + ablPl + "</font>" + "<br><i>hi<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSg + "</font>" + "<br><i>ha</i>" + "</td><td><font class=\"ukilen\">" + vocDu + "</font>" + "<br><i>ha<ht>yo</ht></i>" + "</td><td><font class=\"ukilen\">" + vocPl + "</font>" + "<br><i>ha<ht>we</ht></i>" + "</td></tr>"
+						tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSg + "</font>" + "<br><i><ht>he</ht></i>" + "</td><td><font class=\"ukilen\">" + locDu + "</font>" + "<br><i><ht>heyo</ht></i>" + "</td><td><font class=\"ukilen\">" + locPl + "</font>" + "<br><i><ht>hewe</ht></i>" + "</td></tr>"
 					}
 						tabelle += "</table>"
 					break;
@@ -292,11 +309,20 @@
 					var PreHabNeg = baphian + ""
 					var FutHabNeg = baphian + ""
 					
-					tabelle = "<table><tbody><tr><th rowspan=\"2\"></th><th colspan=\"2\">Perfect</th><th colspan=\"2\">Imperfect</th><th colspan=\"2\">Conditional</th><th colspan=\"2\">Habitual</th></tr><tr><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th></tr>"
-					tabelle += "<tr><th>Far past / Non-temporal</th><td><font class=\"ukilen\">" + FrpPrfPos + "</font>" + fC(stem, "e") + "</td><td><font class=\"ukilen\">" + FrpPrfNeg + "</font>" + fC(stem, "jërë") + "</td><td><font class=\"ukilen\">" + FrpImpPos + "</font>" + fC(stem, "ah") + "</td><td><font class=\"ukilen\">" + FrpImpNeg + "</font>" + fC(stem, "ahzyerë") + "</td><td><font class=\"ukilen\">" + FrpConPos + "</font>" + fC(stem, "esye") + "</td><td><font class=\"ukilen\">" + FrpConNeg + "</font>" + fC(stem, "shërë") + "</td><td ><font class=\"ukilen\">" + FrpHabPos + "</font>" + fC(stem, "jëhe") + "</td><td><font class=\"ukilen\">" + FrpHabNeg + "</font>" + fC(stem, "jërë") + "</td></tr>"
-					tabelle += "<tr><th>Past</th><td><font class=\"ukilen\">" + PasPrfPos + "</font>" + fC(stem, "jë") + "</td><td><font class=\"ukilen\">" + PasPrfNeg + "</font>" + fC(stem, "rë") + "</td><td><font class=\"ukilen\">" + PasImpPos + "</font>" + fC(stem, "ot") + "</td><td><font class=\"ukilen\">" + PasImpNeg + "</font>" + fC(stem, "azjerë") + "</td><td><font class=\"ukilen\">" + PasConPos + "</font>" + fC(stem, "shë") + "</td><td><font class=\"ukilen\">" + PasConNeg + "</font>" + fC(stem, "sërë") + "</td><td><font class=\"ukilen\">" + PasHabPos + "</font>" + fC(stem, "ahjyehe") + "</td><td><font class=\"ukilen\">" + PasHabNeg + "</font>" + fC(stem, "ahjyerë") + "</td></tr>"
-					tabelle += "<tr><th>Present</th><td><font class=\"ukilen\">" + PrePrfPos + "</font>" + fC(stem, "") + "</td><td><font class=\"ukilen\">" + PrePrfNeg + "</font>" + fC(stem, "jahrë") + "</td><td><font class=\"ukilen\">" + PreImpPos + "</font>" + fC(stem, "ol") + "</td><td><font class=\"ukilen\">" + PreImpNeg + "</font>" + fC(stem, "jahzyerë") + "</td><td><font class=\"ukilen\">" + PreConPos + "</font>" + fC(stem, "së") + "</td><td><font class=\"ukilen\">" + PreConNeg + "</font>" + fC(stem, "jësyerë") + "</td><td><font class=\"ukilen\">" + PreHabPos + "</font>" + fC(stem, "shëhe") + "</td><td><font class=\"ukilen\">" + PreHabNeg + "</font>" + fC(stem, "shërë") + "</td></tr>"
-					tabelle += "<tr><th>Future</th><td><font class=\"ukilen\">" + FutPrfPos + "</font>" + fC(stem, "jë") + "</td><td><font class=\"ukilen\">" + FutPrfNeg + "</font>" + fC(stem, "erë") + "</td><td><font class=\"ukilen\">" + FutImpPos + "</font>" + fC(stem, "yol") + "</td><td><font class=\"ukilen\">" + FutImpNeg + "</font>" + fC(stem, "ezyerë") + "</td><td><font class=\"ukilen\">" + FutConPos + "</font>" + fC(stem, "yëse") + "</td><td><font class=\"ukilen\">" + FutConNeg + "</font>" + fC(stem, "esyerë") + "</td><td><font class=\"ukilen\">" + FutHabPos + "</font>" + fC(stem, "esjehe") + "</td><td><font class=\"ukilen\">" + FutHabNeg + "</font>" + fC(stem, "esjerë") + "</td></tr>"
+					var FrpDelPos = baphian + ""
+					var PasDelPos = baphian + ""
+					var PreDelPos = baphian + ""
+					var FutDelPos = baphian + ""
+					var FrpDelNeg = baphian + ""
+					var PasDelNeg = baphian + ""
+					var PreDelNeg = baphian + ""
+					var FutDelNeg = baphian + ""
+					
+					tabelle = "<table><tbody><tr><th rowspan=\"2\"></th><th colspan=\"2\">Perfect</th><th colspan=\"2\">Imperfect</th><th colspan=\"2\">Conditional</th><th colspan=\"2\">Habitual</th><th colspan=\"2\">Delimitative/Continuative </th></tr><tr><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th><th>Positive</th><th>Negative</th></tr>"
+					tabelle += "<tr><th>Gnomic</th><td><font class=\"ukilen\">" + FrpPrfPos + "</font>" + fC(stem, "<ht>de</ht>") + "</td><td><font class=\"ukilen\">" + FrpPrfNeg + "</font>" + fC(stem, "<ht>dele</ht>") + "</td><td><font class=\"ukilen\">" + FrpImpPos + "</font>" + fC(stem, "<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + FrpImpNeg + "</font>" + fC(stem, "<ht>lele</ht>") + "</td><td><font class=\"ukilen\">" + FrpConPos + "</font>" + fC(stem, "<ht>ye</ht>") + "</td><td><font class=\"ukilen\">" + FrpConNeg + "</font>" + fC(stem, "<ht>yele</ht>") + "</td><td ><font class=\"ukilen\">" + FrpHabPos + "</font>" + fC(stem, "<ht>ze</ht>") + "</td><td><font class=\"ukilen\">" + FrpHabNeg + "</font>" + fC(stem, "<ht>zele</ht>") + "</td><td ><font class=\"ukilen\">" + FrpDelPos + "</font>" + fC(stem, "<ht>ne</ht>") + "</td><td><font class=\"ukilen\">" + FrpDelNeg + "</font>" + fC(stem, "<ht>nele</ht>") +"</td></tr>"
+					tabelle += "<tr><th>Past</th><td><font class=\"ukilen\">" + PasPrfPos + "</font>" + fC(stem, "de") + "</td><td><font class=\"ukilen\">" + PasPrfNeg + "</font>" + fC(stem, "de<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + PasImpPos + "</font>" + fC(stem, "le") + "</td><td><font class=\"ukilen\">" + PasImpNeg + "</font>" + fC(stem, "le<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + PasConPos + "</font>" + fC(stem, "ye") + "</td><td><font class=\"ukilen\">" + PasConNeg + "</font>" + fC(stem, "ye<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + PasHabPos + "</font>" + fC(stem, "ze") + "</td><td><font class=\"ukilen\">" + PasHabNeg + "</font>" + fC(stem, "ze<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + PasDelPos + "</font>" + fC(stem, "ne") + "</td><td><font class=\"ukilen\">" + PasDelNeg + "</font>" + fC(stem, "ne<ht>le</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Present</th><td><font class=\"ukilen\">" + PrePrfPos + "</font>" + fC(stem, "") + "</td><td><font class=\"ukilen\">" + PrePrfNeg + "</font>" + fC(stem, "do<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + PreImpPos + "</font>" + fC(stem, "lo") + "</td><td><font class=\"ukilen\">" + PreImpNeg + "</font>" + fC(stem, "lo<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + PreConPos + "</font>" + fC(stem, "yo") + "</td><td><font class=\"ukilen\">" + PreConNeg + "</font>" + fC(stem, "yo<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + PreHabPos + "</font>" + fC(stem, "zo") + "</td><td><font class=\"ukilen\">" + PreHabNeg + "</font>" + fC(stem, "zo<ht>le</ht>") + "</td><td><font class=\"ukilen\">" + PreDelPos + "</font>" + fC(stem, "no") + "</td><td><font class=\"ukilen\">" + PreDelNeg + "</font>" + fC(stem, "no<ht>le</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Future</th><td><font class=\"ukilen\">" + FutPrfPos + "</font>" + fC(stem, "<ht>di</ht>") + "</td><td><font class=\"ukilen\">" + FutPrfNeg + "</font>" + fC(stem, "<ht>dile</ht>") + "</td><td><font class=\"ukilen\">" + FutImpPos + "</font>" + fC(stem, "<ht>li</ht>") + "</td><td><font class=\"ukilen\">" + FutImpNeg + "</font>" + fC(stem, "<ht>lile</ht>") + "</td><td><font class=\"ukilen\">" + FutConPos + "</font>" + fC(stem, "<ht>yi</ht>") + "</td><td><font class=\"ukilen\">" + FutConNeg + "</font>" + fC(stem, "<ht>yile</ht>") + "</td><td><font class=\"ukilen\">" + FutHabPos + "</font>" + fC(stem, "<ht>zi</ht>") + "</td><td><font class=\"ukilen\">" + FutHabNeg + "</font>" + fC(stem, "<ht>zile</ht>") + "</td><td><font class=\"ukilen\">" + FutDelPos + "</font>" + fC(stem, "<ht>ni</ht>") + "</td><td><font class=\"ukilen\">" + FutDelNeg + "</font>" + fC(stem, "<ht>nile</ht>") +"</td></tr>"
 					tabelle += "</table>"
 					
 					var nomSgNom = baphian + "";
@@ -324,14 +350,14 @@
 					var locPlNom = locSgNom + ""
 					
 					tabelle += "<p>Nominalisation:</p><p><table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
-					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSgNom + "</font>" + fC(stem, "dhenu") + "</td><td><font class=\"ukilen\">" + nomDuNom + "</font>" + fC(stem, "dhenuyo") + "</td><td><font class=\"ukilen\">" + nomPlNom + "</font>" + fC(stem, "dhenuvë") + "</td></tr>"
-					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSgNom + "</font>" + fC(stem, "dhenuzë") + "</td><td><font class=\"ukilen\">" + accDuNom + "</font>" + fC(stem, "dhenuzëyo") + "</td><td><font class=\"ukilen\">" + accPlNom + "</font>" + fC(stem, "dhenuzëvë") + "</td></tr>"
-					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSgNom + "</font>" + fC(stem, "dhenushë") + "</td><td><font class=\"ukilen\">" + datDuNom + "</font>" + fC(stem, "dhenushëyo") + "</td><td><font class=\"ukilen\">" + datPlNom + "</font>" + fC(stem, "dhenushëvë") + "</td></tr>"
-					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSgNom + "</font>" + fC(stem, "dhenuge") + "</td><td><font class=\"ukilen\">" + genDuNom + "</font>" + fC(stem, "dhenugeyo") + "</td><td><font class=\"ukilen\">" + genPlNom + "</font>" + fC(stem, "dhenugevë") + "</td></tr>"
-					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSgNom + "</font>" + fC(stem, "dhenucë") + "</td><td><font class=\"ukilen\">" + ablDuNom + "</font>" + fC(stem, "dhenucëyo") + "</td><td><font class=\"ukilen\">" + ablPlNom + "</font>" + fC(stem, "dhenucëvë") + "</td></tr>"
-					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSgNom + "</font>" + fC(stem, "dhenunu") + "</td><td><font class=\"ukilen\">" + vocDuNom + "</font>" + fC(stem, "dhenunuyo") + "</td><td><font class=\"ukilen\">" + vocPlNom + "</font>" + fC(stem, "dhenunuvë") + "</td></tr>"
-					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSgNom + "</font>" + fC(stem, "dhenukhan") + "</td><td><font class=\"ukilen\">" + locDuNom + "</font>" + fC(stem, "dhenukhayo") + "</td><td><font class=\"ukilen\">" + locPlNom + "</font>" + fC(stem, "dhenukhavë") + "</td></tr>"
-					tabelle += "</table></p>"
+					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSgNom + "</font>" + fC(stem, "fo<ht>nu</ht>") + "</td><td><font class=\"ukilen\">" + nomDuNom + "</font>" + fC(stem, "fo<ht>nu</ht>yo") + "</td><td><font class=\"ukilen\">" + nomPlNom + "</font>" + fC(stem, "fo<ht>nu</ht>we") + "</td></tr>"
+					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSgNom + "</font>" + fC(stem, "fo<ht>nu</ht>ze") + "</td><td><font class=\"ukilen\">" + accDuNom + "</font>" + fC(stem, "fo<ht>nu</ht>ze<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + accPlNom + "</font>" + fC(stem, "fo<ht>nu</ht>ze<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSgNom + "</font>" + fC(stem, "fo<ht>nu</ht>she") + "</td><td><font class=\"ukilen\">" + datDuNom + "</font>" + fC(stem, "fo<ht>nu</ht>she<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + datPlNom + "</font>" + fC(stem, "fo<ht>nu</ht>she<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSgNom + "</font>" + fC(stem, "fo<ht>nu</ht>ke") + "</td><td><font class=\"ukilen\">" + genDuNom + "</font>" + fC(stem, "fo<ht>nu</ht>ke<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + genPlNom + "</font>" + fC(stem, "fo<ht>nu</ht>ke<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSgNom + "</font>" + fC(stem, "fo<ht>nu</ht>ce") + "</td><td><font class=\"ukilen\">" + ablDuNom + "</font>" + fC(stem, "fo<ht>nu</ht>ce<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + ablPlNom + "</font>" + fC(stem, "fo<ht>nu</ht>ce<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSgNom + "</font>" + fC(stem, "fo<ht>nu</ht>nu") + "</td><td><font class=\"ukilen\">" + vocDuNom + "</font>" + fC(stem, "fo<ht>nu</ht>nu<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + vocPlNom + "</font>" + fC(stem, "fo<ht>nu</ht>nu<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSgNom + "</font>" + fC(stem, "fo<ht>nu</ht>an") + "</td><td><font class=\"ukilen\">" + locDuNom + "</font>" + fC(stem, "fo<ht>nu</ht>an<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + locPlNom + "</font>" + fC(stem, "fo<ht>nu</ht>an<ht>we</ht>") + "</td></tr>"
+					tabelle += "</table>"
 					
 					var nomSgAgn = baphian + "";
 					var accSgAgn = baphian + ""
@@ -358,13 +384,13 @@
 					var locPlAgn = locSgAgn + ""
 					
 					tabelle += "<p>Agentive:</p><p><table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
-					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSgAgn + "</font>" + fC(stem, "shis") + "</td><td><font class=\"ukilen\">" + nomDuAgn + "</font>" + fC(stem, "shisyo") + "</td><td><font class=\"ukilen\">" + nomPlAgn + "</font>" + fC(stem, "shisvë") + "</td></tr>"
-					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSgAgn + "</font>" + fC(stem, "shisgë") + "</td><td><font class=\"ukilen\">" + accDuAgn + "</font>" + fC(stem, "shisgëyo") + "</td><td><font class=\"ukilen\">" + accPlAgn + "</font>" + fC(stem, "shisgëvë") + "</td></tr>"
-					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSgAgn + "</font>" + fC(stem, "shisvë") + "</td><td><font class=\"ukilen\">" + datDuAgn + "</font>" + fC(stem, "shisvëyo") + "</td><td><font class=\"ukilen\">" + datPlAgn + "</font>" + fC(stem, "shisvëvë") + "</td></tr>"
-					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSgAgn + "</font>" + fC(stem, "shiske") + "</td><td><font class=\"ukilen\">" + genDuAgn + "</font>" + fC(stem, "shiskeyo") + "</td><td><font class=\"ukilen\">" + genPlAgn + "</font>" + fC(stem, "shiskevë") + "</td></tr>"
-					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSgAgn + "</font>" + fC(stem, "shisjë") + "</td><td><font class=\"ukilen\">" + ablDuAgn + "</font>" + fC(stem, "shisjëyo") + "</td><td><font class=\"ukilen\">" + ablPlAgn + "</font>" + fC(stem, "shisjëvë") + "</td></tr>"
-					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSgAgn + "</font>" + fC(stem, "shismu") + "</td><td><font class=\"ukilen\">" + vocDuAgn + "</font>" + fC(stem, "shismuyo") + "</td><td><font class=\"ukilen\">" + vocPlAgn + "</font>" + fC(stem, "shismuvë") + "</td></tr>"
-					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSgAgn + "</font>" + fC(stem, "shisjan") + "</td><td><font class=\"ukilen\">" + locDuAgn + "</font>" + fC(stem, "shisjayo") + "</td><td><font class=\"ukilen\">" + locPlAgn + "</font>" + fC(stem, "shisjavë") + "</td></tr>"
+					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSgAgn + "</font>" + fC(stem, "si") + "</td><td><font class=\"ukilen\">" + nomDuAgn + "</font>" + fC(stem, "si<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + nomPlAgn + "</font>" + fC(stem, "si<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSgAgn + "</font>" + fC(stem, "sige") + "</td><td><font class=\"ukilen\">" + accDuAgn + "</font>" + fC(stem, "sige<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + accPlAgn + "</font>" + fC(stem, "sige<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSgAgn + "</font>" + fC(stem, "siwe") + "</td><td><font class=\"ukilen\">" + datDuAgn + "</font>" + fC(stem, "siwe<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + datPlAgn + "</font>" + fC(stem, "siwe<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSgAgn + "</font>" + fC(stem, "sike") + "</td><td><font class=\"ukilen\">" + genDuAgn + "</font>" + fC(stem, "sike<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + genPlAgn + "</font>" + fC(stem, "sike<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSgAgn + "</font>" + fC(stem, "sije") + "</td><td><font class=\"ukilen\">" + ablDuAgn + "</font>" + fC(stem, "sije<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + ablPlAgn + "</font>" + fC(stem, "sije<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSgAgn + "</font>" + fC(stem, "simu") + "</td><td><font class=\"ukilen\">" + vocDuAgn + "</font>" + fC(stem, "simu<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + vocPlAgn + "</font>" + fC(stem, "simu<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSgAgn + "</font>" + fC(stem, "sijan") + "</td><td><font class=\"ukilen\">" + locDuAgn + "</font>" + fC(stem, "sijan<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + locPlAgn + "</font>" + fC(stem, "sijan<ht>we</ht>") + "</td></tr>"
 					tabelle += "</table></p>"
 					
 					var nomSgRes = baphian + "";
@@ -392,14 +418,14 @@
 					var locPlRes = locSgRes + ""
 					
 					tabelle += "<p>Resultative:</p><p><table><tr><th></th><th>Singular</th><th>Dual</th><th>Plural</th></tr>"
-					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSgRes + "</font>" + fC(stem, "shyu") + "</td><td><font class=\"ukilen\">" + nomDuRes + "</font>" + fC(stem, "shyuyo") + "</td><td><font class=\"ukilen\">" + nomPlRes + "</font>" + fC(stem, "shyuvë") + "</td></tr>"
-					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSgRes + "</font>" + fC(stem, "shyuzë") + "</td><td><font class=\"ukilen\">" + accDuRes + "</font>" + fC(stem, "shyuzëyo") + "</td><td><font class=\"ukilen\">" + accPlRes + "</font>" + fC(stem, "shyuzëvë") + "</td></tr>"
-					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSgRes + "</font>" + fC(stem, "shyushë") + "</td><td><font class=\"ukilen\">" + datDuRes + "</font>" + fC(stem, "shyushëyo") + "</td><td><font class=\"ukilen\">" + datPlRes + "</font>" + fC(stem, "shyushëvë") + "</td></tr>"
-					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSgRes + "</font>" + fC(stem, "shyuge") + "</td><td><font class=\"ukilen\">" + genDuRes + "</font>" + fC(stem, "shyugeyo") + "</td><td><font class=\"ukilen\">" + genPlRes + "</font>" + fC(stem, "shyugevë") + "</td></tr>"
-					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSgRes + "</font>" + fC(stem, "shyucë") + "</td><td><font class=\"ukilen\">" + ablDuRes + "</font>" + fC(stem, "shyucëyo") + "</td><td><font class=\"ukilen\">" + ablPlRes + "</font>" + fC(stem, "shyucëvë") + "</td></tr>"
-					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSgRes + "</font>" + fC(stem, "shyunu") + "</td><td><font class=\"ukilen\">" + vocDuRes + "</font>" + fC(stem, "shyunuyo") + "</td><td><font class=\"ukilen\">" + vocPlRes + "</font>" + fC(stem, "shyunuvë") + "</td></tr>"
-					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSgRes + "</font>" + fC(stem, "shyukhan") + "</td><td><font class=\"ukilen\">" + locDuRes + "</font>" + fC(stem, "shyukhayo") + "</td><td><font class=\"ukilen\">" + locPlRes + "</font>" + fC(stem, "shyukhavë") + "</td></tr>"
-					tabelle += "</table></p>"
+					tabelle += "<tr><th>Nominative</th><td><font class=\"ukilen\">" + nomSgRes + "</font>" + fC(stem, "zhu") + "</td><td><font class=\"ukilen\">" + nomDuRes + "</font>" + fC(stem, "zhuyo") + "</td><td><font class=\"ukilen\">" + nomPlRes + "</font>" + fC(stem, "zhuwe") + "</td></tr>"
+					tabelle += "<tr><th>Accusative</th><td><font class=\"ukilen\">" + accSgRes + "</font>" + fC(stem, "zhuze") + "</td><td><font class=\"ukilen\">" + accDuRes + "</font>" + fC(stem, "zhuze<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + accPlRes + "</font>" + fC(stem, "zhuze<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Dative</th><td><font class=\"ukilen\">" + datSgRes + "</font>" + fC(stem, "zhushe") + "</td><td><font class=\"ukilen\">" + datDuRes + "</font>" + fC(stem, "zhushe<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + datPlRes + "</font>" + fC(stem, "zhushe<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Genitive</th><td><font class=\"ukilen\">" + genSgRes + "</font>" + fC(stem, "zhuke") + "</td><td><font class=\"ukilen\">" + genDuRes + "</font>" + fC(stem, "zhuke<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + genPlRes + "</font>" + fC(stem, "zhuke<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Ablative</th><td><font class=\"ukilen\">" + ablSgRes + "</font>" + fC(stem, "zhuce") + "</td><td><font class=\"ukilen\">" + ablDuRes + "</font>" + fC(stem, "zhuce<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + ablPlRes + "</font>" + fC(stem, "zhuce<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Vocative</th><td><font class=\"ukilen\">" + vocSgRes + "</font>" + fC(stem, "zhunu") + "</td><td><font class=\"ukilen\">" + vocDuRes + "</font>" + fC(stem, "zhunu<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + vocPlRes + "</font>" + fC(stem, "zhunu<ht>we</ht>") + "</td></tr>"
+					tabelle += "<tr><th>Locative</th><td><font class=\"ukilen\">" + locSgRes + "</font>" + fC(stem, "zhuan") + "</td><td><font class=\"ukilen\">" + locDuRes + "</font>" + fC(stem, "zhuan<ht>yo</ht>") + "</td><td><font class=\"ukilen\">" + locPlRes + "</font>" + fC(stem, "zhuan<ht>we</ht>") + "</td></tr>"
+					tabelle += "</table>"
 					break;
 				default:
 					break;
@@ -411,7 +437,7 @@
 		function openNewPage(title, content, notes) {
 		  var opened = window.open("");
 		  
-		  opened.document.write("<html><head><title>" + title + "</title><link href=\"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"font-link\"><link href=\"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><link rel=\"icon\" type=\"image/x-icon\" href=\"/img/dictionary.ico\"><style>table {width: auto;} table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;} @font-face{font-family: 'ukilen';src: url(\"/font/UkilenLg.otf\");} .ukilen{font-family:'ukilen'}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + content + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + (notes).replaceAll("“", "\"").replaceAll("”", "\"") + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
+		  opened.document.write("<html><head><title>" + title + "</title><link href=\"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"font-link\"><link href=\"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" id=\"theme-link\"><link rel=\"icon\" type=\"image/x-icon\" href=\"/img/dictionary.ico\"><style>table {width: auto;} table, th, td { border: 1px solid;} th, td {  width: 120px; text-align: center; white-space: nowrap;} @font-face{font-family: 'ukilen';src: url(\"/font/UkilenLg.otf\");} .ukilen{font-family:'ukilen'} ht {text-decoration-line: overline;}</style></head><div class=\"main2\"><h2>" + title + "</h2><body><p>" + content + "</p>" + (notes != "" ? "<h3>Notes</h3><p>" + (notes).replaceAll("“", "\"").replaceAll("”", "\"") + "</p>" : "") + "</div><script src=\"/js.js\"><\/script></body></html>");
 		}
 		
 		readFile()
