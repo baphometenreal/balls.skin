@@ -74,11 +74,14 @@ section.track div.desc div.gallery img {
         display: flex;
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
     
     section.track img.big {
         width: 80%;
+        height: auto;
         aspect-ratio: 1;
     }
 
 }
+
