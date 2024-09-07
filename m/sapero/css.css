@@ -29,3 +29,29 @@ li {
 hr {
     color: var(--button-bg);
 }
+
+section.track {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+section.track img.big {
+    max-width: 200px;
+    aspect-ratio: 1;
+}
+
+@media only screen and (max-width: 500px) {
+
+    section.track {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    section.track img.big {
+        max-width: 80%;
+        aspect-ratio: 1;
+    }
+
+}
