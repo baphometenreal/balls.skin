@@ -1,8 +1,8 @@
 {
-  "undermaintenence": "Under Maintenance",
-  "title": "Welcome to balls.skin!",
-  "titleb1": "What is balls.skin?",
-  "titlea1": "Members",
+  "undermaintenence": "Huolto alla",
+  "title": "Tervetuloa balls.skinille!",
+  "titleb1": "Mikä balls.skin on?",
+  "titlea1": "Jäsenet",
   "test": "test",
   "mbaph": "Baphomet",
   "mbenzene": "Benzene",
@@ -149,7 +149,7 @@
   "kazhome5": "Research interests",
   "kazhome6": "I am in the process of <s>working with my colleague <a href=\"/m/kazimir/index\">Henry Durand</a> on a translation of one of the manuscripts in the Hovland Cache</s> writing a metafictional work set in one of my various paracosms",
   "kazhome7": "Contact:<br/>pontisconlangs [at] gmail.com",
-  "kazhome8": "In addition, I am quite fond of the Austrian composer Josef Matthias Hauer. For further reading, see my page <a href=\"/m/kazimir/haueriana.html\">Haueriana</a>.",
+  "kazhome8": "I am quite fond of the Austrian composer Josef Matthias Hauer. For further reading, see my page <a href=\"/m/kazimir/haueriana.html\">Haueriana</a>.",
   "kaztpdisclaimer": "",
   "kazhauer": "Haueriana",
   "kazhauerexp": "This site will contain various scans and transcriptions of works by Josef Matthias Hauer and discussions thereof. Those marked with asterisks are scans by others found online.",
@@ -213,5 +213,11 @@
   "baphabt8": "you should talk to me i love talking to people! ^w^ ask me anything",
   "baphxh1": "my xenogenders!",
   "baphxpb": "find out what name and pronouns you have to use for me",
-  "baphxp1": "Gender is a construct anyway so why not have fun with it? I do genuinelly identify with these, these aren't a joke/shitpost to me. If you think this is cringe I do not care. If you have questions ask."
+  "baphxp1": "Gender is a construct anyway so why not have fun with it? I do genuinelly identify with these, these aren't a joke/shitpost to me. If you think this is cringe I do not care. If you have questions ask.",
+  "kazhauerianaviola": "Viola",
+  "kazhauerianacello": "Cello",
+  "kazhauerianaviolin1": "Violin I",
+  "kazhauerianaviolin2": "Violin II",
+  "baphdaily": "The Baphomet Daily",
+  "portfolio": "Portfolio"
 }
