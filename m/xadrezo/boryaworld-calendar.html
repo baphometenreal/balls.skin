@@ -49,6 +49,10 @@
 		src: url(mallian.woff2) format('woff2');
 	}
 	
+	rt {
+		font-family: sans-serif
+	}
+	
 	img {
 		border:0px solid black;
 		height: auto;
@@ -295,9 +299,9 @@
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
 				document.getElementById('errorKZM').innerHTML = "Year must be between -9999 and 9999"
 			} else {
-				var weekdayNamesKZM = ["Ngkahvm", "'Tdk'uhvm", "Sgrk'uhvm", "Sphk'ahvm", "'Hhgrgkihvm", "'Hntkuhvm", "Fbrgkyhvm", "'Zhk'ahvm", "'Knk'ahvm"]
-				var monthNamesKZM = ["Mfath", "Rmath", "Bstath", "Mfa'sþbhi", "Rma'sþbhi", "Bsta'sþbhi", "Mfasv", "Rmasv", "Bstasv", "Mfanrh", "Rmanrh", "Bstanrh", "Ptmurmath"]
-				var lunarMonthNamesKZM = ["Ng Kžri", "Ng Žrxci", "Ng Krn", "Ng Hšri", "Ng Hrhi"]
+				var weekdayNamesKZM = ["<ruby>Ngkahvm<rt>[nəgakəvam]</rt></ruby>", "<ruby>'Tdk'uhvm<rt>[todqoəvam]</rt></ruby>", "<ruby>Sgrk'uhvm<rt>[ȿɵ̞ɢorqoəvam]</rt></ruby>", "<ruby>Sphk'ahvm<rt>[səpakaəvam]</rt></ruby>", "<ruby>'Hhgrgkihvm<rt>[jijɟerɟecəvam]</rt></ruby>", "<ruby>'Hntkuhvm<rt>[wontoqəvam]</rt></ruby>", "<ruby>Fbrgkyhvm<rt>[fɵ̞børɢøqəvam]</rt></ruby>", "<ruby>'Zhk'ahvm<rt>[zakaəvam]</rt></ruby>", "<ruby>'Knk'ahvm<rt>[kankaəvam]</rt></ruby>"]
+				var monthNamesKZM = ["<ruby>Mfath<rt>[məfta]</rt></ruby>", "<ruby>Rmath<rt>[rm̩ta]</rt></ruby>", "<ruby>Bstath<rt>[bəsatta]</rt></ruby>", "<ruby>Mfa'sþbhi<rt>[məfʃeðbi]</rt></ruby>", "<ruby>Rma'sþbhi<rt>[rm̩ʃeðbi]</rt></ruby>", "<ruby>Bsta'sþbhi<rt>[bəsatʃeðbi]</rt></ruby>", "<ruby>Mfasv<rt>[məfsəv]</rt></ruby>", "<ruby>Rmasv<rt>[rm̩səv]</rt></ruby>", "<ruby>Bstasv<rt>[bəsatsəv]</rt></ruby>", "<ruby>Mfanrh<rt>[məfnəra]</rt></ruby>", "<ruby>Rmanrh<rt>[rm̩nəra]</rt></ruby>", "<ruby>Bstanrh<rt>[bəsatnəra]</rt></ruby>", "<ruby>Ptmurmath<rt>[pɵ̞tomrm̩ta]</rt></ruby>"]
+				var lunarMonthNamesKZM = ["<ruby>Ng Kžri<rt>[nəg cəʒr̩]</rt></ruby>", "<ruby>Ng Žrxci<rt>[nəg ʒəreʃəc]</rt></ruby>", "<ruby>Ng Krn<rt>[nəg kəran]</rt></ruby>", "<ruby>Ng Hšri<rt>[nəg jəʃr̩]</rt></ruby>", "<ruby>Ng Hrhi<rt>[nəg jəri]</rt></ruby>"]
 				
 				var weekdayNamesKZM1 = ["`", "🜐`", "🜠`", "`", "🜜`", "🜫`", "🜩`", "🜪`", "🝍`"]
 				var monthNamesKZM1 = ["'", "", "", "''", "'", "'", "'", "", "", "''", "'", "'", "'"]
