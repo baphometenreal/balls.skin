@@ -6,6 +6,12 @@ function loadLightMode() {
 		  return
         }
 		
+		if ((location.href.slice(0, 25) == "https://balls.skin/m/baph") && !(localStorage.theme == "dark" || localStorage.theme == "light" || localStorage.theme == "darkc" || localStorage.theme == "lightc")) {
+			// placeholder until a proper css is made
+			theme.href = "/themes/gradient/css_cunty.css"
+			return
+		}
+		
         if (localStorage.theme == "light") {
           theme.href = "/themes/flat/css_light.css"
         } else if (localStorage.theme == "dark") {
