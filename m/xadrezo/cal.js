@@ -433,7 +433,7 @@ function calcDateALL(date) {
 	var day = dayNumber - monthDays[month] + 1
 	
 	var weekdayNames = ["Avarav", "Rav", "Ostav", "Elnav", "Kanav", "Liav"]
-	var monthNames = ["Ujore", "Erae", "Tosote", "Lenone", "Ankane", "Solaune", "Ilaune", "Daunene", "Esefe", "Onisime"]
+	var monthNames = ["Ujore", "Erae", "Sote", "Lenone", "Ankane", "Solaune", "Ilaune", "Daunene", "Esefe", "Sime"]
 	
 	if (year < 1) {year = (Math.abs(year)+1) + " BT"}
 	
