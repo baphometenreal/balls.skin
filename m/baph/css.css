@@ -13,7 +13,7 @@ a, button, a:visited {text-decoration: none; background-color: var(--button-bg);
 .colon3 {width:50%; max-width:250px; height:auto;}
 .main {text-align:center; border-radius:10px; margin-bottom:10px; max-width: 100%; background: var(--bg-main); padding-bottom:10px;}
 .main2 {max-width: 100%; border-radius: 5px; padding-bottom:5px; background: var(--bg-main2)}
-.pfp {width:275px; height:auto; margin-bottom:-1%; margin-top:-1%; border-radius:50%}
+.pfp {width:275px; height:auto; margin-bottom:-1%; margin-top:-1%; border-radius:25%}
 .flag {width:75%; height:auto; max-height:150px;} 
 .emoji {height:12px; width:auto;}
 .center {vertical-align: middle;}
