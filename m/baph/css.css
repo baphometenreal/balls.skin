@@ -1,6 +1,20 @@
+:root {
+  --bg-main: #600B1E;
+  --bg-main2: #420B18;
+  --bg: #0C0004;
+  --text: #EDDCDC;
+  --button-bg: #8B0202;
+  --jalinkhover: #FBC8C8;
+}
+body {margin-left:10%; margin-right:10%; background: var(--bg); color:var(--text); background-attachment: fixed;}
+a.jalink, a.jalink:visited {text-decoration:underline; background-color: #FFFFFF00;  padding-top:0; padding-bottom:0; margin-bottom:0; padding-left:0; padding-right:0;}
+a.jalink:hover {color:var(--jalinkhover)}
+a, button, a:visited {text-decoration: none; background-color: var(--button-bg); color: var(--text); border-radius: 5px; padding-top:5px; padding-bottom:5px; margin-bottom:15px; padding-left:7px; padding-right:7px;}
 .colon3 {width:50%; max-width:250px; height:auto;}
-.main {text-align:center; border-radius:10px; margin-bottom:10px; padding-bottom:10px;}
-.pfp {width:275px; height:auto; margin-bottom:-1%; margin-top:-1%; border-radius:100%}
+.main {text-align:center; border-radius:10px; margin-bottom:10px; max-width: 100%; background: var(--bg-main); padding-bottom:10px;}
+.main2 {max-width: 100%; border-radius: 5px; padding-bottom:5px; background: var(--bg-main2)}
+.pfp {width:275px; height:auto; margin-bottom:-1%; margin-top:-1%; border-radius:25%}
 .flag {width:75%; height:auto; max-height:150px;} 
 .emoji {height:12px; width:auto;}
 .center {vertical-align: middle;}
+.jaimg {max-height:300px; height:auto; width:auto;}
