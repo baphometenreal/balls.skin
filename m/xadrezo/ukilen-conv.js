@@ -94,12 +94,12 @@ function bijectiveString(m, k) {
 						syl = syl.replaceAll("ng", "Ñ");
 						syl = syl.replaceAll("sh", "Ś");
 						syl = syl.replaceAll("zh", "Ž");
-						syl = syl.replaceAll("dh", "Ð");
+						// syl = syl.replaceAll("dh", "Ð");
 						syl = syl.replaceAll("jh", "Ź");
 						syl = syl.replaceAll("j", "Ź");
-						syl = syl.replaceAll("ph", "F");
-						syl = syl.replaceAll("kh", "X");
-						syl = syl.replaceAll("ah", "Á");
+						// syl = syl.replaceAll("ph", "F");
+						// syl = syl.replaceAll("kh", "X");
+						// syl = syl.replaceAll("ah", "Á");
 						syl = syl.replaceAll("è", "Ë");
 						syl = syl.replaceAll("y", "j");
 						
