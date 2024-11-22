@@ -1,6 +1,9 @@
-body {
+.search {
 	text-align:center;
 	vertical-align: middle;
+}
+.topbar {
+	text-align:right;
 }
 .logo {
 	max-height:250px;
