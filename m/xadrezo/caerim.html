@@ -138,6 +138,9 @@
 			text = text.toLowerCase()
 			text = makePhono(text)
 			
+			// gemination
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛńḿĺ])(ʲ?)\1ʲ?/g, '$1$2ː');
+			
 			// nonipa
 			text = massReplace(text,{
 				'þ' : 'θ',
@@ -164,9 +167,6 @@
 				'ô' : 'øː',
 				'û' : 'yː'
 			})
-			
-			// gemination
-			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛńḿĺ])(ʲ?)\1ʲ?/g, '$1$2ː');
 			
 			// tone
 			text = text.replace(/([aeiouæəɨøyńḿŕĺ]|ńʲ)(ː?)([bdgvzðʝ↑]|d͡z)/g, '$1́$2$3');
