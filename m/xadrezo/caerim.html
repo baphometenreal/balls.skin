@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Caerimoscnë Converter</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+	<style>
+	body {
+	  background-color: white;
+	  color: black;
+	  font-family: Verdana, Tahoma;
+	}
+	
+	.big {
+		font-family: serif;
+		font-size: 2em;
+		/*max-height: 80%;*/
+		font-weight: bold;
+	}
+	
+	</style>
+  </head>
+  <body>
+	<label for="rom">Insert Caerimoscnë here:</label><br>
+	<input type="text" id="rom" name="rom" style="width: 99%" onkeyup="clickButton()"></input><br>
+	<!-- <button type="button" onclick="clickButton()">Convert</button> -->
+	<br>
+	<font id="conv" name="conv" class="big"></font>
+	
+	<script>
+		function massReplace(text, replacements) {
+			for (const [key, value] of Object.entries(replacements)) {
+				text = text.replace(new RegExp(key, 'g'), value);
+			}
+			return text;
+		}
+		
+		function makePhono(text) {
+			// kill all multigraphs
+			var woowaoa = {
+				'chh' : 'çç',
+				'gch' : 'xx',
+				'thh' : 'þþ',
+				'dth' : 'ðð',
+
+				'th' : 'þ',
+				'dh' : 'ð',
+				'ch' : 'ç',
+				'gj' : 'x',
+
+				'zs' : 'zz',
+
+				'bp' : 'bb',
+				'dt' : 'dd',
+				'gk' : 'gg',
+				'jc' : 'jj',
+
+				'ph' : 'ɸ',
+				'kg' : 'q',
+
+				'gh' : '↑',
+
+				'wh' : 'ww',
+				'vh' : 'vv',
+
+				'mh' : 'ṃ',
+				'nh' : 'ṇ',
+				'rh' : 'ṛ',
+				'lh' : 'ḷ',
+				
+				'e̋' : 'ê',
+				'ő' : 'ô',
+				'ű' : 'û'
+			}
+			text = massReplace(text,woowaoa)
+			
+			// add correct palatalisations for onset consonants due to phonemic vowels
+			text = text.replace(/([ntdszcjrlṇḷṛ])([eiíéëyöüêýôûìè])/g, "$1ʲ$2")
+			text = text.replace(/([ntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])ʲ([eiíéëyöüêýôûìè])/g, "$1ʲ$2ʲ$3");
+			text = text.replace(/([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ])([ntdszcjrlṇḷṛ])ʲ([eiíéëyöüêýôûìè])/g, "$1ʲ$2$3ʲ$4");
+			text = text.replace(/([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ])([eiíéëyöüêýôûìè])/g, "$1ʲ$2$3");
+			text = text.replace(/([zs])([cj])ʲ/g, "$1ʲ$2ʲ");
+			// add correct palatalisations for coda consonants due to phonemic vowels ...?
+			text = text.replace(/([eiíéëyöüêýôûìè])(↑?)([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ]|\2?$)/g, "$1$2$3ʲ$4");
+			text = text.replace(/([eiíéëyöüêýôûìè])(↑?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ]|\2?$)/g, "$1$2$3$4ʲ$5");
+			
+			// remove unpronounced palatalising i and palatalise the consonant
+			text = text.replace(/([ntdszcjrlṇḷṛ])ʲi([aouáóúäâà])/g, '$1ʲ$2');
+			text = text.replace(/([ntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])ʲi([aouáóúäâà])/g, '$1$2ʲ$3');
+			// remove unpronounced unpalatalising o
+			text = text.replace(/a([eiíéëyöüêýôûìè])o(↑?)([ntdszcjrlṇḷṛ])/g, '$1$2$3');
+			// remove unpronounced unpalatalising a
+			text = text.replace(/([ntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])jai/g, '$1$2ʲi');
+			text = text.replace(/([ntdszcjrlṇḷṛ])a([eiíéëyöüêýôûìè])/g, '$1$2');
+			text = text.replace(/([eiíéëyöüêýôûìè])a(↑?)([ntdszcjrlṇḷṛ])/g, '$1$2$3');
+			
+			// handle palatalising j
+			text = text.replace(/([ntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])j([mpkbgwþçhvðxɸqṃ]|[ntdszcjrlṇḷṛ][aouáóúäâà]|$)/g, '$1ʲ$2ʲ$3');
+			text = text.replace(/([ntdszcjrlṇḷṛ])j([mpkbgwþçhvðxɸqṃ]|[ntdszcjrlṇḷṛ][aouáóúäâà]|$)/g, '$1ʲ$2');
+			
+			//yeah this happens
+			text = text.replace(/ui([aeiouáíéóúäëyöüâêýôûàìè])/g, 'ü$1');
+			
+			// riV and liV merged with rʲV and lʲV i guess ?
+			text = text.replace(/([rlṛḷ])i([aeiouáíéóúäëyöüâêýôûàìè])/g, '$1ʲ$2');
+			
+			// remove grave diacritics
+			text = text.normalize('NFD');
+			text = text.replace(/̀/g, '');
+			text = text.normalize('NFC');
+			
+			//return text
+			
+			// syllabic resonants (geminates first)
+			text = text.replace(/([aë])(↑?)n(ʲ?)n(ʲ?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ń$3ń$2$4$5');
+			text = text.replace(/([aë])(↑?)lʲ?lʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ĺĺ$2$3'); // syllabic lʲ is fake
+			text = text.replace(/([aë])(↑?)mm([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ḿḿ$2$3');
+			text = text.replace(/([aë])(↑?)n(ʲ?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ń$2$3$4');
+			text = text.replace(/([aë])(↑?)lʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ĺ$2$3'); // syllabic lʲ is fake
+			text = text.replace(/([aë])(↑?)rʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ŕ$2$3'); // syllabic rʲ is fake
+			text = text.replace(/([aë])(↑?)m([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ḿ$2$3');
+			
+			// sorry coda lʲ and rʲ are also fake lol
+			text = text.replace(/([rlṛḷ])ʲ([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1$2');
+
+			// fix geminates being like CCʲ instead of CʲCʲ
+			text = text.replace(/([nńĺŕtdszcjrlṇḷṛ])\1ʲ/g, '$1ʲ$1ʲ');
+			text = text.replace(/([nńĺŕtdszcjrlṇḷṛ])ʲ\1/g, '$1ʲ$1ʲ');
+
+			// oops sorry my bad
+			text = text.replace(/ʲʲ/g, 'ʲ');
+			
+			return text
+		}
+		
+		function makePronun(text) {
+			text = text.toLowerCase()
+			text = makePhono(text)
+			
+			// nonipa
+			text = massReplace(text,{
+				'þ' : 'θ',
+				'x' : 'ʝ',
+				'ṃ' : 'ʍ',
+				'ɸ' : 'p͡f',
+				'c' : 't͡s',
+				'j' : 'd͡z',
+				'w' : 'f',
+				'ö' : 'ø',
+				'y' : 'ɨ',
+				'ë' : 'ə',
+				'ü' : 'y',
+				'ä' : 'æ',
+
+				'á' : 'aː',
+				'é' : 'eː',
+				'í' : 'iː',
+				'ó' : 'oː',
+				'ú' : 'uː',
+				'â' : 'æː',
+				'ê' : 'əː',
+				'ý' : 'ɨː',
+				'ô' : 'øː',
+				'û' : 'yː'
+			})
+			
+			// gemination
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛńḿĺ])(ʲ?)\1ʲ?/g, '$1$2ː');
+			
+			// tone
+			text = text.replace(/([aeiouæəɨøyńḿŕĺ]|ńʲ)(ː?)([bdgvzðʝ↑]|d͡z)/g, '$1́$2$3');
+			text = massReplace(text,{
+				'd͡z' : 't͡s',
+
+				'b' : 'p',
+				'd' : 't',
+				'g' : 'k',
+
+				'v' : 'f',
+				'z' : 's',
+				'ð' : 'θ',
+				'ʝ' : 'ç',
+
+				'↑' : ''
+			})
+			
+			// voicelesses and syllabics
+			text = massReplace(text, {
+				'ń́ʲ' : 'ɲ̩́',
+				'ĺ́' : 'ĺ̩',
+				'ŕ́' : 'ŕ̩',
+				'ń́' : 'ń̩',
+				'ḿ́' : 'ḿ̩',
+
+				'ńʲ' : 'ɲ̩',
+				'ĺ' : 'l̩',
+				'ŕ' : 'r̩',
+				'ń' : 'n̩',
+				'ḿ' : 'm̩',
+
+				'ṇʲ' : 'ɲ̊',
+				'ṇ' : 'n̥',
+				'ṛ' : 'r̥',
+				'ḷ' : 'l̥'
+			})
+			
+			// palataliseds
+			text = massReplace(text, {
+				'tʲ' : 'c',
+				'sʲ' : 'ɕ',
+				'nʲ' : 'ɲ',
+			})
+			
+			// semivowels
+			text = text.replace(/i([aeiouæəɨøy])/g, 'j$1');
+			text = text.replace(/u([aeiouæəɨøy])/g, 'w$1');
+			text = text.replace(/y([aeiouæəɨøy])/g, 'ɥ$1');
+			
+			// diphthongs
+			text = text.replace(/([aeiouæəɨøy])(ː?)i(́?)/g, "$1$2$3ɪ̯");
+			text = text.replace(/([aeiouæəɨøy])(ː?)e(́?)/g, "$1$2$3ɪ̯");
+			text = text.replace(/([aeiouæəɨøy])(ː?)u(́?)/g, "$1$2$3ʊ̯");
+			text = text.replace(/([aeiouæəɨøy])(ː?)y(́?)/g, "$1$2$3ʏ̯");
+			
+			// r
+			text = text.replace(/r([mnɲptckqfsɕçθhl]|$)/g, 'ʁ̞$1');
+			text = text.replace(/r/g, 'ɾ');
+			
+			//yeah
+			text = text.replace(/([ɾl])(̥?)i/g, '$1$2ʲi');
+			
+			// voicing
+			text = text.replace(/([mnɲɾlaeiouæəɨøy]|ʁ̞|m̩|n̩|ɲ̩|ɾ̩|l̩|ɪ̯|ʊ̯|ʏ̯)(́?)(ʲ?)(ː?)([fθsɕç])([mnɲɾlaeiouæəɨøywjɥ](?!̥)|ʁ̞)/g, "$1$2$3$4$5V$6"); // lol
+			text = text.replace(/([mnɲɾlaeiouæəɨøy]|ʁ̞|m̩|n̩|ɲ̩|ɾ̩|l̩|ɪ̯|ʊ̯|ʏ̯)(́?)(ʲ?)(ː?)([fθsɕç])([mnɲɾlaeiouæəɨøywjɥ](?!̥)|ʁ̞)/g, "$1$2$3$4$5V$6"); // lol
+			text = massReplace(text,{
+				'fV' : 'v',
+				'θV' : 'ð',
+				'sV' : 'z',
+				'ɕV' : 'ʑ',
+				'çV' : 'ʝ'
+			})
+			
+			// truemiddisation
+			text = massReplace(text, {
+				'e' : 'e̞',
+				'o' : 'o̞',
+				'ø' : 'ø̞'
+			})
+			
+			return text
+		}
+		
+		function clickButton() {
+			document.getElementById("conv").innerHTML = "[" + makePronun(document.getElementById("rom").value) + "]";
+		}
+		
+		clickButton()
+	</script>
+	<!--<br><br><br>
+	<p id="footer"></p>
+	<script>
+		if ( window.location == window.parent.location ) {
+			document.getElementById("footer").innerHTML = "<hr><b><i>xadrezo.neocities.org</i></b> - <a href=\"impressum.html\">Impressum (DE)</a>";
+		}
+	</script>
+	-->
+  </body>
+</html>
