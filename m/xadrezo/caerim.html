@@ -82,8 +82,8 @@
 			text = text.replace(/([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ])([eiíéëyöüêýôûìè])/g, "$1ʲ$2$3");
 			text = text.replace(/([zs])([cj])ʲ/g, "$1ʲ$2ʲ");
 			// add correct palatalisations for coda consonants due to phonemic vowels ...?
-			text = text.replace(/([eiíéëyöüêýôûìè])(↑?)([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ]|\2?$)/g, "$1$2$3ʲ$4");
-			text = text.replace(/([eiíéëyöüêýôûìè])(↑?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ]|\2?$)/g, "$1$2$3$4ʲ$5");
+			text = text.replace(/([eiíéëyöüêýôûìè])(↑?)([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ]|\2?$|\2?\s+)/g, "$1$2$3ʲ$4");
+			text = text.replace(/([eiíéëyöüêýôûìè])(↑?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])([mpkbgwþçhvðxɸqṃ]|\2?$|\2?\s+)/g, "$1$2$3$4ʲ$5");
 			
 			// remove unpronounced palatalising i and palatalise the consonant
 			text = text.replace(/([ntdszcjrlṇḷṛ])ʲi([aouáóúäâà])/g, '$1ʲ$2');
