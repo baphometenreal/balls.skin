@@ -111,12 +111,12 @@
 			// riV and liV merged with rʲV and lʲV i guess ?
 			text = text.replace(/([rlṛḷ])i([aeiouáíéóúäëyöüâêýôûàìè])/g, '$1ʲ$2');
 			
+			/*
 			// remove grave diacritics
 			text = text.normalize('NFD');
 			text = text.replace(/̀/g, '');
 			text = text.normalize('NFC');
-			
-			//return text
+			*/
 			
 			// syllabic resonants (geminates first)
 			text = text.replace(/([aë])(↑?)n(ʲ?)n(ʲ?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ń$3ń$2$4$5');
@@ -136,6 +136,11 @@
 
 			// oops sorry my bad
 			text = text.replace(/ʲʲ/g, 'ʲ');
+			
+			// remove grave diacritics
+			text = text.normalize('NFD');
+			text = text.replace(/̀/g, '');
+			text = text.normalize('NFC');
 			
 			return text
 		}
