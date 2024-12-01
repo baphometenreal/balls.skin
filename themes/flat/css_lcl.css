@@ -37,7 +37,10 @@ a, button, a:visited {
   padding-left:7px;
   padding-right:7px;
 }
-
+a.link {
+	text-decoration:underline;
+	color: var(--text);
+}
 a.entry, a.entry:visited {
   text-decoration: none;
   color: var(--text);
