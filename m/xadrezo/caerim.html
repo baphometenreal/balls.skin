@@ -99,7 +99,8 @@
 			// remove unpronounced unpalatalising a
 			text = text.replace(/([ntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])jai/g, '$1$2ʲi');
 			text = text.replace(/([ntdszcjrlṇḷṛ])a([eiíéëyöüêýôûìè])/g, '$1$2');
-			text = text.replace(/([eiíéëyöüêýôûìè])a(↑?)([ntdszcjrlṇḷṛ])/g, '$1$2$3');
+			text = text.replace(/([eiíéëyöüêýôûìè])a(↑?)([ntdszcjṇ])/g, '$1$2$3');
+			text = text.replace(/([eiíéëyöüêýôûìè])a(↑?)(rlṛḷ)([ntdszcjṇ])/g, '$1$2$3');
 			
 			// handle palatalising j
 			text = text.replace(/([ntdszcjrlṇḷṛ])([ntdszcjrlṇḷṛ])j([mpkbgwþçhvðxɸqṃ]|[ntdszcjrlṇḷṛ][aouáóúäâà]|$)/g, '$1ʲ$2ʲ$3');
@@ -119,13 +120,13 @@
 			*/
 			
 			// syllabic resonants (geminates first)
-			text = text.replace(/([aë])(↑?)n(ʲ?)n(ʲ?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ń$3ń$2$4$5');
-			text = text.replace(/([aë])(↑?)lʲ?lʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ĺĺ$2$3'); // syllabic lʲ is fake
-			text = text.replace(/([aë])(↑?)mm([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ḿḿ$2$3');
-			text = text.replace(/([aë])(↑?)n(ʲ?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ń$2$3$4');
-			text = text.replace(/([aë])(↑?)lʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ĺ$2$3'); // syllabic lʲ is fake
-			text = text.replace(/([aë])(↑?)rʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ŕ$2$3'); // syllabic rʲ is fake
-			text = text.replace(/([aë])(↑?)m([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, 'ḿ$2$3');
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|^|\s+)[aë](↑?)n(ʲ?)n(ʲ?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1ń$3ń$2$4$5');
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|^|\s+)[aë](↑?)lʲ?lʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1ĺĺ$2$3'); // syllabic lʲ is fake
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|^|\s+)[aë](↑?)mm([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1ḿḿ$2$3');
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|^|\s+)[aë](↑?)n(ʲ?)([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1ń$2$3$4');
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|^|\s+)[aë](↑?)lʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1ĺ$2$3'); // syllabic lʲ is fake
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|^|\s+)[aë](↑?)rʲ?([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1ŕ$2$3'); // syllabic rʲ is fake
+			text = text.replace(/([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|^|\s+)[aë](↑?)m([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1ḿ$2$3');
 			
 			// sorry coda lʲ and rʲ are also fake lol
 			text = text.replace(/([rlṛḷ])ʲ([mpkbgwþçhvðxɸqṃntdszcjrlṇḷṛ]|$|\s+)/g, '$1$2');
@@ -230,7 +231,7 @@
 			
 			// diphthongs
 			text = text.replace(/([aeiouæəɨøy])(ː?)i(́?)/g, "$1$2$3ɪ̯");
-			text = text.replace(/([aeiouæəɨøy])(ː?)e(́?)/g, "$1$2$3ɪ̯");
+			text = text.replace(/([aeouæəɨøy])(ː?)e(́?)/g, "$1$2$3ɪ̯");
 			text = text.replace(/([aeiouæəɨøy])(ː?)u(́?)/g, "$1$2$3ʊ̯");
 			text = text.replace(/([aeiouæəɨøy])(ː?)y(́?)/g, "$1$2$3ʏ̯");
 			
