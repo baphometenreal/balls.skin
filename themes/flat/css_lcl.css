@@ -40,7 +40,13 @@ a, button, a:visited {
 a.link {
 	text-decoration:underline;
 	color: var(--text);
-	background-color: #ffffffff;
+	background-color: rgba(255,255,255,1);
+	border-radius: 0px;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-bottom:0px;
+	padding-left:0px;
+	padding-right:0px;
 }
 a.entry, a.entry:visited {
   text-decoration: none;
