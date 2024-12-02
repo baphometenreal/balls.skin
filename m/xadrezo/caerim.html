@@ -236,7 +236,7 @@
 			text = text.replace(/([aeiouæəɨøy])(ː?)y(́?)/g, "$1$2$3ʏ̯");
 			
 			// r
-			text = text.replace(/r([mnɲptckqfsɕçθhl]|$)/g, 'ʁ̞$1');
+			text = text.replace(/r([mnɲptckqfsɕçθhl]|$|\s+)/g, 'ʁ̞$1');
 			text = text.replace(/r/g, 'ɾ');
 			
 			//yeah
