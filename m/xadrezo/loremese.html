@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Loremese Converter</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+	<style>
+	body {
+	  background-color: white;
+	  color: black;
+	  font-family: Verdana, Tahoma;
+	}
+	
+	.big {
+		font-family: serif;
+		font-size: 2em;
+		/*max-height: 80%;*/
+		font-weight: bold;
+	}
+	
+	</style>
+  </head>
+  <body>
+	<label for="rom">Insert Loremese here:</label><br>
+	<input type="text" id="rom" name="rom" style="width: 99%" onkeyup="clickButton()"></input><br>
+	<!-- <button type="button" onclick="clickButton()">Convert</button> -->
+	<br>
+	<font id="conv" name="conv" class="big"></font>
+	
+	<script>
+		function massReplace(text, replacements) {
+			for (const [key, value] of Object.entries(replacements)) {
+				text = text.replace(new RegExp(key, 'g'), value);
+			}
+			return text;
+		}
+		
+		function findSyllables(word) {
+			if (word == "·" || word == "" || /\s+/g.test(word)) {return word}
+			
+			word = word.replace(/\./g, '');
+			word = word.replace(/rĭ/g, 'ʀ');
+			word = word.replace(/lĭ/g, 'ʟ');
+			word = word.replace(/([aeiouàèìòùáéíóúəyýøǿ])/g, '.$1');
+			word = word.replace(/^(s?)([mnptkʦbdgʣvszθðfjɕʑʨʥɲx]?)([šřʎrlʀʟĭv]?)\.([aeiouàèìòùáéíóúəyýøǿ])/g, '.$1$2$3$4');
+			word = word.replace(/([mnptkʦbdgʣvszθðfjɕʑʨʥɲx]?)([šřʎrlʀʟĭv]?)\.([aeiouàèìòùáéíóúəyýøǿ])/g, '.$1$2$3');
+			word = word.replace(/\.([mn])([šřʎrlʀʟ])/g, '$1.$2');
+			word = word.replace(/ʀ/g, 'rĭ');
+			word = word.replace(/ʟ/g, 'lĭ');
+			word = word.replace('.', '');
+			
+			return word
+		}
+		
+		function markStress(word) {
+			if (word == "·" || word == "" || /\s+/g.test(word)) {return word}
+			if (["so", "sos", "sa", "sas", "me", "te", "sve", "no", "na", "θe", "mos", "tos", "en", "per"].includes(word)) {return word}
+			
+			if (/.*[àèìòù].*/g.test(word)) {return massReplace(word, {"à": "á", "è": "é", "ì": "í", "ò": "ó", "ù": "ú"})}
+			
+			var consFound = false
+			var lastVowel = -1
+			//var index = 0
+			for (let i = word.length-1; i > -1; i--) {
+				if (["m", "n", "p", "t", "k", "ʦ", "b", "d", "g", "ʣ", "v", "s", "z", "l", "r", "θ", "ð", "f", "j", "ĭ", "ŭ"].includes(word[i])) {
+					if (!(["s", "ĭ", "ŭ"].includes(word[i]) && lastVowel == -1)) {
+						consFound = true
+					}
+				}
+				
+				if (["a", "e", "i", "o", "u"].includes(word[i])) {
+					lastVowel = i
+					
+					if (consFound) {
+						break
+					}
+				}
+			}
+			
+			word = word.slice(0, lastVowel+1) + "´" + word.slice(lastVowel+1)
+			word = massReplace(word, {"a´": "á", "e´": "é", "i´": "í", "o´": "ó", "u´": "ú", "´": ""})
+			
+			return word
+		}
+		
+		function makePronun(text) {
+			text = text.toLowerCase()
+			
+			// step1
+			text = massReplace(text, {"ç": "ʦ", "z": "ʣ"})
+			text = text.replace(/c([eièì])/g, 'ʦ$1');
+			text = text.replace(/g([eièì])/g, 'ʣ$1');
+			text = text.replace(/c/g, 'k');
+			text = text.replace(/h/g, '');
+			text = massReplace(text, {"·": " · ", "-": " · "})
+			text = massReplace(text, {"ʦ": "θ", "ʣ": "ð"})
+			text = text.replace(/i([aeiouàèìòù])/g, 'ĭ$1');
+			text = text.replace(/u([aeiouàèìòù])/g, 'ŭ$1');
+			text = text.replace(/ao($|\s+)/g, 'àŭ$1');
+			text = text.replace(/([aeiouàèìòù])i/g, '$1ĭ');
+			text = text.replace(/([aeiouàèìòù])u/g, '$1ŭ');
+			
+			//stress?
+			text = text.split(" ")
+			text = text.map((word) => findSyllables(word))
+			text = text.map((word) => markStress(word))
+			text = text.join(" ")
+			
+			//step2
+			text = text.replace(/ · /g, '·');
+			text = text.replace(/é(([^·\s])*·)/g, 'ê$1');
+			text = text.replace(/é/g, 'ĭá');
+			text = text.replace(/ê/g, 'é');
+			text = text.replace(/·/g, ' · ');
+			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭ])(\.?)\1/g, '$2$1');
+			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭ])([^\.\s]?)v([ĭŭ])/g, '$1$2$3');
+			text = text.replace(/([aeiouáéíóú])([ĭŭ]?)[nm]/g, '$1$2ɴ')
+			text = text.replace(/ · /g, '·');
+			text = text.replace(/([aeiouáéíóúvĭŭɴ][\.·]?)s([\.·]?[aeiouáéíóúvĭŭɴ])/g, '$1z$2')
+			text = text.replace(/·/g, ' · ');
+			
+			text = text.split(" ")
+			text = text.map((word) => findSyllables(word))
+			text = text.join(" ")
+			
+			//step3
+			text = text.replace(/(^|\s+)nóĭk($|\s+)/g, '$1nóĭkʔ$2');
+			text = text.replace(/(^|\s+)ĭáð($|\s+)/g, '$1ĭáðʔ$2');
+			text = text.replace(/[kð]ʔ((\s+)?$|\s+[^aeiouáéíóú])/g, '$1');
+			text = text.replace(/([^^\s])[ptbdgkð]($|\s+)/g, '$1$2');
+			text = text.replace(/ʔ/g, '');
+			//text = text.replace(/([aeiouáéíóú][ĭŭ]?\.?)vo($|\s+)/g, '$1ŭ$2');
+			
+			text = text.replace(/ · /g, '·');
+			text = text.replace(/([aeiouáéíóú][ĭŭ]?\.?)vo(([^·\s])*·)/g, '$1ŭ$2');
+			text = text.replace(/o(([^·\s])*·)/g, 'ə$1');
+			text = text.replace(/[aeiu](ɴ?)(s?)($|\s+)/g, 'ə$1$2$3');
+			text = text.replace(/·/g, ' · ');
+			
+			text = text.replace(/(\.[mnptkʦbdgʣvszlrθðfjĭŭ]*[ĭŭ]?)o($|\s+)/g, '$1$2');
+			text = text.replace(/(^|\s+)([mnptkʦbdgʣvszlrθðfjĭŭ]*[ĭŭ]?)o($|\s+)/g, '$1$2ə$3');
+			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭ]*[ĭŭ]?)os($|\s+)/g, '$1əs$2');
+			//text = text.replace(/[aeiu](ɴ?)(s?)($|\s+)/g, 'ə$1$2$3');
+			text = massReplace(text, {"ú": "ý", "u": "y"})
+			text = text.replace(/e\.([aeiouàèìòùáéíóúəyý])/g, 'ĭ$1');
+			text = text.replace(/e([mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš]*\.[^\.\s]*[áéíóúý])/g, 'ə$1');
+			text = text.replace(/[eé]([mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš]* · [^\.\s]*[áéíóúý])/g, 'ə$1');
+			text = text.replace(/([^^\s\.]+)k\.?([mnptkʦbdgʣvszlrθðfj])/g, '$1x$2'); //(\.|$|\s+)
+			
+			text = text.replace(/([aeiouàèìòùáéíóúəyý]\.?)v($|\s+)/g, '$1ŭ$2');
+			text = text.replace(/(^|\s+)sp/g, '$1f');
+			text = text.replace(/(^|\s+)sk/g, '$1x');
+			text = text.replace(/(^|\s+)([eə])s\.p/g, '$1$2.f');
+			text = text.replace(/(^|\s+)([eə])s\.k/g, '$1$2.x');
+			text = text.replace(/(^|\s+|\.)v([rl])/g, '$1$2');
+			text = text.replace(/s\.d/g, '.ð');
+			text = text.replace(/g\.n/g, '.ɲ');
+			text = massReplace(text, {"sĭ": "ɕ", "zĭ": "ʑ", "rĭ": "ř", "zĭ": "ʑ", "tĭ": "ʨ", "dĭ": "ʥ", "lĭ": "ʎ", "nĭ": "ɲ"})
+			text = text.replace(/(ɲ\.?)ĭ/g, '$1');
+			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭɕʑřʨʥʎɲš])v($|\s+|ə)/g, '$1$2');
+			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭɕʑřʨʥʎɲš])[ĭŭ]($|\s+)/g, '$1$2');
+			text = massReplace(text, {"θř": "ʨ", "ðř": "ʥ"})
+			text = text.replace(/([ptkθ])ř/g, '$1š');
+			
+			text = text.split(" ")
+			text = text.map((word) => findSyllables(word))
+			text = text.join(" ")
+			
+			//step4
+			text = massReplace(text, {"oĭ": "ø", "óĭ": "ǿ"})
+			text = massReplace(text, {"aĭ": "eĭ", "áĭ": "éĭ"})
+			text = massReplace(text, {"o.ĭ": "ø.ĭ", "ó.ĭ": "ǿ.ĭ"})
+			text = massReplace(text, {"a.ĭ": "e.ĭ", "á.ĭ": "é.ĭ"})
+			text = massReplace(text, {"o.ŭ": "u.ŭ", "a.ŭ": "o.ŭ", "e.ŭ": "a.ŭ", "eĭ.ŭ": "a.ŭ"})
+			text = massReplace(text, {"ó.ŭ": "ú.ŭ", "á.ŭ": "ó.ŭ", "é.ŭ": "á.ŭ", "éĭ.ŭ": "á.ŭ"})
+			text = massReplace(text, {"oŭ": "uŭ", "aŭ": "oŭ", "eŭ": "a.ŭ", "eĭ.ŭ": "a.ŭ"})
+			text = massReplace(text, {"óŭ": "úŭ", "áŭ": "óŭ", "éŭ": "áŭ", "éĭŭ": "áŭ"})
+			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1ŭ$2');
+			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p([mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš]+)($|\s)/g, '$1ŭ$2$3');
+			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])k(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1x$2');
+			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])k([mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš]+)($|\s)/g, '$1x$2$3');
+			text = text.replace(/([mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])([rl])ə($|\s)/g, '$1ə$2$3');
+			text = text.replace(/x([rl])ə($|\s)/g, 'kə$1$2');
+			text = text.replace(/([ptkʦbdgʣvszθðfjɕʑřʨʥʎɲš])([rlmn])($|\s)/g, '$1ə$2$3');
+			text = text.replace(/x([rlmn])($|\s)/g, 'kə$1$2');
+			
+			text = text.split(" ")
+			text = text.map((word) => findSyllables(word))
+			text = text.join(" ")
+			
+			// cleanup compounds
+			text = text.replace(/ · /g, '·');
+			text = text.replace(/([áéíóúýǿ])(([^·\s])*·)/g, '$1ʔ$2');
+			text = text.replace(/([ĭŭ])(ɴ)/g, '$2$1');
+			text = text.replace(/(^|\s+)əɴ(\s+[aeiouàèìòùáéíóúəyýøǿ])/g, '$1ən$2');
+			text = text.normalize('NFD');
+			text = text.replace(/́ʔ/g, '');
+			text = text.replace(/o(́?)ɴ([^ŭ])/g, 'ə$1ɴŭ$2');
+			text = text.replace(/e(́?)ɴ([^ĭ])/g, 'e$1ɴĭ$2');
+			text = text.replace(/ø(́?)ɴ([^ĭ])/g, 'ø$1ɴĭ$2');
+			text = text.replace(/o(ɴ\.?ŭ)/g, 'ə$1');
+			text = text.replace(/ó(ɴ\.?ŭ)/g, 'ə́$1');
+			text = massReplace(text, {"oŭ": "əŭ", "óŭ": "ə́ŭ", "o.ŭ": "ə.ŭ", "ó.ŭ": "ə́.ŭ"})
+			text = text.replace(/ɴ/g, '̃');
+			text = text.replace(/́̃/g, '̃́');
+			text = text.replace(/(^|\s+|·)([^·\s\.]*)́([^·\s\.]*)($|\s+|·)/g, '$1$2$3$4');
+			text = text.replace(/(^|\s+|·)([^·\s\.]*)́([^·\s\.]*)($|\s+|·)/g, '$1$2$3$4');
+			text = text.replace(/(^|\s+|·|\.)([^·\s\.]*)́/g, '$1ˈ$2');
+			text = text.normalize('NFC');
+			text = massReplace(text, {"uŭ": "u", "úŭ": "ú", "yŭ": "y", "ýŭ": "ý"})
+			text = text.replace(/([ĭŭ])([rl])($|\s+|(?!·))/g, '$1.ə$2$3');
+			
+			text = text.replace(/·/g, '.');
+			text = text.replace(/(^|\s+|\.|ˈ)x/g, '$1h');
+			text = text.replace(/(^|\s+|\.|[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲšˈ])ĭ/g, '$1j');
+			text = text.replace(/\.($|\s+)/g, '$1');
+			text = massReplace(text, {"ĭ": "i", "ŭ": "u", "ř": "ʑ", "š": "ɕ", "ʨ": "tɕ", "ʥ": "dʑ"})
+			//text = massReplace(text, {"ĭ": "i̯", "ŭ": "u̯", "ř": "ʑ", "š": "ɕ", "ʨ": "tɕ", "ʥ": "dʑ"})
+			return text
+		}
+		
+		function clickButton() {
+			document.getElementById("conv").innerHTML = "[" + makePronun(document.getElementById("rom").value) + "]";
+		}
+		
+		clickButton()
+	</script>
+	<!--<br><br><br>
+	<p id="footer"></p>
+	<script>
+		if ( window.location == window.parent.location ) {
+			document.getElementById("footer").innerHTML = "<hr><b><i>xadrezo.neocities.org</i></b> - <a href=\"impressum.html\">Impressum (DE)</a>";
+		}
+	</script>
+	-->
+  </body>
+</html>
