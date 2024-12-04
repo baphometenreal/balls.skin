@@ -196,9 +196,9 @@
 			text = text.replace(/(^|\s+)əɴ(\s+[aeiouàèìòùáéíóúəyýøǿ])/g, '$1ən$2');
 			text = text.normalize('NFD');
 			text = text.replace(/́ʔ/g, '');
-			text = text.replace(/o(́?)ɴ([^ŭ])/g, 'ə$1ɴŭ$2');
-			text = text.replace(/e(́?)ɴ([^ĭ])/g, 'e$1ɴĭ$2');
-			text = text.replace(/ø(́?)ɴ([^ĭ])/g, 'ø$1ɴĭ$2');
+			text = text.replace(/o(́?)ɴ($|\s+|[^ŭ])/g, 'ə$1ɴŭ$2');
+			text = text.replace(/e(́?)ɴ($|\s+|[^ĭ])/g, 'e$1ɴĭ$2');
+			text = text.replace(/ø(́?)ɴ($|\s+|[^ĭ])/g, 'ø$1ɴĭ$2');
 			text = text.replace(/o(ɴ\.?ŭ)/g, 'ə$1');
 			text = text.replace(/ó(ɴ\.?ŭ)/g, 'ə́$1');
 			text = massReplace(text, {"oŭ": "əŭ", "óŭ": "ə́ŭ", "o.ŭ": "ə.ŭ", "ó.ŭ": "ə́.ŭ"})
