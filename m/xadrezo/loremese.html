@@ -151,8 +151,8 @@
 			text = text.replace(/([aeiouàèìòùáéíóúəyý]\.?)v($|\s+)/g, '$1ŭ$2');
 			text = text.replace(/(^|\s+)sp/g, '$1f');
 			text = text.replace(/(^|\s+)sk/g, '$1x');
-			text = text.replace(/(^|\s+)([eə])s\.p/g, '$1$2.f');
-			text = text.replace(/(^|\s+)([eə])s\.k/g, '$1$2.x');
+			//text = text.replace(/(^|\s+)([eə])s\.p/g, '$1$2.f');
+			//text = text.replace(/(^|\s+)([eə])s\.k/g, '$1$2.x');
 			text = text.replace(/(^|\s+|\.)v([rl])/g, '$1$2');
 			text = text.replace(/s\.d/g, '.ð');
 			text = text.replace(/g\.n/g, '.ɲ');
@@ -170,11 +170,11 @@
 			//step4
 			text = massReplace(text, {"oĭ": "ø", "óĭ": "ǿ"})
 			text = massReplace(text, {"aĭ": "eĭ", "áĭ": "éĭ"})
-			text = massReplace(text, {"o.ĭ": "ø.ĭ", "ó.ĭ": "ǿ.ĭ"})
-			text = massReplace(text, {"a.ĭ": "e.ĭ", "á.ĭ": "é.ĭ"})
-			text = massReplace(text, {"o.ŭ": "u.ŭ", "a.ŭ": "o.ŭ", "e.ŭ": "a.ŭ", "eĭ.ŭ": "a.ŭ"})
-			text = massReplace(text, {"ó.ŭ": "ú.ŭ", "á.ŭ": "ó.ŭ", "é.ŭ": "á.ŭ", "éĭ.ŭ": "á.ŭ"})
-			text = massReplace(text, {"oŭ": "uŭ", "aŭ": "oŭ", "eŭ": "a.ŭ", "eĭ.ŭ": "a.ŭ"})
+			text = massReplace(text, {"o\\.ĭ": "ø\.ĭ", "ó\\.ĭ": "ǿ\.ĭ"})
+			text = massReplace(text, {"a\\.ĭ": "e\.ĭ", "á\\.ĭ": "é\.ĭ"})
+			text = massReplace(text, {"o\\.ŭ": "u\.ŭ", "a\\.ŭ": "o\.ŭ", "e\\.ŭ": "a\.ŭ", "eĭ\\.ŭ": "a\.ŭ"})
+			text = massReplace(text, {"ó\\.ŭ": "ú\.ŭ", "á\\.ŭ": "ó\.ŭ", "é\\.ŭ": "á\.ŭ", "éĭ\\.ŭ": "á\.ŭ"})
+			text = massReplace(text, {"oŭ": "uŭ", "aŭ": "oŭ", "eŭ": "a\.ŭ", "eĭ\.ŭ": "a\.ŭ"})
 			text = massReplace(text, {"óŭ": "úŭ", "áŭ": "óŭ", "éŭ": "áŭ", "éĭŭ": "áŭ"})
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1ŭ$2');
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p([mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš]+)($|\s)/g, '$1ŭ$2$3');
@@ -185,6 +185,7 @@
 			text = text.replace(/x([rl])ə($|\s)/g, 'kə$1$2');
 			text = text.replace(/([ptkʦbdgʣvszθðfjɕʑřʨʥʎɲš])([rlmn])($|\s)/g, '$1ə$2$3');
 			text = text.replace(/x([rlmn])($|\s)/g, 'kə$1$2');
+			text = text.replace(/[θð](\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš][mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1');
 			
 			text = text.split(" ")
 			text = text.map((word) => findSyllables(word))
@@ -202,7 +203,7 @@
 			text = text.replace(/ø(́?)ɴ($|\s+|[^ĭ])/g, 'ø$1ɴĭ$2');
 			text = text.replace(/o(ɴ\.?ŭ)/g, 'ə$1');
 			text = text.replace(/ó(ɴ\.?ŭ)/g, 'ə́$1');
-			text = massReplace(text, {"oŭ": "əŭ", "óŭ": "ə́ŭ", "o.ŭ": "ə.ŭ", "ó.ŭ": "ə́.ŭ"})
+			text = massReplace(text, {"oŭ": "əŭ", "óŭ": "ə́ŭ", "o\\.ŭ": "ə.ŭ", "ó\\.ŭ": "ə́.ŭ"})
 			text = text.replace(/ɴ/g, '̃');
 			text = text.replace(/́̃/g, '̃́');
 			text = text.replace(/(^|\s+)([^·\s\.]*)́([^·\s\.]*)($|\s+|·)/g, '$1$2$3$4');
