@@ -211,7 +211,7 @@
 			text = text.replace(/(^|\s+|·|\.)([^·\s\.]*)́/g, '$1ˈ$2');
 			text = text.normalize('NFC');
 			text = massReplace(text, {"uŭ": "u", "ũŭ": "ũ", "yŭ": "y", "ỹŭ": "ỹ"})
-			text = text.replace(/([ĭŭ])([rl])($|\s+|(?!·))/g, '$1.ə$2$3');
+			text = text.replace(/([ĭŭ])([rl])($|\s+)/g, '$1.ə$2$3');
 			
 			text = text.replace(/·/g, '.');
 			text = text.replace(/(^|\s+|\.|ˈ)x/g, '$1h');
