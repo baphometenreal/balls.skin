@@ -100,6 +100,7 @@
 			text = text.replace(/ao($|\s+)/g, 'àŭ$1');
 			text = text.replace(/([aeiouàèìòù])i/g, '$1ĭ');
 			text = text.replace(/([aeiouàèìòù])u/g, '$1ŭ');
+			text = text.replace(/(^|\s+)kreaĭ(s?)($|\s+)/g, '$1krĭaĭ$2$3');
 			
 			//stress?
 			text = text.split(" ")
