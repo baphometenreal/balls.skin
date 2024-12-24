@@ -119,6 +119,7 @@ Capital;;inan;{be}wepoo{wa} </i>[bɛ̝´.wɛ̝.po̞:.wä´ ]<i>;
 Cat;;an;tin{ge} </i>[tiŋ.gɛ̝´]<i>;
 Cause, causative;;verb;{ke}be </i>[kɛ̝´.bɛ̝]<i>;
 Cellphone;;inan;o{wa}e{ye} </i>[o̞.wä´.ɛ̝.jɛ̝´]<i>;
+Cellphone;OJEN;inan;o{yen} </i>[o̞.jɛ̝n´]<i>;
 Change;;verb;de{kye} </i>[dɛ̝.kjɛ̝´]<i>;
 Chapter;;inan;mu{za}zzo </i>[mu.zä´.z:o̞]<i>;
 Chest (Body);;inan;sum{po} </i>[sum.po̞´]<i>;
@@ -203,9 +204,9 @@ Earth, Dirt;;an;zam{fong} </i>[zäm.fo̞ŋ´]<i>;
 East;;inan;a </i>[ä]<i>;
 Eat;;verb;si{we} </i>[si.wɛ̝´]<i>;
 Egg;;an;ju{mu}de </i>[dʑu.mu´.dɛ̝]<i>;
-Eight;12;;du{sa} </i>[du.sä´]<i>;Seen in a more slang sense, saying “nu ce” is more formal
+Eight;12;;du{sa} </i>[du.sä´]<i>;Seen in a more slang sense, saying “in ce” is more formal
 Electricity;;an;o{wae}kye </i>[o̞.wä´.ɛ̝´.kjɛ̝]<i>;
-Eleven;15;;ju{ci} </i>[dʑu.tɕi´]<i>;Seen in a more slang sense, saying “nu jim” is more formal
+Eleven;15;;ju{ci} </i>[dʑu.tɕi´]<i>;Seen in a more slang sense, saying “in jim” is more formal
 Elk;;an;be{ye}ko </i>[bɛ̝.jɛ̝´.ko̞]<i>;
 Elke;;an;li{ge} </i>[li.gɛ̝´]<i>;See <a href=“https://boryaworld.miraheze.org/wiki/Kaneedkind#Sexes“>Kaneedkind sexes</a>
 End;;verb;{ke} </i>[kɛ̝´]<i>;
@@ -325,7 +326,7 @@ House;;inan;pe{dyi} </i>[pɛ̝.dji´]<i>;
 Hug;;verb;ze{gan} </i>[zɛ̝.gän´]<i>;
 Human;;an;{o}beke </i>[o̞´.bɛ̝.kɛ̝]<i>;
 Human;;an;{o}beke </i>[o̞´.bɛ̝.kɛ̝]<i>;Derogatory
-Hundred;244;;{sun} </i>[sun´]<i>;
+Hundred;166;;{sun} </i>[sun´]<i>;this isn’t really 100, in base 10 it is 98, but is commonly used in prices in stores.
 Hunt;;verb;fe </i>[fɛ̝]<i>;
 Hyena;;an;no{pe} </i>[no̞.pɛ̝´]<i>;
 Ice;;inan;ze{dye} </i>[zɛ̝.djɛ̝´]<i>;
@@ -454,7 +455,7 @@ Neptune; ;inan;be{weje} </i>[bɛ̝.wɛ̝´.dʑɛ̝´ ]<i>;
 New;;adj;jan{ge} </i>[dʑäŋ.gɛ̝´]<i>;
 Next, postvious;;adj;fo{dam}tin </i>[fo̞.däm´.tin]<i>;
 Night;;an;ko{she} </i>[ko̞.ɕɛ̝´]<i>;
-Nine;13;;{gu}ko </i>[gu´.ko̞]<i>;Seen in a more slang sense, saying “nu ju” is more formal
+Nine;13;;{gu}ko </i>[gu´.ko̞]<i>;Seen in a more slang sense, saying “in ju” is more formal
 No, not;;;do{ku} </i>[do̞.ku´]<i>;Used as a general negation
 Noise, sound;;inan;so{yan} </i>[so̞.jän´]<i>;
 Nontemporal, “no matter”;;;;
@@ -568,7 +569,7 @@ Secret;;inan;ke{so} </i>[kɛ̝.so̞´]<i>;
 See;;verb;gu </i>[gu]<i>;
 Seed;;an;{ba} </i>[bä´]<i>;
 Set;;verb;a{ta} </i>[ä.tä´]<i>;
-Seven;11;;{daa} </i>[dä:´]<i>;Seen in a more slang sense, saying “nu in” is more formal
+Seven;11;;{daa} </i>[dä:´]<i>;Seen in a more slang sense, saying “in in” is more formal
 Sew;;verb;ji{de} </i>[dʑi.dɛ̝´]<i>;
 Shape;;inan;sohe </i>[so̞.hɛ̝´]<i>;
 Shark;;an;ku{ze} </i>[ku.zɛ̝´]<i>;
@@ -646,7 +647,7 @@ Table;;inan;{an}ka </i>[än´.ka]<i>;Unknown origin
 Tail;;an;ko{se} </i>[ko̞.sɛ̝´]<i>;
 Target;;inan;be{kam} </i>[bɛ̝.käm´]<i>;
 Tell;;verb;e{yeca} </i>[ɛ̝.jɛ̝´.tɕä´]<i>;
-Ten;14;;na{zhe} </i>[nä.ʑɛ̝´]<i>;Seen in a more slang sense, saying “nu inje” is more formal
+Ten;14;;na{zhe} </i>[nä.ʑɛ̝´]<i>;Seen in a more slang sense, saying “in inje” is more formal
 Tendon;;an;{se} </i>[sɛ̝´]<i>;
 Thank;;verb;tonkomse </i>[to̞ŋ.ko̞m´.sɛ̝]<i>;
 They (singular);;prn;sho </i>[ɕo̞]<i>;
@@ -676,7 +677,7 @@ Trench;;inan;po{ttu}ko </i>[po̞.t:u´.ko̞]<i>;
 Trip, journey;;inan;ledeke{yen} </i>[lɛ̝.dɛ̝.kɛ̝.jɛ̝n´]<i>;A partial Jkawi borrowing. 
 Try;;verb;ze{fya} </i>[zɛ̝.fjä´]<i>;
 Turn (over);;verb;{do}te </i>[do̞´.tɛ̝]<i>;
-Twelve;16;;si{wi} </i>[si.wi´]<i>;Seen in a more slang sense, saying “nu nu” is more formal
+Twelve;16;;si{wi} </i>[si.wi´]<i>;Seen in a more slang sense, saying “in nu” is more formal
 Twins;;inan;cese </i>[tɕɛ̝.sɛ̝]<i>;
 Two;2;;ce </i>[tɕɛ̝]<i>;
 Tyrosia;DAILOŚIJA;inan;da{i}lo{shi}ya{sa} </i>[dä.i´.lo̞.ɕi´.jä.sä´]<i>;
