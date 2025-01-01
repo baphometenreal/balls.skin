@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kzmr Holidays</title>
+    <link href="flags/css.css" rel="stylesheet" type="text/css" media="all">
+	<link rel="icon" type="image/x-icon" href="./bw.ico">
+  </head>
+  <body>
+	Gregorian year: <input type="number" id="yearGr" name="yearGr" min="-9999" max="9999" style="display:inline; width:60px" onchange="clickButton()">
+	<button type="button" name="confGr" id="confGr" onclick="setToday()">Get current year</button>
+	<br><br>
+	<text id="holidays"></text>
+	<!--
+	<font style="font-size: 26px;">Zerilo's Day: </font><font id="zerilo" style="font-size: 26px; font-weight: bold;"></font><br>
+	<font style="font-size: 26px;">New Year: </font><font id="newyear" style="font-size: 26px; font-weight: bold;"></font><br>
+	<font style="font-size: 26px;">Harvest Day: </font><font id="harvest" style="font-size: 26px; font-weight: bold;"></font><br>
+	<font style="font-size: 26px;" id="birthdaysunName">Birthday of the Sun: </font><font id="birthdaysun" style="font-size: 26px; font-weight: bold;"></font><br>
+	<font style="font-size: 26px;" id="birthdaymoonName">Birthday of the Moon: </font><font id="birthdaymoon" style="font-size: 26px; font-weight: bold;"></font><br>
+	<font style="font-size: 26px;">Spring Festival: </font><font id="spring" style="font-size: 26px; font-weight: bold;"></font><br>
+	<font style="font-size: 26px;">Foundation Day: </font><font id="foundation" style="font-size: 26px; font-weight: bold;"></font><br>
+	<font style="font-size: 26px;">Mavortino's Day: </font><font id="mavortino" style="font-size: 26px; font-weight: bold;"></font><br>
+	<font style="font-size: 26px;">Summer Festival: </font><font id="summer" style="font-size: 26px; font-weight: bold;"></font><br>
+	-->
+	<script src="cal.js"></script>
+	<script>
+		function setDate(year, month, day, offset = 0) {
+			var date = new Date(Date.UTC(year, month-1, day, 12, 0, 0) + offset)
+			date.setUTCFullYear(year)
+			
+			return date
+		}
+		
+		function mod(n, m) {
+			return ((n % m) + m) % m;
+		}
+		
+		function formatDate(date) {
+			return (date.getUTCDate() + " " + date.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + date.getUTCFullYear())
+		}
+		
+		function formatDateKZM(date) {
+			var weekdayNamesKZM = ["Ngkahvm", "'Tdkuhvm", "Sgrkuhvm", "Sphkahvm", "'Hhgrgkihvm", "'Hntkuhvm", "Fbrgkyhvm", "'Zhkahvm", "'Knkahvm"]
+			var monthNamesKZM = ["Mfath", "Rmath", "Bstath", "Mfa'sþbhi", "Rma'sþbhi", "Bsta'sþbhi", "Mfasv", "Rmasv", "Bstasv", "Mfanrh", "Rmanrh", "Bstanrh", "Ptmurmath"]
+			var lunarMonthNamesKZM = ["Ng Kžri", "Ng Žrxci", "Ng Krn", "Ng Hšri", "Ng Hrhi"]
+			return /*weekdayNamesKZM[date[0]] + ", " +*/ (date[1] == 0 ? "" : date[1] + " ") + monthNamesKZM[date[2]] + " " + date[3] + " " + lunarMonthNamesKZM[date[4]] + " " + date[5]
+		}
+		
+		function addEntry(name, date, dateKZM) {
+			document.querySelector("#holidays").innerHTML += '<font style="font-size: 26px;">' + name + ': </font><font style="font-size: 26px; font-weight: bold;">' + formatDate(date) + ' <i style=\"font-size: 20px;\">(' + formatDateKZM(dateKZM) + ')</i></font><br>'
+		}
+		
+		function getHolidays(year) {
+			document.querySelector("#holidays").innerHTML = ""
+			year = parseInt(year)
+			yearLength = 365 + ((year & 3) == 0 && ((year % 25) != 0 || (year & 15) == 0))
+			
+			//console.log(yearLength)
+			for (let i = 0; i < yearLength; i++) {
+				var today = setDate(year, 1, 1, i * 86400000)
+				var todayKZM = calcDateKZM(today)
+				//[weekday, day, month, lunarDay, lunarMonth, year]
+				
+				// solar holidays
+				if (todayKZM[1] == 46 && todayKZM[2] == 0) {
+					addEntry("*Bealtaine / New Year", today, todayKZM)
+				}
+				else if (todayKZM[2] == 1 || todayKZM[2] == 12) {
+					addEntry("Summer Solstice", today, todayKZM)
+				}
+				else if (todayKZM[1] == 45 && todayKZM[2] == 3) {
+					addEntry("*Lughnasadh", today, todayKZM)
+				}
+				else if (todayKZM[2] == 4) {
+					addEntry("Autumn Equinox", today, todayKZM)
+				}
+				else if (todayKZM[1] == 45 && todayKZM[2] == 6) {
+					addEntry("*Samhain", today, todayKZM)
+				}
+				else if (todayKZM[2] == 7) {
+					addEntry("Winter Solstice", today, todayKZM)
+				}
+				else if (todayKZM[1] == 45 && todayKZM[2] == 9) {
+					addEntry("*Imbolc", today, todayKZM)
+				}
+				else if (todayKZM[2] == 10) {
+					addEntry("Spring Equinox", today, todayKZM)
+				}
+				
+				// lunar holidays
+				if (todayKZM[3] == 11 && todayKZM[4] == 2 && mod((today - setDate(2024, 7, 30))/86400000, 444) == 0 && year >= 2024) {
+					//console.log(mod((today - setDate(2024, 7, 30))/86400000, 444))
+					addEntry("Independence Day", today, todayKZM)
+				}
+				else if (todayKZM[3] == 5 && todayKZM[4] == 3 && mod((today - setDate(1624, 4, 17))/86400000, 444) == 0 && year >= 1624) {
+					//console.log(mod((today - setDate(1624, 4, 17))/86400000, 444))
+					addEntry("Unification Day", today, todayKZM)
+				}
+				
+			}
+		}
+		
+		function clickButton() {
+			var inputDate = document.getElementById('yearGr').value
+			
+			getHolidays(inputDate)
+		}
+		
+		function setToday() {
+			var today = new Date()
+			today = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0))
+			
+			var year = today.getFullYear()
+			
+			/*
+			if (Math.floor((today - getFirstDayLRM(today.getFullYear()))/86400000) < 0) {
+				year -= 1
+			}
+			*/
+			
+			document.getElementById('yearGr').value = year
+			clickButton()
+		}
+		
+		setToday()
+	</script>
+  
+</body></html>

@@ -11,6 +11,7 @@
 	Gregorian year: <input type="number" id="yearGr" name="yearGr" min="-9999" max="9999" style="display:inline; width:60px" onchange="clickButton()">
 	<button type="button" name="confGr" id="confGr" onclick="setToday()">Get current year</button>
 	<br><br>
+	<font style="font-size: 26px;">Zerilo's Day: </font><font id="zerilo" style="font-size: 26px; font-weight: bold;"></font><br>
 	<font style="font-size: 26px;">New Year: </font><font id="newyear" style="font-size: 26px; font-weight: bold;"></font><br>
 	<font style="font-size: 26px;">Harvest Day: </font><font id="harvest" style="font-size: 26px; font-weight: bold;"></font><br>
 	<font style="font-size: 26px;" id="birthdaysunName">Birthday of the Sun: </font><font id="birthdaysun" style="font-size: 26px; font-weight: bold;"></font><br>
@@ -19,7 +20,6 @@
 	<font style="font-size: 26px;">Foundation Day: </font><font id="foundation" style="font-size: 26px; font-weight: bold;"></font><br>
 	<font style="font-size: 26px;">Mavortino's Day: </font><font id="mavortino" style="font-size: 26px; font-weight: bold;"></font><br>
 	<font style="font-size: 26px;">Summer Festival: </font><font id="summer" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;">Zerilo's Day: </font><font id="zerilo" style="font-size: 26px; font-weight: bold;"></font><br>
 	<script src="cal.js"></script>
 	<script>
 		function setDate(year, month, day, offset = 0) {
@@ -120,8 +120,8 @@
 			var summerDay = new Date(newYearsDay.getTime() + 277 * 86400000)
 			document.querySelector("#summer").innerHTML = summerDay.getUTCDate() + " " + summerDay.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + summerDay.getUTCFullYear() + " <i style=\"font-size: 20px;\">(5 Pravogero " + parseInt(year+1213) + ")</i>"
 			
-			var zeriloDay = new Date(getFirstDayLRM(year+1).getTime() - 21 * 86400000)
-			document.querySelector("#zerilo").innerHTML = zeriloDay.getUTCDate() + " " + zeriloDay.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + zeriloDay.getUTCFullYear() + " <i style=\"font-size: 20px;\">(" + parseInt(15 + ((zeriloDay - newYearsDay) / 86400000  - 350)) + " Tritogero " + parseInt(year+1213) + ")</i>"
+			var zeriloDay = new Date(newYearsDay.getTime() - 21 * 86400000)
+			document.querySelector("#zerilo").innerHTML = zeriloDay.getUTCDate() + " " + zeriloDay.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + zeriloDay.getUTCFullYear() + " <i style=\"font-size: 20px;\">(" + parseInt(15 + ((zeriloDay - getFirstDayLRM(year-1)) / 86400000  - 350)) + " Tritogero " + parseInt(year+1212) + ")</i>"
 		}
 		
 		function clickButton() {
@@ -136,9 +136,11 @@
 			
 			var year = today.getFullYear()
 			
+			/*
 			if (Math.floor((today - getFirstDayLRM(today.getFullYear()))/86400000) < 0) {
 				year -= 1
 			}
+			*/
 			
 			document.getElementById('yearGr').value = year
 			clickButton()
