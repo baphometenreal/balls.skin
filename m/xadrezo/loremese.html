@@ -179,7 +179,7 @@
 			text = massReplace(text, {"oŭ": "uŭ", "aŭ": "oŭ", "eŭ": "a\.ŭ", "eĭ\.ŭ": "a\.ŭ"})
 			text = massReplace(text, {"óŭ": "úŭ", "áŭ": "óŭ", "éŭ": "áŭ", "éĭŭ": "áŭ"})
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1ŭ$2');
-			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p([mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš]+)($|\s)/g, '$1ŭ$2$3');
+			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p([mnptkʦbdgʣvszθðfjɕʑʨʥʎɲ]+)($|\s)/g, '$1ŭ$2$3');
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])k(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1x$2');
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])k([mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš]+)($|\s)/g, '$1x$2$3');
 			text = text.replace(/(^|\s+|\.)([mnptkʦbdgʣvszlrθðfjĭŭɕʑřʨʥʎɲš])v/g, '$1$2');
@@ -198,6 +198,9 @@
 			text = text.replace(/([áéíóúýǿ])(([^·\s])*·)/g, '$1ʔ$2');
 			text = text.replace(/([ĭŭ])(ɴ)/g, '$2$1');
 			text = text.replace(/(^|\s+)əɴ(\s+[aeiouàèìòùáéíóúəyýøǿ])/g, '$1ən$2');
+			text = text.replace(/([uúù]ŭ)/g, '$1q');
+			text = text.replace(/([ĭŭ])([rl])($|\s+)/g, '$1.ə$2$3');
+			text = text.replace(/([uúù]ŭ)q/g, '$1');
 			text = text.normalize('NFD');
 			text = text.replace(/́ʔ/g, '');
 			text = text.replace(/o(́?)ɴ($|\s+|[^ŭ])/g, 'ə$1ɴŭ$2');
@@ -213,7 +216,6 @@
 			text = text.replace(/(^|\s+|·|\.)([^·\s\.]*)́/g, '$1ˈ$2');
 			text = text.normalize('NFC');
 			text = massReplace(text, {"uŭ": "u", "ũŭ": "ũ", "yŭ": "y", "ỹŭ": "ỹ"})
-			text = text.replace(/([ĭŭ])([rl])($|\s+)/g, '$1.ə$2$3');
 			
 			text = text.replace(/·/g, '.');
 			text = text.replace(/(^|\s+|\.|ˈ)x/g, '$1h');
