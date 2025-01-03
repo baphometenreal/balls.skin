@@ -6,23 +6,18 @@
 	<title>Kzmr Holidays</title>
     <link href="flags/css.css" rel="stylesheet" type="text/css" media="all">
 	<link rel="icon" type="image/x-icon" href="./bw.ico">
+	<style>
+		rt {
+			font-style: normal;
+			font-family: sans-serif;
+		}
+	</style>
   </head>
   <body>
 	Gregorian year: <input type="number" id="yearGr" name="yearGr" min="-9999" max="9999" style="display:inline; width:60px" onchange="clickButton()">
 	<button type="button" name="confGr" id="confGr" onclick="setToday()">Get current year</button>
 	<br><br>
 	<text id="holidays"></text>
-	<!--
-	<font style="font-size: 26px;">Zerilo's Day: </font><font id="zerilo" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;">New Year: </font><font id="newyear" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;">Harvest Day: </font><font id="harvest" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;" id="birthdaysunName">Birthday of the Sun: </font><font id="birthdaysun" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;" id="birthdaymoonName">Birthday of the Moon: </font><font id="birthdaymoon" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;">Spring Festival: </font><font id="spring" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;">Foundation Day: </font><font id="foundation" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;">Mavortino's Day: </font><font id="mavortino" style="font-size: 26px; font-weight: bold;"></font><br>
-	<font style="font-size: 26px;">Summer Festival: </font><font id="summer" style="font-size: 26px; font-weight: bold;"></font><br>
-	-->
 	<script src="cal.js"></script>
 	<script>
 		function setDate(year, month, day, offset = 0) {
@@ -41,9 +36,9 @@
 		}
 		
 		function formatDateKZM(date) {
-			var weekdayNamesKZM = ["Ngkahvm", "'Tdkuhvm", "Sgrkuhvm", "Sphkahvm", "'Hhgrgkihvm", "'Hntkuhvm", "Fbrgkyhvm", "'Zhkahvm", "'Knkahvm"]
-			var monthNamesKZM = ["Mfath", "Rmath", "Bstath", "Mfa'sþbhi", "Rma'sþbhi", "Bsta'sþbhi", "Mfasv", "Rmasv", "Bstasv", "Mfanrh", "Rmanrh", "Bstanrh", "Ptmurmath"]
-			var lunarMonthNamesKZM = ["Ng Kžri", "Ng Žrxci", "Ng Krn", "Ng Hšri", "Ng Hrhi"]
+			var weekdayNamesKZM = ["<ruby>Ngkahvm<rt>[nəgakəvam]</rt></ruby>", "<ruby>'Tdkuhvm<rt>[todɵ̞qəvam]</rt></ruby>", "<ruby>Sgrkuhvm<rt>[ȿɵ̞ɢorɵ̞qəvam]</rt></ruby>", "<ruby>Sphkahvm<rt>[səpa:kəvam]</rt></ruby>", "<ruby>'Hhgrgkihvm<rt>[jijɟerɟecəvam]</rt></ruby>", "<ruby>'Hntkuhvm<rt>[wontoqəvam]</rt></ruby>", "<ruby>Fbrgkyhvm<rt>[fɵ̞børɢøqəvam]</rt></ruby>", "<ruby>'Zhkahvm<rt>[za:kəvam]</rt></ruby>", "<ruby>'Knkahvm<rt>[kanəkəvam]</rt></ruby>"]
+			var monthNamesKZM = ["<ruby>Mfath<rt>[məfta]</rt></ruby>", "<ruby>Rmath<rt>[rm̩ta]</rt></ruby>", "<ruby>Bstath<rt>[bəsatta]</rt></ruby>", "<ruby>Mfa'sþbhi<rt>[məfʃeðbi]</rt></ruby>", "<ruby>Rma'sþbhi<rt>[rm̩ʃeðbi]</rt></ruby>", "<ruby>Bsta'sþbhi<rt>[bəsatʃeðbi]</rt></ruby>", "<ruby>Mfasv<rt>[məfsəv]</rt></ruby>", "<ruby>Rmasv<rt>[rm̩səv]</rt></ruby>", "<ruby>Bstasv<rt>[bəsatsəv]</rt></ruby>", "<ruby>Mfanrh<rt>[məfnəra]</rt></ruby>", "<ruby>Rmanrh<rt>[rm̩nəra]</rt></ruby>", "<ruby>Bstanrh<rt>[bəsatnəra]</rt></ruby>", "<ruby>Ptmurmath<rt>[pɵ̞tomrm̩ta]</rt></ruby>"]
+			var lunarMonthNamesKZM = ["<ruby>Ng Kžri<rt>[nəg cəʒr̩]</rt></ruby>", "<ruby>Ng Žrxci<rt>[nəg ʒəreʃəc]</rt></ruby>", "<ruby>Ng Krn<rt>[nəg kəran]</rt></ruby>", "<ruby>Ng Hšri<rt>[nəg jəʃr̩]</rt></ruby>", "<ruby>Ng Hrhi<rt>[nəg jəri]</rt></ruby>"]
 			return /*weekdayNamesKZM[date[0]] + ", " +*/ (date[1] == 0 ? "" : date[1] + " ") + monthNamesKZM[date[2]] + " " + date[3] + " " + lunarMonthNamesKZM[date[4]] + " " + date[5]
 		}
 		
@@ -64,7 +59,7 @@
 				
 				// solar holidays
 				if (todayKZM[1] == 46 && todayKZM[2] == 0) {
-					addEntry("*Bealtaine / New Year", today, todayKZM)
+					addEntry("New Year", today, todayKZM)
 				}
 				else if (todayKZM[2] == 1 || todayKZM[2] == 12) {
 					addEntry("Summer Solstice", today, todayKZM)
@@ -82,7 +77,7 @@
 					addEntry("Winter Solstice", today, todayKZM)
 				}
 				else if (todayKZM[1] == 45 && todayKZM[2] == 9) {
-					addEntry("*Imbolc", today, todayKZM)
+					addEntry("<ruby>Mbhcšku<rt>[mɵ̞buwqoȿɵ̞q]</rt></ruby>", today, todayKZM)
 				}
 				else if (todayKZM[2] == 10) {
 					addEntry("Spring Equinox", today, todayKZM)
