@@ -5,3 +5,4 @@ const output = document.getElementById("output");
 var englishPro = latinText;
 
 output.innerHTML += englishPro;
+
