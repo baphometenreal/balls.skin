@@ -80,9 +80,11 @@ function loadLightMode() {
           theme.href = "/themes/gradient/css_tears.css"
         } else if (localStorage.theme == "glcl") {
           theme.href = "/themes/gradient/css_lcl.css"
+        } else if (localStorage.theme == "brat"){
+          theme.href = "/themes/flat/css_brat.css"
         } else {
-          theme.href = "/themes/flat/css.css" 
-        }
+		  theme.href = "/themes/flat/css.css" 
+		}
 }
 
 function loadFont() {
