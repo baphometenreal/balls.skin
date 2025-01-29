@@ -144,7 +144,7 @@ async function loadLanguage(){
 		langCode = "tok"
 		break;
 	case "yue":
-		langCode = "zh"
+		langCode = "zh-HK"
 		break;
 	default:
 		langCode = localStorage.lang
