@@ -279,14 +279,14 @@
 				document.getElementById('errorMAL').innerHTML = "Year must be between -9999 and 9999"
 			} else {
 				var convDateMAL = calcDateMAL(date)
-				var weekdayNamesMAL = ["Rĳvienə", "Lindienə", "Cimvienə", "Ristienə"]
+				var weekdayNamesMAL = ["Ryvienə", "Lindienə", "Cimvienə", "Ristienə"]
 				var monthNamesMAL = ["Rácəmánt", "Vastəmánt", "Laugəmánt", "Flaumánt", "Zienəmánt", "Dintəmánt", "Wiedəmánt", "Wándəmánt", "Histəmánt"]
 				
-				var weekdayNamesMAL1 = ["rĳvînè", "lindînè", "kimvînè", "ristînè"]
-				var monthNamesMAL1 = ["rákèmánt", "vastèmánt", "laugèmánt", "flaumánt", "zînèmánt", "dintèmánt", "wîdèmánt", "wándèmánt", "histèmánt"]
+				var weekdayNamesMAL1 = ["ryvînə", "lindînə", "kimvînə", "ristînə"]
+				var monthNamesMAL1 = ["rákəmánt", "vastəmánt", "lægəmánt", "flæmánt", "zînəmánt", "dintəmánt", "wîdəmánt", "wándəmánt", "histəmánt"]
 				
 				document.getElementById('convMAL').innerHTML = weekdayNamesMAL[convDateMAL[0]] + ", " + convDateMAL[1] + " " + monthNamesMAL[convDateMAL[2]] + " " + convDateMAL[3] + convDateMAL[4]
-				document.getElementById('convMAL1').innerHTML = "<mal>" + (weekdayNamesMAL1[convDateMAL[0]] + "; " + numberMAL(convDateMAL[1]) + " " + monthNamesMAL1[convDateMAL[2]] + " " + numberMAL(convDateMAL[3]) + convDateMAL[4].replaceAll("BE", "vt")).toUpperCase() + "</mal>"
+				document.getElementById('convMAL1').innerHTML = "<mal>" + (weekdayNamesMAL1[convDateMAL[0]] + ", " + numberMAL(convDateMAL[1]) + " " + monthNamesMAL1[convDateMAL[2]] + " " + numberMAL(convDateMAL[3]) + convDateMAL[4].replaceAll("BE", "vt")) + "</mal>"
 			}
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
