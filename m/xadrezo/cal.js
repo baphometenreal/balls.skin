@@ -712,6 +712,7 @@ function numberScriptCRG(number) {
 	raw = raw.match(/.{1,2}/g);
 	raw = raw.join("} [")
 	raw = raw.replaceAll("_", "")
+	raw = raw.replaceAll(/0([0-9])/g, "$1")
 	
 	return "[" + raw + "}"
 }
