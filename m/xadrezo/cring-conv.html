@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cring Converter</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+	<style>
+	body {
+	  background-color: white;
+	  color: black;
+	  font-family: Verdana, Tahoma;
+	}
+	
+	@font-face {
+		font-family: 'cring';
+		src: url('Cring.otf') format('opentype');
+	}
+	
+	.big {
+		font-family: cring;
+		font-size: 6rem;
+		/*max-height: 80%;
+		font-weight: bold;*/
+	}
+	
+	</style>
+  </head>
+  <body>
+	<label for="rom">Insert romanisation here:</label><br>
+	<input type="text" id="rom" name="rom" style="width: 99%" onkeyup="clickButton()"></input><br>
+	<!-- <button type="button" onclick="clickButton()">Convert</button> -->
+	<br>
+	<font id="conv" name="conv" class="big"></font>
+	
+	<script>
+		function complementCRG(number) {
+			if (number >= 0) {return number}
+			
+			number = ((parseInt(number)+1) * -1).toString()
+			
+			number = number.split('')
+			for (let i=0 ; i < number.length; i++ ){        
+				if (number[i] != '.'){
+					number[i] = String(9 - Number(number[i]) + 0);
+				 }
+			}
+			
+			if (number[0] == "9") {number[0] = ""}
+			
+			number = "<text style='text-decoration-line: overline;'>9</text>" + number.join("")
+			
+			return number
+		}
+
+		function numberScriptCRG(number) {
+			var raw = String(complementCRG(number)).replace("<text style='text-decoration-line: overline;'>9</text>", "X")
+			
+			if (raw.length % 2 != 0) {raw = "_" + raw}
+			
+			raw = raw.match(/.{1,2}/g);
+			raw = raw.join("} [")
+			raw = raw.replaceAll("_", "")
+			raw = raw.replaceAll(/0([0-9])/g, "$1")
+			
+			return "[" + raw + "}"
+		}
+		
+		function convertSyllable(syll) {
+			var error = "<font style='color: red'>�</font>"
+			//console.log(syll)
+			if (syll == "" || syll == "." || syll == ":") {return syll} 
+			
+			if (/^(-)?\d+$/ig.test(syll)) {return numberScriptCRG(syll)}
+			
+			syll = syll.replaceAll(/([aeiouäëöü'wy]+)/g, ".$1.")
+			syll = syll.split(".")
+			syll[3] = "N"
+			syll[4] = ")"
+			
+			var onset = {
+				"m" : "m:1",
+				"mm": "m:2",
+				"mp": "m:3",
+				"mb": "m:4",
+				
+				"n" : "n:1",
+				"nn": "n:2",
+				"nt": "n:3",
+				"nd": "n:4",
+				
+				"ň" : "ň:1",
+				"ňň": "ň:2",
+				"ňk": "ň:3",
+				"ňg": "ň:4",
+				
+				"p" : "p:1",
+				"b" : "p:2",
+				"pf": "p:3",
+				"bv": "p:4",
+				
+				"t" : "t:1",
+				"d" : "t:2",
+				"tţ": "t:3",
+				"dḑ": "t:4",
+				
+				"k" : "k:1",
+				"g" : "k:2",
+				"kx": "k:3",
+				"gř": "k:4",
+				
+				"f" : "f:1",
+				"v" : "f:2",
+				"ff": "f:3",
+				"vv": "f:4",
+				
+				"ţ" : "ţ:1",
+				"ḑ" : "ţ:2",
+				"ţţ": "ţ:3",
+				"ḑḑ": "ţ:4",
+				
+				"x" : "x:1",
+				"ř" : "x:2",
+				"xx": "x:3",
+				"řř": "x:4",
+				
+				"s" : "s:1",
+				"z" : "s:2",
+				"ss": "s:3",
+				"zz": "s:4",
+				
+				"š" : "š:1",
+				"ž" : "š:2",
+				"šš": "š:3",
+				"žž": "š:4",
+				
+				"c" : "c:1",
+				"ż" : "c:2",
+				"cc": "c:3",
+				"żż": "c:4",
+				
+				"č" : "č:1",
+				"j" : "č:2",
+				"čč": "č:3",
+				"jj": "č:4",
+				
+				"ļ" : "ļ:1",
+				"ļļ": "ļ:2",
+				"mļ": "ļ:3",
+				"nļ": "ļ:4",
+				
+				"l" : "l:1",
+				"ll": "l:2",
+				"ml": "l:3",
+				"nl": "l:4",
+				
+				"r" : "r:1",
+				"rr": "r:2",
+				"mr": "r:3",
+				"nr": "r:4",
+				
+				"h" : "h:1",
+				"hh": "h:2",
+				"mh": "h:3",
+				"nh": "h:4",
+				
+				"pl": "b:1",
+				"pr": "b:2",
+				"bl": "b:3",
+				"br": "b:4",
+				
+				"tļ": "d:1",
+				"tr": "d:2",
+				"dļ": "d:3",
+				"dr": "d:4",
+				
+				"kl": "g:1",
+				"kr": "g:2",
+				"gl": "g:3",
+				"gr": "g:4",
+				
+				"fl": "v:1",
+				"fr": "v:2",
+				"vl": "v:3",
+				"vr": "v:4",
+				
+				"ţl": "ḑ:1",
+				"ţr": "ḑ:2",
+				"ḑl": "ḑ:3",
+				"ḑr": "ḑ:4",
+				
+				"xl": "ř:1",
+				"xr": "ř:2",
+				"řl": "ř:3",
+				"řr": "ř:4",
+				
+				"sl": "z:1",
+				"sr": "z:2",
+				"zl": "z:3",
+				"zr": "z:4",
+				
+				"šl": "ž:1",
+				"šr": "ž:2",
+				"žl": "ž:3",
+				"žr": "ž:4",
+				
+				"cl": "ż:1",
+				"cr": "ż:2",
+				"żl": "ż:3",
+				"żr": "ż:4",
+				
+				"čl": "j:1",
+				"čr": "j:2",
+				"jl": "j:3",
+				"jr": "j:4",
+				
+				"sp": "P:1",
+				"sm": "P:2",
+				"sf": "P:3",
+				"zb": "P:4",
+				
+				"st": "T:1",
+				"sn": "T:2",
+				"sţ": "T:3",
+				"zd": "T:4",
+				
+				"sk": "K:1",
+				"sň": "K:2",
+				"sx": "K:3",
+				"zg": "K:4",
+				
+				"šp": "B:1",
+				"šm": "B:2",
+				"šf": "B:3",
+				"žb": "B:4",
+				
+				"št": "D:1",
+				"šn": "D:2",
+				"šţ": "D:3",
+				"žd": "D:4",
+				
+				"šk": "G:1",
+				"šň": "G:2",
+				"šx": "G:3",
+				"žg": "G:4",
+				
+				"": "_"
+			}
+			
+			var vowel = {
+				"a"   : "a:1",
+				"e"   : "a:2",
+				"ä"   : "a:3",
+				"ai"  : "a:4",
+				"au"  : "a:5",
+				"eya" : "a:6",
+				"aiwa": "a:7",
+				"auya": "a:8",
+				
+				"i"   : "i:1",
+				"ë"   : "i:2",
+				"ö"   : "i:3",
+				"ei"  : "i:4",
+				"iu"  : "i:5",
+				"ëya" : "i:6",
+				"eiwa": "i:7",
+				"iuya": "i:8",
+				
+				"u"   : "u:1",
+				"o"   : "u:2",
+				"ü"   : "u:3",
+				"ui"  : "u:4",
+				"ou"  : "u:5",
+				"oya" : "u:6",
+				"uiwa": "u:7",
+				"ouya": "u:8",
+			}
+			
+			var coda = {
+				"m" : "m:1",
+				"mm": "m:2",
+				"rm": "m:3",
+				"lm": "m:4",
+				
+				"n" : "n:1",
+				"nn": "n:2",
+				"rn": "n:3",
+				"ln": "n:4",
+				
+				"ň" : "ň:1",
+				"ňň": "ň:2",
+				"rň": "ň:3",
+				"lň": "ň:4",
+				
+				"p" : "p:1",
+				"pp": "p:2",
+				"rp": "p:3",
+				"lp": "p:4",
+				
+				"t" : "t:1",
+				"tt": "t:2",
+				"rt": "t:3",
+				"lt": "t:4",
+				
+				"k" : "k:1",
+				"kk": "k:2",
+				"rk": "k:3",
+				"lk": "k:4",
+				
+				"f" : "f:1",
+				"ff": "f:2",
+				"rf": "f:3",
+				"lf": "f:4",
+				
+				"ţ" : "ţ:1",
+				"ţţ": "ţ:2",
+				"rţ": "ţ:3",
+				"lţ": "ţ:4",
+				
+				"x" : "x:1",
+				"xx": "x:2",
+				"rx": "x:3",
+				"lx": "x:4",
+				
+				"s" : "s:1",
+				"ss": "s:2",
+				"rs": "s:3",
+				"ls": "s:4",
+				
+				"š" : "š:1",
+				"šš": "š:2",
+				"rš": "š:3",
+				"lš": "š:4",
+				
+				"c" : "c:1",
+				"cc": "c:2",
+				"rc": "c:3",
+				"lc": "c:4",
+				
+				"č" : "č:1",
+				"čč": "č:2",
+				"rč": "č:3",
+				"lč": "č:4",
+				
+				"ļ" : "ļ:1",
+				"ļļ": "ļ:2",
+				"rļ": "ļ:3",
+				"tļ": "ļ:4",
+				
+				"l" : "l:1",
+				"ll": "l:2",
+				"ns": "l:3",
+				"nz": "l:4",
+				
+				"r" : "r:1",
+				"rr": "r:2",
+				"nš": "r:3",
+				"nž": "r:4",
+				
+				"h" : "h:1",
+				"hh": "h:2",
+				"rh": "h:3",
+				"dļ": "h:4",
+				
+				"b": "b:1",
+				"bb": "b:2",
+				"rb": "b:3",
+				"lb": "b:4",
+				
+				"d": "d:1",
+				"dd": "d:2",
+				"rd": "d:3",
+				"ld": "d:4",
+				
+				"g": "g:1",
+				"gg": "g:2",
+				"rg": "g:3",
+				"lg": "g:4",
+				
+				"v": "v:1",
+				"vv": "v:2",
+				"rv": "v:3",
+				"lv": "v:4",
+				
+				"ḑ": "ḑ:1",
+				"ḑḑ": "ḑ:2",
+				"rḑ": "ḑ:3",
+				"lḑ": "ḑ:4",
+				
+				"ř": "ř:1",
+				"řř": "ř:2",
+				"rř": "ř:3",
+				"lř": "ř:4",
+				
+				"z": "z:1",
+				"zz": "z:2",
+				"rz": "z:3",
+				"lz": "z:4",
+				
+				"ž": "ž:1",
+				"žž": "ž:2",
+				"rž": "ž:3",
+				"lž": "ž:4",
+				
+				"ż": "ż:1",
+				"żż": "ż:2",
+				"rż": "ż:3",
+				"lż": "ż:4",
+				
+				"j": "j:1",
+				"jj": "j:2",
+				"rj": "j:3",
+				"lj": "j:4",
+				
+				"mp": "P:1",
+				"mmp": "P:2",
+				"mf": "P:3",
+				"mmf": "P:4",
+				
+				"nt": "T:1",
+				"nnt": "T:2",
+				"nţ": "T:3",
+				"nnţ": "T:4",
+				
+				"ňk": "K:1",
+				"ňňk": "K:2",
+				"ňx": "K:3",
+				"ňňx": "K:4",
+				
+				"mb": "B:1",
+				"mmb": "B:2",
+				"mv": "B:3",
+				"mmv": "B:4",
+				
+				"nd": "D:1",
+				"nnd": "D:2",
+				"nḑ": "D:3",
+				"nnḑ": "D:4",
+				
+				"ňg": "G:1",
+				"ňňg": "G:2",
+				"ňř": "G:3",
+				"ňňř": "G:4",
+				
+				"": ""
+			}
+			
+			if (Object.keys(onset).includes(syll[0])) {syll[0] = onset[syll[0]]} else {return error}
+			syll[0] = syll[0].split(":")
+			
+			if (syll.includes(undefined)) {return error}
+			if (syll[1].includes("'")) {syll[1] = syll[1].replaceAll("'", ""); syll[3] = "V"}
+			if (Object.keys(vowel).includes(syll[1])) {syll[1] = vowel[syll[1]]} else {return error}
+			syll[1] = syll[1].split(":")
+			if (syll[1][1] > 4) {syll[1][1] -= 4; syll[4] = "("}
+			
+			if (Object.keys(coda).includes(syll[2])) {syll[2] = coda[syll[2]]} else {return error}
+			syll[2] = syll[2].split(":")
+			
+			var c1 = {
+				"1": "",
+				"2": "á",
+				"3": "í",
+				"4": "ú"
+			}
+			
+			var v = {
+				"1": "",
+				"2": "â",
+				"3": "î",
+				"4": "û"
+			}
+			
+			var c2 = {
+				"1": "",
+				"2": "à",
+				"3": "ì",
+				"4": "ù"
+			}
+			
+			if (syll[3] == "V") {syll[4] = syll[4].replaceAll("(", "[").replaceAll(")", "]")}
+			
+			var bracket = syll[4] + c1[syll[0][1]] + c2[syll[2][1]]
+			var glyph = syll[0][0] + syll[1][0] + syll[2][0]
+			
+			if (syll[4] == "(" || syll[4] == "[") {
+				glyph = bracket + glyph + v[syll[1][1]]
+			} else {
+				glyph = glyph + bracket + v[syll[1][1]]
+			}
+			
+			glyph = glyph.replaceAll("a", "").replaceAll("undefined", "")
+			
+			//console.log(glyph)
+			return glyph
+		}
+		
+		function convertText(inputText) {
+			inputText = inputText.toLowerCase()
+			
+			inputText = inputText.replaceAll(/-([0-9])/g, "`$1")
+			inputText = inputText.replaceAll("-", " ")
+			inputText = inputText.replaceAll("`", "-")
+			inputText = inputText.replaceAll("’", "'")
+			inputText = inputText.replaceAll(".", " . ")
+			inputText = inputText.replaceAll(",", " . ")
+			inputText = inputText.replaceAll(":", " : ")
+			inputText = inputText.replaceAll("\"", " : ")
+			
+			var words = inputText.split(" ")
+			
+			for (let i = 0; i < words.length; i++) {
+				words[i] = convertSyllable(words[i])
+			}
+			
+			return words.join(" ").replaceAll(/ $/g, "")
+		}
+		
+		function clickButton() {
+			document.getElementById("conv").innerHTML = convertText(document.getElementById("rom").value);
+		}
+		
+		clickButton()
+	</script>
+	<br>
+  </body>
+</html>
