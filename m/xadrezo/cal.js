@@ -704,6 +704,19 @@ function complementCRG(number) {
 	return number
 }
 
+function numberScriptCRG(number) {
+	var raw = String(complementCRG(number)).replace("<text style='text-decoration-line: overline;'>9</text>", "X")
+	
+	if (raw.length % 2 != 0) {raw = "_" + raw}
+	
+	raw = raw.match(/.{1,2}/g);
+	raw = raw.join("} [")
+	raw = raw.replaceAll("_", "")
+	raw = raw.replaceAll(/0([0-9])/g, "$1")
+	
+	return "[" + raw + "}"
+}
+
 function calcDateCRG(date) {
 	var epoch = new Date(Date.UTC(2005, 0, 1))
 	var dayNumber = Math.floor((date - epoch) / 86400000) + 1
@@ -745,9 +758,9 @@ function calcDateCRG(date) {
 	
 	var month = Math.floor(dayYear / 24)
 	
-	var monthNamesCRG = ["Ļiuš Tļiulg", "Koučej", "Ðauňk", "Faulg", "Mouls", "Tļiuzz", "Kriuň", "Am Ndaumm", "Ciužž", "Riunt", "Koun", "Haukej", "Żżauňk", "Vvaunt", "Staužej", "Ļiuš Soulg"] //["Ļoeš Tloelg", "Kuočäj", "Ðoaňk", "Foalg", "Muols", "Tloezz", "Kroeň", "Am Ndoamm", "Coežž", "Roent", "Kuon", "Hoakäj", "Żżoaňk", "Vvoant", "Stoažej", "Ļoeš Suolg"]
+	//var monthNamesCRG = ["Ļiuš Tļiulg", "Koučej", "Ðauňk", "Faulg", "Mouls", "Tļiuzz", "Kriuň", "Am Ndaumm", "Ciužž", "Riunt", "Koun", "Haukej", "Żżauňk", "Vvaunt", "Staužej", "Ļiuš Soulg"] //["Ļoeš Tloelg", "Kuočäj", "Ðoaňk", "Foalg", "Muols", "Tloezz", "Kroeň", "Am Ndoamm", "Coežž", "Roent", "Kuon", "Hoakäj", "Żżoaňk", "Vvoant", "Stoažej", "Ļoeš Suolg"]
 	
-	return [(relWeek == 5 ? romanNumCRG(day) : day), monthNamesCRG[month], complementCRG(yearNum)]
+	return [day, month, yearNum, relWeek == 5]
 }
 
 // KZMR
