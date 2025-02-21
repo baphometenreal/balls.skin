@@ -6,12 +6,12 @@ img.px {
     font-family: 'Mallian';
     font-style: normal;
     font-weight: 700;
-    src: url(mallian.woff2) format('woff2');
+    src: url(mallian.ttf) format('truetype');
 }
 
 body { font-family: 'Fira Mono', monospace}
 
-.mallian { font-family: mallian, monospace}
+.mallian { font-family: mallian, monospace; font-size: 27pt;}
 
 @font-face {
     font-family: 'Fira Mono';
