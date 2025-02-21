@@ -76,6 +76,9 @@
 			
 			syll = syll.replaceAll(/([aeiouäëöü'wy]+)/g, ".$1.")
 			syll = syll.split(".")
+			
+			if (syll.length != 3) {return error}
+			
 			syll[3] = "N"
 			syll[4] = ")"
 			
