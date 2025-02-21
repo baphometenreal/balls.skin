@@ -84,7 +84,7 @@ function t3(n) {
         d.push(n % 9);
         n = Math.floor(n / 9);
     }
-    return [sign, d.reverse().map((_) => "019342786"[_]).join("")].join("")|| "0";
+    return [sign, d.reverse().map((_) => "012346789"[_]).join("")].join("")|| "0";
 }
 
 function gematria(n) {
@@ -121,8 +121,8 @@ function gematria(n) {
 function conv() {
     numb = document.getElementById("number").value;
     document.getElementById("gematria").innerHTML = gematria(numb);
-    document.getElementById("ternary").innerHTML = t3(numb);
     document.getElementById("balanced").innerHTML = tb3(numb);
+    document.getElementById("ternary").innerHTML = t3(numb);
 }
 document.getElementById("number").addEventListener('input', () => { conv(); });
 </script>
