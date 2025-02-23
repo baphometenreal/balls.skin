@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "mono";
+  src: url("/font/mono/NotoSansMonoCondensed-Regular.woff2");
+}
+@font-face {
+  font-family: "monob";
+  src: url("/font/mono/NotoSansMonoCondensed-Bold.woff2");
+}
+@font-face {
+  font-family: "Evajp";
+  src: url("/font/default/monoSerifJP-Black.otf");
+}
+@font-face {
+  font-family: "Evatc";
+  src: url("/font/default/monoSerifTC-Black.otf");
+}
+@font-face {
+  font-family: "Evasc";
+  src: url("/font/default/monoSerifSC-Black.otf");
+}
+@font-face {
+  font-family: "Evakr";
+  src: url("/font/default/monoSerifKR-Black.otf");
+}
+.mono-serif jp-regular {
+  font-family: "mono Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1,h2,h3,h4,h5,h6,h7 {
+ font-family: "monob";
+}
+p {
+  font-family: "mono";
+  font-size: 15px;
+}
+a, a:visited, button {
+  font-family: "mono";
+  font-size: 15px;
+}
+/* 
+a.entry, a.entry:visited {
+  font-size: 15px;
+}
+*/

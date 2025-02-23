@@ -110,7 +110,16 @@ function loadFont() {
 			console.log("comic") 
 		} else if (localStorage.font == "noto") {
 			font.href = "/themes/font/noto.css"
-			console.log("noto") 
+			console.log("noto")
+		} else if (localStorage.font == "mono") {
+			font.href = "/themes/font/mono.css"
+			console.log("mono")
+		} else if (localStorage.font == "firamono") {
+			font.href = "/themes/font/firamono.css"
+			console.log("fira")
+		} else if (localStorage.font == "bahn") {
+			font.href = "/themes/font/bahn.css"
+			console.log("fira")
 		} else {
 			font.href = "/themes/font/defaultfont.css"
 			console.log("default") 
