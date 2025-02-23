@@ -1,10 +1,10 @@
 @font-face {
   font-family: "mono";
-  src: url("/font/fira mono/FiraMono-Regular.woff2");
+  src: url("/font/bitstream/VeraSansMono.woff2");
 }
 @font-face {
   font-family: "monob";
-  src: url("/font/fira mono/FiraMono-Bold.woff2");
+  src: url("/font/bitstream/VeraSansMono.woff2");
 }
 @font-face {
   font-family: "Evajp";
@@ -29,6 +29,7 @@
 }
 h1,h2,h3,h4,h5,h6,h7 {
  font-family: "monob";
+ font-weight: bold;
 }
 p {
   font-family: "mono";

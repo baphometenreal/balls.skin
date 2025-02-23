@@ -114,12 +114,18 @@ function loadFont() {
 		} else if (localStorage.font == "mono") {
 			font.href = "/themes/font/mono.css"
 			console.log("mono")
+		} else if (localStorage.font == "bitstream") {
+			font.href = "/themes/font/bitstreammono.css"
+			console.log("vera")
 		} else if (localStorage.font == "firamono") {
 			font.href = "/themes/font/firamono.css"
 			console.log("fira")
 		} else if (localStorage.font == "bahn") {
 			font.href = "/themes/font/bahn.css"
-			console.log("fira")
+			console.log("bahn")
+		} else if (localStorage.font == "pecita") {
+			font.href = "/themes/font/pecita.css"
+			console.log("pecita")
 		} else {
 			font.href = "/themes/font/defaultfont.css"
 			console.log("default") 
