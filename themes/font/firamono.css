@@ -1,10 +1,10 @@
 @font-face {
   font-family: "mono";
-  src: url("/font/mono/FiraMono-Regular.woff2");
+  src: url("/font/fira mono/FiraMono-Regular.woff2");
 }
 @font-face {
   font-family: "monob";
-  src: url("/font/mono/FiraMono-Bold.woff2");
+  src: url("/font/fira mono/FiraMono-Bold.woff2");
 }
 @font-face {
   font-family: "Evajp";
