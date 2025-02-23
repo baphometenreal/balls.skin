@@ -6,7 +6,7 @@ function loadLightMode() {
 		  return
         }
 		
-		if ((location.href.slice(0, 25) == "https://balls.skin/m/baph") && !(localStorage.theme == "dark" || localStorage.theme == "light" || localStorage.theme == "darkc" || localStorage.theme == "lightc")) {
+		if ((location.href.slice(0, 25) == "https://balls.skin/m/baph") && !(localStorage.theme == "dark" || localStorage.theme == "light" || localStorage.theme == "darkc" || localStorage.theme == "lightc" || localStorage.theme == "yorha")) {
 			// placeholder until a proper css is made
 			theme.href = "/m/baph/css.css"
 			return
