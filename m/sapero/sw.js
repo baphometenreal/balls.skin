@@ -13,7 +13,7 @@ function mallianDecimalTime(showDecimals = true) {
 	var time = (timeInMilliseconds % 86400000) * 729 / 86400000;
 	var beats = Math.floor(time);
 	var decimals = Math.floor((time - beats)*81);
-	var times = "@" + t3(beats);
+	var times = "@" + t3(beats).padStart(3, "0");
 	if (showDecimals) {
 		times += "/" + t3(decimals).padStart(2, "0") ;
 	}
