@@ -117,7 +117,7 @@ function loadFont() {
 			font.href = "/themes/font/mono.css"
 			console.log("mono")
 		} else if (localStorage.font == "bitstream") {
-			font.href = "/themes/font/bitstreammono.css"
+			font.href = "/themes/font/veramono.css"
 			console.log("vera")
 		} else if (localStorage.font == "firamono") {
 			font.href = "/themes/font/firamono.css"
