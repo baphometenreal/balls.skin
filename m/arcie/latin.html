@@ -13,10 +13,10 @@
         <h1>Latin to English pronunciation tool</h1>
         <p>This tool converts Latin words to their <a href="https://en.wikipedia.org/wiki/Traditional_English_pronunciation_of_Latin">traditional English pronunciation</a>. <strong>Be sure to include macrons when inputting the Latin text.</strong></p>
 		<form id="form">
-			<label for="latin">Latin:</label>
-			<input type="text" id="latin" name="latin">
+			<label for="latin">Insert Latin here:</label>
+			<input type="text" onkeyup="latinPronouncer()" id="latin" name="latin">
 		</form>
-		<p id="output">English: </p>
+		<p id="output"></p>
    		<script src="latin.js"></script>
     </body>
 </html>
