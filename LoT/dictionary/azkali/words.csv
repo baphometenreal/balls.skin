@@ -1,9 +1,14 @@
 English word;Azkali word;word type;small notes;big notes
-I;go;;;
-you;tu;;;
-he;mai;;;
-she;kut;;;
+I (ergative);go;;;
+you (ergative, absolutive) ;tu;;;
+he (ergative), him (absolutive);mai;;;
+she (ergative);kut;;;
 they;hakel;;;
+me;en;;;
+her (absolutive);kurez;;;
+my;enek;;;
+your;tuek;;;
+their (singular);harek
 each other;haotz;;;
 it;tal;;;
 red;keu;;;
