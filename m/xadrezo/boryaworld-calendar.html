@@ -241,7 +241,7 @@
 			}
 		
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
-				document.getElementById('errorNOE').innerHTML = "Year must be between -9999 and 9999"
+				// document.getElementById('errorNOE').innerHTML = "Year must be between -9999 and 9999"
 			} else {
 				var convDateNOE = calcDateNOE(date)
 				var convDateNOEnat = calcDateNOE(date, true)
@@ -250,7 +250,7 @@
 			}
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
-				// document.getElementById('errorWNL').innerHTML = "Year must be between -9999 and 9999"
+				document.getElementById('errorWNL').innerHTML = "Year must be between -9999 and 9999"
 			} else {
 				var convDateWNL = calcDateWNL(date)
 				
