@@ -136,6 +136,7 @@
 			
 			text = text.replace(/ · /g, '·');
 			text = text.replace(/([aeiouáéíóú][ĭŭ]?\.?)vo(([^·\s])*·)/g, '$1ŭ$2');
+			text = text.replace(/([aeiouáéíóú][ĭŭ]?\.?)ĭo(([^·\s])*·)/g, '$1ĭ$2');
 			text = text.replace(/o(·[^aeiouáéíóú])/g, 'ə$1');
 			text = text.replace(/[aeiu](ɴ?)(s?)($|\s+)/g, 'ə$1$2$3');
 			text = text.replace(/·/g, ' · ');
