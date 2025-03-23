@@ -747,7 +747,7 @@ function bijectiveString(m, k) {
 						"t2": "",
 						"i5": "",
 						"su": "",
-						"u2": ""
+						"u2": "",
 						
 						
 						":": ":",
