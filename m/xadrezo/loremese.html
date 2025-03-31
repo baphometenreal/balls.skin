@@ -64,8 +64,8 @@
 			var lastVowel = -1
 			//var index = 0
 			for (let i = word.length-1; i > -1; i--) {
-				if (["m", "n", "p", "t", "k", "ʦ", "b", "d", "g", "ʣ", "v", "s", "z", "l", "r", "θ", "ð", "f", "j", "ĭ", "ŭ"].includes(word[i])) {
-					if (!(["s", "ĭ", "ŭ"].includes(word[i]) && lastVowel == -1)) {
+				if (["m", "n", "p", "t", "k", "ʦ", "b", "d", "g", "ʣ", "v", "s", "z", "l", "r", "θ", "ð", "f", "j", "ĭ", "ŭ", "ï", "ü"].includes(word[i])) {
+					if (!(["s", "ĭ", "ŭ", "ï", "ü"].includes(word[i]) && lastVowel == -1)) {
 						consFound = true
 					}
 				}
@@ -179,6 +179,7 @@
 			text = massReplace(text, {"ó\\.ŭ": "ú\.ŭ", "á\\.ŭ": "ó\.ŭ", "é\\.ŭ": "á\.ŭ", "éĭ\\.ŭ": "á\.ŭ"})
 			text = massReplace(text, {"oŭ": "uŭ", "aŭ": "oŭ", "eŭ": "a\.ŭ", "eĭ\.ŭ": "a\.ŭ"})
 			text = massReplace(text, {"óŭ": "úŭ", "áŭ": "óŭ", "éŭ": "áŭ", "éĭŭ": "áŭ"})
+			text = massReplace(text, {"ï": "ĭ", "ü": "ŭ"})
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1ŭ$2');
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p([mnptkʦbdgʣvszθðfjɕʑʨʥʎɲ]+)($|\s)/g, '$1ŭ$2$3');
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])k(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1x$2');
