@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Current date on Hellcord</title>
+    <link href="css.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+	<center>
+	<h2 style="color: red">Current time on Hellcord</h2>
+	<font id="today" style="font-size: 2em"></font><br>
+	<font id="now" style="font-size: 4.6em"></font><br><br>
+	<hr>
+	<h3 style="color: red">Convert to and from Hellcord Time</h2>
+	<font>Your time </font>
+	<input type="datetime-local" id="tohell" name="tohell" onchange="convertTime('local')"/>
+	<font>→ Hellcord time </font>
+	<input type="datetime-local" id="tohellres" name="tohellres" style="color: black;" disabled/><br><br>
+	<font>Hellcord time</font>
+	<input type="datetime-local" id="fromhell" name="fromhell" onchange="convertTime('US/Central')"/>
+	<font>→ Your time </font>
+	<input type="datetime-local" id="fromhellres" name="fromhellres" style="color: black;" disabled/>
+	</center>
+	<script>
+		function mod(n, m) {
+			return ((n % m) + m) % m;
+		}
+		
+		function getToday() {
+			var time = new Date() //.getTime()
+			
+			document.getElementById("today").innerHTML = time.toLocaleString("en-GB", { timeZone: "US/Central", weekday: "long", year: "numeric", month: "long", day: "numeric"});
+			document.getElementById("now").innerHTML = time.toLocaleString("en-GB", { timeZone: "US/Central", timeStyle: "medium"}).toUpperCase();
+			
+			document.getElementById("now").innerHTML = document.getElementById("now").innerHTML.replaceAll(":3", "<font style='color: darkred'>:3</font>")
+		}
+		
+		function getDateLocaleString(date, timezone) {
+			var options
+			var options1
+			
+			if (timezone == "local") {
+				options = {  locales: "en-CA",
+								year: "numeric",
+								month: "2-digit",
+								day: "2-digit"};
+				
+				options1 = { timeStyle: "short"}
+			} else {
+				options = { timeZone: timezone, 
+							locales: "en-CA",
+							year: "numeric",
+							month: "2-digit",
+							day: "2-digit"};
+				
+				options1 = { timeZone: timezone, 
+							timeStyle: "short"}
+			}
+			
+			var string = date.toLocaleString(date, options).replace(/(..)\.(..)\.(....)/g, "$3-$2-$1") + "T" + date.toLocaleString(date, options1)
+			return string
+		}
+		
+		function getTimeZoneOffset(date, timeZone) {
+		  // Abuse the Intl API to get a local ISO 8601 string for a given time zone.
+		  let iso = date.toLocaleString('en-CA', { timeZone, hour12: false }).replace(', ', 'T');
+		  
+		  // Include the milliseconds from the original timestamp
+		  iso += '.' + date.getMilliseconds().toString().padStart(3, '0');
+		  
+		  // Lie to the Date object constructor that it's a UTC time.
+		  const lie = new Date(iso + 'Z');
+
+		  // Return the difference in timestamps, as minutes
+		  // Positive values are West of GMT, opposite of ISO 8601
+		  // this matches the output of `Date.getTimeZoneOffset`
+		  return -(lie - date) / 60 / 1000;
+		}
+		
+		function convertTime(timezone) {
+			if (timezone == "local") {
+				var time = new Date(document.querySelector("#tohell").value)
+				
+				var string = getDateLocaleString(time, "US/Central")
+				document.querySelector("#tohellres").value = string
+			} else {
+				var time = new Date(document.querySelector("#fromhell").value)
+				
+				var localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+				var offSet = getTimeZoneOffset(time, "US/Central") - getTimeZoneOffset(time, localTimezone)
+				
+				time = new Date(time.getTime() + (offSet * 60000))
+				
+				var string = getDateLocaleString(time, "local")
+				document.querySelector("#fromhellres").value = string
+			}
+		}
+		
+		getToday()
+		
+		var now = new Date();
+		
+		document.getElementById("tohell").value = getDateLocaleString(now, "local")
+		document.getElementById("fromhell").value = getDateLocaleString(now, "US/Central")
+		
+		convertTime('local')
+		convertTime('US/Central')
+		
+		setInterval(getToday, 25);
+	</script>
+	<br><br><br>
+	<p id="footer"></p>
+  </body>
+</html>
