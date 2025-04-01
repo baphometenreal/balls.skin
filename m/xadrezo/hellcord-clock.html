@@ -46,7 +46,8 @@
 								month: "2-digit",
 								day: "2-digit"};
 				
-				options1 = { timeStyle: "short"}
+				options1 = { timeStyle: "short",
+							hour12: "false"}
 			} else {
 				options = { timeZone: timezone, 
 							locales: "en-CA",
@@ -55,7 +56,8 @@
 							day: "2-digit"};
 				
 				options1 = { timeZone: timezone, 
-							timeStyle: "short"}
+							timeStyle: "short",
+							hour12: "false"}
 			}
 			
 			var string = date.toLocaleString(date, options).replace(/(..)\.(..)\.(....)/g, "$3-$2-$1") + "T" + date.toLocaleString(date, options1)
