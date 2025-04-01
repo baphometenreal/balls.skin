@@ -41,30 +41,26 @@
 			var options1
 			
 			if (timezone == "local") {
-				options = {  locales: "sv-SE",
-								year: "numeric",
+				options = {		year: "numeric",
 								month: "2-digit",
 								day: "2-digit"};
 				
-				options1 = { locales: "sv-SE",
-							timeStyle: "short",
+				options1 = {timeStyle: "short",
 							hourCycle: 'h23'}
 			} else {
 				options = { timeZone: timezone, 
-							locales: "sv-SE",
 							year: "numeric",
 							month: "2-digit",
 							day: "2-digit"};
 				
-				options1 = { locales: "sv-SE",
-							timeZone: timezone, 
+				options1 = {timeZone: timezone, 
 							timeStyle: "short",
 							hourCycle: 'h23'}
 			}
 			
-			console.log(date.toLocaleString(date, options) + "T" + date.toLocaleString(date, options1))
+			var string = new Intl.DateTimeFormat("sv-SE", options).format(date).replace(/(..)\.(..)\.(....)/g, "$3-$2-$1") + "T" + new Intl.DateTimeFormat("sv-SE", options1).format(date)
 			
-			var string = date.toLocaleString(date, options).replace(/(..)\.(..)\.(....)/g, "$3-$2-$1") + "T" + date.toLocaleString(date, options1)
+			console.log(string)
 			return string
 		}
 		
