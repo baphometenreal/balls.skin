@@ -46,12 +46,18 @@
 		font-family: 'mallia';
 		font-style: normal;
 		font-weight: 700;
-		src: url(../sapero/mallian.ttf) format('truetype');
+		/*src: url(../sapero/mallian.ttf) format('truetype');*/
+		src: url('Mallico.otf') format('opentype');
 	}
 	
 	@font-face {
 		font-family: 'cring';
 		src: url('Cring.otf') format('opentype');
+	}
+	
+	@font-face {
+		font-family: 'jkawi';
+		src: url('jkawi.otf') format('opentype');
 	}
 	
 	rt {
@@ -96,6 +102,7 @@
 	
 	mal {
 	  font-family: mallia;
+	  font-size: 30px;
 	}
 	
 	kzm {
@@ -105,6 +112,11 @@
 	crg {
 	  font-family: cring;
 	  font-size: 35px;
+	}
+	
+	jka {
+	  font-family: jkawi;
+	  font-size: 28px;
 	}
 	
 	</style>
@@ -137,6 +149,8 @@
 	<img><font style="font-size: 26px;"><!--Noellastani:--> </font><font id="convNOE1" name="convNOE1" style="font-size: 26px; "></font><br>
 	<img src="flags/kzmr.png" title="Kzmr calendar" alt=":flag_kzm:" style="height: 22.2px; width: auto; padding: 0px 6.4px 0px"><font style="font-size: 26px;"><!--Kzmr:--> </font><font id="errorKZM" name="errorKZM" style="font-size: 26px; color: red"></font><font id="convKZM" name="convKZM" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"> </font><font id="convKZM1" name="convKZM1" style="font-size: 30px;"></font><br>
+	<img src="flags/jkawi.png" title="Jkawi calendar" alt=":flag_jka:"><font style="font-size: 26px;"><!--Jkawi:--> </font><font id="errorJKA" name="errorJKA" style="font-size: 26px; color: red"></font><font id="convJKA" name="convJKA" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"> </font><font id="convJKA1" name="convJKA1" style="font-size: 26px;"></font><br>
 	<img src="flags/sunteria.png" title="Sunterian calendar" alt=":flag_sun:"><font style="font-size: 26px;"><!--Sunterian:--> </font><font id="errorSUN" name="errorSUN" style="font-size: 26px; color: red"></font><font id="convSUN" name="convSUN" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"></font><font id="convSUN1" name="convSUN1" style="font-size: 26px;"></font><br>
 	<img src="flags/azkali.png" title="Azkali calendar" alt=":flag_azk:"><font style="font-size: 26px;"> </font><font id="errorAZK" name="errorAZK" style="font-size: 26px; color: red"></font><font id="convAZK" name="convAZK" style="font-size: 26px; font-weight: bold;"></font><br>
@@ -177,6 +191,7 @@
 			document.getElementById('errorKZM').innerHTML = ""
 			document.getElementById('errorAZK').innerHTML = ""
 			document.getElementById('errorFOI').innerHTML = ""
+			document.getElementById('errorJKA').innerHTML = ""
 			
 			document.getElementById('convGRE').innerHTML = ""
 			document.getElementById('convLRM').innerHTML = ""
@@ -191,6 +206,7 @@
 			document.getElementById('convKZM').innerHTML = ""
 			document.getElementById('convAZK').innerHTML = ""
 			document.getElementById('convFOI').innerHTML = ""
+			document.getElementById('convJKA').innerHTML = ""
 			
 			document.getElementById('convLRM1').innerHTML = ""
 			document.getElementById('convNOE1').innerHTML = ""
@@ -202,6 +218,7 @@
 			document.getElementById('convKZM1').innerHTML = ""
 			document.getElementById('convAZK1').innerHTML = ""
 			document.getElementById('convCRG1').innerHTML = ""
+			document.getElementById('convJKA1').innerHTML = ""
 		
 			document.getElementById('convGRE').innerHTML = date.getUTCDate() + " " + date.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + Math.abs(date.getUTCFullYear() - 1*(date.getUTCFullYear() < 1)) + " BCE".repeat(date.getUTCFullYear() < 1)
 		
@@ -226,7 +243,7 @@
 			}
 		
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
-				document.getElementById('errorNOE').innerHTML = "Year must be between -9999 and 9999"
+				// document.getElementById('errorNOE').innerHTML = "Year must be between -9999 and 9999"
 			} else {
 				var convDateNOE = calcDateNOE(date)
 				var convDateNOEnat = calcDateNOE(date, true)
@@ -235,7 +252,7 @@
 			}
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
-				// document.getElementById('errorWNL').innerHTML = "Year must be between -9999 and 9999"
+				document.getElementById('errorWNL').innerHTML = "Year must be between -9999 and 9999"
 			} else {
 				var convDateWNL = calcDateWNL(date)
 				
@@ -343,6 +360,27 @@
 				var convDateFOI = calcDateFOI(date)
 				
 				document.getElementById('convFOI').innerHTML = convDateFOI[0] + " " + convDateFOI[1] + " " + convDateFOI[2]
+			}
+			
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorJKA').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateJKA = calcDateJKA(date)
+				
+				var isPreEpoch = (convDateJKA[3] < 0)
+				
+				var weekDayNamesJKA = ["Sapang", "Nara", "Mubau", "Supi", "Solot", "Ngıge"]
+				var monthNamesJKA = ["Wirad", "Wahau", "Yamur", "Dansi", "Wasir", "Suwaq", "Ibkis", "Dongans", "Su", "Songug", "Larsı", "Yumaq", "Yangi"]
+				var cycleAdjNamesJKA = ["Red", "Yellow", "White", "Blue", "Black"]
+				var cycleAnimalNamesJKA = ["Camel", "Tiger", "Crocodile", "Horse", "Goat", "Monkey", "Dog", "Elephant"]
+				
+				var weekDayNamesJKA1 = ["sapaj", "nara", "mubaw", "supi", "solot", "jège"]
+				var monthNamesJKA1 = ["wirad", "wahaw", "yamur", "dansi", "wasir", "suwaq", "èbkiz", "dojans", "sèw", "sojug", "larzè", "yumaq", "yaji"]
+				var cycleAdjNamesJKA1 = ["qizirèm", "carigèm", "irijèm", "mawim", "zènèm"]
+				var cycleAnimalNamesJKA1 = ["zidam", "binqè", "qoxonèt", "hisan", "mawax", "xomaq", "qyen", "zèlakiz"]
+				
+				document.getElementById('convJKA').innerHTML = weekDayNamesJKA[convDateJKA[0]] + ", " + convDateJKA[1] + " " + monthNamesJKA[convDateJKA[2]] + ", " + convDateJKA[3] + ordinalSuffix(convDateJKA[3]) + " " + cycleAdjNamesJKA[convDateJKA[4]] + " " + cycleAnimalNamesJKA[convDateJKA[5]]
+				document.getElementById('convJKA1').innerHTML = "<jka>" + weekDayNamesJKA1[convDateJKA[0]] + " " + convertText(String(convDateJKA[1]), "bap") + " " + monthNamesJKA1[convDateJKA[2]] + " " + convertText(String(Math.abs(convDateJKA[3])), "bap") + "m " + cycleAdjNamesJKA1[convDateJKA[4]] + " " + cycleAnimalNamesJKA1[convDateJKA[5]] + (isPreEpoch ? " qara" : "") + "</jka>"
 			}
 		}
 		

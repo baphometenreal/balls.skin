@@ -26,8 +26,6 @@ armed force;auges;n;;
 ask;pauto;v;;
 Asparta;Asparta;fp;;
 Aspartan;aspartico;adjp;;
-Astiin;Astin;np;;
-Astiinian;astinico;adjp;;
 attack;celmia;f;;
 attack;celmo;v;;
 autumn, fall;eson;f;;
@@ -35,6 +33,7 @@ Azkali;Açcali;np;;
 Azkali;açcalico;adjp;;
 Azkali coffee;ecascarva;f;from Azkali </i>ekaskaroa<i>;;<i>Ecascarva</i> refers specifically to coffee fruits grown in Azkali, or styles of coffee that are characteric of or traditional in Azkali. The general terms for coffee fruit and coffee are <i>veiçinia</i> and <i>veiçiniata</i> respectively.
 bad;cacio;adj;;
+bag, purse;moiso;m;;
 bake;bogo;v;;
 balance, scales;iugo;n;;
 Baphia;Bapia;fp;;Widespread non-standard spellings include <i>Bafia</i> and <i>Babia</i>.
@@ -65,15 +64,18 @@ bone;ost;n;;
 bring;celo;v;;
 bread;boges;n;;
 breathe;ano;v;;
+bro;sazo;m;;Colloquial. May also be spelled <i>sagio</i>.
 brother;sagelbo;m;;
 bull;tauro;m;;
 burn;dego;v;;
 but;ali;;;
 buy;crinao;v;;
 byllion;dvicelesario;n;;Loremese uses the <a href=“https://en.wikipedia.org/wiki/-yllion”>-yllion system for big numbers</a>.
+cabbage;mouli;n;from Baphian </i>mule<i>;
 Caerimrodhë;Cerimia;fp;;
 Caerimrodhymní;cerimico;adjp;;
 calendar;clendasio;n;;
+call, summon;clemo;v;;
 car, vehicle, rook (chess);çriso;m;;
 card;zerta;f;;
 cartel;sagelbato;m;;
@@ -81,6 +83,7 @@ castle;costrelo;m;;
 cat;miau;f;from Azkali </i>miyau<i>;;
 cathedral;çatasedra;f;;
 Chess;Cetrango;mp;;
+chicken;gliso;m;;
 chickpea;mazulo;n;;
 child;pavero;m;;
 chunk;pitaco;n;;
@@ -138,6 +141,8 @@ evening;empromi;f;;
 eye;oc;f;;
 fall;apolo;vit;;
 farmer;arvario;m;;
+fast, abstain;govo;v;;
+fasting period;gouti;f;;In Saulism, <i>sa Gouti</i> refers to the 20-day period from the day after Zerilo’s Day to New Year’s Eve, specifically. When used to refer to fasting periods in other religions, the word is not capitalised.
 father;pater;m;;
 fear;baides;n;;
 fear;baido;v;;
@@ -146,6 +151,7 @@ festival, holiday;dano;n;;
 field;arva;f;;
 fifty;penceçont;;;
 fight;mago;v;;
+finger;glista;f;;
 fingernail;onog;m;;
 fire;agni;f;;
 first;pravo;adjp;;
@@ -155,9 +161,11 @@ five;pence;;;
 flag, banner;çrano;n;;
 flower;blono;n;;
 fog, mist;omigla;f;;
+fool, jester;iociconio;m;;Associated with the Silly Season, especially Zerilo’s Day.
 foot, leg;campa;f;;When used as a unit of measurement, it is equal to approx. 30.61 centimeters.
 for;per;;with accusative;
 forest;blidon;m;;
+forgive;pristelo;v;;
 fortress;duno;n;;
 forty;cetriçont;;;
 fountain;brauri;n;;
@@ -202,6 +210,8 @@ hear;çlauso;v;;
 heart;çrid;n;;
 heavy;orausto;adj;;
 hello, goodbye, welcome;daba mani;;interjection;While literally meaning “good morning”, this phrase is used at all times of day as a generic greeting and farewell.
+help;iauti;f;;
+help;iavo;v;;
 Henralia;Endralia;fp;;
 Henralian;endralico;adjp;;
 hold, stop;turio;v;;
@@ -242,7 +252,8 @@ kill;çenio;v;;
 kitchen;pecino;m;;
 knee;zluno;m;;
 knight;eçveitor;m / f;;
-know;deio;v;;
+know;deio;v;;This verb is used in the sense of “know a fact”. For the sense “to be acquainted with”, see <i>zloço</i>.
+know of, be familiar with;zloço;v;;This verb is used in the sense of “to be acquainted with”. For the sense “know a fact”, see <i>deio</i>.
 Kzmr;Cazambri;np;;
 Kzmrš;cazambrico;adjp;;
 lake;locu;m;;
@@ -251,6 +262,7 @@ language;dazva;f;;
 Lasia;Lasia;fp;;
 Lasian;lasico;adjp;;
 laugh;ioco;vit;;
+lava, magma;zemocrovio;m;;
 leaf, page;bolio;n;;
 lemon;çidro;n;;
 lemonade;çidrata;f;;
@@ -300,6 +312,7 @@ ninety;enavaçont;;;
 no, not;noic;;;Used to negate statements and questions. For negative imperatives, see <i>me</i> “don’t”.
 northern;çaurino;adj;;
 nose;rungo;n;;
+now;nun;;;
 numb;pazo;adj;;
 Oika;Voica;fp;;
 Oikan;voicico;adjp;;
@@ -321,10 +334,12 @@ peninsula;gatiantudri;n;;
 people;tauta;f;;
 people’s;tautico;adjp;;
 petroleum;gorelaivo;n;;
+pig, pork;zorio;m;;
 pitiful;gelico;adj;;
 pity;gela;f;;
 play;lidio;v;;
 plaza, square;platusodo;f;;
+pocket;moisulo;m;;
 pour;zavio;v;;
 priest;saulico;m;;
 province;zavio;n;;
@@ -335,9 +350,11 @@ quintyllion;pencecelesario;n;;Loremese uses the <a href=“https://en.wikipedia.
 railway;gelgistoigo;m;;
 rain;sauto;m;;
 rain;savo;vit;;
+Rathari;Raçari;np;;
+Ratharian, Tithri;raçarico;adjp;;
 read;grido;v;;
 red;sorto;adj;;
-rejoice;gaudeio;vi;;
+rejoice;gaudeio;vit;;
 remove, delete;canemo;v;;
 republic;reipoplica;f;;
 ride on horseback;eçveio;vit;;
@@ -376,6 +393,7 @@ Shidamism;çidamimo;m;;🐪🐪🐪</p><p>Adherents of Shidamism prefer the spel
 shine;çveito;v;;
 ship;nau;f;;
 shit;soçri;n;;
+shoe, footwear;puçti;f;;
 short;brizu;adj;;
 shortness;brizves;n;;
 side;anto;m;;
@@ -393,6 +411,7 @@ smell;odio;v;;
 snake;ogi;m;;
 snow;zim;f;;
 soldier, warrior, pawn (chess);mactor;m / f;;
+sole (of foot);puço;m;;
 southern;suntro;adj;;
 speak, say;spelo;v;;
 spring;veri;n;;
@@ -449,6 +468,7 @@ Traule;Trauli;np;;
 Traulean;traulico;adjp;;
 tree;doru;n;;
 tree bark;blavo;m;;
+trousers;campino;m;plural only;The word is plural only. The singular forms are not used.
 tryllion;tricelesario;n;;Loremese uses the <a href=“https://en.wikipedia.org/wiki/-yllion”>-yllion system for big numbers</a>.
 Tuesday;dvidaiti;f;;
 twenty;dviçont;;;

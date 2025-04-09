@@ -46,7 +46,7 @@
 			word = word.replace(/([aeiouàèìòùáéíóúəyýøǿ])/g, '.$1');
 			word = word.replace(/^(s?)([mnptkʦbdgʣvszθðfjɕʑʨʥɲx]?)([šřʎrlʀʟĭv]?)\.([aeiouàèìòùáéíóúəyýøǿ])/g, '.$1$2$3$4');
 			word = word.replace(/([mnptkʦbdgʣvszθðfjɕʑʨʥɲx]?)([šřʎrlʀʟĭv]?)\.([aeiouàèìòùáéíóúəyýøǿ])/g, '.$1$2$3');
-			word = word.replace(/\.([mn])([šřʎrlʀʟ])/g, '$1.$2');
+			word = word.replace(/\.([mn])([šřʎrlʀʟv])/g, '$1.$2');
 			word = word.replace(/ʀ/g, 'rĭ');
 			word = word.replace(/ʟ/g, 'lĭ');
 			word = word.replace('.', '');
@@ -64,8 +64,8 @@
 			var lastVowel = -1
 			//var index = 0
 			for (let i = word.length-1; i > -1; i--) {
-				if (["m", "n", "p", "t", "k", "ʦ", "b", "d", "g", "ʣ", "v", "s", "z", "l", "r", "θ", "ð", "f", "j", "ĭ", "ŭ"].includes(word[i])) {
-					if (!(["s", "ĭ", "ŭ"].includes(word[i]) && lastVowel == -1)) {
+				if (["m", "n", "p", "t", "k", "ʦ", "b", "d", "g", "ʣ", "v", "s", "z", "l", "r", "θ", "ð", "f", "j", "ĭ", "ŭ", "ï", "ü"].includes(word[i])) {
+					if (!(["s", "ĭ", "ŭ", "ï", "ü"].includes(word[i]) && lastVowel == -1)) {
 						consFound = true
 					}
 				}
@@ -114,13 +114,16 @@
 			text = text.replace(/é(([^·\s])*·)/g, 'ê$1');
 			text = text.replace(/é/g, 'ĭá');
 			text = text.replace(/ê/g, 'é');
+			text = text.replace(/([aeiouáéíóúvĭŭïüɴ][\.·]?)s([\.·]?[ĭŭïü]?[aeiouáéíóúvɴ])/g, '$1z$2')
 			text = text.replace(/·/g, ' · ');
 			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭ])(\.?)\1/g, '$2$1');
 			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭ])([^\.\s]?)v([ĭŭ])/g, '$1$2$3');
-			text = text.replace(/([aeiouáéíóú])([ĭŭ]?)[nm]/g, '$1$2ɴ')
+			text = text.replace(/([aeiouáéíóú])([ĭŭïü]?)[nm]/g, '$1$2ɴ')
+			/*
 			text = text.replace(/ · /g, '·');
-			text = text.replace(/([aeiouáéíóúvĭŭɴ][\.·]?)s([\.·]?[aeiouáéíóúvĭŭɴ])/g, '$1z$2')
+			text = text.replace(/([aeiouáéíóúvĭŭïüɴ][\.·]?)s([\.·]?[aeiouáéíóúvĭŭïüɴ])/g, '$1z$2')
 			text = text.replace(/·/g, ' · ');
+			*/
 			
 			text = text.split(" ")
 			text = text.map((word) => findSyllables(word))
@@ -136,6 +139,7 @@
 			
 			text = text.replace(/ · /g, '·');
 			text = text.replace(/([aeiouáéíóú][ĭŭ]?\.?)vo(([^·\s])*·)/g, '$1ŭ$2');
+			text = text.replace(/([aeiouáéíóú][ĭŭ]?\.?)ĭo(([^·\s])*·)/g, '$1ĭ$2');
 			text = text.replace(/o(·[^aeiouáéíóú])/g, 'ə$1');
 			text = text.replace(/[aeiu](ɴ?)(s?)($|\s+)/g, 'ə$1$2$3');
 			text = text.replace(/·/g, ' · ');
@@ -158,7 +162,7 @@
 			text = text.replace(/(^|\s+|\.)v([rl])/g, '$1$2');
 			text = text.replace(/s\.d/g, '.ð');
 			text = text.replace(/g\.n/g, '.ɲ');
-			text = massReplace(text, {"sĭ": "ɕ", "zĭ": "ʑ", "rĭ": "ř", "zĭ": "ʑ", "tĭ": "ʨ", "dĭ": "ʥ", "lĭ": "ʎ", "nĭ": "ɲ"})
+			text = massReplace(text, {"sĭ": "ɕ", "zĭ": "ʑ", "rĭ": "ř", "zĭ": "ʑ", "tĭ": "ʨ", "dĭ": "ʥ", "lĭ": "ʎ", "nĭ": "ɲ", "sï": "ɕ", "zï": "ʑ", "rï": "ř", "zï": "ʑ", "tï": "ʨ", "dï": "ʥ", "lï": "ʎ", "nï": "ɲ"})
 			text = text.replace(/(ɲ\.?)ĭ/g, '$1');
 			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭɕʑřʨʥʎɲš])v($|\s+|ə)/g, '$1$2');
 			text = text.replace(/([mnptkʦbdgʣvszlrθðfjĭŭɕʑřʨʥʎɲš])[ĭŭ]($|\s+)/g, '$1$2');
@@ -178,6 +182,7 @@
 			text = massReplace(text, {"ó\\.ŭ": "ú\.ŭ", "á\\.ŭ": "ó\.ŭ", "é\\.ŭ": "á\.ŭ", "éĭ\\.ŭ": "á\.ŭ"})
 			text = massReplace(text, {"oŭ": "uŭ", "aŭ": "oŭ", "eŭ": "a\.ŭ", "eĭ\.ŭ": "a\.ŭ"})
 			text = massReplace(text, {"óŭ": "úŭ", "áŭ": "óŭ", "éŭ": "áŭ", "éĭŭ": "áŭ"})
+			text = massReplace(text, {"ï": "ĭ", "ü": "ŭ"})
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1ŭ$2');
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])p([mnptkʦbdgʣvszθðfjɕʑʨʥʎɲ]+)($|\s)/g, '$1ŭ$2$3');
 			text = text.replace(/([^mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš\s\.^])k(\.[mnptkʦbdgʣvszlrθðfjɕʑřʨʥʎɲš])/g, '$1x$2');
@@ -203,7 +208,7 @@
 			text = text.replace(/([uúù]ŭ)q/g, '$1');
 			text = text.normalize('NFD');
 			text = text.replace(/́ʔ/g, '');
-			text = text.replace(/o(́?)ɴ($|\s+|[^ŭ])/g, 'ə$1ɴŭ$2');
+			text = text.replace(/o(́?)ɴ($|\s+|[^ŭĭ])/g, 'ə$1ɴŭ$2');
 			text = text.replace(/e(́?)ɴ($|\s+|[^ĭ])/g, 'e$1ɴĭ$2');
 			text = text.replace(/ø(́?)ɴ($|\s+|[^ĭ])/g, 'ø$1ɴĭ$2');
 			text = text.replace(/o(ɴ\.?ŭ)/g, 'ə$1');

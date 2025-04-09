@@ -2,6 +2,27 @@ function mod(n, m) {
 	return ((n % m) + m) % m;
 }
 
+function setDate(year, month, day, offset = 0) {
+	var date = new Date(Date.UTC(year, month-1, day, 12, 0, 0) + offset)
+	date.setUTCFullYear(year)
+	
+	return date
+}
+
+function getEpact(year) {
+	var goldenNumber = mod(year, 19) + 1
+	
+	var epactShift = (year - 1582) * 11
+	var saltusLunae = Math.floor((year - 1596)/19)+1
+	var solarEq = -1 * (Math.floor(year / 100) - 15) + (Math.floor(year / 400) - 3)
+	var lunarEq = Math.floor((year - 1800)/2500) + 1 + Math.floor((year - 2100)/2500) + 1 + Math.floor((year - 2400)/2500) + 1 + Math.floor((year - 2700)/2500) + 1 + Math.floor((year - 3000)/2500) + 1 + Math.floor((year - 3300)/2500) + 1 + Math.floor((year - 3600)/2500) + 1 + Math.floor((year - 3900)/2500) + 1 
+	
+	var epact = mod(26 + epactShift + saltusLunae + solarEq + lunarEq, 30)
+	var special = (epact == 25 && goldenNumber > 11) ? 1 : 0
+	
+	return [epact, special]
+}
+
 // -- LOREMESE --
 function translateLRM(syl) {
 	var translate = {
@@ -862,27 +883,6 @@ function calcDateKZM(date) {
 
 // FOI
 
-function setDate(year, month, day, offset = 0) {
-	var date = new Date(Date.UTC(year, month-1, day, 12, 0, 0) + offset)
-	date.setUTCFullYear(year)
-	
-	return date
-}
-
-function getEpact(year) {
-	var goldenNumber = mod(year, 19) + 1
-	
-	var epactShift = (year - 1582) * 11
-	var saltusLunae = Math.floor((year - 1596)/19)+1
-	var solarEq = -1 * (Math.floor(year / 100) - 15) + (Math.floor(year / 400) - 3)
-	var lunarEq = Math.floor((year - 1800)/2500) + 1 + Math.floor((year - 2100)/2500) + 1 + Math.floor((year - 2400)/2500) + 1 + Math.floor((year - 2700)/2500) + 1 + Math.floor((year - 3000)/2500) + 1 + Math.floor((year - 3300)/2500) + 1 + Math.floor((year - 3600)/2500) + 1 + Math.floor((year - 3900)/2500) + 1 
-	
-	var epact = mod(26 + epactShift + saltusLunae + solarEq + lunarEq, 30)
-	var special = (epact == 25 && goldenNumber > 11) ? 1 : 0
-	
-	return [epact, special]
-}
-
 function getFirstDayFOI(year){
 	var epact = getEpact(year)
 	var epactN = getEpact(year+1)
@@ -937,4 +937,123 @@ function calcDateFOI(date) {
 	var day = dayYear - monthDays[month] + 1
 	
 	return [day, monthNames[month], year + 1213] //1213 //1438]
+}
+
+// JKAWI
+
+function ordinalSuffix(n) {
+	n = Math.abs(n)
+	
+	return ["st","nd","rd"][((n+90)%100-10)%10-1]||"th"
+}
+
+function getNewMoonsJKA(year, stop = false, stop2 = false) {
+	var epact = getEpact(year)
+	var epactN = getEpact(year+1)
+	var offset = 86400000 * (mod(31-epact[0], 30) + (mod(31-epact[0], 30) == 0 ? 30 : 0) - 1)
+	var hollow = 86400000 * (((epact[0] != 0) && (epact[0] < (25 - epact[1])) ? -1 : 0) - epact[1])
+	
+	var moons = [setDate(year, 1, 1, offset),				// january
+					setDate(year, 1, 31, offset + hollow), 	// february
+					setDate(year, 3, 1, offset), 			// march
+					setDate(year, 3, 31, offset + hollow),	// april
+					setDate(year, 4, 29, offset), 			// may
+					setDate(year, 5, 29, offset + hollow),	// june
+					setDate(year, 6, 27, offset), 			// july
+					setDate(year, 7, 27, offset + hollow),	// august
+					setDate(year, 8, 25, offset), 			// september
+					setDate(year, 9, 24, offset + hollow),	// october
+					setDate(year, 10, 23, offset),			// november
+					setDate(year, 11, 22, offset + hollow),	// december
+					setDate(year, 12, 21, offset)			// undecember
+				]
+	
+	if (moons.slice(-1)[0].getUTCMonth() == 0) {moons.pop()} // remove next year moons
+	
+	if (epact[0] == 19 && epactN[0] == 1) {moons.push(setDate(year, 12, 31))}
+	if (epact[0] == 18 && epactN[0] == 1) {moons.push(setDate(year+1, 1, 1))}
+	if (epact[0] == 20 && epactN[0] == 0) {moons.pop()}
+	
+	if (stop == false) {
+		for (let i = 0; i < moons.length; i++) {
+			if (setDate(year, 3, 21) > moons[i]) {
+				delete moons[i];
+			} else {
+				break
+			}
+		}
+		
+		moons = moons.concat(getNewMoonsJKA(year+1, true));
+		moons = moons.flat()
+		
+		if (stop2 == false) {
+			for (let i = 0; i < moons.length - 1; i++) {
+				if ((moons[i] - moons[i-1]) / 86400000 == 29 && (moons[i+1] - moons[i]) / 86400000 == 31) {
+					moons[i] = setDate(moons[i].getUTCFullYear(), moons[i].getUTCMonth() + 1, moons[i].getUTCDate(), 86400000)
+				}
+			}
+			
+			//moons.pop() // last moon needed for 31-fixing is now unnecessary
+			
+			var moonDays = [];
+			for (let i = 0; i < moons.length; i++) {
+				moonDays.push((moons[i] - moons[0]) / 86400000)
+			}
+			
+			moonDays.push(999)
+			
+			return moonDays
+		} else {
+			return moons
+		}
+		
+	} else {
+		/*
+		for (let i = 0; i < moons.length; i++) {
+			if (setDate(year, 3, 20) < moons[i]) {
+				delete moons[i];
+			}
+		}
+		*/
+		
+		return moons.flat()
+	}
+}
+
+function calcDateJKA(date) {
+	var year = date.getUTCFullYear()
+	
+	var today = Math.floor(date/86400000)
+	
+	var monthDays = getNewMoonsJKA(year)
+	var dayYear = today - Math.floor(getNewMoonsJKA(year, false, true)[0] / 86400000)
+	
+	if (dayYear < 0) {
+		year -= 1
+		monthDays = getNewMoonsJKA(year)
+		dayYear = today - Math.floor(getNewMoonsJKA(year, false, true)[0] / 86400000)
+	}
+	
+	var month = 0
+	
+	if (dayYear >= 0) {
+		while (true) {
+			if (dayYear >= monthDays[month] && dayYear < monthDays[month+1]) break;
+			month = month + 1;
+		}
+	}
+	
+	var weekDay = mod(today + 2, 6)
+	
+	var day = dayYear - monthDays[month] + 1
+	
+	var cycle = Math.floor((year - 928)/40) + 1
+	var cycleYear = mod(year - 928, 40)
+	
+	var cycleAdj = mod(cycleYear, 5)
+	var cycleAnimal = mod(cycleYear, 8)
+	
+	if (cycle < 1) {cycle -= 1}
+	
+	return [weekDay, day, month, cycle, cycleAdj, cycleAnimal]
 }
