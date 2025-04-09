@@ -1,10 +1,10 @@
 :root {
-  --bg-main: #600B1E;
-  --bg-main2: #420B18;
-  --bg: #0C0004;
-  --text: #EDDCDC;
-  --button-bg: #8B0202;
-  --jalinkhover: #FBC8C8;
+  --bg-main: #222d68;
+  --bg-main2: #192046;
+  --bg: #080e30;
+  --text: #d3d8f7;
+  --button-bg: #080e30;
+  --jalinkhover: #1e34b1;
 }
 body {margin-left:10%; margin-right:10%; background: var(--bg); color:var(--text); background-attachment: fixed;}
 a.jalink, a.jalink:visited {text-decoration:underline; background-color: #FFFFFF00;  padding-top:0; padding-bottom:0; margin-bottom:0; padding-left:0; padding-right:0;}
