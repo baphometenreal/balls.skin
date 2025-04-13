@@ -62,11 +62,11 @@
 				
 				if ((type == "") && (notes == "")) {
 					indEntry = "<p>" + english + ": <b>" + noellastani.replaceAll("\'", "'") + "</b>"
-					if (extra) { indEntry +=  " <i>(</i>" + extra + "<i>)</i>" }
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
 					indEntry += "</p>"
 				} else if  ((type == "") && (notes != "")) {
 					indEntry = "<p>" + english + ": <b><a href=\"#\" onclick=\"grammar('" + english + "', '" + noellastani + "', '" + type + "', '" + extra + "', '" + notes + "');\" class=\"entry\">" + noellastani + "</a></b>"
-					if (extra) { indEntry +=  " <i>(</i>" + extra + "<i>)</i>" }
+					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
 					indEntry += "</p>"
 				} else { //all the clickable type are here
 					var prettyArt = type
