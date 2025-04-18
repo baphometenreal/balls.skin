@@ -84,6 +84,8 @@ function loadLightMode() {
           theme.href = "/themes/flat/css_brat.css"
 		} else if (localStorage.theme == "yorha"){
           theme.href = "/themes/flat/css_yorha.css"
+        } else if (localStorage.theme == "icosahedr"){
+          theme.href = "/themes/flat/css_icosahedr.css"
         } else {
 		  theme.href = "/themes/flat/css.css" 
 		}
