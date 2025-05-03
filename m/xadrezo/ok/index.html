@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oranjbosk Kelkfoa</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+	<div class="masthead">
+		<a href="javascript:void(0)" onclick="location.hash = ''; loadArticle()"><img class="logo" src="./oranjbosk-kelkfoa.svg"></a>
+		<div style="display: flex; margin-left: 8px; flex-direction: column; flex-grow: 1">
+			<div style="color: white; flex-grow: 1; font-weight: bold" id="date">martidi, 23η 139</div>
+			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Novaji</a> · <a style="color: white" class="noclick" href="javascript:void(0);">Ludi</a></div>
+			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Kontakt</a></div>
+		</div>
+		<img class="noclick" id="ad">
+	</div>
+	
+	<div class="main">
+		<div class="sidebar">
+			<b>Leplu novi</b><br>
+			<text id="articleList1"><i>Sharjant linki...</i></text>
+			<text id="articleList2"></text>
+			<text id="articleList3"></text>
+			<hr>
+			<b>Shak</b><br>
+			XAD <a class="noclick" href="javascript:void(0);">½:½</a> SAP<br>
+			XAD <a class="noclick" href="javascript:void(0);">1:0</a> KAT<br>
+			<hr>
+			<b>Shogi</b><br>
+			XAD <a class="noclick" href="javascript:void(0);">1:0</a> EMM<br>
+			<hr>
+		</div>
+		<div id="article">
+			<i>Sharjant artikl...</i>
+		</div>
+	</div>
+	
+	<img style="display: block; margin: auto; margin-top: 16px; padding-bottom: 16px" class="noclick" id="ad1">
+  </body>
+  <script>
+	function loadArticle() {
+		var hash = location.hash.slice(1)
+		var articleField = document.querySelector("#article")
+		
+		if (hash == "") {
+			articleField.innerHTML = "<h2>Velkom!</h2><p>Velkom a <b>Oranjbosk Kelkfoa</b>, prim (e sol) gaset pro Oranjbosk e omni de Hellcraft. Klika su linki in flankbar a aperiar artikli, ma nota bene ke no omni linki es klikabl.</p><p>Oranjbosk Kelkfoa es entrepren nedependant per: <br><i>xadrezo, 33+XL68 Oranjbosk</i>.</p><p>If vo desir publikar artikl a siloke, kontakta noi if it plis. Submitasioni esero posible traduked u redakted, a konformar plu bene ko nostr gidlinii.</p>"
+			return
+		}
+		
+		var loadFile
+		
+		fetch("https://balls.skin/m/xadrezo/ok/artikli/" + hash + ".json")
+		.then(res => res.json())
+		.then(json => loadFile = json)
+		.then(() => articleField.innerHTML = "<h2>" + loadFile["title"] + "</h2><h4>" + loadFile["author"] + ", " + loadFile["date"] + "</h4><p>" + loadFile["content"] + "</p>")
+	}
+	
+	function clockUpdate() {
+		var clockLoc = document.querySelector("#date")
+		
+		var time = new Date(new Date().getTime() + (0 * 24 * 60 * 60 * 1000) - (0 * 60 * 60 * 1000))
+		
+		var weekdayString = {"Mon": "lundi", "Tue": "marsdi", "Wed": "merkurdi", "Thu": "yovdi", "Fri": "vendrdi", "Sat": "saturndi", "Sun": "soldi"}[time.toLocaleString("en-GB", { timeZone: "US/Central", weekday: "short"})]
+		var dateString = time.toLocaleString("en-GB", { timeZone: "US/Central", day: "numeric"}) + "im";
+		var monthString = ["yanuar", "februar", "mars", "april", "mai", "yuni", "yuli", "august", "septembr", "oktobr", "novembr", "desembr"][time.toLocaleString("en-GB", { timeZone: "US/Central", month: "numeric"}) - 1];
+		var yearString = time.toLocaleString("en-GB", { timeZone: "US/Central", year: "numeric"});
+
+		var timeString = time.toLocaleString("en-GB", { timeZone: "US/Central", timeStyle: "short"}).toUpperCase();
+		
+		clockLoc.innerHTML = weekdayString + ", " + dateString + " " + monthString + " " + yearString + ", " + timeString + " HST"
+	}
+	
+	clockUpdate()
+	setInterval(clockUpdate, 250);
+	
+	loadArticle()
+	
+	async function getTitle(url) {  
+		  return fetch(`https://balls.skin/${url}`)
+			.then((response) => response.json())
+			.then((json) => {
+			  return json["title"];
+			});
+		};
+	
+	async function setArticleLink(list, index) {
+		
+		try {
+			res = '· <a href="javascript:void(0)" onclick="location.hash = \'#' + list[index].name.slice(0, -5) + '\'; loadArticle()">' + await getTitle(list[index].path) + '</a>' + "<br>"
+		} catch (error) {
+			console.error(error);
+			res = ""
+		}
+		
+		return res
+	}
+	
+	var articleList
+	
+	/*
+	fetch("https://api.github.com/repositories/761978945/contents/m/xadrezo/ok/artikli")
+	.then(res => res.json())
+	.then(json => articleList = json)
+	.then(() => articleList.reverse())
+	.then(() => setArticleLink(articleList, 0)
+		.then(res => document.querySelector("#articleList1").innerHTML = res))
+	.then(() => setArticleLink(articleList, 1)
+		.then(res => document.querySelector("#articleList2").innerHTML = res))
+	.then(() => setArticleLink(articleList, 2)
+		.then(res => document.querySelector("#articleList3").innerHTML = res))
+	*/
+  </script>
+  <script>
+	/*
+    var randomSel = (Math.floor(Math.random() * 5)).toString()
+    document.querySelector("#ad").src = "./ad-" + randomSel + ".svg"
+
+	var randomSel1 = (Math.floor(Math.random() * 5)).toString()
+	document.querySelector("#ad1").src = "./ad-" + randomSel1 + ".svg"
+	*/
+  </script>
+</html>

@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'mairri';
+    src: url('/mairri2-webfont.woff2') format('woff2');
+}
+
+.masthead {
+	color: white;
+	display: flex;
+	padding: 8px;
+	background: rgb(0,0,70);
+	background: linear-gradient(180deg, rgba(204,78,0,1) 0%, rgba(255,132,50,1) 100%);
+}
+
+.logo {
+	filter: invert(98%) sepia(100%) saturate(0%) hue-rotate(300deg) brightness(102%) contrast(103%);
+}
+
+body {
+  margin: 0px;
+  background-color: lightgray;
+  color: black;
+  font-family: Verdana, Tahoma;
+}
+
+@media only screen {
+	.main {
+	  margin: auto;
+	  margin-top: 16px;
+	  padding: 16px;
+	  background-color: white;
+	  width: min(75%, 750px);
+	  display: flex;
+	}
+}
+
+.sidebar {
+	min-width: 20%;
+	max-width: 20%;
+	min-height: 100%;
+	border-right: 1px dashed black;
+	margin-right: 8px;
+	padding-right: 8px;
+}
+
+h2 {
+	margin-bottom: 4px;
+}
+
+h2, h4 {
+	margin-top: 0px
+}
+
+p {
+	text-align: justify;
+}
+
+a {
+	text-decoration: underline;
+}
+
+hr {
+	border: none;
+	border-top: 1px dashed black;
+	background: none;
+	height: 0;
+}
+
+.noclick {
+	cursor: not-allowed;
+}
+
+.seemore {
+	text-align: right;
+	display: block;
+}
