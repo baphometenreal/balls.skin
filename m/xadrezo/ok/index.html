@@ -45,7 +45,8 @@
 		var articleField = document.querySelector("#article")
 		
 		if (hash == "") {
-			articleField.innerHTML = "<h2>Velkom!</h2><p>Velkom a <b>Oranjbosk Kelkfoa</b>, prim (e sol) gaset pro Oranjbosk e omni de Hellcraft. Klika su linki in flankbar a aperiar artikli, ma nota bene ke no omni linki es klikabl.</p><p>Oranjbosk Kelkfoa es entrepren nedependant per: <br><i>xadrezo, 33+XL68 Oranjbosk</i>.</p><p>If vo desir publikar artikl a siloke, kontakta noi if it plis. Submitasioni esero posible traduked u redakted, a konformar plu bene ko nostr gidlinii.</p>"
+			document.title = "Oranjbosk Kelkfoa"; 
+			articleField.innerHTML = "<h2>Velkom!</h2><p>Velkom a <b>Oranjbosk Kelkfoa</b>, prim (e sol) gaset pro Oranjbosk e omni de Hellcraft. Klika su linki in flankbar a aperiar artikli, ma nota bene ke no omni linki es klikabl.</p><p>Oranjbosk Kelkfoa es entrepren nedependant per: <br><i>xadrezo, 384/266 Oranjbosk</i>.</p><p>If vo desir publikar artikl a siloke, kontakta noi if it plis. Submitasioni esero posible traduked u redakted, a konformar plu bene ko nostr gidlinii.</p>"
 			return
 		}
 		
@@ -54,7 +55,7 @@
 		fetch("https://balls.skin/m/xadrezo/ok/artikli/" + hash + ".json")
 		.then(res => res.json())
 		.then(json => loadFile = json)
-		.then(() => articleField.innerHTML = "<h2>" + loadFile["title"] + "</h2><h4>" + loadFile["author"] + ", " + loadFile["date"] + "</h4><p>" + loadFile["content"] + "</p>")
+		.then(() => {document.title = loadFile["title"] +  " · Oranjbosk Kelkfoa"; articleField.innerHTML = "<h2>" + loadFile["title"] + "</h2><h4>" + loadFile["author"] + ", " + loadFile["date"] + "</h4><p>" + loadFile["content"] + "</p>"})
 	}
 	
 	function clockUpdate() {
