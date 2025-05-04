@@ -3,28 +3,28 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oranjbosk Kelkfoa</title>
+    <title>Orangewood Occasional</title>
     <link href="./style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
 	<div class="masthead">
-		<a href="javascript:void(0)" onclick="location.hash = ''; loadArticle()"><img class="logo" src="./oranjbosk-kelkfoa.svg"></a>
+		<a href="javascript:void(0)" onclick="location.hash = ''; loadArticle()"><img class="logo" src="./orangewood-occasional.svg"></a>
 		<div style="display: flex; margin-left: 8px; flex-direction: column; flex-grow: 1">
 			<div style="color: white; flex-grow: 1; font-weight: bold" id="date"></div>
-			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Novaji</a> · <a style="color: white" class="noclick" href="javascript:void(0);">Ludi</a> · <a style="color: white" href="javascript:void(0);" onclick="switchLang('en.html');">ENGLISH</a></div>
-			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Kontakt</a></div>
+			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">News</a> · <a style="color: white" class="noclick" href="javascript:void(0);">Games</a> · <a style="color: white" href="javascript:void(0);" onclick="switchLang('');">ORANJBOSKAN</a></div>
+			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Contact</a></div>
 		</div>
 		<img class="noclick" id="ad">
 	</div>
 	
 	<div class="main">
 		<div class="sidebar">
-			<b>Leplu novi</b><br>
-			<text id="articleList1"><i>Sharjant linki...</i></text>
+			<b>Most recent</b><br>
+			<text id="articleList1"><i>Loading links...</i></text>
 			<text id="articleList2"></text>
 			<text id="articleList3"></text>
 			<hr>
-			<b>Shak</b><br>
+			<b>Chess</b><br>
 			XAD <a class="noclick" href="javascript:void(0);">½:½</a> SAP<br>
 			XAD <a class="noclick" href="javascript:void(0);">1:0</a> KAT<br>
 			<hr>
@@ -33,14 +33,14 @@
 			<hr>
 		</div>
 		<div id="article">
-			<i>Sharjant artikl...</i>
+			<i>Loading article...</i>
 		</div>
 	</div>
 	
 	<img style="display: block; margin: auto; margin-top: 16px; padding-bottom: 16px" class="noclick" id="ad1">
   </body>
   <script>
-	var language = "ob"
+	var language = "en"
 	
 	function switchLang(lang) {
 		window.location.href = "./" + lang + location.hash;
@@ -51,8 +51,8 @@
 		var articleField = document.querySelector("#article")
 		
 		if (hash == "") {
-			document.title = "Oranjbosk Kelkfoa"; 
-			articleField.innerHTML = "<h2>Velkom!</h2><p>Velkom a <b>Oranjbosk Kelkfoa</b>, prim (e sol) gaset pro Oranjbosk e omni de Hellcraft. Klika su linki in flankbar a aperiar artikli, ma nota bene ke no omni linki es klikabl.</p><p>Oranjbosk Kelkfoa es entrepren nedependant per: <br><i>xadrezo, 384/266 Oranjbosk</i>.</p><p>If vo desir publikar artikl a siloke, kontakta noi if it plis. Submitasioni esero posible traduked u redakted, a konformar plu bene ko nostr gidlinii.</p>"
+			document.title = "Orangewood Occasional"; 
+			articleField.innerHTML = "<h2>Welcome!</h2><p>Welcome to the <b>Orangewood Occasional</b>, the first (and only) newspaper for Orangewood and all of Hellcraft. Click on the links on the sidebar to open articles, but note that not all links are clickable.</p><p>The Orangewood Occasional is an independent enterprise by: <br><i>xadrezo, 384/266 Orangewood</i>.</p><p>If you wish to publish an article here, please contact us. Submissions may be translated and edited to better conform with our guidelines.</p>"
 			return
 		}
 		
@@ -61,7 +61,7 @@
 		fetch("https://balls.skin/m/xadrezo/ok/artikli/" + hash + ".json")
 		.then(res => res.json())
 		.then(json => loadFile = json)
-		.then(() => {document.title = loadFile[language]["title"] +  " · Oranjbosk Kelkfoa"; articleField.innerHTML = "<h2>" + loadFile[language]["title"] + "</h2><h4>" + loadFile[language]["author"] + ", " + loadFile[language]["date"] + "</h4><p>" + loadFile[language]["content"] + "</p>"})
+		.then(() => {document.title = loadFile[language]["title"] +  " · Orangewood Occasional"; articleField.innerHTML = "<h2>" + loadFile[language]["title"] + "</h2><h4>" + loadFile[language]["author"] + ", " + loadFile[language]["date"] + "</h4><p>" + loadFile[language]["content"] + "</p>"})
 	}
 	
 	function clockUpdate() {
@@ -69,9 +69,9 @@
 		
 		var time = new Date(new Date().getTime() + (0 * 24 * 60 * 60 * 1000) - (0 * 60 * 60 * 1000))
 		
-		var weekdayString = {"Mon": "lundi", "Tue": "marsdi", "Wed": "merkurdi", "Thu": "yovdi", "Fri": "vendrdi", "Sat": "saturndi", "Sun": "soldi"}[time.toLocaleString("en-GB", { timeZone: "US/Central", weekday: "short"})]
-		var dateString = time.toLocaleString("en-GB", { timeZone: "US/Central", day: "numeric"}) + "im";
-		var monthString = ["yanuar", "februar", "mars", "april", "mai", "yuni", "yuli", "august", "septembr", "oktobr", "novembr", "desembr"][time.toLocaleString("en-GB", { timeZone: "US/Central", month: "numeric"}) - 1];
+		var weekdayString = {"Mon": "Monday", "Tue": "Tuesday", "Wed": "Wednesday", "Thu": "Thursday", "Fri": "Friday", "Sat": "Saturday", "Sun": "Sunday"}[time.toLocaleString("en-GB", { timeZone: "US/Central", weekday: "short"})]
+		var dateString = time.toLocaleString("en-GB", { timeZone: "US/Central", day: "numeric"});
+		var monthString = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][time.toLocaleString("en-GB", { timeZone: "US/Central", month: "numeric"}) - 1];
 		var yearString = time.toLocaleString("en-GB", { timeZone: "US/Central", year: "numeric"});
 
 		var timeString = time.toLocaleString("en-GB", { timeZone: "US/Central", timeStyle: "short"}).toUpperCase();
