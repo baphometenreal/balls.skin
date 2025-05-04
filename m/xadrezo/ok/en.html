@@ -12,7 +12,7 @@
 		<div style="display: flex; margin-left: 8px; flex-direction: column; flex-grow: 1">
 			<div style="color: white; flex-grow: 1; font-weight: bold" id="date"></div>
 			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">News</a> · <a style="color: white" class="noclick" href="javascript:void(0);">Games</a> · <a style="color: white" href="javascript:void(0);" onclick="switchLang('');">ORANJBOSKAN</a></div>
-			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Contact</a></div>
+			<div style="color: white;"><a style="color: white" href="javascript:void(0);" onclick="location.hash = '#kontakt'; loadArticle()">Contact</a></div>
 		</div>
 		<img class="noclick" id="ad">
 	</div>
@@ -50,18 +50,23 @@
 		var hash = location.hash.slice(1)
 		var articleField = document.querySelector("#article")
 		
-		if (hash == "") {
-			document.title = "Orangewood Occasional"; 
-			articleField.innerHTML = "<h2>Welcome!</h2><p>Welcome to the <b>Orangewood Occasional</b> (<i>Oranjbosk Kelkfoa</i>, <b>OK</b>), the first (and only) newspaper for Orangewood and all of Hellcraft. Click on the links on the sidebar to open articles, but note that not all links are clickable.</p><p>The Orangewood Occasional is an independent enterprise by: <br><i>xadrezo, 384/266 Orangewood</i>.</p><p>If you wish to publish an article here, please contact us. Submissions may be translated and edited to better conform with our guidelines.</p>"
-			return
+		switch (hash) {
+			case "":
+				document.title = "Orangewood Occasional"; 
+				articleField.innerHTML = "<h2>Welcome!</h2><p>Welcome to the <b>Orangewood Occasional</b> (<i>Oranjbosk Kelkfoa</i>, <b>OK</b>), the first (and only) newspaper for Orangewood and all of Hellcraft. Click on the links on the sidebar to open articles, but note that not all links are clickable.</p><p>The Orangewood Occasional is an independent enterprise by: <br><i>xadrezo, 384/266 Orangewood</i>.</p><p>If you wish to publish an article here, please contact us. Submissions may be translated and edited to better conform with our guidelines.</p>"
+				break
+			case "kontakt":
+				document.title = "Contact · Orangewood Occasional"; 
+				articleField.innerHTML = "<h2>Contact</h2><h4>In Hellcraft</h4><p>xadrezo<br>384/266 Orangewood</p><h4>Outside</h4><img src='https://xadrezo.neocities.org/impressum.png'/>"
+				break
+			default:
+				var loadFile
+				
+				fetch("https://balls.skin/m/xadrezo/ok/artikli/" + hash + ".json")
+				.then(res => res.json())
+				.then(json => loadFile = json)
+				.then(() => {document.title = loadFile[language]["title"] +  " · Orangewood Occasional"; articleField.innerHTML = "<h2>" + loadFile[language]["title"] + "</h2><h4>" + loadFile[language]["author"] + ", " + loadFile[language]["date"] + "</h4><p>" + loadFile[language]["content"] + "</p>"})
 		}
-		
-		var loadFile
-		
-		fetch("https://balls.skin/m/xadrezo/ok/artikli/" + hash + ".json")
-		.then(res => res.json())
-		.then(json => loadFile = json)
-		.then(() => {document.title = loadFile[language]["title"] +  " · Orangewood Occasional"; articleField.innerHTML = "<h2>" + loadFile[language]["title"] + "</h2><h4>" + loadFile[language]["author"] + ", " + loadFile[language]["date"] + "</h4><p>" + loadFile[language]["content"] + "</p>"})
 	}
 	
 	function clockUpdate() {
