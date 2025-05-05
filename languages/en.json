@@ -28,7 +28,7 @@
   "config": "Config",
   "theme": "Theme",
   "themebasic": "Basic/Accessibility",
-  "themeflat": "Flat Colour",
+  "themeflat": "Flat Colour (in mostly colour order)",
   "themegradient": "Aesthetic",
   "themenovelty": "'Novelty' (Possible eyestrain warning)",
   "subdomain": "Subdomain",
@@ -232,5 +232,14 @@
   "lucasst2":"Rukasugi",
   "lucasp1":"What if Atlantis were a <i>normal</i> place?",
   "lucasp2":"A personallang I very recently started working on.",
-  "publicfolder":"Public Folder"
+  "publicfolder":"Public Folder",
+  "icosahedrmode": "Icosahedr mode",
+  "bratmode": "BRAT mode",
+  "coquettemode":"Coquette mode",
+  "strawberrymode":"Strawberry mode",
+  "orangemode":"Orange peel mode",
+  "lemonademode":"Lemonade mode",
+  "limemode":"Lime mode",
+  "blueberrymode":"Blueberry mode",
+  "raspberrymode":"Raspberry mode"
 }

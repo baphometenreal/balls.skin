@@ -86,6 +86,20 @@ function loadLightMode() {
           theme.href = "/themes/flat/css_yorha.css"
         } else if (localStorage.theme == "icosahedr"){
           theme.href = "/themes/flat/css_icosahedr.css"
+        } else if (localStorage.theme == "coquette"){
+          theme.href = "/themes/flat/css_coquette.css"
+        } else if (localStorage.theme == "strawberry"){
+          theme.href = "/themes/flat/css_strawberry.css"
+        } else if (localStorage.theme == "orange"){
+          theme.href = "/themes/flat/css_orange.css"
+        } else if (localStorage.theme == "lemon"){
+          theme.href = "/themes/flat/css_lemon.css"
+        } else if (localStorage.theme == "lime"){
+          theme.href = "/themes/flat/css_lime.css"
+        } else if (localStorage.theme == "blueberry"){
+          theme.href = "/themes/flat/css_blueberry.css"
+        } else if (localStorage.theme == "raspberry"){
+          theme.href = "/themes/flat/css_raspberry.css"
         } else {
 		  theme.href = "/themes/flat/css.css" 
 		}
