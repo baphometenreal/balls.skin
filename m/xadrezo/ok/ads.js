@@ -1,13 +1,13 @@
 function loadAds() {
-	/*
-	var adIds = 2
+	var adList = [
+		{"img": "emma-furnace.png", "link": ""}
+	]
 
-	var randomSel = (Math.floor(Math.random() * adIds)).toString()
-	document.querySelector("#ad").src = "./limi/ad-" + randomSel + ".png"
+	var randomSel = Math.floor(Math.random() * adList.length)
+	document.querySelector("#ad").src = "./limi/" + adList[randomSel]["img"]
 
-	var randomSel1 = (Math.floor(Math.random() * adIds)).toString()
-	document.querySelector("#ad1").src = "./limi/ad-" + randomSel1 + ".png"
-	*/
+	var randomSel1 = Math.floor(Math.random() * adList.length)
+	document.querySelector("#ad1").src = "./limi/" + adList[randomSel1]["img"]
 }
 
 loadAds()
