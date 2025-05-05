@@ -23,9 +23,10 @@
 				var step0 = Math.floor(Math.random() * Names.length)
 				output.innerHTML = Names[step0]+"<br>"
 				
-				var step1 = Math.floor(Math.random() * 2)
+				var step1 = Math.floor(Math.random() * 4)
 				
-				if (step1 == 0) {output.innerHTML += "it/its"; return}
+				if (step1 == 0) {output.innerHTML += "she/her"; return}
+				if (step1 == 1) {output.innerHTML += "it/its"; return}
 				
 				var otherPronouns = ["horn/horns", "ang/angels", "pup/pups", "kit/kits", "fang/fangs", "gut/guts", "blood/bloods", "plush/plushed","stuffie/stuffies","vamp/vamps"]
 				
