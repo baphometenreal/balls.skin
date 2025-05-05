@@ -47,6 +47,16 @@
 		window.location.href = "./" + lang + location.hash;
 	}
 	
+	function parseDateFormat(string) {
+		var year = parseInt(string.slice(0,4))
+		var month = parseInt(string.slice(4,6))
+		var day = parseInt(string.slice(6,8))
+		
+		var monthNames = ["yanuar", "februar", "mars", "april", "mai", "yuni", "yuli", "august", "septembr", "oktobr", "novembr", "desembr"]
+		
+		return day + "im " + monthNames[month - 1] + " " + year
+	}
+	
 	function loadArticle() {
 		loadAds()
 		
@@ -68,7 +78,7 @@
 				fetch("https://balls.skin/m/xadrezo/ok/artikli/" + hash + ".json")
 				.then(res => res.json())
 				.then(json => loadFile = json)
-				.then(() => {document.title = loadFile[language]["title"] +  " · Oranjbosk Kelkfoa"; articleField.innerHTML = "<h2>" + loadFile[language]["title"] + "</h2><h4>" + loadFile[language]["author"] + ", " + loadFile[language]["date"] + "</h4><p>" + loadFile[language]["content"] + "</p>"})
+				.then(() => {document.title = loadFile[language]["title"] +  " · Oranjbosk Kelkfoa"; articleField.innerHTML = "<h2>" + loadFile[language]["title"] + "</h2><h4>" + loadFile["author"] + ", " + parseDateFormat(hash.slice(0,-3)) + "</h4><p>" + loadFile[language]["content"] + "</p>"})
 		}
 	}
 	
