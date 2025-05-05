@@ -15,6 +15,11 @@
 	filter: invert(98%) sepia(100%) saturate(0%) hue-rotate(300deg) brightness(102%) contrast(103%);
 }
 
+.ad {
+	width: 450px;
+	height: 75px;
+}
+
 body {
   margin: 0px;
   background-color: lightgray;

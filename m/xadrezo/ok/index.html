@@ -14,7 +14,7 @@
 			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Novaji</a> · <a style="color: white" class="noclick" href="javascript:void(0);">Ludi</a> · <a style="color: white" href="javascript:void(0);" onclick="switchLang('en.html');">ENGLISH</a></div>
 			<div style="color: white;"><a style="color: white" href="javascript:void(0);" onclick="location.hash = '#kontakt'; loadArticle()">Kontakt</a></div>
 		</div>
-		<img class="noclick" id="ad">
+		<img class="ad" id="ad">
 	</div>
 	
 	<div class="main">
@@ -37,8 +37,9 @@
 		</div>
 	</div>
 	
-	<img style="display: block; margin: auto; margin-top: 16px; padding-bottom: 16px" class="noclick" id="ad1">
+	<img style="display: block; margin: auto; margin-top: 16px; padding-bottom: 16px" class="ad" id="ad1">
   </body>
+  <script src="ads.js"></script>
   <script>
 	var language = "ob"
 	
@@ -47,6 +48,8 @@
 	}
 	
 	function loadArticle() {
+		loadAds()
+		
 		var hash = location.hash.slice(1)
 		var articleField = document.querySelector("#article")
 		
@@ -121,14 +124,5 @@
 		.then(res => document.querySelector("#articleList2").innerHTML = res))
 	.then(() => setArticleLink(articleList, 2)
 		.then(res => document.querySelector("#articleList3").innerHTML = res))
-  </script>
-  <script>
-	/*
-    var randomSel = (Math.floor(Math.random() * 5)).toString()
-    document.querySelector("#ad").src = "./ad-" + randomSel + ".svg"
-
-	var randomSel1 = (Math.floor(Math.random() * 5)).toString()
-	document.querySelector("#ad1").src = "./ad-" + randomSel1 + ".svg"
-	*/
   </script>
 </html>
