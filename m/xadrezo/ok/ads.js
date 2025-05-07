@@ -1,7 +1,8 @@
 function loadAds() {
 	var adList = [
 		{"img": "emma-furnace.png", "link": ""},
-		{"img": "inserad.png", "link": ""}
+		{"img": "inserad.png", "link": ""},
+		{"img": "bloodspire.jpg", "link": ""}
 	]
 
 	var randomSel = Math.floor(Math.random() * adList.length)
