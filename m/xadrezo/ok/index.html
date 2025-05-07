@@ -11,7 +11,7 @@
 		<a href="javascript:void(0)" onclick="location.hash = ''; loadArticle()"><img class="logo" src="./oranjbosk-kelkfoa.svg"></a>
 		<div style="display: flex; margin-left: 8px; flex-direction: column; flex-grow: 1">
 			<div style="color: white; flex-grow: 1; font-weight: bold" id="date"></div>
-			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Novaji</a> · <a style="color: white" class="noclick" href="javascript:void(0);">Ludi</a> · <a style="color: white" href="javascript:void(0);" onclick="switchLang('en.html');">ENGLISH</a></div>
+			<div style="color: white;"><a style="color: white" class="noclick" href="javascript:void(0);">Novaji</a> · <a style="color: white" href="javascript:void(0);" onclick="location.hash = '#ludi'; loadArticle()">Ludi</a> · <a style="color: white" href="javascript:void(0);" onclick="switchLang('en.html');">ENGLISH</a></div>
 			<div style="color: white;"><a style="color: white" href="javascript:void(0);" onclick="location.hash = '#kontakt'; loadArticle()">Kontakt</a></div>
 		</div>
 		<img class="ad" id="ad">
@@ -71,6 +71,14 @@
 			case "kontakt":
 				document.title = "Kontakt · Oranjbosk Kelkfoa"; 
 				articleField.innerHTML = "<h2>Kontakt</h2><h4>In Hellcraft</h4><p>xadrezo<br>384/266 Oranjbosk</p><h4>Eksteriore</h4><img src='https://xadrezo.neocities.org/impressum.png'/>"
+				break
+			case "ludi":
+				document.title = "Ludi · Oranjbosk Kelkfoa"; 
+				articleField.innerHTML = "<h2>Ludi</h2><p>· <a href=\"javascript:void(0);\" onclick=\"location.hash = '#sudoku'; loadArticle()\">Sudoku</a></p>"
+				break
+			case "sudoku":
+				document.title = "Sudoku · Oranjbosk Kelkfoa"; 
+				articleField.innerHTML = "<h2>Sudoku</h2><IFRAME SRC='//widget.websudoku.com/?level=1' WIDTH='240' HEIGHT='260' SCROLLING='no' FRAMEBORDER='0'></IFRAME>"
 				break
 			default:
 				var loadFile
