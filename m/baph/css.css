@@ -4,12 +4,13 @@
   --bg: #400017;
   --text: #1b030c;
   --button-bg: #400017;
-  --jalinkhover: #d11d56;
+  --jalinkhover: #ffdfe9;
+  --textb: #ffdfe9;
 }
 body {margin-left:10%; margin-right:10%; background: var(--bg); color:var(--text); background-attachment: fixed;}
 a.jalink, a.jalink:visited {text-decoration:underline; background-color: #FFFFFF00;  padding-top:0; padding-bottom:0; margin-bottom:0; padding-left:0; padding-right:0;}
 a.jalink:hover {color:var(--jalinkhover)}
-a, button, a:visited {text-decoration: none; background-color: var(--button-bg); color: var(--text); border-radius: 5px; padding-top:5px; padding-bottom:5px; margin-bottom:15px; padding-left:7px; padding-right:7px;}
+a, button, a:visited {text-decoration: none; background-color: var(--button-bg); color: var(--textb); border-radius: 5px; padding-top:5px; padding-bottom:5px; margin-bottom:15px; padding-left:7px; padding-right:7px;}
 .colon3 {width:50%; max-width:250px; height:auto;}
 .main {text-align:center; border-radius:10px; margin-bottom:10px; max-width: 100%; background: var(--bg-main); padding-bottom:10px;}
 .main2 {max-width: 100%; border-radius: 5px; padding-bottom:5px; background: var(--bg-main2)}
