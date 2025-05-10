@@ -759,7 +759,7 @@ function bijectiveString(m, k) {
 						"džan": "",
 						"han": "",
 						"dže": "",
-						"tše": ""
+						"tše": "",
 						
 						
 						":": ":",
