@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hellcraft address converter</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="all">
+<style>
+	td { text-align: right}
+</style>
+</head><body>
+<section id="base">
+<h1>Hellcraft address converter</h1>
+<script>
+var baseLastNum = 0;
+
+function mod(n, m) {
+	return ((n % m) + m) % m;
+}
+
+function charToNum(ch) {
+	switch(ch) {
+		case '!': return -1;
+		case '@': return -2;
+		case '#': return -3;
+		case '$': return -4;
+		case '%': return -5;
+		case '^': return -6;
+		case '&': return -7;
+		case '*': return -8;
+		case '(': return -9;
+		default: return parseInt(ch,36);
+	}
+}
+function numToChar(num) {
+	if(num>=0&&num<36&&Math.floor(num)==num)
+		return num.toString(36);
+	else switch(num) {
+		case -1: return '!';
+		case -2: return '@';
+		case -3: return '#';
+		case -4: return '$';
+		case -5: return '%';
+		case -6: return '^';
+		case -7: return '&';
+		case -8: return '*';
+		case -9: return '(';
+		default: return '{'+num+'}';
+	}
+}
+
+function fromBase(str, base) {
+	var num = 0, dec = null, mult = 1;
+	for(var i = 0; i < str.length; i++) {
+		var ch = str.charAt(i);
+		if(i==0&&ch=='+')
+			continue;
+		if(i==0&&ch=='-') {
+			mult = -1;
+			continue;
+		}
+		if(ch==' '||ch=='_') continue;
+		p = ch=='.'||ch==','?'.':charToNum(ch);
+		if(p!=p)
+			return "====";
+		if(dec!=null) {
+			if(p=='.')
+				return "====";
+			num += dec*p;
+			dec /= base;
+		} else if(p=='.') {
+			dec = 1/base;
+		} else {
+			num *= base;
+			num += p;
+		}
+	}
+	return num*mult;
+}
+function toBase(num, base, start) {
+	if((typeof num)!='number')
+		return num;
+	if(num!=num||base!=base||start!=start)
+		return "====";
+	if(Math.abs(num)==Number.POSITIVE_INFINITY)
+		return num;
+	if(base>0&&start>=0&&num<0)
+		return '-'+toBase(-num,base,start);
+	var recip = false;
+	if(Math.abs(base)<1&&base!=0) {
+		base = 1/base;
+		recip = true;
+	}
+	var end = Math.ceil(Math.abs(base)+start);
+	if(num==0)
+		if(0>=start&&0<=end)
+			return '0';
+		else
+			return '(empty string)';
+	if(base==1) {
+		if(start==0)
+			return "====";
+		if(num%start!=0)
+			return "====";
+		var str = '';
+		for(var i = 0; i < num; i++)
+			str += numToChar(start);
+		return str;
+	}
+	if(base==-1)
+		return "====";
+	if(base==0)
+		return "====";
+	var ar = [], high = Math.max(Math.ceil(Math.log(Math.abs(num))/Math.log(Math.abs(base))),0), low = 0;
+	if(Math.floor(base)!=base)
+		ar[high] = num/Math.pow(base,high); // correct standard form (for phinary at least)
+	else
+		ar[0] = num; // more accurate
+	for(var i = high; i>-20; i--) {
+		if(ar[i]==null) ar[i] = 0;
+		if(Math.floor(ar[i])!=ar[i]) {
+			if(ar[i-1]==null) ar[i-1] = 0;
+			ar[i-1] += (ar[i]-Math.floor(ar[i]))*base;
+			ar[i] = Math.floor(ar[i]);
+			low = Math.min(low,i-1);
+		} else if(i<0)
+			break;
+	}
+	if(low<=-20) {
+		low = -19;
+		if(ar[-20]>base/2)
+			ar[-19]++;
+	}
+	for(var i = low; ; i++) {
+		if(ar[i]<start||ar[i]>=end) {
+			if(ar[i]==0&&i>=high || ar[i]==0&&ar[i+1]==0&&high==i+1)
+				break;
+			if(ar[i+1]==null) ar[i+1] = 0;
+			var n = (base<0?Math.ceil:Math.floor)((ar[i]-start)/base);
+			ar[i+1] += n;
+			ar[i] -= n*base;
+			high = Math.max(high,i+1);
+		} else if(i>high)
+			break;
+		if(i>Math.max(Math.ceil(Math.log(Math.abs(num))/Math.log(Math.abs(base))),0)*2+1)
+			return "Conversion failed";
+	}
+	var str = '', zero = true;
+	if(recip) {
+		for(var i = low; i <= 0; i++) {
+			if(ar[i]==0&&zero)
+				continue;
+			if(ar[i]!=0)
+				zero = false;
+			str += numToChar(ar[i]);
+		}
+		if(high>0) {
+			str += '.';
+			for(var i = 1; i <= high; i++)
+				str += numToChar(ar[i]);
+			if(str.match(/\.?0*$/))
+				str = RegExp["$`"];
+		}
+	} else {
+		for(var i = high; i >= 0; i--) {
+			if(ar[i]==0&&zero)
+				continue;
+			if(ar[i]!=0)
+				zero = false;
+			str += numToChar(ar[i]);
+		}
+		if(low<0) {
+			str += '.';
+			for(var i = -1; i >= low && i>-20; i--)
+				str += numToChar(ar[i]);
+			if(str.match(/\.?0*$/))
+				str = RegExp["$`"];
+		}
+	}
+	return str/*+' '+high+'/'+low*/;
+}
+function merge (str1, str2) {
+  var a = str1.split("").filter(Boolean);
+  var b = str2.split("");
+  var mergedString = '';
+  for(var i = 0; i <= a.length && i <= b.length; i++) {
+       mergedString +=  a[i] + b[i];
+    }
+    return mergedString;
+}
+function convertToPseudoOLC(x) {
+	var digit1 = ["(", "*", "&", "^", "%", "$", "#", "@", "!", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a"]
+	var digit2 = ["ｱ", "ｲ", "ｳ", "ｴ", "ｵ", "ｶ", "ｷ", "ｸ", "ｹ", "ｺ", "ｻ", "ｼ", "ｽ", "ｾ", "ｿ", "ﾀ", "ﾁ", "ﾂ", "ﾃ", "ﾄ"]
+	var digit3 = ["H", "J", "L", "M", "P", "Q", "R", "V", "X", "2", "3", "4", "5", "6", "7", "8", "9", "C", "F", "G"]
+	
+	var result = x.toString()
+	
+	for (let i = 0; i < digit1.length; i++) {
+		result = result.replaceAll(digit1[i], digit2[i])
+	}
+	
+	for (let i = 0; i < digit2.length; i++) {
+		result = result.replaceAll(digit2[i], digit3[i])
+	}
+	
+	return result;
+}
+function convertFromPseudoOLC(x) {
+	var digit1 = ["H", "J", "L", "M", "P", "Q", "R", "V", "X", "2", "3", "4", "5", "6", "7", "8", "9", "C", "F", "G"]
+	var digit2 = ["ｱ", "ｲ", "ｳ", "ｴ", "ｵ", "ｶ", "ｷ", "ｸ", "ｹ", "ｺ", "ｻ", "ｼ", "ｽ", "ｾ", "ｿ", "ﾀ", "ﾁ", "ﾂ", "ﾃ", "ﾄ"]
+	var digit3 = ["(", "*", "&", "^", "%", "$", "#", "@", "!", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a"]
+	
+	var result = x.toString()
+	
+	for (let i = 0; i < digit1.length; i++) {
+		result = result.replaceAll(digit1[i], digit2[i])
+	}
+	
+	for (let i = 0; i < digit2.length; i++) {
+		result = result.replaceAll(digit2[i], digit3[i])
+	}
+	
+	return result;
+}
+
+var referencePoints = {
+  //"spawn": {"name": "Spawn", "short": true, "point": [0, 0], "valid": []},
+  "plateplaza": {"name": "Plate Plz", "short": false, "point": [321, 321], "valid": [[[291, 283], [335, 309]], [[291, 315], [335, 369]]]},
+  "orangewood": {"name": "Orangewood", "short": false, "point": [275, 82], "valid": [[[335, 178], [475, 282]]]}
+};
+
+function isValid(loc, zone) {
+	var baseDist = zone["short"] ? 10 : 200
+	var baseZone = [[zone["point"][0] + (-1 * baseDist) + 1, zone["point"][1] + (-1 * baseDist) + 1], [zone["point"][0] + baseDist, zone["point"][1] + baseDist]]
+	var zoneCheck = zone["valid"]
+	
+	if (zoneCheck.length == 0) {
+		zoneCheck.push(baseZone)
+	}
+	
+	for (let i = 0; i < zoneCheck.length; i++) {
+		if ((zoneCheck[i][0][0] <= loc[0] && loc[0] <= zoneCheck[i][1][0]) &&  (zoneCheck[i][0][1] <= loc[1] && loc[1] <= zoneCheck[i][1][1])) {
+			return true
+		}
+	}
+	
+	return false
+}
+
+function resolve(loc, zone) {
+	var baseDist = zone["short"] ? 10 : 200
+	var baseCorner = [zone["point"][0] + (-1 * baseDist) + 1, zone["point"][1] + (-1 * baseDist) + 1]
+	
+	var locRes = [mod(loc[0], baseDist * 2), mod(loc[1], baseDist * 2)]
+	var zoneRes = [mod(baseCorner[0], baseDist * 2), mod(baseCorner[1], baseDist * 2)]
+	
+	return [mod(locRes[0] - zoneRes[0], baseDist * 2) + baseCorner[0], mod(locRes[1] - zoneRes[1], baseDist * 2) + baseCorner[1]]
+}
+
+function findAlias(loc, psolc) {
+	var locationSel = document.forms.baseform.place.value
+	
+	var aliases = []
+	
+	if (locationSel != "") {
+		var baseFrom = 10, baseTo = 20, startTo = -9, num1 = loc[0], num2 = loc[1]
+		
+		var padLength = Math.max(3, Math.max(toBase(num1,parseFloat(baseTo),parseFloat(startTo)).toString().length, toBase(num2,parseFloat(baseTo),parseFloat(startTo)).toString().length))
+		var address = merge(String(toBase(num1,parseFloat(baseTo),parseFloat(startTo))).padStart(padLength, "0"), String(toBase(num2,parseFloat(baseTo),parseFloat(startTo))).padStart(padLength, "0")).slice(0, -3)
+		if (address.length > 4) {address = (address.substring(0, address.length-4) + "+" + address.substring(address.length-4)).toString();}
+		
+		var psolc = convertToPseudoOLC(address)
+		aliases.push(psolc)
+	}
+	
+	for (let i = 0; i < Object.keys(referencePoints).length; i++) {
+		
+		if (isValid(loc, referencePoints[Object.keys(referencePoints)[i]]) && locationSel != Object.keys(referencePoints)[i]) {
+			//console.log(psolc.slice(-4) + " " + referencePoints[Object.keys(referencePoints)[i]]["name"])
+			var slice = -4 + (referencePoints[Object.keys(referencePoints)[i]]["short"] * 2)
+			
+			aliases.push(psolc.slice(slice) + " " + referencePoints[Object.keys(referencePoints)[i]]["name"])
+		}
+	}
+	
+	if (aliases.length > 0) {
+		document.querySelector("#aliaslist").innerHTML = "<li>" + aliases.join("</li><li>") + "</li>"
+	} else {
+		document.querySelector("#aliaslist").innerHTML = "<li><i>none</i></li>"
+	}
+}
+
+function convert1() {
+	var baseFrom = 10, input1 = document.forms.baseform.value11.value, input2 = document.forms.baseform.value12.value, baseTo = 20, startTo = -9;
+	var num1 = baseFrom=='dec'?parseFloat(input1):fromBase(input1,parseFloat(baseFrom));
+	var num2 = baseFrom=='dec'?parseFloat(input2):fromBase(input2,parseFloat(baseFrom));
+	
+	if (input1 == "Error" || input2 == "Error") {
+		document.forms.baseform.value2.value = "Error"
+		document.forms.baseform.place.value = ""
+		document.querySelector("#aliaslist").innerHTML = "<li><i>none</i></li>"
+		return
+	}
+	
+	num1 = parseInt(num1)
+	num2 = parseInt(num2)
+	
+	var padLength = Math.max(3, Math.max(toBase(num1,parseFloat(baseTo),parseFloat(startTo)).toString().length, toBase(num2,parseFloat(baseTo),parseFloat(startTo)).toString().length))
+	
+	var address = merge(String(toBase(num1,parseFloat(baseTo),parseFloat(startTo))).padStart(padLength, "0"), String(toBase(num2,parseFloat(baseTo),parseFloat(startTo))).padStart(padLength, "0")).slice(0, -3)
+	
+	
+	if (address.length > 4) {address = (address.substring(0, address.length-4) + "+" + address.substring(address.length-4)).toString();}
+	
+	var psolc = convertToPseudoOLC(address)
+	document.forms.baseform.value2.value = (psolc.includes("=") ? "Error" : psolc)
+	document.forms.baseform.place.value = ""
+	
+	findAlias([num1, num2], psolc)
+}
+function convert2() {
+	var baseFrom = 20, input = document.forms.baseform.value2.value.toUpperCase(), baseTo = 10, startTo = 0;
+	var num = baseFrom=='dec'?parseFloat(input):fromBase(input,parseFloat(baseFrom));
+	baseLastNum = num;
+	
+	/*
+	if (input.includes("+") == false) {
+		input = document.forms.baseform.place.value + input
+	}
+	*/
+	input = input.replaceAll("+", "")
+	
+	
+	var input1; var input2;
+	for (let i = 0; i < (input.length/2); i++) {
+		input1 += input[i*2]
+		input2 += input[i*2+1]
+	}
+	
+	if ((input1.length != input2.length) || (input1.includes(".") || (input.length < 6 && document.forms.baseform.place.value == ""))) {
+		document.forms.baseform.value11.value = "Error"
+		document.forms.baseform.value12.value = "Error"
+		document.querySelector("#aliaslist").innerHTML = "<li><i>none</i></li>"
+		return
+	}
+	
+	var num1 = fromBase(convertFromPseudoOLC(input1).replaceAll("undefined", ""),parseFloat(baseFrom))
+	var num2 = fromBase(convertFromPseudoOLC(input2).replaceAll("undefined", ""),parseFloat(baseFrom))
+	
+	//console.log(num1, num2)
+	
+	if (document.forms.baseform.place.value != "") {
+		var resCheck = resolve([num1, num2], referencePoints[document.forms.baseform.place.value])
+		console.log(resCheck)
+		
+		if (input.length == 4 - (referencePoints[document.forms.baseform.place.value]["short"] * 2) && isValid(resCheck, referencePoints[document.forms.baseform.place.value])) {
+			[num1, num2] = resCheck
+		} else {
+			document.forms.baseform.value11.value = "Error"
+			document.forms.baseform.value12.value = "Error"
+			document.querySelector("#aliaslist").innerHTML = "<li><i>none</i></li>"
+			return
+		}
+	}
+	
+	//console.log(num1, num2)
+	
+	if (toBase(num1,parseFloat(baseTo),parseFloat(startTo)).includes("=") || toBase(num2,parseFloat(baseTo),parseFloat(startTo)).includes("=")) {
+		document.forms.baseform.value11.value = "Error"
+		document.forms.baseform.value12.value = "Error"
+		document.querySelector("#aliaslist").innerHTML = "<li><i>none</i></li>"
+	} else {
+		document.forms.baseform.value11.value = toBase(num1,parseFloat(baseTo),parseFloat(startTo))
+		document.forms.baseform.value12.value = toBase(num2,parseFloat(baseTo),parseFloat(startTo))
+	}
+	
+	findAlias([num1, num2], input)
+}
+</script>	
+</p><form name="baseform">
+<table>
+<tbody><tr><td>X:</td><td><input type="text" name="value11" oninput="convert1();" value="0"></td></tr><tr><td>Z:</td><td><input type="text" name="value12" oninput="convert1();" value="0"></td><!--<td><input type="button" value="Convert" onclick="convert1();"></td>-->
+</td></tr><tr><td></td><td colspan="2"><hr></td></tr><tr><td>Address:</td><td><input type="text" name="value2" oninput="convert2();" value="22+2222"></td><!--<td><input type="button" value="Convert" onclick="convert2();"></td></tr>
+<tr><td></td>--><td><select name="place" id="place" style="width: 150px" onchange="convert2();"><option value=""></option><!--<option value="3M+">Hanebrug (3M+)</option><option value="3M+">Sharkville (3M+)</option>--></select></td></tr></tbody></table>
+</form>
+<p id="alias"><h3 style="margin-bottom: 8px;">Aliases</h3><ul id="aliaslist" style="margin-top: 8px;"></ul></p>
+</section>
+<script>
+convert1()
+
+for (let i = 0; i < Object.keys(referencePoints).length; i++) {
+	var point = referencePoints[Object.keys(referencePoints)[i]]
+	
+	document.querySelector("#place").innerHTML += "<option value='" + Object.keys(referencePoints)[i] + "' onclick='convert2();'>" + point["name"] + /*(point["short"] ? " (short)" : "") +*/ "</option>"
+}
+</script>
+</body></html>
