@@ -27,6 +27,7 @@
 			<b>Chess</b><br>
 			XAD <a class="noclick" href="javascript:void(0);">½:½</a> SAP<br>
 			XAD <a class="noclick" href="javascript:void(0);">1:0</a> KAT<br>
+			KAT <a class="noclick" href="javascript:void(0);">½:½</a> XAD<br>
 			<hr>
 			<b>Shogi</b><br>
 			XAD <a class="noclick" href="javascript:void(0);">1:0</a> EMM<br>
@@ -77,8 +78,19 @@
 				articleField.innerHTML = "<h2>Games</h2><p>· <a href=\"javascript:void(0);\" onclick=\"location.hash = '#sudoku'; loadArticle()\">Sudoku</a></p>"
 				break
 			case "sudoku":
-				document.title = "Sudoku · Orangewood Occasional"; 
-				articleField.innerHTML = "<h2>Sudoku</h2><IFRAME SRC='//widget.websudoku.com/?level=1' WIDTH='240' HEIGHT='260' SCROLLING='no' FRAMEBORDER='0'></IFRAME>"
+				document.title = "Sudoku · Oranjbosk Kelkfoa"; 
+				articleField.innerHTML = "<h2>Sudoku</h2><h4 id='sudokuheader'></h4>" //<IFRAME id='sudokufield' SRC='./sudoku/sudoku.html#ob'  SCROLLING='no' WIDTH='400' HEIGHT='400' FRAMEBORDER='0'></IFRAME>" //WIDTH='240' HEIGHT='260'
+				//document.querySelector("#sudokuheader").innerHTML = document.querySelector("#sudokufield").contentWindow.seedVar
+				
+				var iframe = document.createElement('iframe')
+				iframe.onload = function() {document.querySelector("#sudokuheader").innerHTML = "Daily puzzle for " + parseDateFormat(iframe.contentWindow.seedVar)}
+				iframe.src = './sudoku/sudoku.html#en'
+				iframe.scrolling = 'no'
+				iframe.width = '400'
+				iframe.height = '350'
+				iframe.frameBorder = '0'
+				
+				articleField.appendChild(iframe)
 				break
 			default:
 				var loadFile
