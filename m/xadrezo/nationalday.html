@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Day Generator</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+	<section>
+    <h1>National Day Generator</h1>
+    
+    <p>Type anything into the box below and have it generate a national holiday for you.</p>
+
+	<input id="holidaytheme" onkeypress="return handleInput(event, this)"></input> <select id="calendar" onchange="genHoliday()"><option value="greg">Gregorian calendar</option><option value="baph">Baphian calendar</option></select> <button type="button" onclick="genHoliday()">Generate</button>
+	<p style="font-size: 1.5em" id="holidayres"></p>
+	</section>
+    <p id="footer"></p>
+	<script src="/footer.js"></script>
+	<script>
+		String.prototype.hashCode = function() {
+			var hash = 0, i = 0, len = this.length;
+			while ( i < len ) {
+				hash  = ((hash << 5) - hash + this.charCodeAt(i++)) << 0;
+			}
+			return hash + 2147483647 + 1;
+		};
+		
+		function genHoliday() {
+			var bar = document.querySelector("#holidaytheme")
+			
+			if (bar.value.replace(/\s/g,'').replace(/\'/g,'') == "") {return}
+			
+			var theme = bar.value.replace(/\s/g,'').replace(/\'/g,'').toLowerCase();
+			
+			switch (document.querySelector("#calendar").value) {
+				case "baph":
+					var holiday = (theme.hashCode() + 242 ) % 384
+					//var date = new Date(holiday * 86400000)
+					
+					var day = (holiday) % 6
+					var week = Math.floor(holiday / 6) % 4
+					var month = Math.floor(holiday / 24)
+					
+					document.querySelector("#holidayres").innerHTML = "National <b>" + (bar.value) + "</b> Day is on <b>" + ["Zefang", "Deya", "Mupewe", "Zude", "Soto", "Ge"][day] + " " + ["Sye", "Sepa", "Sazhe", "Eshe"][week] + " " + ["Jangsede", "Laze", "Juga", "Nope", "We", "Odoku", "Katanzhe", "Tanzhe", "Fotanzhe", "Shinzang", "Kasuka", "Suka", "Kezzo", "Tonkomse", "Kajangsede", "Etejangsede"][month] + "</b>!"
+					return
+				case "greg":
+					var holiday = (theme.hashCode() + 185 ) % 365
+					var date = new Date(holiday * 86400000)
+					
+					document.querySelector("#holidayres").innerHTML = "National <b>" + (bar.value) + "</b> Day is on <b>" + date.getUTCDate() + " " + ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][date.getUTCMonth()] + "</b>!"
+				default:
+					return
+			}
+		}
+		
+		function handleInput(e, bar) {
+			if (e.key === "Enter") {
+				e.preventDefault();
+				genHoliday();
+			}
+		};
+		
+		genHoliday()
+	</script>
+  </body>
+</html>
