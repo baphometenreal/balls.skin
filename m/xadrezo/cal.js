@@ -555,7 +555,9 @@ function calcDateSUN(date) {
 	
 	if (yearNum < 1) {yearNum = (Math.abs(yearNum)+1); var suffix = " IPT"}
 	
-	return [day, month, yearNum, suffix]
+	var ponkudoDay = mod(dayNumber - 1, 15)
+	
+	return [day, month, yearNum, suffix, ponkudoDay]
 }
 
 // -- RANGEI
