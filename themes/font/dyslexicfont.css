@@ -30,7 +30,7 @@
 h1,h2,h3,h4,h5,h6,h7 {
  font-family: "dyslexicheader", "Evajp", "Evatc", "Evasc", "Evakr";
 }
-p, td {
+p, td, ul {
   font-family: "dyslexic", serif;
   font-size: 13px;
 }
