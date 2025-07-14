@@ -3,6 +3,7 @@
   --bg:#f2f2f2;
   --text:black;
   --button-bg:#f2f2f2;
+  --jalinkhover:black;
 }
 
 
@@ -27,6 +28,8 @@ body {
   color:var(--text);
 }
 
+a.jalink, a.jalink:visited {text-decoration:underline; color:var(--text); background-color: rgba(255, 255, 255, 0); padding: 0px}
+a.jalink:hover {color:var(--jalinkhover)}
 a, button, a:visited {
   text-decoration: none;
   background-color: var(--button-bg);
@@ -49,3 +52,4 @@ table {
   table-layout: fixed;
   vertical-align: top;
   }
+.grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
