@@ -8,7 +8,7 @@
   --textb: #ffdfe9;
 }
 body {margin-left:10%; margin-right:10%; background: var(--bg); color:var(--text); background-attachment: fixed;}
-a.jalink, a.jalink:visited {text-decoration:underline; color:var(--text);}
+a.jalink, a.jalink:visited {text-decoration:underline; color:var(--text); background-color: rgba(255, 255, 255, 0); padding: 0px}
 a.jalink:hover {color:var(--jalinkhover)}
 a, button, a:visited {text-decoration: none; background-color: var(--button-bg); color: var(--textb); border-radius: 5px; padding-top:5px; padding-bottom:5px; margin-bottom:15px; padding-left:7px; padding-right:7px;}
 .colon3 {width:50%; max-width:250px; height:auto;}
@@ -19,3 +19,5 @@ a, button, a:visited {text-decoration: none; background-color: var(--button-bg);
 .emoji {height:12px; width:auto;}
 .center {vertical-align: middle;}
 .jaimg {max-height:300px; height:auto; width:auto;}
+.grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
+ul {list-style-type: none; margin: 0; padding: 0;}

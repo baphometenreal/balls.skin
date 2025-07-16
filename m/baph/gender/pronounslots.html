@@ -4,34 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Pronoun Slot Machine</title>
-	<link href="./css.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="./../css.css" rel="stylesheet" type="text/css" media="screen">
 	<link href="" rel="stylesheet" type="text/css" media="screen" id="font-link">
     <link href="" rel="stylesheet" type="text/css" media="screen" id="theme-link">
   </head>
   <body>
 	<div class="main">
 		<h2 id="baphprngenh" class="lang">Pronoun Slot Machine</h2>
-		<font id="xender" size="+3.5"></font><br><br>
+		<p><font id="xender" size="+3.5"></font></p><br><br>
 		<a id="baphprngenb" class="lang" type="button" onclick="clickButton()" href="#">Generate</a></center>
 		<script>
 			function clickButton() {
 				var output = document.getElementById("xender")
 				output.innerHTML = ""
 				
-				var Names = ["Baphomet", "Alice", "Asuka", "Aveline", "Noelle", "Gutz", "Rammie", "Agi", "Sushishi"]
+				var Names = ["Baphomet", "Charli", "Charlotte", "Alice", "Asuka", "Misato", "Aveline", "Noelle", "Gutz", "Rammie", "Agi", "Sushishi", "Sock", "Moose"]
 				
 				var step0 = Math.floor(Math.random() * Names.length)
 				output.innerHTML = Names[step0]+"<br>"
 				
-				var step1 = Math.floor(Math.random() * 4)
+				var Pronouns = ["she/her", "it/its", "horn/horns", "ang/angels", "pup/pups", "kit/kits", "gut/guts", "plush/plushed", "soft/softs", "stuffie/stuffies", "vamp/vamps", "fang/fangs", "blood/bloods", "bite/bites", "rot/rots", "pink/pinks", "plush/plushes", "green/greens"]
 				
-				if (step1 == 0) {output.innerHTML += "she/her"; return}
-				if (step1 == 1) {output.innerHTML += "it/its"; return}
-				
-				var otherPronouns = ["horn/horns", "ang/angels", "pup/pups", "kit/kits", "fang/fangs", "gut/guts", "blood/bloods", "plush/plushed","stuffie/stuffies","vamp/vamps"]
-				
-				var step2 = Math.floor(Math.random() * otherPronouns.length)
-				output.innerHTML += otherPronouns[step2]
+				var step2 = Math.floor(Math.random() * Pronouns.length)
+				output.innerHTML += Pronouns[step2]
 			}
 		</script>
 	</div>
