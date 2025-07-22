@@ -343,7 +343,7 @@
 				
 				var convDateKZM = calcDateKZM(date)
 				document.getElementById('convKZM').innerHTML = weekdayNamesKZM[convDateKZM[0]] + ", " + (convDateKZM[1] == 0 ? "" : convDateKZM[1]) + " " + monthNamesKZM[convDateKZM[2]] + " " + convDateKZM[3] + " " + lunarMonthNamesKZM[convDateKZM[4]] + " " + convDateKZM[5]
-				document.getElementById('convKZM1').innerHTML = "<kzm>" + weekdayNamesKZM1[convDateKZM[0]] + "·" + (convDateKZM[1] == 0 ? "" : numeralKZM(convDateKZM[1])) + monthNamesKZM1[convDateKZM[2]] + "·" + numeralKZM(convDateKZM[3]) + lunarMonthNamesKZM1[convDateKZM[4]] + "·" + (convDateKZM[5] == 0 ? "N" : (convDateKZM[5] < 0 ? numeralKZM(-1 * convDateKZM[5]) + "L" : numeralKZM(convDateKZM[5]))) +"</kzm>"
+				document.getElementById('convKZM1').innerHTML = "<kzm>" + weekdayNamesKZM1[convDateKZM[0]] + "·" + (convDateKZM[1] == 0 ? "" : numeralKZM(convDateKZM[1])) + monthNamesKZM1[convDateKZM[2]] + "·" + numeralKZM(convDateKZM[3]) + lunarMonthNamesKZM1[convDateKZM[4]] + "·" + (convDateKZM[5] == 0 ? "N" : (convDateKZM[5] < 0 ? numeralKZM(-1 * convDateKZM[5]) + "N" : numeralKZM(convDateKZM[5]))) +"</kzm>"
 			}
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
