@@ -18,15 +18,27 @@
 				var output = document.getElementById("xender")
 				output.innerHTML = ""
 				
-				var Names = ["Baphomet", "Charli", "Charlotte", "Alice", "Asuka", "Misato", "Aveline", "Noelle", "Gutz", "Rammie", "Agi", "Sushishi", "Sock", "Moose"]
+				switch (Math.floor(Math.random() * 2)) {
+					case 0:
+						var Names50 = ["Baphomet", "Charli"]
+						output.innerHTML = Names50[Math.floor(Math.random() * Names50.length)]+"<br>"
+						break;
+					case 1:
+						var Names = ["Charlotte", "Alice", "Asuka", "Misato", "Aveline", "Noelle", "Gutz", "Rammie", "Agi", "Sushishi", "Sock", "Moose"]
+						output.innerHTML = Names[Math.floor(Math.random() * Names.length)]+"<br>"
+						break;
+				}
 				
-				var step0 = Math.floor(Math.random() * Names.length)
-				output.innerHTML = Names[step0]+"<br>"
-				
-				var Pronouns = ["she/her", "it/its", "horn/horns", "ang/angels", "pup/pups", "kit/kits", "gut/guts", "plush/plushed", "soft/softs", "stuffie/stuffies", "vamp/vamps", "fang/fangs", "blood/bloods", "bite/bites", "rot/rots", "pink/pinks", "plush/plushes", "green/greens"]
-				
-				var step2 = Math.floor(Math.random() * Pronouns.length)
-				output.innerHTML += Pronouns[step2]
+				/*switch (Math.floor(Math.random() * 2)) {
+					case 0:
+						var Pronouns50 = ["whatever"]
+						output.innerHTML = Pronouns50[Math.floor(Math.random() * Pronouns50.length)]+"<br>"
+						break;
+					case 1:*/
+						var Pronouns = ["she/her", "it/its", "horn/horns", "ang/angels", "pup/pups", "kit/kits", "gut/guts", "plush/plushed", "soft/softs", "stuffie/stuffies", "vamp/vamps", "fang/fangs", "blood/bloods", "bite/bites", "rot/rots", "pink/pinks", "plush/plushes", "green/greens"]
+						output.innerHTML += Pronouns[Math.floor(Math.random() * Pronouns.length)]
+						/*break;
+				}*/
 			}
 		</script>
 	</div>
