@@ -147,8 +147,8 @@
 	<img><font style="font-size: 26px;"> </font><font id="convWNL1" name="convWNL1" style="font-size: 26px;"></font><br>
 	<img><font style="font-size: 26px;"><!--Noellastani:--> </font><font id="errorNOE" name="errorNOE" style="font-size: 26px; color: red"></font><font id="convNOE" name="convNOE" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"><!--Noellastani:--> </font><font id="convNOE1" name="convNOE1" style="font-size: 26px; "></font><br>
-	<img src="flags/kzmr.png" title="Kzmr calendar" alt=":flag_kzm:" style="height: 22.2px; width: auto; padding: 0px 6.4px 0px"><font style="font-size: 26px;"><!--Kzmr:--> </font><font id="errorKZM" name="errorKZM" style="font-size: 26px; color: red"></font><font id="convKZM" name="convKZM" style="font-size: 26px; font-weight: bold;"></font><br>
-	<img><font style="font-size: 26px;"> </font><font id="convKZM1" name="convKZM1" style="font-size: 30px;"></font><br>
+	<!--<img src="flags/kzmr.png" title="Kzmr calendar" alt=":flag_kzm:" style="height: 22.2px; width: auto; padding: 0px 6.4px 0px"><font style="font-size: 26px;"> </font><font id="errorKZM" name="errorKZM" style="font-size: 26px; color: red"></font><font id="convKZM" name="convKZM" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"> </font><font id="convKZM1" name="convKZM1" style="font-size: 30px;"></font><br>-->
 	<img src="flags/jkawi.png" title="Jkawi calendar" alt=":flag_jka:"><font style="font-size: 26px;"><!--Jkawi:--> </font><font id="errorJKA" name="errorJKA" style="font-size: 26px; color: red"></font><font id="convJKA" name="convJKA" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"> </font><font id="convJKA1" name="convJKA1" style="font-size: 26px;"></font><br>
 	<img src="flags/sunteria.png" title="Sunterian calendar" alt=":flag_sun:"><font style="font-size: 26px;"><!--Sunterian:--> </font><font id="errorSUN" name="errorSUN" style="font-size: 26px; color: red"></font><font id="convSUN" name="convSUN" style="font-size: 26px; font-weight: bold;"></font><br>
@@ -188,7 +188,7 @@
 			//document.getElementById('errorRAN').innerHTML = ""
 			//document.getElementById('errorMAL').innerHTML = ""
 			document.getElementById('errorCRG').innerHTML = ""
-			document.getElementById('errorKZM').innerHTML = ""
+			//document.getElementById('errorKZM').innerHTML = ""
 			document.getElementById('errorAZK').innerHTML = ""
 			document.getElementById('errorFOI').innerHTML = ""
 			document.getElementById('errorJKA').innerHTML = ""
@@ -203,7 +203,7 @@
 			//document.getElementById('convRAN').innerHTML = ""
 			//document.getElementById('convMAL').innerHTML = ""
 			document.getElementById('convCRG').innerHTML = ""
-			document.getElementById('convKZM').innerHTML = ""
+			//document.getElementById('convKZM').innerHTML = ""
 			document.getElementById('convAZK').innerHTML = ""
 			document.getElementById('convFOI').innerHTML = ""
 			document.getElementById('convJKA').innerHTML = ""
@@ -215,7 +215,7 @@
 			document.getElementById('convSUN1').innerHTML = ""
 			//document.getElementById('convMAL1').innerHTML = ""
 			document.getElementById('convIHO1').innerHTML = ""
-			document.getElementById('convKZM1').innerHTML = ""
+			//document.getElementById('convKZM1').innerHTML = ""
 			document.getElementById('convAZK1').innerHTML = ""
 			document.getElementById('convCRG1').innerHTML = ""
 			document.getElementById('convJKA1').innerHTML = ""
@@ -332,6 +332,7 @@
 				document.getElementById('convCRG1').innerHTML = "<crg>rš) _s) : " + "<font " + (convDateCRG[3] ? " style='color: red;'>" : ">") + numberScriptCRG(convDateCRG[0]) + "</font> : ruš)û " + monthNamesCRG1[convDateCRG[1]] + " ļiš)û _s) : " + numberScriptCRG(convDateCRG[2]) + " :</crg>"
 			}
 			
+			/*
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
 				document.getElementById('errorKZM').innerHTML = "Year must be between -9999 and 9999"
 			} else {
@@ -347,6 +348,7 @@
 				document.getElementById('convKZM').innerHTML = weekdayNamesKZM[convDateKZM[0]] + ", " + (convDateKZM[1] == 0 ? "" : convDateKZM[1]) + " " + monthNamesKZM[convDateKZM[2]] + " " + convDateKZM[3] + " " + lunarMonthNamesKZM[convDateKZM[4]] + " " + convDateKZM[5]
 				document.getElementById('convKZM1').innerHTML = "<kzm>" + weekdayNamesKZM1[convDateKZM[0]] + "·" + (convDateKZM[1] == 0 ? "" : numeralKZM(convDateKZM[1])) + monthNamesKZM1[convDateKZM[2]] + "·" + numeralKZM(convDateKZM[3]) + lunarMonthNamesKZM1[convDateKZM[4]] + "·" + (convDateKZM[5] == 0 ? "N" : (convDateKZM[5] < 0 ? numeralKZM(-1 * convDateKZM[5]) + "N" : numeralKZM(convDateKZM[5]))) +"</kzm>"
 			}
+			*/
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
 				document.getElementById('errorAZK').innerHTML = "Year must be between -9999 and 9999"
