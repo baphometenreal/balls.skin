@@ -19,18 +19,11 @@
 	<script src="/js.js"></script>
     <script>
 		function convertDate(date) {	
-			document.getElementById('todayPCC').innerHTML = "placeholder"
-			
-			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
-				document.getElementById('todayPCC').innerHTML = "Year must be between -9999 and 9999"
-			}
-			else {
-				var convDate = calcDate(date)
+			var convDate = calcDate(date)
 				
-				var monthNames = ["Neuia", "Solmia", "Hmetmenia", "Uoihnia", "Loubia", "Moreitia", "Duskia", "Snoiguia", "Gelia", "Huersmenia", "Blehmia", "Bloidia", "Tridia"]
+			var monthNames = ["Neuia", "Solmia", "Hmetmenia", "Uoihnia", "Loubia", "Moreitia", "Duskia", "Snoiguia", "Gelia", "Huersmenia", "Blehmia", "Bloidia", "Tridia"]
 				
-				document.getElementById('todayPCC').innerHTML = convDate[0] + " " + monthNames[convDate[1]] + " " + convDate[2] + convDate[3]
-			}
+			document.getElementById('todayPCC').innerHTML = convDate[0] + " " + monthNames[convDate[1]] + " " + convDate[2] + convDate[3]
 		}
 		
 		var today = new Date();
@@ -40,6 +33,7 @@
     </script>
   </body>
 </html>
+
 
 
 
