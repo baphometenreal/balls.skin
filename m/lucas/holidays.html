@@ -36,8 +36,8 @@
 			return date[0] + " " + monthNames[date[1]] + " " + date[2] + date[3]
 		}
 		
-		function addEntry(name, date, dateSUN) {
-			document.querySelector("#holidays").innerHTML += '<font style="font-size: 26px;">' + name + ': </font><font style="font-size: 26px; font-weight: bold;">' + formatDate(date) + ' <i style=\"font-size: 20px;\">(' + formatDateHELN(date) + ')</i></font><br>'
+		function addEntry(name, date) {
+			document.querySelector("#holidays").innerHTML += '<font style="font-size: 26px;">' + name + ': </font><font style="font-size: 26px; font-weight: bold;">' + formatDate(date) + '()</i></font><br>'
 		}
 		
 		function getHolidays(year) {
@@ -52,28 +52,28 @@
 				//[day, month, yearNum, suffix]
 				
 				if (todayHELN[0] == 1 && todayHELN[1] == 0) {
-					addEntry("Neuioher", today, todayHELN)
+					addEntry("Neuioher", today)
 				}
 				else if (todayHELN[0] == 15 && todayHELN[1] == 1) {
-					addEntry("Medisemho", today, todayHELN)
+					addEntry("Medisemho", today)
 				}
 				else if (todayHELN[0] == 1 && todayHELN[1] == 3) {
-					addEntry("Neuasna", today, todayHELN)
+					addEntry("Neuasna", today)
 				}
 				else if (todayHELN[0] == 15 && todayHELN[1] == 4) {
-					addEntry("Mediasna", today, todayHELN)
+					addEntry("Mediasna", today)
 				}
 				else if (todayHELN[0] == 1 && todayHELN[1] == 6) {
-					addEntry("Neužeimer", today, todayHELN)
+					addEntry("Neužeimer", today)
 				}
 				else if (todayHELN[0] == 15 && todayHELN[1] == 7) {
-					addEntry("Medižeimer", today, todayHELN)
+					addEntry("Medižeimer", today)
 				}
 				else if (todayHELN[0] == 1 && todayHELN[1] == 9) {
-					addEntry("Neuuoser", today, todayHELN)
+					addEntry("Neuuoser", today)
 				}
 				else if (todayHELN[0] == 15 && todayHELN[1] == 10) {
-					addEntry("Mediuoser", today, todayHELN)
+					addEntry("Mediuoser", today)
 				}
 			}
 		}
