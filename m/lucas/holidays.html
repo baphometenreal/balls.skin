@@ -50,41 +50,41 @@
 			//console.log(yearLength)
 			for (let i = 0; i < yearLength; i++) {
 				var today = setDate(year, 1, 1, i * 86400000)
-				var todaySUN = calcDate(today)
+				var todayHELN = calcDate(today)
 				//[day, month, yearNum, suffix]
 				
-				if (today[0] == 1 && todaySUN[1] == 0) {
-					addEntry("New Year", today, todaySUN)
+				if (today[0] == 1 && todayHELN[1] == 0) {
+					addEntry("New Year", today, todayHELN)
 				}
-				else if (todaySUN[0] == 22 && todaySUN[1] == 0) {
-					addEntry("Naaruist Remembrance Day", today, todaySUN)
+				else if (todayHELN[0] == 22 && todayHELN[1] == 0) {
+					addEntry("Naaruist Remembrance Day", today, todayHELN)
 				}
-				else if (todaySUN[0] == 15 && todaySUN[1] == 1) {
-					addEntry("Midsummer", today, todaySUN)
+				else if (todayHELN[0] == 15 && todayHELN[1] == 1) {
+					addEntry("Midsummer", today, todayHELN)
 				}
-				else if (todaySUN[0] == 16 && todaySUN[1] == 2) {
-					addEntry("Republic Day", today, todaySUN)
+				else if (todayHELN[0] == 16 && todayHELN[1] == 2) {
+					addEntry("Republic Day", today, todayHELN)
 				}
-				else if (todaySUN[0] == 1 && todaySUN[1] == 3) {
-					addEntry("New Autumn", today, todaySUN)
+				else if (todayHELN[0] == 1 && todayHELN[1] == 3) {
+					addEntry("New Autumn", today, todayHELN)
 				}
-				else if (todaySUN[0] == 15 && todaySUN[1] == 4) {
-					addEntry("Midautumn", today, todaySUN)
+				else if (todayHELN[0] == 15 && todayHELN[1] == 4) {
+					addEntry("Midautumn", today, todayHELN)
 				}
-				else if (todaySUN[0] == 1 && todaySUN[1] == 6) {
-					addEntry("New Winter", today, todaySUN)
+				else if (todayHELN[0] == 1 && todayHELN[1] == 6) {
+					addEntry("New Winter", today, todayHELN)
 				}
-				else if (todaySUN[0] == 15 && todaySUN[1] == 7) {
-					addEntry("Midwinter", today, todaySUN)
+				else if (todayHELN[0] == 15 && todayHELN[1] == 7) {
+					addEntry("Midwinter", today, todayHELN)
 				}
-				else if (todaySUN[0] == 19 && todaySUN[1] == 7) {
-					addEntry("Unification Day", today, todaySUN)
+				else if (todayHELN[0] == 19 && todayHELN[1] == 7) {
+					addEntry("Unification Day", today, todayHELN)
 				}
-				else if (todaySUN[0] == 1 && todaySUN[1] == 9) {
-					addEntry("New Spring", today, todaySUN)
+				else if (todayHELN[0] == 1 && todayHELN[1] == 9) {
+					addEntry("New Spring", today, todayHELN)
 				}
-				else if (todaySUN[0] == 15 && todaySUN[1] == 10) {
-					addEntry("Midspring", today, todaySUN)
+				else if (todayHELN[0] == 15 && todayHELN[1] == 10) {
+					addEntry("Midspring", today, todayHELN)
 				}
 			}
 		}
