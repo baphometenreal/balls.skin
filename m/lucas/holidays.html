@@ -51,7 +51,7 @@
 				var todayHELN = calcDate(today)
 				//[day, month, yearNum, suffix]
 				
-				if (today[0] == 1 && todayHELN[1] == 0) {
+				if (todayHELN[0] == 1 && todayHELN[1] == 0) {
 					addEntry("New Year", today, todayHELN)
 				}
 				else if (todayHELN[0] == 22 && todayHELN[1] == 0) {
