@@ -31,13 +31,13 @@
 			return (date.getUTCDate() + " " + date.toLocaleString('en-GB', { timeZone: 'UTC', month: 'long' }) + " " + date.getUTCFullYear())
 		}
 		
-		function formatDate(date) {
+		function formatDateHELNdate) {
 			var monthNames = ["Neuia", "Solmia", "Hmetmenia", "Uoihnia", "Loubia", "Moreitia", "Duskia", "Snoiguia", "Gelia", "Huersmenia", "Blehmia", "Bloidia", "Tridia"]
 			return date[0] + " " + monthNames[date[1]] + " " + date[2] + date[3]
 		}
 		
 		function addEntry(name, date, dateSUN) {
-			document.querySelector("#holidays").innerHTML += '<font style="font-size: 26px;">' + name + ': </font><font style="font-size: 26px; font-weight: bold;">' + formatDate(date) + ' <i style=\"font-size: 20px;\">(' + formatDate(date) + ')</i></font><br>'
+			document.querySelector("#holidays").innerHTML += '<font style="font-size: 26px;">' + name + ': </font><font style="font-size: 26px; font-weight: bold;">' + formatDate(date) + ' <i style=\"font-size: 20px;\">(' + formatDateHELN(date) + ')</i></font><br>'
 		}
 		
 		function getHolidays(year) {
