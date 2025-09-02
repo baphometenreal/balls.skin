@@ -16,14 +16,8 @@ animal;zveri;m;;
 Anral;Imbruc;np;;
 Anralian;imbrucico;adjp;;
 apple, fruit;malo;n;;The meaning “fruit” is restricted to compounds and overly careless colloquial speech.
-Arcadia;Arcadia;fp;;
-Arcadian;arcadico;adjp;;
-Arginia;Arginia;fp;;
-Arginian;arginico;adjp;;
 armed force;auges;n;;
 ask;pauto;v;;
-Asparta;Asparta;fp;;
-Aspartan;aspartico;adjp;;
 attack;celmia;f;;
 attack;celmo;v;;
 autumn, fall;eson;f;;
@@ -105,8 +99,6 @@ creator;creaitor;m / f;;
 Cring;Cringia;fp;;
 Cringian, Cringish;cringico;adjp;;
 cup;peitor;m;;When used as a unit of measurement, it is equal to approx. 286.9 milliliters or 286.9 grams.
-Cysteia;Custeia;fp;;
-Cysteian;custeico;adjp;;
 day;daiti;f;;
 Davidria;Davidria;fp;;
 Davidrian;davidrico;adjp;;
@@ -230,8 +222,12 @@ Ihoshar;Ioçar;np;;Also colloquially spelled as <i>Ihoçhar</i>.
 Ihoshari;ioçarico;adjp;;Also colloquially spelled as <i>ihoçharico</i>.
 ill, sick;oligo;adj;;
 in;en;;with dative;
+Iquistia;Icvistia;fp;;
+Iquistian;icvistico;adjp;;
 iron;gelgi;f;;
 island;antudri;n;;
+Issica;Issica;fp;;
+Issican;issico;adjp;;
 it;so;prn;;
 Jkawi;Scavi;np;;
 Jkawian;scavico;adjp;;
@@ -251,8 +247,6 @@ knee;zluno;m;;
 knight;eçveitor;m / f;;
 know;deio;v;;This verb is used in the sense of “know a fact”. For the sense “to be acquainted with”, see <i>zloço</i>.
 know of, be familiar with;zloço;v;;This verb is used in the sense of “to be acquainted with”. For the sense “know a fact”, see <i>deio</i>.
-Kzmr;Cazambri;np;;
-Kzmrš;cazambrico;adjp;;
 lake;locu;m;;
 land, country;gavo;m;;
 language;dazva;f;;
@@ -277,11 +271,11 @@ loosen, free;lavo;v;;
 Loremese;loremesi;adjp;;
 Loremesia;Loremesia;fp;;
 love;zaunita;f;;
+Machellia;Machellia;fp;;
+Machellian;machellico;adjp;;
 maintain;anaturio;v;;
 man;aner;m;;
 many;dougio;adjp;;
-Matkha;Matca;fp;;
-Matkha Islander;matcico;adjp;;
 meat, flesh;membro;n;;
 member;antor;m / f;;
 Mevistan;Mevistania;fp;;
@@ -447,8 +441,6 @@ thirty;triçont;;;
 this;io;adjp;;
 thousand;zelo;;;Loremese ordinarily uses the <a href=“https://en.wikipedia.org/wiki/-yllion”>-yllion system for big numbers</a>. <i>Zelo</i> is only used instead of <i>deçat çato</i> (lit. “ten hundred”) when the number of hundreds is divisible by ten, e.g. 2000 = <i>dvos zelo</i> “two thousand”, but 2100 = <i>dviçont oino çato</i> “twenty-one hundred”.
 three;treis;num;;
-Threonia;Çreonia;fp;;
-Threonian;çreonico;adjp;;
 throw;çaudo;v;;
 thumb, inch, ounce;ançti;m;;When used as a unit of measurement, it is equal to approx. 3.061 centimeters, 28.69 milliliters or 28.69 grams.
 Thursday;agnidaiti;f;;
