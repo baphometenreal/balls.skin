@@ -25,6 +25,7 @@
 <tr><td><input type="text" name="valueAZT" oninput="convertAZT();" value="0/0"></td><td> Azkali tokuzke and kátzzom</td></tr>
 <!--<tr><td><input type="text" name="valueKAB" oninput="convertKAB();" value="0/0"></td><td> Kzmr bbntšku and <i>silver</i></td></tr>-->
 <!--<tr><td><input type="text" name="valueMAG" oninput="convertMAG();" value="0/0/0"></td><td> Mallian galdən, arcəndən and brindən<!--gold, silver and brass</td></tr>-->
+<tr><td><input type="text" name="valueRAI" oninput="convertRAI();" value="0.00"></td><td> Ratharian iksisuthutse</td></tr>
 </tbody></table>
 </form>
 </section>
@@ -95,6 +96,7 @@ function convertEUR(except) {
 		} 
 	}
 	*/
+	if (except != "RAI") {document.forms.baseform.valueRAI.value = roundProp(document.forms.baseform.valueEUR.value / 0.0393 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)}
 }
 function convertLOP() {
 	document.forms.baseform.valueEUR.value = document.forms.baseform.valueLOP.value / 200 * exchange[document.forms.baseform.currency.value]["rate"]
@@ -199,6 +201,12 @@ function displayBEO1() {
 		document.getElementById("valueBEO").style = "";
 	}
 	*/
+}
+function convertRAI() {
+	document.forms.baseform.valueEUR.value = document.forms.baseform.valueRAI.value * 0.0393 * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("RAI")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
 }
 
 var exchange = {"eur":{"code":"EUR","alphaCode":"EUR","numericCode":"840","name":"Euro","rate":1,"date":"","inverseRate":1}}
