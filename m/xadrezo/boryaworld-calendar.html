@@ -164,15 +164,16 @@
 	<img><font style="font-size: 26px;"> <!--</font><font id="convISS1" name="convIHO1" style="font-size: 26px;"></font><br>-->
 	<!--<img src="flags/rangei.png" title="Rangeian calendar" alt=":flag_ran:"><font style="font-size: 26px;"> </font><font id="errorRAN" name="errorRAN" style="font-size: 26px; color: red"></font><font id="convRAN" name="convRAN" style="font-size: 26px; font-weight: bold;"></font><br>--><br>
 	
-	<img src="flags/chifi.png" title="Rathari calendar" alt=":flag_chf:"><font style="font-size: 26px;"> </font><font id="errorFOI" name="errorFOI" style="font-size: 26px; color: red"></font><font id="convFOI" name="convFOI" style="font-size: 26px; font-weight: bold;"></font><br><br>
+	<img src="flags/chifi.png" title="Rathari calendar" alt=":flag_chf:"><font style="font-size: 26px;"> </font><font id="errorFOI" name="errorFOI" style="font-size: 26px; color: red"></font><font id="convFOI" name="convFOI" style="font-size: 26px; font-weight: bold;"></font><br>
+	<!--<img src="flags/qarvaba.png" title="Qarvaban calendar" alt=":flag_qar:"><font style="font-size: 26px;"> </font><font id="errorQAR" name="errorQAR" style="font-size: 26px; color: red"></font><font id="convQAR" name="convQAR" style="font-size: 26px; font-weight: bold;"></font><br>--><br>
 	
 	<img src="flags/alloti.png" title="Allotian calendar" alt=":flag_all:"><font style="font-size: 26px;"><!--Allotian:--> </font><font id="errorALL" name="errorALL" style="font-size: 26px; color: red"></font><font id="convALL" name="convALL" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"><!--Alloti:--> </font><font id="convALL1" name="convALL1" style="font-size: 26px;"></font><br>
 	<img src="flags/cring.png" title="Cring calendar" alt=":flag_crg:" style="border: 1px solid"><font style="font-size: 26px;"> </font><font id="errorCRG" name="errorCRG" style="font-size: 26px; color: red"></font><font id="convCRG" name="convCRG" style="font-size: 26px; font-weight: bold;"></font><br>
 	<img><font style="font-size: 26px;"> </font><font id="convCRG1" name="convCRG1" style="font-size: 26px;"></font><br><br>
 	
-	<!--<img src="flags/mallia.png" title="Mallian calendar" alt=":flag_mal:"><font style="font-size: 26px;"> </font><font id="errorMAL" name="errorMAL" style="font-size: 26px; color: red"></font><font id="convMAL" name="convMAL" style="font-size: 26px; font-weight: bold;"></font><br>
-	<img><font style="font-size: 26px;"> </font><font id="convMAL1" name="convMAL1" style="font-size: 26px;"></font><br>-->
+	<img src="flags/mallia.png" title="Mallian calendar" alt=":flag_mal:"><font style="font-size: 26px;"> </font><font id="errorMAL" name="errorMAL" style="font-size: 26px; color: red"></font><font id="convMAL" name="convMAL" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"> </font><font id="convMAL1" name="convMAL1" style="font-size: 26px;"></font><br>
 	
 	<script src="cal.js"></script>
 	<script src="ukilen-conv.js"></script>
@@ -188,13 +189,14 @@
 			document.getElementById('errorSUN').innerHTML = ""
 			document.getElementById('errorIHO').innerHTML = ""
 			//document.getElementById('errorRAN').innerHTML = ""
-			//document.getElementById('errorMAL').innerHTML = ""
+			document.getElementById('errorMAL').innerHTML = ""
 			document.getElementById('errorCRG').innerHTML = ""
 			//document.getElementById('errorKZM').innerHTML = ""
 			document.getElementById('errorAZK').innerHTML = ""
 			document.getElementById('errorFOI').innerHTML = ""
 			document.getElementById('errorJKA').innerHTML = ""
 			document.getElementById('errorISS').innerHTML = ""
+			//document.getElementById('errorQAR').innerHTML = ""
 			
 			document.getElementById('convGRE').innerHTML = ""
 			document.getElementById('convLRM').innerHTML = ""
@@ -204,20 +206,21 @@
 			document.getElementById('convSUN').innerHTML = ""
 			document.getElementById('convIHO').innerHTML = ""
 			//document.getElementById('convRAN').innerHTML = ""
-			//document.getElementById('convMAL').innerHTML = ""
+			document.getElementById('convMAL').innerHTML = ""
 			document.getElementById('convCRG').innerHTML = ""
 			//document.getElementById('convKZM').innerHTML = ""
 			document.getElementById('convAZK').innerHTML = ""
 			document.getElementById('convFOI').innerHTML = ""
 			document.getElementById('convJKA').innerHTML = ""
 			document.getElementById('convISS').innerHTML = ""
+			//document.getElementById('convQAR').innerHTML = ""
 			
 			document.getElementById('convLRM1').innerHTML = ""
 			document.getElementById('convNOE1').innerHTML = ""
 			document.getElementById('convWNL1').innerHTML = ""
 			document.getElementById('convALL1').innerHTML = ""
 			document.getElementById('convSUN1').innerHTML = ""
-			//document.getElementById('convMAL1').innerHTML = ""
+			document.getElementById('convMAL1').innerHTML = ""
 			document.getElementById('convIHO1').innerHTML = ""
 			//document.getElementById('convKZM1').innerHTML = ""
 			document.getElementById('convAZK1').innerHTML = ""
@@ -309,7 +312,7 @@
 				document.getElementById('convRAN').innerHTML = convDateRAN[0] + " " + convDateRAN[1] + " " + convDateRAN[2] + convDateRAN[3]
 			}*/
 			
-			/*
+			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
 				document.getElementById('errorMAL').innerHTML = "Year must be between -9999 and 9999"
 			} else {
@@ -323,7 +326,7 @@
 				document.getElementById('convMAL').innerHTML = weekdayNamesMAL[convDateMAL[0]] + ", " + convDateMAL[1] + " " + monthNamesMAL[convDateMAL[2]] + " " + convDateMAL[3] + convDateMAL[4]
 				document.getElementById('convMAL1').innerHTML = "<mal>" + (weekdayNamesMAL1[convDateMAL[0]] + ", " + numberMAL(convDateMAL[1]) + " " + monthNamesMAL1[convDateMAL[2]] + " " + numberMAL(convDateMAL[3]) + convDateMAL[4].replaceAll("BE", "vt")) + "</mal>"
 			}
-			*/
+			
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
 				document.getElementById('errorCRG').innerHTML = "Year must be between -9999 and 9999"
@@ -400,8 +403,22 @@
 				var monthNamesISS = ["Ravûr", "Tôr", "Bižæn", "Čærcr", "Ľô", "Iou", "Rhôstn", "Gour", "Môuthar", "Iz", "Pŷdar", "Zŷ"]
 				var suffixNamesISS = ["", " BK"]
 				
-				document.getElementById('convISS').innerHTML = convDateISS[0] + " " + monthNamesISS[convDateISS[1]] + " " + convDateISS[2] + suffixNamesLRM[convDateISS[3]]
+				document.getElementById('convISS').innerHTML = convDateISS[0] + " " + monthNamesISS[convDateISS[1]] + " " + convDateISS[2] + suffixNamesISS[convDateISS[3]]
 			}
+			
+			/*
+			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
+				document.getElementById('errorQAR').innerHTML = "Year must be between -9999 and 9999"
+			} else {
+				var convDateQAR = calcDateQAR(date)
+				
+				var monthNamesQAR = ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12", "Intercalary"]
+				var suffixNamesQAR = ["", " BE"]
+				var weekDayQAR = ["", "Ruby", "Copper", "Lead", "Bronze", "Emerald", "Iron", "Silver", "Gold", "Diamond"]
+				
+				document.getElementById('convQAR').innerHTML = (convDateQAR[4] != 0 ? weekDayQAR[convDateQAR[4]] + ", " : "") + convDateQAR[0] + " " + monthNamesQAR[convDateQAR[1]] + " " + convDateQAR[2] + suffixNamesQAR[convDateQAR[3]]
+			}
+			*/
 		}
 		
 		function clickButton() {

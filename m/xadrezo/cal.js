@@ -941,3 +941,44 @@ function calcDateISS(date) {
 	
 	return [dom, month, year, suffix]
 }
+
+// QARVABA
+
+function calcDateQAR(date) {
+	var epoch = new Date(Date.UTC(436, 2, 20))
+	var dayNumber = Math.floor((date - epoch) / 86400000) + 1
+	
+	var yearNum = 1
+	
+	if (dayNumber > 0) {
+		var totalDays = 1;
+		while (true) {
+			if (totalDays + (365 + (mod(yearNum, 4) == 0 && mod(yearNum, 128) != 0)) > dayNumber) break;
+			totalDays = totalDays + (365 + (mod(yearNum, 4) == 0 && mod(yearNum, 128) != 0));
+			yearNum = yearNum + 1;
+		}
+	} else {
+		var totalDays = 0;
+		while (true) {
+			yearNum = yearNum - 1;
+			totalDays = totalDays - (365 + (mod(yearNum, 4) == 0 && mod(yearNum, 128) != 0));
+			if (totalDays < dayNumber) break;
+		}
+		totalDays += 1
+	}
+	
+	var doy = dayNumber - totalDays
+	
+	var day = mod(doy, 30) + 1
+	var month = Math.floor(doy / 30)
+	var suffix = 0
+	
+	var weekDay = (month != 12 ? mod(doy, 9) + 1 : 0)
+	
+	if (yearNum < 1) {
+		yearNum = -1 * yearNum + 1
+		suffix = 1
+	}
+	
+	return [day, month, yearNum, suffix, weekDay]
+}
