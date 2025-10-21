@@ -782,7 +782,7 @@ function calcDateFOI(date) {
 	var monthDays = [0, 35, 63, 91, 119, 147, 175, 210, 238, 266, 294 + leap, 322 + leap, 350 + leap, 999]
 	// var monthNames = ["Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Leap"]
 	//var monthNames = ["<i>One</i>", "<i>Two</i>", "<i>Three</i>", "<i>Four</i>", "<i>Five</i>", "<i>Six</i>", "<i>Seven</i>", "<i>Eight</i>", "<i>Nine</i>", "<i>Ten</i>", "<i>Eleven</i>", "<i>Twelve</i>", "<i>Leap</i>"]
-	var monthNames = ["Khasi-ye Itsi", "Sizazi-ye Itsi", "Keksi-ye Itsi", "Khasi-ye Isithpsi", "Sizazi-ye Isithpsi", "Keksi-ye Isithpsi", "Khasi-ye Sifsi", "Sizazi-ye Sifsi", "Keksi-ye Sifsi", "Khasi-ye Narasi", "Sizazi-ye Narasi", "Keksi-ye Narasi", "Niksi-ye Hasmi"]
+	var monthNames = ["Khasizi-ye Itsi", "Sizazi-ye Itsi", "Kikasi-ye Itsi", "Khasizi-ye Isithipsi", "Sizazi-ye Isithipsi", "Kikasi-ye Isithipsi", "Khasizi-ye Sifsi", "Sizazi-ye Sifsi", "Kikasi-ye Sifsi", "Khasizi-ye Narasi", "Sizazi-ye Narasi", "Kikasi-ye Narasi", "Niksi-ye Hasmi"]
 	
 	
 	if (dayYear >= 0) {
