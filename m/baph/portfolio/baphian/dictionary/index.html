@@ -30,8 +30,18 @@
 	<div class="main2">
 		<a href="https://balls.skin/font/UkilenLg.otf">font</a>
 		<h1>Turku Baphian Dictionary</h1>
-		<div name="dictionary" id="dictionary">
+		<select id="register" name="register" onchange="readFile()">
+			<option value="all">All words</option>
+			<option value="s">Standard register</option>
+			<option value="service">Service register</option>
+			<option value="religion">Religious register</option>
+			<option value="high">High class register</option>
+			<option value="ahan">Ahanan register</option>
+			<option value="real">Real world register</option>
+			<option value="baph">Baphisms</option>
+		</select>
 		
+		<div name="dictionary" id="dictionary">
 		</div>
 	</div>
 	
@@ -49,7 +59,9 @@
 		  .then(blob => {
 			var content = reader.readAsText(blob);
 		});
-
+		
+		  document.getElementById("dictionary").innerHTML = "<br>Loading...";
+		
 		  reader.onload = function () {
 			var data = Papa.parse(reader.result, { header: false });
 
@@ -62,14 +74,66 @@
 
 			  var totalEntries = ""
 			  
+			  var selregister = document.querySelector("#register").value
+			  
 			  for (var i = 0; i < dictData.length; i++) { 
+				
 				var english = dictData[i][0]
 				var baphian = dictData[i][1]
 				var type = dictData[i][2]
 				var extra = dictData[i][3].replaceAll("{", "<ht>").replaceAll("}", "</ht>")
 				var notes = dictData[i][4]
+				var register = dictData[i][5]
 			  
 				var indEntry = ""
+				
+				switch (selregister) {
+					case "s":
+						if (["ahan", "real", "baph"].includes(register)) {
+							console.log(dictData[i] + " skipped!")
+							continue
+						}
+						break;
+					case "service":
+						if (!["", "s", "service", "bw"].includes(register)) {
+							console.log(dictData[i] + " skipped!")
+							continue
+						}
+						break;
+					case "religion":
+						if (!["", "religion", "bw"].includes(register)) {
+							console.log(dictData[i] + " skipped!")
+							continue
+						}
+						break;
+					case "high":
+						if (!["", "s", "high", "bw"].includes(register)) {
+							console.log(dictData[i] + " skipped!")
+							continue
+						}
+						break;
+					case "ahan":
+						if (["religion", "real", "baph"].includes(register)) {
+							console.log(dictData[i] + " skipped!")
+							continue
+						}
+						break;
+					case "real":
+						if (["bw", "baph"].includes(register)) {
+							console.log(dictData[i] + " skipped!")
+							continue
+						}
+						break;
+					case "baph":
+						if (["religion"].includes(register)) {
+							console.log(dictData[i] + " skipped!")
+							continue
+						}
+						break;
+					default:
+						// accept all
+				}
+				
 				
 				if ((type == "") && (notes == "")) {
 					indEntry = "<p>" + english + ": <font style='font-size:32px; font-family:ukilen; '>" + baphian.replaceAll("\'", "'") + "</font>"
