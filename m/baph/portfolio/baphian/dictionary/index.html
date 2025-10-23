@@ -142,10 +142,12 @@
 				if ((type == "") && (notes == "")) {
 					indEntry = "<p>" + english + ": <font style='font-size:32px; font-family:ukilen; '>" + baphian.replaceAll("\'", "'") + "</font>"
 					if (extra) { indEntry +=  " <i>(" + extra + (register == "ahan" ? ", Ahananism" : "") + (register == "baph" ? ", baphism" : "") + ")</i>" }
+					else if (register == "ahan") {  indEntry += "<i>(Ahananism)</i>" }
+					else if (register == "baph") {  indEntry += "<i>(baphism)</i>" }
 					indEntry += "</p>"
 				} else if  ((type == "") && (notes != "")) {
 					indEntry = "<p>" + english + ": <font style='font-size:32px; font-family:ukilen; '><a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + extra + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font>"
-					if (extra) { indEntry +=  " <i>(" + extra + (register == "ahan" ? ", Ahananism" : "") + (register == "baph" ? ", baphism" : "") + ", see notes)</i>" } else {indEntry +=  " <i>(" + (register == "ahan" ? "Ahananism, " : "") + (register == "baph" ? "baphism, " : "") + + "see notes)</i>" }
+					if (extra) { indEntry +=  " <i>(" + extra + (register == "ahan" ? ", Ahananism" : "") + (register == "baph" ? ", baphism" : "") + ", see notes)</i>" } else {indEntry +=  " <i>(" + (register == "ahan" ? "Ahananism, " : "") + (register == "baph" ? "baphism, " : "") + "see notes)</i>" }
 					indEntry += "</p>"
 				} else {
 					var prettyArt = type
