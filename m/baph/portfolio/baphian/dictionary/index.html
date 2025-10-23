@@ -42,7 +42,7 @@
 			<option value="baph">Baphisms</option>
 			</optgroup>
 		</select>
-		<h1>Turku Baphian Dictionary</h1>
+		<h1>Baphian Dictionary</h1>
 		
 		
 		<div name="dictionary" id="dictionary" style="text-align:initial">
@@ -141,11 +141,11 @@
 				
 				if ((type == "") && (notes == "")) {
 					indEntry = "<p>" + english + ": <font style='font-size:32px; font-family:ukilen; '>" + baphian.replaceAll("\'", "'") + "</font>"
-					if (extra) { indEntry +=  " <i>(" + extra + ")</i>" }
+					if (extra) { indEntry +=  " <i>(" + extra + (register == "ahan" ? ", Ahananism" : "") + (register == "baph" ? ", baphism" : "") + ")</i>" }
 					indEntry += "</p>"
 				} else if  ((type == "") && (notes != "")) {
 					indEntry = "<p>" + english + ": <font style='font-size:32px; font-family:ukilen; '><a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + extra + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font>"
-					if (extra) { indEntry +=  " <i>(" + extra + ", see notes)</i>" } else {indEntry +=  " <i>(see notes)</i>" }
+					if (extra) { indEntry +=  " <i>(" + extra + (register == "ahan" ? ", Ahananism" : "") + (register == "baph" ? ", baphism" : "") + ", see notes)</i>" } else {indEntry +=  " <i>(" + (register == "ahan" ? "Ahananism, " : "") + (register == "baph" ? "baphism, " : "") + + "see notes)</i>" }
 					indEntry += "</p>"
 				} else {
 					var prettyArt = type
@@ -170,6 +170,8 @@
 					
 					indEntry = "<p>" + english + ": <font style='font-size:32px; font-family:ukilen;'><a href=\"#\" onclick=\"grammar('" + english + "', '" + baphian + "', '" + type + "', '" + extra + "', '" + notes + "');\" class=\"entry\">" + baphian + "</a></font> <i>(" + prettyArt
 					if (extra) { indEntry +=  ", " + extra + ""}
+					if (register == "ahan") { indEntry +=  ", Ahananism"}
+					if (register == "baph") { indEntry +=  ", baphism"}
 					if (notes) { indEntry +=  ", see notes"}
 					indEntry += ")</i></p>"
 				}
