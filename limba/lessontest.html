@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limba Lesson Test</title>
+    <link href="./css.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>Limba Lesson Test</h1>
+    <p id="lessonSpace">...</p>
+  </body>
+  <script src="papaparse.min.js"></script>
+  <script>
+		//PAPA Parser (https://www.papaparse.com/) used to convert TEXT to CSV
+		var unit = 1
+		var lesson = 2
+		
+		var lessonMaterial = []
+		var usedMaterial = []
+		var score = 0
+		
+		var question = 0
+		
+		function readFile() {  
+		  var reader = new FileReader();
+		
+		  // document.getElementById('errorMessage').innerHTML = ""	  
+		  fetch("./dutch test/words.csv")
+		  .then(res => res.blob()) // Gets the response and returns it as a blob
+		  .then(blob => {
+			var content = reader.readAsText(blob);
+		});
+
+		  reader.onload = function () {
+			var data = Papa.parse(reader.result, { header: false, delimiter: ";", });
+
+			if (data.errors.length) {
+			  // document.getElementById('errorMessage').innerHTML = "* Error parsing CSV: " + JSON.stringify(data.errors)      
+			  console.error(data.errors)
+			} else {
+			  console.log("Loaded data")
+			  wordData = Object.entries(data)[0][1]
+			  
+			  console.log(wordData)
+			  
+			  for (var i = 0; i < wordData.length; i++) {
+				if (wordData[i][3] == unit && wordData[i][4] == lesson)  {// correct lesson
+					lessonMaterial.push(wordData[i])
+				}
+			  }
+			  
+			  
+			  runLesson();
+			}
+		}
+		}
+		
+		function shuffle(array) {
+		  for (let i = array.length - 1; i > 0; i--) {
+			let j = Math.floor(Math.random() * (i + 1));
+			[array[i], array[j]] = [array[j], array[i]];
+		  }
+		}
+		
+		function displayScore() {
+			document.querySelector("#score").innerHTML = "Score: <b>" + score + "</b>" 
+		}
+		
+		function minigame() {
+			displayScore()
+			
+			if (question > lessonMaterial.length - 1) {
+				document.querySelector("#minigame").innerHTML = ""
+				return
+			}
+			
+			//matching minigame
+			var wrongWords = structuredClone(lessonMaterial);
+			wrongWords.splice(question, 1)
+			
+			var correct = lessonMaterial[question]
+			var wrong = wrongWords[Math.floor(Math.random()*wrongWords.length)]
+			
+			var questionVar = Math.floor(Math.random() * 2)
+			var answerVar = 1 - questionVar
+			
+			var buttons = ["<button onclick='score += 1; question +=1; minigame()'>" + correct[answerVar] + "</button>", "<button onclick='question +=1; minigame()'>" + wrong[answerVar] + "</button>"]
+			
+			shuffle(buttons)
+			
+			// display questionVar
+			document.querySelector("#minigame").innerHTML = "<h3>" + correct[questionVar] + "</h3>"
+			
+			document.querySelector("#minigame").innerHTML += buttons[0]
+			document.querySelector("#minigame").innerHTML += buttons[1]
+		}
+		
+		function runLesson() {
+			//setup scoreboard
+			document.querySelector("#lessonSpace").innerHTML = "<p id='score'></p><p id='minigame'></p>"
+			shuffle(lessonMaterial)
+			
+			minigame()
+		}
+		
+		readFile();
+		
+  </script>
+</html>
