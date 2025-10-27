@@ -780,10 +780,6 @@ function calcDateFOI(date) {
 	var leap = (mod(Math.floor((getFirstDayFOI(year + 1) - getFirstDayFOI(year)) / 86400000) / 7, 2) == 1) * 7
 	
 	var monthDays = [0, 35, 63, 91, 119, 147, 175, 210, 238, 266, 294 + leap, 322 + leap, 350 + leap, 999]
-	// var monthNames = ["Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Leap"]
-	//var monthNames = ["<i>One</i>", "<i>Two</i>", "<i>Three</i>", "<i>Four</i>", "<i>Five</i>", "<i>Six</i>", "<i>Seven</i>", "<i>Eight</i>", "<i>Nine</i>", "<i>Ten</i>", "<i>Eleven</i>", "<i>Twelve</i>", "<i>Leap</i>"]
-	var monthNames = ["Khasizi-ye Itsi", "Sizazi-ye Itsi", "Kikasi-ye Itsi", "Khasizi-ye Isithipsi", "Sizazi-ye Isithipsi", "Kikasi-ye Isithipsi", "Khasizi-ye Sifsi", "Sizazi-ye Sifsi", "Kikasi-ye Sifsi", "Khasizi-ye Narasi", "Sizazi-ye Narasi", "Kikasi-ye Narasi", "Niksi-ye Hasmi"]
-	
 	
 	if (dayYear >= 0) {
 		while (true) {
@@ -794,7 +790,7 @@ function calcDateFOI(date) {
 	
 	var day = dayYear - monthDays[month] + 1
 	
-	return [day, monthNames[month], year + 1213] //1213 //1438]
+	return [day, month, year + 1213] //1213 //1438]
 }
 
 // JKAWI

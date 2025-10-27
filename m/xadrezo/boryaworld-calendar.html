@@ -60,6 +60,11 @@
 		src: url('jkawi.otf') format('opentype');
 	}
 	
+	@font-face {
+		font-family: 'tithri';
+		src: url('Tithri.otf') format('opentype');
+	}
+	
 	rt {
 		font-family: sans-serif
 	}
@@ -119,6 +124,10 @@
 	  font-size: 28px;
 	}
 	
+	tth {
+	  font-family: tithri;
+	}
+	
 	</style>
   </head>
   <body>
@@ -165,6 +174,7 @@
 	<!--<img src="flags/rangei.png" title="Rangeian calendar" alt=":flag_ran:"><font style="font-size: 26px;"> </font><font id="errorRAN" name="errorRAN" style="font-size: 26px; color: red"></font><font id="convRAN" name="convRAN" style="font-size: 26px; font-weight: bold;"></font><br>--><br>
 	
 	<img src="flags/chifi.png" title="Rathari calendar" alt=":flag_chf:"><font style="font-size: 26px;"> </font><font id="errorFOI" name="errorFOI" style="font-size: 26px; color: red"></font><font id="convFOI" name="convFOI" style="font-size: 26px; font-weight: bold;"></font><br>
+	<img><font style="font-size: 26px;"> </font><font id="convFOI1" name="convFOI1"></font><br>
 	<!--<img src="flags/qarvaba.png" title="Qarvaban calendar" alt=":flag_qar:"><font style="font-size: 26px;"> </font><font id="errorQAR" name="errorQAR" style="font-size: 26px; color: red"></font><font id="convQAR" name="convQAR" style="font-size: 26px; font-weight: bold;"></font><br>--><br>
 	
 	<img src="flags/alloti.png" title="Allotian calendar" alt=":flag_all:"><font style="font-size: 26px;"><!--Allotian:--> </font><font id="errorALL" name="errorALL" style="font-size: 26px; color: red"></font><font id="convALL" name="convALL" style="font-size: 26px; font-weight: bold;"></font><br>
@@ -224,6 +234,7 @@
 			document.getElementById('convIHO1').innerHTML = ""
 			//document.getElementById('convKZM1').innerHTML = ""
 			document.getElementById('convAZK1').innerHTML = ""
+			document.getElementById('convFOI1').innerHTML = ""
 			document.getElementById('convCRG1').innerHTML = ""
 			document.getElementById('convJKA1').innerHTML = ""
 		
@@ -371,7 +382,13 @@
 			} else {
 				var convDateFOI = calcDateFOI(date)
 				
-				document.getElementById('convFOI').innerHTML = convDateFOI[0] + " " + convDateFOI[1] + " " + convDateFOI[2]
+				// var monthNames = ["Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Leap"]
+				//var monthNames = ["<i>One</i>", "<i>Two</i>", "<i>Three</i>", "<i>Four</i>", "<i>Five</i>", "<i>Six</i>", "<i>Seven</i>", "<i>Eight</i>", "<i>Nine</i>", "<i>Ten</i>", "<i>Eleven</i>", "<i>Twelve</i>", "<i>Leap</i>"]
+				var monthNamesFOI = ["Khasizi-ye Itsi", "Sizazi-ye Itsi", "Kikasi-ye Itsi", "Khasizi-ye Isithipsi", "Sizazi-ye Isithipsi", "Kikasi-ye Isithipsi", "Khasizi-ye Sifsi", "Sizazi-ye Sifsi", "Kikasi-ye Sifsi", "Khasizi-ye Narasi", "Sizazi-ye Narasi", "Kikasi-ye Narasi", "Niksi-ye Hasmi"]
+				var monthNamesFOI1 = ["xasiZI+itSI", "sizaZI+itSI", "kikaSI+itSI", "xasiZI+isiTipSI", "sizaZI+isiTipSI", "kikaSI+isiTipSI", "xasiZI+sifSI", "sizaZI+sifSI", "kikaSI+sifSI", "xasiZI+naraSI", "sizaZI+naraSI", "kikaSI+naraSI", "nikSI+hasmi"]
+				
+				document.getElementById('convFOI').innerHTML = convDateFOI[0] + " " + monthNamesFOI[convDateFOI[1]] + " " + convDateFOI[2]
+				document.getElementById('convFOI1').innerHTML = "<tth>" + convDateFOI[0] + " " + monthNamesFOI1[convDateFOI[1]] + " " + String(convDateFOI[2]).replace("-", "u") + "</tth>"
 			}
 			
 			if (date.getUTCFullYear() < -9999 || date.getUTCFullYear() > 9999) {
