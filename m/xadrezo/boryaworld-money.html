@@ -22,7 +22,7 @@
 <tr><td><input type="text" name="valueWNB" oninput="convertWNB();" value="0/0"></td><td> Baphian bouns and tedh</td></tr>
 <!--<tr><td><input type="text" name="valueBEO" id="valueBEO" oninput="convertBEO();" value="0.00"><input type="text" name="valueBEO1" id="valueBEO1" oninput="convertBEO1();" style="display: none" value="0/0/0"></td><td> Bemanedup epen (<input type="checkbox" id="showBEO1" name="showBEO1" oninput="displayBEO1();"><label for="showBEO1"> show ÿkÿr and orar</label>)</td></tr>-->
 <tr><td><input type="text" name="valueSUZ" oninput="convertSUZ();" value="0/0/0"></td><td> Sunterian duidtios, hlenguos and žerhnes<!--želtihnos--></td></tr>
-<tr><td><input type="text" name="valueAZT" oninput="convertAZT();" value="0/0"></td><td> Azkali tokuzke and kátzzom</td></tr>
+<tr><td><input type="text" name="valueAZT" oninput="convertAZT();" value="0.00"></td><td> Azkali rei</td></tr>
 <!--<tr><td><input type="text" name="valueKAB" oninput="convertKAB();" value="0/0"></td><td> Kzmr bbntšku and <i>silver</i></td></tr>-->
 <!--<tr><td><input type="text" name="valueMAG" oninput="convertMAG();" value="0/0/0"></td><td> Mallian galdən, arcəndən and brindən<!--gold, silver and brass</td></tr>-->
 <tr><td><input type="text" name="valueRAI" oninput="convertRAI();" value="0.00"></td><td> Ratharian iksisuthutse</td></tr>
@@ -74,10 +74,12 @@ function convertEUR(except) {
 	}
 	//if (except != "SUZ") {document.forms.baseform.valueSUZ.value = roundProp(document.forms.baseform.valueEUR.value / 0.47 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)}
 	
-	if (except != "AZT") {
+	/*if (except != "AZT") {
 		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueAZT.value = NaN}
 		else {document.forms.baseform.valueAZT.value = (roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) < 0 ? "-" : "") + Math.floor(Math.abs(roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0)) / 250) + "/" + Math.abs(roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) % 250)}
 		}
+	*/
+	if (except != "AZT") {document.forms.baseform.valueAZT.value = roundProp(document.forms.baseform.valueEUR.value / 0.85194907088139 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)}
 	/*
 	if (except != "KAB") {
 		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueKAB.value = NaN}
@@ -160,11 +162,13 @@ function convertSUZ() {
 	*/
 }
 function convertAZT() {
-	var tokuzke = document.forms.baseform.valueAZT.value.split("/"); tokuzke[0] = parseInt(tokuzke[0]); tokuzke[1] = parseInt(tokuzke[1])
+	/*var tokuzke = document.forms.baseform.valueAZT.value.split("/"); tokuzke[0] = parseInt(tokuzke[0]); tokuzke[1] = parseInt(tokuzke[1])
 	var sign; if (Object.is(tokuzke[0], -0)) {sign = -1} else if (Object.is(tokuzke[0], 0)) {sign = 1} else {sign = Math.sign(tokuzke[0])}
 	
 	var tokuzkeVal = sign * (Math.abs(tokuzke[0] * 250) + Math.abs(tokuzke[1]))
 	document.forms.baseform.valueEUR.value = (tokuzkeVal * 1.1433905936879981) / (250) * exchange[document.forms.baseform.currency.value]["rate"]
+	*/
+	document.forms.baseform.valueEUR.value = document.forms.baseform.valueAZT.value * 0.85194907088139 * exchange[document.forms.baseform.currency.value]["rate"]
 	
 	convertEUR("AZT")
 	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
