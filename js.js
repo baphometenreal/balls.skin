@@ -6,8 +6,7 @@ function loadLightMode() {
 		  return
         }
 		
-		if ((location.href.slice(0, 25) == "https://balls.skin/m/baph") && !(localStorage.theme == "dark" || localStorage.theme == "light" || localStorage.theme == "darkc" || localStorage.theme == "lightc" || localStorage.theme == "yorha" || localStorage.theme == "coquette" || localStorage.theme == "cunty" || localStorage.theme == "brat")) {
-			// placeholder until a proper css is made
+		if ((location.href.slice(0, 25) == "https://balls.skin/m/baph") && !(localStorage.theme == "dark" || localStorage.theme == "light" || localStorage.theme == "darkc" || localStorage.theme == "lightc" || localStorage.theme == "yorha" || localStorage.theme == "coquette" || localStorage.theme == "cunty" || localStorage.theme == "brat" || localStorage.theme == "holly")) {
 			theme.href = "/m/baph/css.css"
 			return
 		}
