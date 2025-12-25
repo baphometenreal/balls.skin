@@ -160,7 +160,7 @@ Blind;;verb;;;
 Block;;verb;jeju{se} </i>[dʑɛ̝.dʑu.sɛ̝´]<i>;;
 Blood (informal);;an;se{we} </i>[sɛ̝.wɛ̝´]<i>;;
 Blood (vulgar);;an;se{kye} </i>[sɛ̝.kjɛ̝´]<i>;;
-Blossom;;verb;;;verb
+Blossom;;verb;;;
 Blow;;verb;fo{ye} </i>[fo̞.jɛ̝´]<i>;;
 Blue;;adj;be{we} </i>[bɛ̝.wɛ̝´]<i>;;
 Boat;;inan;zon{ssa} </i>[zo̞n.s:ä´]<i>;;
@@ -193,7 +193,7 @@ Broil;;verb;poo{wa}de{ya} </i>[po̞:.wä´.dɛ̝.jä´]<i>;;
 Brother;;an;sa{zu}ba </i>[sä.zu´.bä]<i>;Used for nonkaneeds, borrowed from Loremese;
 Brown;;adj;;;
 Brush;;inan;se{de}gu </i>[sɛ̝.dɛ̝´.gu]<i>;;
-Bud, sprout;;verb;;;verb
+Bud, sprout;;verb;;;
 Build;;verb;ja{we} </i>[dʑä.wɛ̝´]<i>;;
 Building;;inan;je{we} </i>[dʑɛ̝.wɛ̝´]<i>;;
 Bulge;;inan;;;
@@ -215,7 +215,7 @@ Canada;FULANSU;inan;jang{ge}fu{lan}su </i>[dʑäŋ.gɛ̝´.fu.län´.su]<i>;;
 Cannibal;;an;{na}tili </i>[nä´.ti.li]<i>;Borrowed from Azkali, ultimately from hngatiladdi /ŋ̊atilad:i/;
 Cannibalise;;verb;;;
 Cannibalism;;inan;{na}tilifo{nu} </i>[nä´.ti.li.fo̞.nu´]<i>;;
-Cannibalize;;verb;;;verb
+Cannibalize;;verb;;;
 Canyon, ravine;;inan;{noe}de </i>[no̞´.ɛ̝´.dɛ̝]<i>;;
 Capacitor;;inan;;;
 Cape (fabric);;inan;u{sa}zhe </i>[u.sä´.ʑɛ̝]<i>;;
@@ -351,7 +351,7 @@ Crowdfund;;verb;;;
 Crunk, crazy intoxicated, incredibly intoxicated;;verb;;;ahan
 Cry;;verb;ba{ka} </i>[bä.kä´]<i>;;
 Cuddle, spoon;;verb;;;
-Cultivate;;verb;;;verb
+Cultivate;;verb;;;
 Culture;;inan;mu{kye} </i>[mu.kjɛ̝´]<i>;;
 Cum, semen (vulgar);;an;;;
 Cunty;KISE;an;ki{se} </i>[ki.sɛ̝´]<i>;;ahan
@@ -377,7 +377,7 @@ Death;;inan;bi{ye}fo{nu} </i>[bi.jɛ̝´.fo̞.nu´]<i>;;
 Debate;;verb;;;
 Debt (general);;inan;;;
 Debt (money);;inan;;;
-Decay;;verb;;;verb
+Decay;;verb;;;
 Decide, choose;;verb;ko{wa} </i>[ko̞.wä´]<i>;;
 Declare;;verb;;;
 Deduce;;verb;;;
@@ -465,7 +465,7 @@ Enact;;verb;;;
 End;;verb;{ke} </i>[kɛ̝´]<i>;;
 Energy;;an;do{kyu} </i>[do̞.kju´]<i>;;
 Energy drink;BOJEKAA~;inan;boje{kaa}~ </i>[bo̞.jɛ̝.kä:´ ]<i>;Generalized brand name;
-Engine (vehicle), an essential part of something;;inan;;;inan
+Engine (vehicle), an essential part of something;;inan;;;
 Engrave;;verb;;;
 Enjoy;;verb;;;
 Enthrone;;verb;;;
@@ -520,9 +520,9 @@ Feel (mental);;verb;so{zhe} </i>[so̞.ʑɛ̝´]<i>;;
 Feel (physical);;verb;dun{te} </i>[dun.tɛ̝´]<i>;;
 Feign;;verb;;;
 Femboy;;an;;;
-Feminize;;verb;;;verb
+Feminize;;verb;;;
 Ferment;;verb;;;
-Fertilize;;verb;;;verb
+Fertilize;;verb;;;
 Few;;adj;e{yu} </i>[ɛ̝.ju´]<i>;;
 Field (geography);;inan;{da}fe </i>[dä´.fɛ̝]<i>;;
 Field, study;;inan;{ye}e{ye}ju{kang} </i>[jɛ̝´.ɛ̝.jɛ̝´.dʑu.käŋ´]<i>;;
@@ -531,7 +531,7 @@ Find;;verb;{tsi}he </i>[tsi´.hɛ̝]<i>;;
 Finger;;an;se{ta}we </i>[sɛ̝.tä´.wɛ̝]<i>;;
 Fingernail;;inan;zon{to} </i>[zo̞n.to̞´]<i>;;
 Fire;;an;de{ya} </i>[dɛ̝.jä´]<i>;;
-First person, 1st person;;prn;lo </i>[lo̞]<i>;Borrowed from Loremese;religion
+First person, 1st person;;prn;{ya} </i>[jä´]<i>;Borrowed from Loremese;religion
 First person, 1st person;;prn;lo </i>[lo̞]<i>;;s
 Fish;;an;po </i>[po̞]<i>;;
 Fish;;an;po{gu} </i>[po̞.gu´]<i>;;
@@ -546,7 +546,7 @@ Flesh;;an;;;
 Flicker;;verb;dan{na} </i>[dän.nä´]<i>;;
 Float;;verb;{ka}ko </i>[kä´.ko̞]<i>;;
 Floor, level;;inan;;;
-Flourish;;verb;;;verb
+Flourish;;verb;;;
 Flow;;verb;e{ko} </i>[ɛ̝.ko̞´]<i>;;
 Flow;;an;e{ko}fo{nu} </i>[ɛ̝.ko̞´.fo̞.nu´]<i>;;
 Flower;;an;we </i>[wɛ̝]<i>;;
@@ -909,7 +909,7 @@ Mark, sign;;inan;;;
 Mars;;inan;jan{ke}kya </i>[dʑäŋ.kɛ̝´.kjä]<i>;;
 Marsh;;inan;;;
 Mascara;;inan;;;
-Masculanize;;verb;;;verb
+Masculanize;;verb;;;
 Master;;verb;;;
 Masturbate, jerk off;;verb;;;
 Matkha;MADA;inan;ma{da}sa </i>[mä.dä´.sä]<i>;;
@@ -997,7 +997,7 @@ Nothing;;adj;do{diin} </i>[do̞.di:n´]<i>;;
 Now, right now;;adj;;;
 Numb;;adj;mang{ke} </i>[mäŋ.kɛ̝´]<i>;;
 Number;;inan;{e}ta </i>[ɛ̝´.tä]<i>;;
-Nurture;;verb;;;verb
+Nurture;;verb;;;
 Object;;inan;no{she} </i>[no̞.ɕɛ̝´]<i>;;
 Obsess;;verb;;;
 Occupy;;verb;;;
@@ -1058,7 +1058,7 @@ Pay;;verb;powo{zang} </i>[po̞.wo̞.zäŋ´]<i>;;
 Peace;;adj;zho{pe} </i>[ʑo̞.pɛ̝´]<i>;;
 Peak (of a mountain);;inan;;;
 Peninsula;;inan;;;
-Penis (formal);;an;;;an
+Penis (formal);;an;;;
 Penis (informal), dick;;inan;{dezum} </i>[dɛ̝´.zum´]<i>;;
 Penis (vulgar), dick, cock;;inan;de{kye} </i>[dɛ̝.kjɛ̝´]<i>;;
 People, group of people, Kind of people;;an;;;
@@ -1216,7 +1216,7 @@ Ride;;verb;{e}ze{pwi} </i>[ɛ̝´.zɛ̝.pwi´]<i>;;
 Ride on horseback;;verb;;;
 Rider, jockey;;an;{e}zesi </i>[ɛ̝´.zɛ̝.si]<i>;;
 Right (direction);;inan;{tsi}nuu </i>[tsi´.nu:]<i>;;
-Ripen;;verb;;;verb
+Ripen;;verb;;;
 River;;an;{ju}ga </i>[dʑu´.gä]<i>;;
 Road;;inan;de{kye} </i>[dɛ̝.kjɛ̝´]<i>;;
 Roast;;verb;;;
@@ -1422,7 +1422,7 @@ Stick, rod;;an;de{gu} </i>[dɛ̝.gu´]<i>;;
 Stickshift, manual;;inan;;;
 Still, not moving;;verb;ki{si} </i>[ki.su´]<i>;;
 Stimulant;;inan;;;
-Stimulate;;verb;;;verb
+Stimulate;;verb;;;
 Stone, rock;;inan;wo{zang} </i>[wo̞.zäŋ´]<i>;;
 Stoned, high;;adj;aye{da}yan </i>[kä.jɛ̝.dä´.yän]<i>;;
 Stoner;;an;kaye{da}si </i>[kä.jɛ̝.dä´.si]<i>;;
@@ -1503,6 +1503,7 @@ Theatre;;inan;;;
 Therefor;ATEDO;;ate{do} </i>[ä.tɛ̝.do´]<i>;Borrowed from Loremese, usually seen in Saulist text translations, and sometimes in scientific texts. Usually at the end of the sentence.;religion
 They (plural), 3rd person plural;;prn;sho{we} </i>[ɕo̞.wɛ̝´]<i>;;s
 They (plural), 3rd person plural;;prn;sho{we} </i>[ɕo̞.wɛ̝´]<i>;historical, only used when trying to specify gender in text;s
+They (plural), 3rd person plural;;prn;{sa} </i>[säs´]<i>;Borrowed from Loremese;religion
 They (singular), 3rd person;;prn;sho </i>[ɕo̞]<i>;;s
 They (singular), 3rd person;;prn;sho </i>[ɕo̞]<i>;historical, only used when trying to specify gender in text;s
 They (singular), 3rd person;;prn;{sa} </i>[sä´]<i>;Borrowed from Loremese;religion
@@ -1588,7 +1589,7 @@ Usurp, coup de tat;;verb;;;
 Uterus;;an;;;
 Vaccinate;;verb;;;
 Vaccine;;inan;;;
-Vagina;;an;;;an
+Vagina;;an;;;
 Valley;;inan;;;
 Vampire, blood eater;;inan;jo{we}si{we}si </i>[dʑo̞.wɛ̝´.si.wɛ̝´.si]<i>;;
 Vehicle;;inan;pe{ce} </i>[pɛ̝.tɕɛ̝´]<i>;;
