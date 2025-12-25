@@ -8,6 +8,7 @@
 <style>
 	td { text-align: left}
 	input { text-align: right}
+	body { font-family: Verdana, Tahoma}
 </style>
 </head><body class="secondary prog">
 <section id="base">
@@ -22,10 +23,11 @@
 <tr><td><input type="text" name="valueWNB" oninput="convertWNB();" value="0/0"></td><td> Baphian bouns and tedh</td></tr>
 <!--<tr><td><input type="text" name="valueBEO" id="valueBEO" oninput="convertBEO();" value="0.00"><input type="text" name="valueBEO1" id="valueBEO1" oninput="convertBEO1();" style="display: none" value="0/0/0"></td><td> Bemanedup epen (<input type="checkbox" id="showBEO1" name="showBEO1" oninput="displayBEO1();"><label for="showBEO1"> show ÿkÿr and orar</label>)</td></tr>-->
 <tr><td><input type="text" name="valueSUZ" oninput="convertSUZ();" value="0/0/0"></td><td> Sunterian duidtios, hlenguos and žerhnes<!--želtihnos--></td></tr>
-<tr><td><input type="text" name="valueAZT" oninput="convertAZT();" value="0/0"></td><td> Azkali tokuzke and kátzzom</td></tr>
+<tr><td><input type="text" name="valueAZT" oninput="convertAZT();" value="0.00"></td><td> Azkali rei</td></tr>
 <!--<tr><td><input type="text" name="valueKAB" oninput="convertKAB();" value="0/0"></td><td> Kzmr bbntšku and <i>silver</i></td></tr>-->
-<!--<tr><td><input type="text" name="valueMAG" oninput="convertMAG();" value="0/0/0"></td><td> Mallian galdən, arcəndən and brindən<!--gold, silver and brass</td></tr>-->
+<tr><td><input type="text" name="valueMAG" oninput="convertMAG();" value="0/0/0"></td><td> Machellian galdən, arcəndən and brindən</td></tr><!--gold, silver and brass</td></tr>-->
 <tr><td><input type="text" name="valueRAI" oninput="convertRAI();" value="0.00"></td><td> Ratharian iksisuthutse</td></tr>
+<tr><td><input type="text" name="valueDSO" oninput="convertDSO();" value="0/0"></td><td> Daquḍrana soḍuẓ and aṣew</td></tr>
 </tbody></table>
 </form>
 </section>
@@ -74,17 +76,19 @@ function convertEUR(except) {
 	}
 	//if (except != "SUZ") {document.forms.baseform.valueSUZ.value = roundProp(document.forms.baseform.valueEUR.value / 0.47 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)}
 	
-	if (except != "AZT") {
+	/*if (except != "AZT") {
 		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueAZT.value = NaN}
 		else {document.forms.baseform.valueAZT.value = (roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) < 0 ? "-" : "") + Math.floor(Math.abs(roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0)) / 250) + "/" + Math.abs(roundProp(document.forms.baseform.valueEUR.value / 1.1433905936879981 * (250) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) % 250)}
 		}
+	*/
+	if (except != "AZT") {document.forms.baseform.valueAZT.value = roundProp(document.forms.baseform.valueEUR.value / 0.85194907088139 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)}
 	/*
 	if (except != "KAB") {
 		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueKAB.value = NaN}
 		else {document.forms.baseform.valueKAB.value = (roundProp(document.forms.baseform.valueEUR.value * ((1/0.382) * 8) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) < 0 ? "-" : "") + Math.floor(Math.abs(roundProp(document.forms.baseform.valueEUR.value * ((1/0.382) * 8) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0)) / 8) + "/" + Math.abs(roundProp(document.forms.baseform.valueEUR.value * ((1/0.382) * 8) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) % 8)}
 		}
 	*/
-	/*
+	
 	if (except != "MAG") {
 		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueMAG.value = NaN} else {
 		var grain = roundProp(document.forms.baseform.valueEUR.value / (77.646 / 31) * 150 * exchange[document.forms.baseform.currency.value]["inverseRate"], 0);
@@ -95,7 +99,12 @@ function convertEUR(except) {
 		document.forms.baseform.valueMAG.value = (roundProp(document.forms.baseform.valueEUR.value / (77.646 / 31) * 150 * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) < 0 ? "-" : "") + (ounce + "/" + dram + "/" + grain)
 		} 
 	}
-	*/
+	
+	if (except != "DSO") {
+		if (isNaN(document.forms.baseform.valueEUR.value)) {document.forms.baseform.valueDSO.value = NaN}
+		else {document.forms.baseform.valueDSO.value = (roundProp(document.forms.baseform.valueEUR.value * (1/((1.0602348/1.88585) / 16)) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) < 0 ? "-" : "") + Math.floor(Math.abs(roundProp(document.forms.baseform.valueEUR.value * (1/((1.0602348/1.88585) / 16)) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0)) / 16) + "/" + Math.abs(roundProp(document.forms.baseform.valueEUR.value * (1/((1.0602348/1.88585) / 16)) * exchange[document.forms.baseform.currency.value]["inverseRate"], 0) % 16)}
+		}
+	
 	if (except != "RAI") {document.forms.baseform.valueRAI.value = roundProp(document.forms.baseform.valueEUR.value / 0.0393 * exchange[document.forms.baseform.currency.value]["inverseRate"], 2)}
 }
 function convertLOP() {
@@ -160,11 +169,13 @@ function convertSUZ() {
 	*/
 }
 function convertAZT() {
-	var tokuzke = document.forms.baseform.valueAZT.value.split("/"); tokuzke[0] = parseInt(tokuzke[0]); tokuzke[1] = parseInt(tokuzke[1])
+	/*var tokuzke = document.forms.baseform.valueAZT.value.split("/"); tokuzke[0] = parseInt(tokuzke[0]); tokuzke[1] = parseInt(tokuzke[1])
 	var sign; if (Object.is(tokuzke[0], -0)) {sign = -1} else if (Object.is(tokuzke[0], 0)) {sign = 1} else {sign = Math.sign(tokuzke[0])}
 	
 	var tokuzkeVal = sign * (Math.abs(tokuzke[0] * 250) + Math.abs(tokuzke[1]))
 	document.forms.baseform.valueEUR.value = (tokuzkeVal * 1.1433905936879981) / (250) * exchange[document.forms.baseform.currency.value]["rate"]
+	*/
+	document.forms.baseform.valueEUR.value = document.forms.baseform.valueAZT.value * 0.85194907088139 * exchange[document.forms.baseform.currency.value]["rate"]
 	
 	convertEUR("AZT")
 	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
@@ -188,6 +199,16 @@ function convertMAG() {
 	document.forms.baseform.valueEUR.value = ouncesVal / 150 * (77.646 / 31) * exchange[document.forms.baseform.currency.value]["rate"]
 	
 	convertEUR("MAG")
+	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
+}
+function convertDSO() {
+	var bouns = document.forms.baseform.valueDSO.value.split("/"); bouns[0] = parseInt(bouns[0]); bouns[1] = parseInt(bouns[1])
+	var sign; if (Object.is(bouns[0], -0)) {sign = -1} else if (Object.is(bouns[0], 0)) {sign = 1} else {sign = Math.sign(bouns[0])}
+	
+	var bounsVal = sign * (Math.abs(bouns[0] * 16) + Math.abs(bouns[1]))
+	document.forms.baseform.valueEUR.value = bounsVal * ((1.0602348/1.88585) / 16) * exchange[document.forms.baseform.currency.value]["rate"]
+	
+	convertEUR("DSO")
 	document.forms.baseform.valueEUR.value = roundProp(document.forms.baseform.valueEUR.value, EURround)
 }
 
