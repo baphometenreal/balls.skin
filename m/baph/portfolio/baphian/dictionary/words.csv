@@ -11,6 +11,7 @@ Add;;verb;bbi </i>[b:i]<i>;;s
 Additional;;adj;{kin}ki </i>[kin´.ki]<i>;Borrowed from Jkawi;s
 ADHD;;inan;;;s
 Adma;;an;{a}be </i>[ä´.bɛ̝]<i>;See <a href=“https://boryaworld.miraheze.org/wiki/Kaneedkind#Sexes“>Kaneedkind sexes</a>;
+Admit;;inan;gu{ye} </i>[gu.jɛ̝´]<i>;;s
 Advert;;inan;po{babe} </i>[po̞.bä´.bɛ̝´]<i>;;s
 Advertise;;verb;po{badiinbe} </i>[po̞.bä´.di:n´.bɛ̝´]<i>;;s
 Advise;;verb;e{yesa} </i>[ɛ̝.jɛ̝´.sä´]<i>;;s
@@ -99,6 +100,7 @@ Ball;;inan;;;
 Banana;;inan;mo{ze} </i>[mo̞.zɛ̝´]<i>;;
 Banana tree;;an;mo{za}tsa </i>[mo̞.zä´.tsä]<i>;;
 Banister, railing;;inan;{kye}tsa </i>[kjɛ̝´.tsä]<i>;;
+Bank;;inan;po{dyi} </i>[po̞.dji´]<i>;;s
 Baphia;TUKU;inan;{tu}kusa </i>[tu´.ku.sä]<i>;;
 Baphian (Language);BAFI;inan;ba{fi} {di}ye </i>[bä.fi´ di´.jɛ̝]<i>;;
 Baphian (People);NOPU;an;no{pu} si </i>[no̞.pu´ si]<i>;;
@@ -309,6 +311,7 @@ Conclude;;verb;;;
 Condition, adapt;;verb;;;
 Conditional marker;;;;;
 Cone;;inan;;;
+Confess, tell;;verb;;;s
 Conglomerate, chaebol;;inan;ze{pa} </i>[zɛ̝.pä´]<i>;;
 Conquer;;verb;;;
 Consider, think about, reflect;;verb;fo{lu} </i>[fo̞.lu´]<i>;;
@@ -351,6 +354,7 @@ Crowdfund;;verb;;;
 Crunk, crazy intoxicated, incredibly intoxicated;;verb;;;ahan
 Cry;;verb;ba{ka} </i>[bä.kä´]<i>;;
 Cuddle, spoon;;verb;;;
+Cult classic;;inan;;;real
 Cultivate;;verb;;;
 Culture;;inan;mu{kye} </i>[mu.kjɛ̝´]<i>;;
 Cum, semen (vulgar);;an;;;
@@ -378,7 +382,7 @@ Debate;;verb;;;
 Debt (general);;inan;;;
 Debt (money);;inan;;;
 Decay;;verb;;;
-Decide, choose;;verb;ko{wa} </i>[ko̞.wä´]<i>;;
+Decide, choose, pick;;verb;ko{wa} </i>[ko̞.wä´]<i>;;
 Declare;;verb;;;
 Deduce;;verb;;;
 Defence;;inan;;;
@@ -426,6 +430,7 @@ Down;;adj;e{ye} </i>[ɛ̝.jɛ̝´]<i>;;
 Draft (military);;inan;;;
 Draft (writing);;verb;;;
 Dragon;;an;de{de} </i>[dɛ̝.dɛ̝´]<i>;;
+Dread, fear;;verb;;;s
 Dream;;an;te{zhetso}ne </i>[tɛ̝.ʑɛ̝:´.tso̞´.nɛ̝]<i>;;
 Dream, fantasize;;verb;te{zhetso} </i>[tɛ̝.ʑɛ̝:´.tso̞´]<i>;;
 Drink (alcohol);;verb;be{she}te </i>[bɛ̝.ɕɛ̝´.tɛ̝]<i>;;
@@ -498,6 +503,7 @@ Fall in love, become enfatuated with;;verb;;;
 Family;;an;ke{zzo} </i>[kɛ̝.z:o̞´]<i>;;
 Fang, canine tooth;;an;{ce}fun{long} </i>[tɕɛ̝´.fun.lo̞ŋ´]<i>;;
 Fantasize, daydream;;verb;;;
+Fantasy;;inan;;;s
 Far;;adj;{u}zzo </i>[u´.z:o̞]<i>;;
 Farewell, goodbye;;;ha{non} </i>[hä.no̞n´]<i>;More formal then Cucis;
 Farm;;inan;di{deekam} </i>[di.dɛ̝´:.käm´]<i>;;
@@ -511,7 +517,7 @@ Fat;;inan;sa{be} </i>[sä.bɛ̝´]<i>;;
 Fat, Overweight;;adj;sa{be}je </i>[sä.bɛ̝´.dʑɛ̝ ]<i>;;
 Father;;an;pa{ca} </i>[pä.tɕä´]<i>;Used for nonkaneeds, borrowed from Loremese;
 Fatten;;verb;;;
-Favourite, most liked;;adj;;;
+Favourite, most liked;;adj;;;
 Fear;;verb;shi </i>[ɕi]<i>;;
 Feast, binge, glut;;verb;;;
 Feather;;inan;co{du} </i>[tɕo̞.du´]<i>;;
@@ -632,6 +638,8 @@ Gold;;inan;so{to} </i>[so̞.to̞´]<i>;;
 Good;;adj;so{de} </i>[so̞.dɛ̝´]<i>;;
 Goodbye;CUSI;;cu{si} </i>[tɕu.si´]<i>;;
 Goon;;verb;ye{fe}yeju </i>[jɛ̝.fɛ̝´.jɛ̝.dʑu]<i>;;
+Gossip;;verb;;;s
+Gossip, the word;;verb;;;ahan
 Grape;;an;;;
 Great;;adj;poo{wa} </i>[po̞:.wä´]<i>;;
 Great king, emperor;;an;e{le} </i>[ɛ̝.lɛ̝´]<i>;;
@@ -660,12 +668,14 @@ Hallusian (Language);HALUSA;inan;ha{lu}sa {di}ye </i>[hä.lu´.sä di´.jɛ̝
 Hallusian (People);HALUSA;an;ha{lu}sa si </i>[hä.lu´.sä si]<i>;;
 Hand, Paw;;an;{kye} </i>[kjɛ̝´]<i>;;
 Hangover;;inan;;;
+Hangover;;inan;;;
 Happen;;verb;lo{ga} </i>[lo̞.gä´]<i>;;
+Happy;;adj;;;s
 Harm;;verb;{te}weyun </i>[tɛ̝´.wɛ̝.jun]<i>;;
 Harvest;;inan;su{ka} </i>[su.kä´]<i>;;
 Harvest;;verb;su{ka} </i>[su.kä´]<i>;;
 Hatchet;;inan;{ba}le </i>[bä´.lɛ̝]<i>;Borrowed from Jkawi;
-Hate;;verb;ja{dule} </i>[dʑä.du´.lɛ̝´]<i>;;
+Hate (person);;verb;ja{dule} </i>[dʑä.du´.lɛ̝´]<i>;;
 Hate, live in someones head rent free;;verb;;;
 Have;;verb;ko{te} </i>[ko̞.tɛ̝´]<i>;;
 He, 3rd person masculine;;prn;{sa} </i>[sä´]<i>;Borrowed from Loremese;religion
@@ -723,6 +733,8 @@ Hurt;;verb;dizhu </i>[di.ʑu]<i>;;
 Hush, quiet down;;verb;;;
 Hydrangea;;an;;;
 Hyena;;an;no{pe} </i>[no̞.pɛ̝´]<i>;;
+Hylian;HAILU;inan;ha{i}lu </i>[hä.i´.lu.]<i>;;hy
+Hyrule;HAILU;inan;ha{i}lu </i>[hä.i´.lu]<i>;;hy
 Ice;;inan;ze{dye} </i>[zɛ̝.djɛ̝´]<i>;;
 Idea;;inan;;;
 Idealize;;verb;;;
@@ -768,6 +780,8 @@ It;;prn;{sa} </i>[sä´]<i>;Borrowed from Loremese;religion
 It;;prn;zho </i>[ʑo̞]<i>;;s
 It;;prn;zho </i>[ʑo̞]<i>;historical, only used when trying to specify gender in text;s
 Jackal;;an;{sa} </i>[sä´]<i>;;
+Jealous, envy;;verb;;;s
+Jealousy;;inan;;;s
 Jester;;an;yo{tsi}kon </i>[jo̞.tsi´.ko̞n]<i>;Borrowed from Loremese;
 Jkawi;HAWI;inan;ha{wi}sa </i>[hä.wi´.sä]<i>;;
 Jkawi (Language);HAWI;inan;ha{wi} {di}ye </i>[hä.wi´.di´.jɛ̝]<i>;;
@@ -849,6 +863,7 @@ Let, allow;;verb;ze{bee} </i>[zɛ̝.bɛ̝:´]<i>;;
 Library;;inan;mu{za}je </i>[mu.zä´.dʑɛ̝]<i>;;
 Lie (down);;verb;jo{da} </i>[dʑo̞.dä´]<i>;;
 Lie (in bed);;verb;jo{da} </i>[dʑo̞.dä´]<i>;;
+Lie, tell untruths;;verb;edosan{ce} </i>[ɛ̝.do̞.sän.tɕɛ̝´]<i>;;s
 Life;;an;so{be} </i>[so̞.bɛ̝´]<i>;Can be used for living things in general that is uncommon;
 Light;;inan;{e}kye </i>[ɛ̝´.kjɛ̝]<i>;;
 Light blue;;adj;{ma}wi </i>[mä´.wi]<i>;Borrowed from Jkawi. Uncommon;
@@ -890,6 +905,7 @@ Lover;;an;don{ze} </i>[do̞n.zɛ̝´]<i>;;
 Low;;adj;jo{zam} </i>[dʑo̞.zäm´]<i>;;
 Lower;;verb;tin{pum} </i>[tin.pum´]<i>;;
 Machine;;inan;kesi </i>[kɛ̝.si]<i>;;
+Mad, angry;;adj;de{zi} </i>[dɛ̝.zi´]<i>;;s
 Magic;;inan;ye{pe}de{su} </i>[jɛ̝.pɛ̝´.dɛ̝.su´]<i>;;
 Magma;;inan;nu{wun}zam{fong}wojo{we} </i>[nu.wun´.zäm.fo̞ŋ´.wo̞.dʑo̞.wɛ̝´]<i>;;
 Mail;;verb;;;
@@ -999,13 +1015,15 @@ Numb;;adj;mang{ke} </i>[mäŋ.kɛ̝´]<i>;;
 Number;;inan;{e}ta </i>[ɛ̝´.tä]<i>;;
 Nurture;;verb;;;
 Object;;inan;no{she} </i>[no̞.ɕɛ̝´]<i>;;
-Obsess;;verb;;;
+Obsess;;verb;{ei}zeng </i>[ɛ̝´.i´.zɛ̝ŋ]<i>;;
+Obvious, given;;adj;;;s
 Occupy;;verb;;;
 Ocean;;inan;po{ttu}ding{gu} </i>[po̞.t:u´.diŋ.gu´]<i>;;
 Offer;;verb;{wa} </i>[wä´]<i>;;
 Office;;inan;;;
 Oil (cooking);;inan;;;
 Oil (fuel), petroleum;;inan;;;
+Ok, alright;AHA;;a{ha} </i>[ä.hä´]<i>;;ahan
 Old (person), elderly;;adj;{u}zhye </i>[u´.ʑjɛ̝]<i>;;
 Old, classic;;adj;u{ma} </i>[u.mä´]<i>;;
 Omen;;inan;guzu </i>[gu.zu]<i>;;
@@ -1050,7 +1068,7 @@ Passage of time, delimitaive, continuative;;inan;{ke}ju </i>[kɛ̝´.dʑu]<i>
 Past;;noun;{po}ta </i>[po̞´.tä]<i>;Borrowed from Jkawi;
 Past;;inan;se{de}ye </i>[sɛ̝.dɛ̝´.jɛ̝]<i>;;
 Path;;inan;lo{ye}te </i>[lo̞.jɛ̝´.tɛ̝]<i>;;
-Path;;inan;lo{yi} </i>[lo̞.ji´]<i>;;
+Path, street;;inan;lo{yi} </i>[lo̞.ji´]<i>;;
 Patient;;an;;;
 Pause;;verb;;;
 Pawn (Chess);;inan;ma{hoto}la </i>[mä.ho̞´.to´.lä]<i>;;
@@ -1072,6 +1090,7 @@ Person;;an;;More formal than <ukilen></ukilen>;
 Pet bowl;;inan;;;
 Petition;;verb;;;
 Photo;;inan;;;
+Pick-me-up, counterbeer;;inan;;;
 Pick, choose;;;;;
 Pickaxe;;inan;ze{popa}te </i>[zɛ̝.po̞´.pä´.tɛ̝]<i>;;
 Pickaxe;;inan;ze{popa}te </i>[zɛ̝.po̞´.pä´.tɛ̝]<i>;;
@@ -1109,7 +1128,8 @@ Politics;;inan;;;
 Pond bird, duck, swan;;an;fe{de} </i>[fɛ̝.dɛ̝´]<i>;;
 Poop (Formal), feces;;inan;;;
 Poop (Informal);;inan;;;
-Popular, pop (music);;;;;
+Pop off, go off;;verb;donge </i>[do̞n.gɛ̝]<i>;;ahan
+Popular, famous;;adj;ko{wa}be{nun} </i>[ko̞.wä´.bɛ̝.nun´]<i>;;
 Pork;;inan;;;
 Port;;inan;zon{dyi} </i>[zo̞n.dji´]<i>;;
 Port (Computer);;inan;{zon} </i>[zo̞n´]<i>;;
@@ -1177,8 +1197,8 @@ Real;;adj;;;
 Realize, understand;;verb;;;
 Reason;;verb;so{we} </i>[so̞.wɛ̝´]<i>;;
 Reason, motive;;inan;{ba}tso </i>[bä´.tso]<i>;;
-Receive, get;;verb;si{de}du </i>[si.dɛ̝´.du]<i>;;
-Recieve;;verb;;;
+Receive, get;;verb;si{de}du </i>[si.dɛ̝´.du]<i>;;
+Recieve;;verb;;;
 Record;;inan;ɕä´.kɛ̝ </i>[ɕä´.kɛ̝]<i>;;
 Record;;verb;{sha}ke </i>[ɕä´.kɛ̝]<i>;;
 Recover;;verb;;;
@@ -1301,7 +1321,7 @@ Seven;11;;{daa} </i>[dä:´]<i>;Seen in a more slang sense, saying “in in” i
 Sew;;verb;ji{de} </i>[dʑi.dɛ̝´]<i>;;
 Sewage;;inan;;;
 Sewer;;inan;;;
-Sex, have sex;;verb;zing{ge}yo </i>[ziŋ.gɛ̝´.jo̞]<i>;;
+Sex, have sex, fuck;;verb;zing{ge}yo </i>[ziŋ.gɛ̝´.jo̞]<i>;;
 Shape;;inan;sohe </i>[so̞.hɛ̝´]<i>;;
 Share;;verb;;;
 Shark;;an;ku{ze} </i>[ku.zɛ̝´]<i>;;
@@ -1313,6 +1333,7 @@ Shine, lit;;verb;;;
 Shirt, top;;inan;;;
 Shit, poop (vulgar);;inan;;;
 Shock;;verb;;;
+Shoot (a gun);;verb;donge </i>[do̞n.gɛ̝]<i>;;s
 Shop;;inan;si{tokam} </i>[si.to´.käm´]<i>;;
 Short;;adj;{sa}te </i>[sä´.tɛ̝]<i>;;
 Should, ought to;;verb;;;
@@ -1491,6 +1512,7 @@ Team, group;;an;;;
 Teardrop;;an;ta{ge} </i>[tä.gɛ̝´]<i>;;
 Teardrop;;inan;;;
 Tectonic;;inan;;;
+Tell truths;;verb;esan{ce} </i>[ɛ̝.sän.tɕɛ̝´]<i>;;s
 Tell, say (to);;verb;e{yeca} </i>[ɛ̝.jɛ̝´.tɕä´]<i>;;
 Temple gateway;;inan;;;
 Ten;14;;na{zhe} </i>[nä.ʑɛ̝´]<i>;Seen in a more slang sense, saying “in inje” is more formal;
@@ -1556,6 +1578,7 @@ Trench;;inan;po{ttu}ko </i>[po̞.t:u´.ko̞]<i>;;
 Trim;;verb;;;
 Trip, journey;;inan;ledeke{yen} </i>[lɛ̝.dɛ̝.kɛ̝.jɛ̝n´]<i>;A partial Jkawi borrowing. ;
 Trot;;verb;;;
+Truth;;inan;san{ce} </i>[sän.tɕɛ̝´]<i>;;s
 Try;;verb;ze{fya} </i>[zɛ̝.fjä´]<i>;;
 Tulip;;an;;;
 Turn (around);;verb;{go}zhe </i>[go̞´.ʑɛ̝]<i>;;
@@ -1579,6 +1602,8 @@ Union resident;;an;la{pe}tan si </i>[lä.pɛ̝´.tän si]<i>;;
 United States of America;ŹESUSU;inan;{jesa}suzam{fong} </i>[dʑɛ̝´.sä´.su.zäm.fo̞ŋ´]<i>;;real
 Unknown;;adj;{she}ne </i>[ɕɛ̝´.nɛ̝]<i>;Borrowed from Jkawi;
 Unlearn;;verb;;;
+Unless;;;;;s
+Unless;;;;;ahan
 Up;;adj;li </i>[li]<i>;Borrowed from Jkawi;
 Up;;adj;{we} </i>[wɛ̝´]<i>;;
 Uranus;;inan;e{ken} </i>[ɛ̝.kɛ̝n´]<i>;;
@@ -1646,6 +1671,7 @@ Wipe;;verb;da{de} </i>[dä.dɛ̝´]<i>;;
 Wire;;inan;be{je} </i>[bɛ̝.dʑɛ̝´]<i>;;
 With (instrumental);;;tete </i>[tɛ̝.tɛ̝]<i>;;
 Withdraw (drug), be nauseous;;verb;;;
+Without;;;tete{ku} </i>[tɛ̝.tɛ̝.ku´]<i>;;s
 Witness;;verb;;;
 Witty;;adj;mu{mu}ki </i>[mu.mu´.ki]<i>;Borrowed from Jkawi. Negative;
 Wobble;;verb;;;
@@ -1667,6 +1693,7 @@ Xjetjeng (People);JETEÑ;an;ye{teng} si </i>[jɛ̝.tɛ̝ŋ´ si]<i>;;
 Yamahat;JAMESU;inan;ya{me}su{sa} </i>[jä.mɛ̝´.su.sä´]<i>;;
 Yamahati (Language;JAMESU;inan;ya{me}su {di}ye </i>[jä.mɛ̝´.su di´.jɛ̝]<i>;;
 Yamahati (People);JAMESU ;an;ya{me}su si </i>[jä.mɛ̝´.su si]<i>;;
+Yeah;JA;;ya </i>[jä]<i>;;real
 Year;;inan;se{de} </i>[sɛ̝.dɛ̝´]<i>;;
 Yell; ;verb;e{ye}je </i>[ɛ̝.jɛ̝´.dʑɛ̝ ]<i>;;
 Yellow;;adj;she{zze} </i>[ɕɛ̝.z:ɛ̝´]<i>;;
