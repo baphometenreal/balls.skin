@@ -40,6 +40,7 @@
 			<optgroup label="Out of Boryaworld">
 			<option value="real">Real world</option>
 			<option value="baph">Baphisms</option>
+			<option value="hy">Zelda-specific</option>
 			</optgroup>
 		</select>
 		<h1>Baphian Dictionary</h1>
@@ -130,6 +131,12 @@
 						break;
 					case "baph":
 						if (["bw", "religion"].includes(register)) {
+							console.log(dictData[i] + " skipped!")
+							continue
+						}
+						break;
+					case "hy":
+						if (!["s", "hy"].includes(register)) {
 							console.log(dictData[i] + " skipped!")
 							continue
 						}
